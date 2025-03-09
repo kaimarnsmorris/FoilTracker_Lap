@@ -1,0 +1,1692 @@
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Math,2,13,17]; ]
+using Toybox.Math;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 5; @symbol_classdef = [WindAngleCalculator,5,6,25]; ]
+class WindAngleCalculator {
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 7; @position = 18; @symbol_constdef = [COG_SMOOTHING_FACTOR,7,18,38]; ]
+    private
+    const COG_SMOOTHING_FACTOR = 0.15;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 8; @position = 18; @symbol_constdef = [HEADING_HISTORY_SIZE,8,18,38]; ]
+    private
+    const HEADING_HISTORY_SIZE = 60;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 11; @position = 16; @symbol_vardef = [mParent,11,16,23]; ]
+    private
+    var mParent;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 12; @position = 16; @symbol_vardef = [mSmoothedCOG,12,16,28]; ]
+    private
+    var mSmoothedCOG;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 13; @position = 16; @symbol_vardef = [mPrevSmoothedCOG,13,16,32]; ]
+    private
+    var mPrevSmoothedCOG;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 14; @position = 16; @symbol_vardef = [mWindAngleLessCOG,14,16,33]; ]
+    private
+    var mWindAngleLessCOG;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 15; @position = 16; @symbol_vardef = [mLastWindAngleLessCOG,15,16,37]; ]
+    private
+    var mLastWindAngleLessCOG;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 16; @position = 16; @symbol_vardef = [mIsStbdTack,16,16,27]; ]
+    private
+    var mIsStbdTack;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 17; @position = 16; @symbol_vardef = [mIsUpwind,17,16,25]; ]
+    private
+    var mIsUpwind;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 18; @position = 16; @symbol_vardef = [mHeadingBuffer,18,16,30]; ]
+    private
+    var mHeadingBuffer;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 19; @position = 16; @symbol_vardef = [mBufferIndex,19,16,28]; ]
+    private
+    var mBufferIndex;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 20; @position = 16; @symbol_vardef = [mHeadingHistory,20,16,31]; ]
+    private
+    var mHeadingHistory;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 21; @position = 16; @symbol_vardef = [mHeadingHistoryIndex,21,16,36]; ]
+    private
+    var mHeadingHistoryIndex;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 22; @position = 16; @symbol_vardef = [mHasPreviousData,22,16,32]; ]
+    private
+    var mHasPreviousData;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 25; @symbol_functiondef = [initialize,25,13,23]; @symbol_param<0> = [parent,25,24,30]; ]
+    function initialize(parent) as Void {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_25_32_28_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 26 8 ]
+        %tmp.1 = lgetv %parent;
+        symbol [ parent %tmp.1 26 18 24 ];
+        symbol [ mParent ? 26 8 15 ];
+        putv self :mParent %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 27 8 ]
+        %tmp.2 = self;
+        symbol [ reset %tmp.3 27 8 13 ];
+        %tmp.3 = getv function %tmp.2 :reset;
+        invoke %tmp.2 %tmp.3();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_25_32_28_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 31; @symbol_functiondef = [reset,31,13,18]; ]
+    function reset() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_31_21_59_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 32 8 ]
+        %tmp.1 = 0;
+        symbol [ mSmoothedCOG ? 32 8 20 ];
+        putv self :mSmoothedCOG %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 33 8 ]
+        %tmp.2 = 0;
+        symbol [ mPrevSmoothedCOG ? 33 8 24 ];
+        putv self :mPrevSmoothedCOG %tmp.2;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 34 8 ]
+        %tmp.3 = 0;
+        symbol [ mWindAngleLessCOG ? 34 8 25 ];
+        putv self :mWindAngleLessCOG %tmp.3;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 35 8 ]
+        %tmp.4 = 0;
+        symbol [ mLastWindAngleLessCOG ? 35 8 29 ];
+        putv self :mLastWindAngleLessCOG %tmp.4;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 36 8 ]
+        %tmp.5 = false;
+        symbol [ mIsStbdTack ? 36 8 19 ];
+        putv self :mIsStbdTack %tmp.5;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 37 8 ]
+        %tmp.6 = false;
+        symbol [ mIsUpwind ? 37 8 17 ];
+        putv self :mIsUpwind %tmp.6;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 38 8 ]
+        %tmp.7 = false;
+        symbol [ mHasPreviousData ? 38 8 24 ];
+        putv self :mHasPreviousData %tmp.7;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 41 8 ]
+        symbol [ mParent %tmp.10 41 30 37 ];
+        %tmp.10 = getv ? :mParent;
+        symbol [ HEADING_BUFFER_SIZE %tmp.11 41 38 57 ];
+        %tmp.11 = getv %tmp.10 :HEADING_BUFFER_SIZE;
+        %tmp.8 = newa %tmp.11;
+        symbol [ mHeadingBuffer ? 41 8 22 ];
+        putv self :mHeadingBuffer %tmp.8;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 42 8 ]
+        for @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_incr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_init:
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_begin" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_end" ]
+        %i.1 = local;
+        symbol [ i %i.1 42 17 18 ];
+        %tmp.12 = 0;
+        lputv %i.1 %tmp.12;
+        symbol [ i %i.1 42 17 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_test:
+        %tmp.13 = lgetv %i.1;
+        symbol [ i %tmp.13 42 24 25 ];
+        symbol [ mParent %tmp.15 42 28 35 ];
+        %tmp.15 = getv ? :mParent;
+        symbol [ HEADING_BUFFER_SIZE %tmp.16 42 36 55 ];
+        %tmp.16 = getv %tmp.15 :HEADING_BUFFER_SIZE;
+        %tmp.17 = lt %tmp.13 %tmp.16;
+        bf %tmp.17 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_62_44_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 43 12 ]
+        symbol [ mHeadingBuffer %tmp.18 43 12 26 ];
+        %tmp.18 = getv self :mHeadingBuffer;
+        %tmp.19 = 0;
+        %tmp.20 = lgetv %i.1;
+        symbol [ i %tmp.20 43 27 28 ];
+        aputv %tmp.18 %tmp.20 %tmp.19;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_62_44_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_incr:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 42 ]
+        %tmp.23 = lgetv %i.1;
+        symbol [ i %tmp.23 42 57 58 ];
+        %tmp.24 = add %tmp.23 1;
+        lputv %i.1 %tmp.24;
+        symbol [ i %i.1 42 57 58 ];
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_42_8_44_8_for_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 45 8 ]
+        %tmp.25 = 0;
+        symbol [ mBufferIndex ? 45 8 20 ];
+        putv self :mBufferIndex %tmp.25;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 48 8 ]
+        symbol [ HEADING_HISTORY_SIZE %tmp.28 48 31 51 ];
+        %tmp.28 = getv ? :HEADING_HISTORY_SIZE;
+        %tmp.26 = newa %tmp.28;
+        symbol [ mHeadingHistory ? 48 8 23 ];
+        putv self :mHeadingHistory %tmp.26;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 49 8 ]
+        for @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_incr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_init:
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_begin" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 49 17 18 ];
+        %tmp.29 = 0;
+        lputv %i.2 %tmp.29;
+        symbol [ i %i.2 49 17 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_test:
+        %tmp.30 = lgetv %i.2;
+        symbol [ i %tmp.30 49 24 25 ];
+        symbol [ HEADING_HISTORY_SIZE %tmp.32 49 28 48 ];
+        %tmp.32 = getv ? :HEADING_HISTORY_SIZE;
+        %tmp.33 = lt %tmp.30 %tmp.32;
+        bf %tmp.33 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_55_55_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 50 12 ]
+        symbol [ mHeadingHistory %tmp.34 50 12 27 ];
+        %tmp.34 = getv self :mHeadingHistory;
+        %tmp.35 = newd 3;
+        %tmp.36 = "heading";
+        %tmp.37 = 0;
+        %tmp.38 = dup %tmp.35;
+        %tmp.39 = aputv %tmp.38 %tmp.36 %tmp.37;
+        %tmp.40 = "timestamp";
+        %tmp.41 = 0;
+        %tmp.42 = dup %tmp.39;
+        %tmp.43 = aputv %tmp.42 %tmp.40 %tmp.41;
+        %tmp.44 = "valid";
+        %tmp.45 = false;
+        %tmp.46 = dup %tmp.43;
+        %tmp.47 = aputv %tmp.46 %tmp.44 %tmp.45;
+        %tmp.48 = lgetv %i.2;
+        symbol [ i %tmp.48 50 28 29 ];
+        aputv %tmp.34 %tmp.48 %tmp.47;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_55_55_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_incr:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 49 ]
+        %tmp.51 = lgetv %i.2;
+        symbol [ i %tmp.51 49 50 51 ];
+        %tmp.52 = add %tmp.51 1;
+        lputv %i.2 %tmp.52;
+        symbol [ i %i.2 49 50 51 ];
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_49_8_55_8_for_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 56 8 ]
+        %tmp.53 = 0;
+        symbol [ mHeadingHistoryIndex ? 56 8 28 ];
+        putv self :mHeadingHistoryIndex %tmp.53;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 58 8 ]
+        %tmp.54 = self;
+        symbol [ log %tmp.55 58 8 11 ];
+        %tmp.55 = getv function %tmp.54 :log;
+        %tmp.56 = "WindAngleCalculator reset";
+        invoke %tmp.54 %tmp.55(%tmp.56);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_31_21_59_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 62; @symbol_functiondef = [processHeading,62,13,27]; @symbol_param<0> = [heading,62,28,35]; @symbol_param<1> = [timestamp,62,37,46]; ]
+    function processHeading(heading, timestamp) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 64 8 ]
+        symbol [ mWindAngleLessCOG %tmp.2 64 32 49 ];
+        %tmp.2 = getv ? :mWindAngleLessCOG;
+        symbol [ mLastWindAngleLessCOG ? 64 8 29 ];
+        putv self :mLastWindAngleLessCOG %tmp.2;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 67 8 ]
+        %tmp.3 = self;
+        symbol [ normalizeAngle %tmp.4 67 18 32 ];
+        %tmp.4 = getv function %tmp.3 :normalizeAngle;
+        %tmp.5 = lgetv %heading;
+        symbol [ heading %tmp.5 67 33 40 ];
+        %tmp.6 = invoke %tmp.3 %tmp.4(%tmp.5);
+        lputv %heading %tmp.6;
+        symbol [ heading %heading 67 8 15 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 70 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_stop" ]
+        %smoothedHeading.1 = local;
+        symbol [ smoothedHeading %smoothedHeading.1 70 12 27 ];
+        %tmp.7 = self;
+        symbol [ applyCOGSmoothing %tmp.8 70 30 47 ];
+        %tmp.8 = getv function %tmp.7 :applyCOGSmoothing;
+        %tmp.9 = lgetv %heading;
+        symbol [ heading %tmp.9 70 48 55 ];
+        %tmp.10 = invoke %tmp.7 %tmp.8(%tmp.9);
+        lputv %smoothedHeading.1 %tmp.10;
+        symbol [ smoothedHeading %smoothedHeading.1 70 12 27 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 73 8 ]
+        %tmp.11 = self;
+        symbol [ storeHeadingInBuffer %tmp.12 73 8 28 ];
+        %tmp.12 = getv function %tmp.11 :storeHeadingInBuffer;
+        %tmp.13 = lgetv %smoothedHeading.1;
+        symbol [ smoothedHeading %tmp.13 73 29 44 ];
+        invoke %tmp.11 %tmp.12(%tmp.13);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 74 8 ]
+        %tmp.14 = self;
+        symbol [ storeHeadingHistory %tmp.15 74 8 27 ];
+        %tmp.15 = getv function %tmp.14 :storeHeadingHistory;
+        %tmp.16 = lgetv %smoothedHeading.1;
+        symbol [ smoothedHeading %tmp.16 74 28 43 ];
+        %tmp.17 = lgetv %timestamp;
+        symbol [ timestamp %tmp.17 74 45 54 ];
+        invoke %tmp.14 %tmp.15(%tmp.16, %tmp.17);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 77 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_stop" ]
+        %windDirection.2 = local;
+        symbol [ windDirection %windDirection.2 77 12 25 ];
+        symbol [ mParent %tmp.19 77 28 35 ];
+        %tmp.19 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.20 77 36 52 ];
+        %tmp.20 = getv function %tmp.19 :getWindDirection;
+        %tmp.21 = invoke %tmp.19 %tmp.20();
+        lputv %windDirection.2 %tmp.21;
+        symbol [ windDirection %windDirection.2 77 12 25 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 80 8 ]
+        %tmp.22 = self;
+        symbol [ calculateWindAngleLessCOG %tmp.23 80 8 33 ];
+        %tmp.23 = getv function %tmp.22 :calculateWindAngleLessCOG;
+        %tmp.24 = lgetv %smoothedHeading.1;
+        symbol [ smoothedHeading %tmp.24 80 34 49 ];
+        %tmp.25 = lgetv %windDirection.2;
+        symbol [ windDirection %tmp.25 80 51 64 ];
+        invoke %tmp.22 %tmp.23(%tmp.24, %tmp.25);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 83 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_stmt:
+        symbol [ mHasPreviousData %tmp.27 83 13 29 ];
+        %tmp.27 = getv ? :mHasPreviousData;
+        %tmp.28 = not %tmp.27;
+        bf %tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_31_86_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 84 12 ]
+        %tmp.29 = self;
+        symbol [ initializeTackAndPointOfSail %tmp.30 84 12 40 ];
+        %tmp.30 = getv function %tmp.29 :initializeTackAndPointOfSail;
+        invoke %tmp.29 %tmp.30();
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 85 12 ]
+        %tmp.31 = true;
+        symbol [ mHasPreviousData ? 85 12 28 ];
+        putv self :mHasPreviousData %tmp.31;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_31_86_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_86_15_89_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 88 12 ]
+        %tmp.32 = self;
+        symbol [ determinePointOfSail %tmp.33 88 12 32 ];
+        %tmp.33 = getv function %tmp.32 :determinePointOfSail;
+        invoke %tmp.32 %tmp.33();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_86_15_89_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_83_8_89_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 91 8 ]
+        %tmp.34 = lgetv %smoothedHeading.1;
+        symbol [ smoothedHeading %tmp.34 91 15 30 ];
+        ret %tmp.34;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_62_48_92_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 95; @symbol_functiondef = [storeHeadingInBuffer,95,13,33]; @symbol_param<0> = [heading,95,34,41]; ]
+    function storeHeadingInBuffer(heading) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_95_43_98_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 96 8 ]
+        symbol [ mHeadingBuffer %tmp.1 96 8 22 ];
+        %tmp.1 = getv self :mHeadingBuffer;
+        %tmp.2 = lgetv %heading;
+        symbol [ heading %tmp.2 96 39 46 ];
+        symbol [ mBufferIndex %tmp.4 96 23 35 ];
+        %tmp.4 = getv ? :mBufferIndex;
+        aputv %tmp.1 %tmp.4 %tmp.2;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 97 8 ]
+        symbol [ mBufferIndex %tmp.6 97 24 36 ];
+        %tmp.6 = getv ? :mBufferIndex;
+        %tmp.7 = 1;
+        %tmp.8 = add %tmp.6 %tmp.7;
+        symbol [ mParent %tmp.10 97 44 51 ];
+        %tmp.10 = getv ? :mParent;
+        symbol [ HEADING_BUFFER_SIZE %tmp.11 97 52 71 ];
+        %tmp.11 = getv %tmp.10 :HEADING_BUFFER_SIZE;
+        %tmp.12 = mod %tmp.8 %tmp.11;
+        symbol [ mBufferIndex ? 97 8 20 ];
+        putv self :mBufferIndex %tmp.12;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_95_43_98_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 101; @symbol_functiondef = [storeHeadingHistory,101,13,32]; @symbol_param<0> = [heading,101,33,40]; @symbol_param<1> = [timestamp,101,42,51]; ]
+    function storeHeadingHistory(heading, timestamp) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_101_53_109_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 102 8 ]
+        symbol [ mHeadingHistory %tmp.1 102 8 23 ];
+        %tmp.1 = getv self :mHeadingHistory;
+        %tmp.2 = newd 3;
+        %tmp.3 = "heading";
+        %tmp.4 = lgetv %heading;
+        symbol [ heading %tmp.4 103 25 32 ];
+        %tmp.5 = dup %tmp.2;
+        %tmp.6 = aputv %tmp.5 %tmp.3 %tmp.4;
+        %tmp.7 = "timestamp";
+        %tmp.8 = lgetv %timestamp;
+        symbol [ timestamp %tmp.8 104 27 36 ];
+        %tmp.9 = dup %tmp.6;
+        %tmp.10 = aputv %tmp.9 %tmp.7 %tmp.8;
+        %tmp.11 = "valid";
+        %tmp.12 = true;
+        %tmp.13 = dup %tmp.10;
+        %tmp.14 = aputv %tmp.13 %tmp.11 %tmp.12;
+        symbol [ mHeadingHistoryIndex %tmp.16 102 24 44 ];
+        %tmp.16 = getv ? :mHeadingHistoryIndex;
+        aputv %tmp.1 %tmp.16 %tmp.14;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 108 8 ]
+        symbol [ mHeadingHistoryIndex %tmp.18 108 32 52 ];
+        %tmp.18 = getv ? :mHeadingHistoryIndex;
+        %tmp.19 = 1;
+        %tmp.20 = add %tmp.18 %tmp.19;
+        symbol [ HEADING_HISTORY_SIZE %tmp.22 108 60 80 ];
+        %tmp.22 = getv ? :HEADING_HISTORY_SIZE;
+        %tmp.23 = mod %tmp.20 %tmp.22;
+        symbol [ mHeadingHistoryIndex ? 108 8 28 ];
+        putv self :mHeadingHistoryIndex %tmp.23;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_101_53_109_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 112; @symbol_functiondef = [applyCOGSmoothing,112,13,30]; @symbol_param<0> = [rawHeading,112,31,41]; ]
+    function applyCOGSmoothing(rawHeading) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_112_43_135_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 114 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_8_118_8_if_stmt:
+        symbol [ mSmoothedCOG %tmp.2 114 12 24 ];
+        %tmp.2 = getv ? :mSmoothedCOG;
+        %tmp.3 = 0;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_8_118_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_8_118_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_31_118_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 115 12 ]
+        %tmp.5 = lgetv %rawHeading;
+        symbol [ rawHeading %tmp.5 115 27 37 ];
+        symbol [ mSmoothedCOG ? 115 12 24 ];
+        putv self :mSmoothedCOG %tmp.5;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 116 12 ]
+        %tmp.6 = lgetv %rawHeading;
+        symbol [ rawHeading %tmp.6 116 31 41 ];
+        symbol [ mPrevSmoothedCOG ? 116 12 28 ];
+        putv self :mPrevSmoothedCOG %tmp.6;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 117 12 ]
+        %tmp.7 = lgetv %rawHeading;
+        symbol [ rawHeading %tmp.7 117 19 29 ];
+        ret %tmp.7;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_31_118_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_8_118_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_114_8_118_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 121 8 ]
+        symbol [ mSmoothedCOG %tmp.9 121 27 39 ];
+        %tmp.9 = getv ? :mSmoothedCOG;
+        symbol [ mPrevSmoothedCOG ? 121 8 24 ];
+        putv self :mPrevSmoothedCOG %tmp.9;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 124 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_112_43_135_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_112_43_135_4_stop" ]
+        %delta.1 = local;
+        symbol [ delta %delta.1 124 12 17 ];
+        %tmp.10 = lgetv %rawHeading;
+        symbol [ rawHeading %tmp.10 124 20 30 ];
+        symbol [ mSmoothedCOG %tmp.12 124 33 45 ];
+        %tmp.12 = getv ? :mSmoothedCOG;
+        %tmp.13 = sub %tmp.10 %tmp.12;
+        lputv %delta.1 %tmp.13;
+        symbol [ delta %delta.1 124 12 17 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 125 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_stmt:
+        %tmp.14 = lgetv %delta.1;
+        symbol [ delta %tmp.14 125 12 17 ];
+        %tmp.15 = 180;
+        %tmp.16 = gt %tmp.14 %tmp.15;
+        bf %tmp.16 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_25_127_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 126 12 ]
+        %tmp.17 = lgetv %delta.1;
+        symbol [ delta %tmp.17 126 12 17 ];
+        %tmp.18 = 360;
+        %tmp.19 = sub %tmp.17 %tmp.18;
+        lputv %delta.1 %tmp.19;
+        symbol [ delta %delta.1 126 12 17 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_25_127_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 127 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_15_129_8_if_stmt:
+        %tmp.20 = lgetv %delta.1;
+        symbol [ delta %tmp.20 127 19 24 ];
+        %tmp.21 = -180;
+        %tmp.22 = lt %tmp.20 %tmp.21;
+        bf %tmp.22 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_15_129_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_15_129_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_33_129_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 128 12 ]
+        %tmp.23 = lgetv %delta.1;
+        symbol [ delta %tmp.23 128 12 17 ];
+        %tmp.24 = 360;
+        %tmp.25 = add %tmp.23 %tmp.24;
+        lputv %delta.1 %tmp.25;
+        symbol [ delta %delta.1 128 12 17 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_33_129_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_15_129_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_127_15_129_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_125_8_129_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 132 8 ]
+        %tmp.26 = self;
+        symbol [ normalizeAngle %tmp.27 132 23 37 ];
+        %tmp.27 = getv function %tmp.26 :normalizeAngle;
+        symbol [ mSmoothedCOG %tmp.29 132 38 50 ];
+        %tmp.29 = getv ? :mSmoothedCOG;
+        symbol [ COG_SMOOTHING_FACTOR %tmp.31 132 54 74 ];
+        %tmp.31 = getv ? :COG_SMOOTHING_FACTOR;
+        %tmp.32 = lgetv %delta.1;
+        symbol [ delta %tmp.32 132 77 82 ];
+        %tmp.33 = mul %tmp.31 %tmp.32;
+        %tmp.34 = add %tmp.29 %tmp.33;
+        %tmp.35 = invoke %tmp.26 %tmp.27(%tmp.34);
+        symbol [ mSmoothedCOG ? 132 8 20 ];
+        putv self :mSmoothedCOG %tmp.35;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 134 8 ]
+        symbol [ mSmoothedCOG %tmp.37 134 15 27 ];
+        %tmp.37 = getv ? :mSmoothedCOG;
+        ret %tmp.37;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_112_43_135_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 138; @symbol_functiondef = [calculateWindAngleLessCOG,138,13,38]; @symbol_param<0> = [heading,138,39,46]; @symbol_param<1> = [windDirection,138,48,61]; ]
+    function calculateWindAngleLessCOG(heading, windDirection) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_138_63_156_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 140 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_8_142_8_if_stmt:
+        %tmp.1 = lgetv %windDirection;
+        symbol [ windDirection %tmp.1 140 12 25 ];
+        %tmp.2 = null;
+        %tmp.3 = eq %tmp.1 %tmp.2;
+        bf %tmp.3 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_8_142_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_8_142_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_35_142_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 141 12 ]
+        symbol [ mParent %tmp.5 141 28 35 ];
+        %tmp.5 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.6 141 36 52 ];
+        %tmp.6 = getv function %tmp.5 :getWindDirection;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %windDirection %tmp.7;
+        symbol [ windDirection %windDirection 141 12 25 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_35_142_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_8_142_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_140_8_142_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 145 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_138_63_156_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_138_63_156_4_stop" ]
+        %windAngle.1 = local;
+        symbol [ windAngle %windAngle.1 145 12 21 ];
+        %tmp.8 = lgetv %windDirection;
+        symbol [ windDirection %tmp.8 145 24 37 ];
+        %tmp.9 = lgetv %heading;
+        symbol [ heading %tmp.9 145 40 47 ];
+        %tmp.10 = sub %tmp.8 %tmp.9;
+        lputv %windAngle.1 %tmp.10;
+        symbol [ windAngle %windAngle.1 145 12 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 148 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_stmt:
+        %tmp.11 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.11 148 12 21 ];
+        %tmp.12 = 180;
+        %tmp.13 = gt %tmp.11 %tmp.12;
+        bf %tmp.13 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_29_150_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 149 12 ]
+        %tmp.14 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.14 149 12 21 ];
+        %tmp.15 = 360;
+        %tmp.16 = sub %tmp.14 %tmp.15;
+        lputv %windAngle.1 %tmp.16;
+        symbol [ windAngle %windAngle.1 149 12 21 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_29_150_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 150 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_15_152_8_if_stmt:
+        %tmp.17 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.17 150 19 28 ];
+        %tmp.18 = -180;
+        %tmp.19 = lte %tmp.17 %tmp.18;
+        bf %tmp.19 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_15_152_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_15_152_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_38_152_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 151 12 ]
+        %tmp.20 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.20 151 12 21 ];
+        %tmp.21 = 360;
+        %tmp.22 = add %tmp.20 %tmp.21;
+        lputv %windAngle.1 %tmp.22;
+        symbol [ windAngle %windAngle.1 151 12 21 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_38_152_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_15_152_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_150_15_152_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_148_8_152_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 154 8 ]
+        %tmp.23 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.23 154 28 37 ];
+        symbol [ mWindAngleLessCOG ? 154 8 25 ];
+        putv self :mWindAngleLessCOG %tmp.23;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 155 8 ]
+        %tmp.24 = lgetv %windAngle.1;
+        symbol [ windAngle %tmp.24 155 15 24 ];
+        ret %tmp.24;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_138_63_156_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 159; @symbol_functiondef = [initializeTackAndPointOfSail,159,13,41]; ]
+    function initializeTackAndPointOfSail() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_159_44_169_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 161 8 ]
+        symbol [ mWindAngleLessCOG %tmp.2 161 23 40 ];
+        %tmp.2 = getv ? :mWindAngleLessCOG;
+        %tmp.3 = 0;
+        %tmp.4 = gte %tmp.2 %tmp.3;
+        symbol [ mIsStbdTack ? 161 8 19 ];
+        putv self :mIsStbdTack %tmp.4;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 164 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_21_164_68_begin:
+        symbol [ mWindAngleLessCOG %tmp.6 164 21 38 ];
+        %tmp.6 = getv ? :mWindAngleLessCOG;
+        %tmp.7 = -90;
+        %tmp.8 = gt %tmp.6 %tmp.7;
+        %tmp.9 = dup %tmp.8;
+        bf %tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_48_164_68_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_48_164_68_true:
+        symbol [ mWindAngleLessCOG %tmp.11 164 48 65 ];
+        %tmp.11 = getv ? :mWindAngleLessCOG;
+        %tmp.12 = 90;
+        %tmp.13 = lt %tmp.11 %tmp.12;
+        %tmp.14 = and %tmp.8 %tmp.13;
+        push %tmp.14;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_48_164_68_end:
+        %tmp.15 = phi [%tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_21_164_68_begin] [%tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_48_164_68_true] [%tmp.15 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_164_48_164_68_end];
+        symbol [ mIsUpwind ? 164 8 17 ];
+        putv self :mIsUpwind %tmp.15;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 166 8 ]
+        %tmp.16 = self;
+        symbol [ log %tmp.17 166 8 11 ];
+        %tmp.17 = getv function %tmp.16 :log;
+        %tmp.18 = "Initialized tack: ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_begin:
+        symbol [ mIsStbdTack %tmp.20 166 36 47 ];
+        %tmp.20 = getv ? :mIsStbdTack;
+        bf %tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_true:
+        %tmp.21 = "Starboard";
+        push %tmp.21;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_false:
+        %tmp.22 = "Port";
+        push %tmp.22;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_end:
+        %tmp.23 = phi [%tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_begin] [%tmp.21 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_true] [%tmp.22 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_false] [%tmp.23 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_166_36_166_64_end];
+        %tmp.24 = add %tmp.18 %tmp.23;
+        %tmp.25 = ", Point of sail: ";
+        %tmp.26 = add %tmp.24 %tmp.25;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_begin:
+        symbol [ mIsUpwind %tmp.28 167 35 44 ];
+        %tmp.28 = getv ? :mIsUpwind;
+        bf %tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_true:
+        %tmp.29 = "Upwind";
+        push %tmp.29;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_false:
+        %tmp.30 = "Downwind";
+        push %tmp.30;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_end:
+        %tmp.31 = phi [%tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_begin] [%tmp.29 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_true] [%tmp.30 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_false] [%tmp.31 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_167_35_167_58_end];
+        %tmp.32 = add %tmp.26 %tmp.31;
+        %tmp.33 = ", WindAngleLessCOG: ";
+        %tmp.34 = add %tmp.32 %tmp.33;
+        symbol [ mWindAngleLessCOG %tmp.36 168 37 54 ];
+        %tmp.36 = getv ? :mWindAngleLessCOG;
+        %tmp.37 = add %tmp.34 %tmp.36;
+        invoke %tmp.16 %tmp.17(%tmp.37);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_159_44_169_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 172; @symbol_functiondef = [determinePointOfSail,172,13,33]; ]
+    function determinePointOfSail() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_172_36_183_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 174 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_172_36_183_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_172_36_183_4_stop" ]
+        %newUpwind.1 = local;
+        symbol [ newUpwind %newUpwind.1 174 12 21 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_25_174_72_begin:
+        symbol [ mWindAngleLessCOG %tmp.2 174 25 42 ];
+        %tmp.2 = getv ? :mWindAngleLessCOG;
+        %tmp.3 = -90;
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        %tmp.5 = dup %tmp.4;
+        bf %tmp.5 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_52_174_72_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_52_174_72_true:
+        symbol [ mWindAngleLessCOG %tmp.7 174 52 69 ];
+        %tmp.7 = getv ? :mWindAngleLessCOG;
+        %tmp.8 = 90;
+        %tmp.9 = lt %tmp.7 %tmp.8;
+        %tmp.10 = and %tmp.4 %tmp.9;
+        push %tmp.10;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_52_174_72_end:
+        %tmp.11 = phi [%tmp.5 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_25_174_72_begin] [%tmp.10 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_52_174_72_true] [%tmp.11 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_174_52_174_72_end];
+        lputv %newUpwind.1 %tmp.11;
+        symbol [ newUpwind %newUpwind.1 174 12 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 177 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_8_182_8_if_stmt:
+        symbol [ mIsUpwind %tmp.13 177 12 21 ];
+        %tmp.13 = getv ? :mIsUpwind;
+        %tmp.14 = lgetv %newUpwind.1;
+        symbol [ newUpwind %tmp.14 177 25 34 ];
+        %tmp.15 = ne %tmp.13 %tmp.14;
+        bf %tmp.15 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_8_182_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_8_182_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_36_182_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 178 12 ]
+        %tmp.16 = self;
+        symbol [ log %tmp.17 178 12 15 ];
+        %tmp.17 = getv function %tmp.16 :log;
+        %tmp.18 = "Point of sail changed from ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_begin:
+        symbol [ mIsUpwind %tmp.20 178 49 58 ];
+        %tmp.20 = getv ? :mIsUpwind;
+        bf %tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_true:
+        %tmp.21 = "Upwind";
+        push %tmp.21;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_false:
+        %tmp.22 = "Downwind";
+        push %tmp.22;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_end:
+        %tmp.23 = phi [%tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_begin] [%tmp.21 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_true] [%tmp.22 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_false] [%tmp.23 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_178_49_178_72_end];
+        %tmp.24 = add %tmp.18 %tmp.23;
+        %tmp.25 = " to ";
+        %tmp.26 = add %tmp.24 %tmp.25;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_begin:
+        %tmp.27 = lgetv %newUpwind.1;
+        symbol [ newUpwind %tmp.27 179 26 35 ];
+        bf %tmp.27 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_true:
+        %tmp.28 = "Upwind";
+        push %tmp.28;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_false:
+        %tmp.29 = "Downwind";
+        push %tmp.29;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_end:
+        %tmp.30 = phi [%tmp.27 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_begin] [%tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_true] [%tmp.29 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_false] [%tmp.30 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_179_26_179_49_end];
+        %tmp.31 = add %tmp.26 %tmp.30;
+        %tmp.32 = " (WindAngle: ";
+        %tmp.33 = add %tmp.31 %tmp.32;
+        symbol [ mWindAngleLessCOG %tmp.35 180 34 51 ];
+        %tmp.35 = getv ? :mWindAngleLessCOG;
+        %tmp.36 = add %tmp.33 %tmp.35;
+        %tmp.37 = "°)";
+        %tmp.38 = add %tmp.36 %tmp.37;
+        invoke %tmp.16 %tmp.17(%tmp.38);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 181 12 ]
+        %tmp.39 = lgetv %newUpwind.1;
+        symbol [ newUpwind %tmp.39 181 24 33 ];
+        symbol [ mIsUpwind ? 181 12 21 ];
+        putv self :mIsUpwind %tmp.39;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_36_182_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_8_182_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_177_8_182_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_172_36_183_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 186; @symbol_functiondef = [calculateAverageHeading,186,13,36]; @symbol_param<0> = [startTime,186,37,46]; @symbol_param<1> = [endTime,186,48,55]; ]
+    function calculateAverageHeading(startTime, endTime) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 187 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %sumX.1 = local;
+        symbol [ sumX %sumX.1 187 12 16 ];
+        %tmp.1 = 0.0;
+        lputv %sumX.1 %tmp.1;
+        symbol [ sumX %sumX.1 187 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 188 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %sumY.2 = local;
+        symbol [ sumY %sumY.2 188 12 16 ];
+        %tmp.2 = 0.0;
+        lputv %sumY.2 %tmp.2;
+        symbol [ sumY %sumY.2 188 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 189 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %count.3 = local;
+        symbol [ count %count.3 189 12 17 ];
+        %tmp.3 = 0;
+        lputv %count.3 %tmp.3;
+        symbol [ count %count.3 189 12 17 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 192 8 ]
+        for @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_incr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_init:
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_begin" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_end" ]
+        %i.4 = local;
+        symbol [ i %i.4 192 17 18 ];
+        %tmp.4 = 0;
+        lputv %i.4 %tmp.4;
+        symbol [ i %i.4 192 17 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_test:
+        %tmp.5 = lgetv %i.4;
+        symbol [ i %tmp.5 192 24 25 ];
+        symbol [ HEADING_HISTORY_SIZE %tmp.7 192 28 48 ];
+        %tmp.7 = getv ? :HEADING_HISTORY_SIZE;
+        %tmp.8 = lt %tmp.5 %tmp.7;
+        bf %tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 193 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_stop" ]
+        %entry.5 = local;
+        symbol [ entry %entry.5 193 16 21 ];
+        symbol [ mHeadingHistory %tmp.10 193 24 39 ];
+        %tmp.10 = getv ? :mHeadingHistory;
+        %tmp.11 = lgetv %i.4;
+        symbol [ i %tmp.11 193 40 41 ];
+        %tmp.12 = agetv %tmp.10 %tmp.11;
+        lputv %entry.5 %tmp.12;
+        symbol [ entry %entry.5 193 16 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 196 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_12_198_12_if_stmt:
+        %tmp.13 = lgetv %entry.5;
+        symbol [ entry %tmp.13 196 17 22 ];
+        %tmp.14 = "valid";
+        %tmp.15 = agetv %tmp.13 %tmp.14;
+        %tmp.16 = not %tmp.15;
+        bf %tmp.16 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_12_198_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_12_198_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_33_198_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 197 16 ]
+        goto break @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_incr;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_33_198_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_12_198_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_196_12_198_12_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 200 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_stop" ]
+        %timestamp.6 = local;
+        symbol [ timestamp %timestamp.6 200 16 25 ];
+        %tmp.17 = lgetv %entry.5;
+        symbol [ entry %tmp.17 200 28 33 ];
+        %tmp.18 = "timestamp";
+        %tmp.19 = agetv %tmp.17 %tmp.18;
+        lputv %timestamp.6 %tmp.19;
+        symbol [ timestamp %timestamp.6 200 16 25 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 201 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_stop" ]
+        %heading.7 = local;
+        symbol [ heading %heading.7 201 16 23 ];
+        %tmp.20 = lgetv %entry.5;
+        symbol [ entry %tmp.20 201 26 31 ];
+        %tmp.21 = "heading";
+        %tmp.22 = agetv %tmp.20 %tmp.21;
+        lputv %heading.7 %tmp.22;
+        symbol [ heading %heading.7 201 16 23 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 204 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_16_204_55_begin:
+        %tmp.23 = lgetv %timestamp.6;
+        symbol [ timestamp %tmp.23 204 16 25 ];
+        %tmp.24 = lgetv %startTime;
+        symbol [ startTime %tmp.24 204 29 38 ];
+        %tmp.25 = gte %tmp.23 %tmp.24;
+        bf %tmp.25 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_42_204_55_true:
+        %tmp.26 = lgetv %timestamp.6;
+        symbol [ timestamp %tmp.26 204 42 51 ];
+        %tmp.27 = lgetv %endTime;
+        symbol [ endTime %tmp.27 204 55 62 ];
+        %tmp.28 = lte %tmp.26 %tmp.27;
+        push %tmp.28;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_42_204_55_end:
+        %tmp.29 = phi [%tmp.25 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_16_204_55_begin] [%tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_42_204_55_true] [%tmp.29 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_42_204_55_end];
+        bf %tmp.29 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_64_212_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 206 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_64_212_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_64_212_12_stop" ]
+        %rad.8 = local;
+        symbol [ rad %rad.8 206 20 23 ];
+        symbol [ Math %tmp.30 206 26 30 ];
+        %tmp.30 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.31 206 31 40 ];
+        %tmp.31 = getv function %tmp.30 :toRadians;
+        %tmp.32 = lgetv %heading.7;
+        symbol [ heading %tmp.32 206 41 48 ];
+        %tmp.33 = invoke %tmp.30 %tmp.31(%tmp.32);
+        lputv %rad.8 %tmp.33;
+        symbol [ rad %rad.8 206 20 23 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 209 16 ]
+        %tmp.34 = lgetv %sumX.1;
+        symbol [ sumX %tmp.34 209 16 20 ];
+        symbol [ Math %tmp.35 209 24 28 ];
+        %tmp.35 = getm $.Toybox.Math;
+        symbol [ cos %tmp.36 209 29 32 ];
+        %tmp.36 = getv function %tmp.35 :cos;
+        %tmp.37 = lgetv %rad.8;
+        symbol [ rad %tmp.37 209 33 36 ];
+        %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
+        %tmp.39 = add %tmp.34 %tmp.38;
+        lputv %sumX.1 %tmp.39;
+        symbol [ sumX %sumX.1 209 16 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 210 16 ]
+        %tmp.40 = lgetv %sumY.2;
+        symbol [ sumY %tmp.40 210 16 20 ];
+        symbol [ Math %tmp.41 210 24 28 ];
+        %tmp.41 = getm $.Toybox.Math;
+        symbol [ sin %tmp.42 210 29 32 ];
+        %tmp.42 = getv function %tmp.41 :sin;
+        %tmp.43 = lgetv %rad.8;
+        symbol [ rad %tmp.43 210 33 36 ];
+        %tmp.44 = invoke %tmp.41 %tmp.42(%tmp.43);
+        %tmp.45 = add %tmp.40 %tmp.44;
+        lputv %sumY.2 %tmp.45;
+        symbol [ sumY %sumY.2 210 16 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 211 16 ]
+        %tmp.48 = lgetv %count.3;
+        symbol [ count %tmp.48 211 16 21 ];
+        %tmp.49 = add %tmp.48 1;
+        lputv %count.3 %tmp.49;
+        symbol [ count %count.3 211 16 21 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_64_212_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_204_12_212_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_55_213_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_incr:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 192 ]
+        %tmp.52 = lgetv %i.4;
+        symbol [ i %tmp.52 192 50 51 ];
+        %tmp.53 = add %tmp.52 1;
+        lputv %i.4 %tmp.53;
+        symbol [ i %i.4 192 50 51 ];
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_192_8_213_8_for_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 216 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_8_220_8_if_stmt:
+        %tmp.54 = lgetv %count.3;
+        symbol [ count %tmp.54 216 12 17 ];
+        %tmp.55 = 0;
+        %tmp.56 = eq %tmp.54 %tmp.55;
+        bf %tmp.56 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_8_220_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_8_220_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_24_220_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 217 12 ]
+        %tmp.57 = self;
+        symbol [ log %tmp.58 217 12 15 ];
+        %tmp.58 = getv function %tmp.57 :log;
+        %tmp.59 = "No valid heading entries found for time period: ";
+        %tmp.60 = lgetv %startTime;
+        symbol [ startTime %tmp.60 218 17 26 ];
+        %tmp.61 = 1000;
+        %tmp.62 = div %tmp.60 %tmp.61;
+        %tmp.63 = add %tmp.59 %tmp.62;
+        %tmp.64 = "s to ";
+        %tmp.65 = add %tmp.63 %tmp.64;
+        %tmp.66 = lgetv %endTime;
+        symbol [ endTime %tmp.66 218 46 53 ];
+        %tmp.67 = 1000;
+        %tmp.68 = div %tmp.66 %tmp.67;
+        %tmp.69 = add %tmp.65 %tmp.68;
+        %tmp.70 = "s";
+        %tmp.71 = add %tmp.69 %tmp.70;
+        invoke %tmp.57 %tmp.58(%tmp.71);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 219 12 ]
+        %tmp.72 = null;
+        ret %tmp.72;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_24_220_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_8_220_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_216_8_220_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 223 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %avgX.9 = local;
+        symbol [ avgX %avgX.9 223 12 16 ];
+        %tmp.73 = lgetv %sumX.1;
+        symbol [ sumX %tmp.73 223 19 23 ];
+        %tmp.74 = lgetv %count.3;
+        symbol [ count %tmp.74 223 26 31 ];
+        %tmp.75 = div %tmp.73 %tmp.74;
+        lputv %avgX.9 %tmp.75;
+        symbol [ avgX %avgX.9 223 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 224 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %avgY.10 = local;
+        symbol [ avgY %avgY.10 224 12 16 ];
+        %tmp.76 = lgetv %sumY.2;
+        symbol [ sumY %tmp.76 224 19 23 ];
+        %tmp.77 = lgetv %count.3;
+        symbol [ count %tmp.77 224 26 31 ];
+        %tmp.78 = div %tmp.76 %tmp.77;
+        lputv %avgY.10 %tmp.78;
+        symbol [ avgY %avgY.10 224 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 227 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop" ]
+        %avgHeading.11 = local;
+        symbol [ avgHeading %avgHeading.11 227 12 22 ];
+        symbol [ Math %tmp.79 227 25 29 ];
+        %tmp.79 = getm $.Toybox.Math;
+        symbol [ toDegrees %tmp.80 227 30 39 ];
+        %tmp.80 = getv function %tmp.79 :toDegrees;
+        symbol [ Math %tmp.81 227 40 44 ];
+        %tmp.81 = getm $.Toybox.Math;
+        symbol [ atan2 %tmp.82 227 45 50 ];
+        %tmp.82 = getv function %tmp.81 :atan2;
+        %tmp.83 = lgetv %avgY.10;
+        symbol [ avgY %tmp.83 227 51 55 ];
+        %tmp.84 = lgetv %avgX.9;
+        symbol [ avgX %tmp.84 227 57 61 ];
+        %tmp.85 = invoke %tmp.81 %tmp.82(%tmp.83, %tmp.84);
+        %tmp.86 = invoke %tmp.79 %tmp.80(%tmp.85);
+        lputv %avgHeading.11 %tmp.86;
+        symbol [ avgHeading %avgHeading.11 227 12 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 230 8 ]
+        %tmp.87 = self;
+        symbol [ normalizeAngle %tmp.88 230 15 29 ];
+        %tmp.88 = getv function %tmp.87 :normalizeAngle;
+        %tmp.89 = lgetv %avgHeading.11;
+        symbol [ avgHeading %tmp.89 230 30 40 ];
+        %tmp.90 = invoke %tmp.87 %tmp.88(%tmp.89);
+        ret %tmp.90;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_186_57_231_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 234; @symbol_functiondef = [normalizeAngle,234,13,27]; @symbol_param<0> = [angle,234,28,33]; ]
+    function normalizeAngle(angle) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_234_35_242_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 235 8 ]
+        while @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_test:
+        %tmp.1 = lgetv %angle;
+        symbol [ angle %tmp.1 235 15 20 ];
+        %tmp.2 = 0;
+        %tmp.3 = lt %tmp.1 %tmp.2;
+        bf %tmp.3 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_26_237_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 236 12 ]
+        %tmp.4 = lgetv %angle;
+        symbol [ angle %tmp.4 236 12 17 ];
+        %tmp.5 = 360;
+        %tmp.6 = add %tmp.4 %tmp.5;
+        lputv %angle %tmp.6;
+        symbol [ angle %angle 236 12 17 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_26_237_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_235_8_237_8_while_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 238 8 ]
+        while @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_test:
+        %tmp.7 = lgetv %angle;
+        symbol [ angle %tmp.7 238 15 20 ];
+        %tmp.8 = 360;
+        %tmp.9 = gte %tmp.7 %tmp.8;
+        bf %tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_29_240_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 239 12 ]
+        %tmp.10 = lgetv %angle;
+        symbol [ angle %tmp.10 239 12 17 ];
+        %tmp.11 = 360;
+        %tmp.12 = sub %tmp.10 %tmp.11;
+        lputv %angle %tmp.12;
+        symbol [ angle %angle 239 12 17 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_29_240_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_238_8_240_8_while_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 241 8 ]
+        %tmp.13 = lgetv %angle;
+        symbol [ angle %tmp.13 241 15 20 ];
+        ret %tmp.13;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_234_35_242_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 244; @symbol_functiondef = [angleAbsDifference,244,13,31]; @symbol_param<0> = [angle1,244,32,38]; @symbol_param<1> = [angle2,244,40,46]; ]
+    function angleAbsDifference(angle1, angle2) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_244_48_261_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 246 8 ]
+        %tmp.1 = self;
+        symbol [ normalizeAngle %tmp.2 246 17 31 ];
+        %tmp.2 = getv function %tmp.1 :normalizeAngle;
+        %tmp.3 = lgetv %angle1;
+        symbol [ angle1 %tmp.3 246 32 38 ];
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        lputv %angle1 %tmp.4;
+        symbol [ angle1 %angle1 246 8 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 247 8 ]
+        %tmp.5 = self;
+        symbol [ normalizeAngle %tmp.6 247 17 31 ];
+        %tmp.6 = getv function %tmp.5 :normalizeAngle;
+        %tmp.7 = lgetv %angle2;
+        symbol [ angle2 %tmp.7 247 32 38 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        lputv %angle2 %tmp.8;
+        symbol [ angle2 %angle2 247 8 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 250 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_244_48_261_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_244_48_261_4_stop" ]
+        %diff.1 = local;
+        symbol [ diff %diff.1 250 12 16 ];
+        %tmp.9 = lgetv %angle1;
+        symbol [ angle1 %tmp.9 250 19 25 ];
+        %tmp.10 = lgetv %angle2;
+        symbol [ angle2 %tmp.10 250 28 34 ];
+        %tmp.11 = sub %tmp.9 %tmp.10;
+        lputv %diff.1 %tmp.11;
+        symbol [ diff %diff.1 250 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 251 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_8_253_8_if_stmt:
+        %tmp.12 = lgetv %diff.1;
+        symbol [ diff %tmp.12 251 12 16 ];
+        %tmp.13 = 0;
+        %tmp.14 = lt %tmp.12 %tmp.13;
+        bf %tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_8_253_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_8_253_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_22_253_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 252 12 ]
+        %tmp.15 = lgetv %diff.1;
+        symbol [ diff %tmp.15 252 20 24 ];
+        %tmp.16 = sub 0 %tmp.15;
+        lputv %diff.1 %tmp.16;
+        symbol [ diff %diff.1 252 12 16 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_22_253_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_8_253_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_251_8_253_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 256 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_8_258_8_if_stmt:
+        %tmp.17 = lgetv %diff.1;
+        symbol [ diff %tmp.17 256 12 16 ];
+        %tmp.18 = 180;
+        %tmp.19 = gt %tmp.17 %tmp.18;
+        bf %tmp.19 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_8_258_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_8_258_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_24_258_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 257 12 ]
+        %tmp.20 = 360;
+        %tmp.21 = lgetv %diff.1;
+        symbol [ diff %tmp.21 257 25 29 ];
+        %tmp.22 = sub %tmp.20 %tmp.21;
+        lputv %diff.1 %tmp.22;
+        symbol [ diff %diff.1 257 12 16 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_24_258_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_8_258_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_256_8_258_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 260 8 ]
+        %tmp.23 = lgetv %diff.1;
+        symbol [ diff %tmp.23 260 15 19 ];
+        ret %tmp.23;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_244_48_261_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 263; @symbol_functiondef = [calculateBisectorAngle,263,13,35]; @symbol_param<0> = [angle1,263,36,42]; @symbol_param<1> = [angle2,263,44,50]; ]
+    function calculateBisectorAngle(angle1, angle2) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 265 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %rad1.1 = local;
+        symbol [ rad1 %rad1.1 265 12 16 ];
+        symbol [ Math %tmp.1 265 19 23 ];
+        %tmp.1 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.2 265 24 33 ];
+        %tmp.2 = getv function %tmp.1 :toRadians;
+        %tmp.3 = lgetv %angle1;
+        symbol [ angle1 %tmp.3 265 34 40 ];
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        lputv %rad1.1 %tmp.4;
+        symbol [ rad1 %rad1.1 265 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 266 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %rad2.2 = local;
+        symbol [ rad2 %rad2.2 266 12 16 ];
+        symbol [ Math %tmp.5 266 19 23 ];
+        %tmp.5 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.6 266 24 33 ];
+        %tmp.6 = getv function %tmp.5 :toRadians;
+        %tmp.7 = lgetv %angle2;
+        symbol [ angle2 %tmp.7 266 34 40 ];
+        %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
+        lputv %rad2.2 %tmp.8;
+        symbol [ rad2 %rad2.2 266 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 269 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %x1.3 = local;
+        symbol [ x1 %x1.3 269 12 14 ];
+        symbol [ Math %tmp.9 269 17 21 ];
+        %tmp.9 = getm $.Toybox.Math;
+        symbol [ cos %tmp.10 269 22 25 ];
+        %tmp.10 = getv function %tmp.9 :cos;
+        %tmp.11 = lgetv %rad1.1;
+        symbol [ rad1 %tmp.11 269 26 30 ];
+        %tmp.12 = invoke %tmp.9 %tmp.10(%tmp.11);
+        lputv %x1.3 %tmp.12;
+        symbol [ x1 %x1.3 269 12 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 270 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %y1.4 = local;
+        symbol [ y1 %y1.4 270 12 14 ];
+        symbol [ Math %tmp.13 270 17 21 ];
+        %tmp.13 = getm $.Toybox.Math;
+        symbol [ sin %tmp.14 270 22 25 ];
+        %tmp.14 = getv function %tmp.13 :sin;
+        %tmp.15 = lgetv %rad1.1;
+        symbol [ rad1 %tmp.15 270 26 30 ];
+        %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+        lputv %y1.4 %tmp.16;
+        symbol [ y1 %y1.4 270 12 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 271 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %x2.5 = local;
+        symbol [ x2 %x2.5 271 12 14 ];
+        symbol [ Math %tmp.17 271 17 21 ];
+        %tmp.17 = getm $.Toybox.Math;
+        symbol [ cos %tmp.18 271 22 25 ];
+        %tmp.18 = getv function %tmp.17 :cos;
+        %tmp.19 = lgetv %rad2.2;
+        symbol [ rad2 %tmp.19 271 26 30 ];
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        lputv %x2.5 %tmp.20;
+        symbol [ x2 %x2.5 271 12 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 272 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %y2.6 = local;
+        symbol [ y2 %y2.6 272 12 14 ];
+        symbol [ Math %tmp.21 272 17 21 ];
+        %tmp.21 = getm $.Toybox.Math;
+        symbol [ sin %tmp.22 272 22 25 ];
+        %tmp.22 = getv function %tmp.21 :sin;
+        %tmp.23 = lgetv %rad2.2;
+        symbol [ rad2 %tmp.23 272 26 30 ];
+        %tmp.24 = invoke %tmp.21 %tmp.22(%tmp.23);
+        lputv %y2.6 %tmp.24;
+        symbol [ y2 %y2.6 272 12 14 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 275 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %avgX.7 = local;
+        symbol [ avgX %avgX.7 275 12 16 ];
+        %tmp.25 = lgetv %x1.3;
+        symbol [ x1 %tmp.25 275 20 22 ];
+        %tmp.26 = lgetv %x2.5;
+        symbol [ x2 %tmp.26 275 25 27 ];
+        %tmp.27 = add %tmp.25 %tmp.26;
+        %tmp.28 = 2;
+        %tmp.29 = div %tmp.27 %tmp.28;
+        lputv %avgX.7 %tmp.29;
+        symbol [ avgX %avgX.7 275 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 276 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %avgY.8 = local;
+        symbol [ avgY %avgY.8 276 12 16 ];
+        %tmp.30 = lgetv %y1.4;
+        symbol [ y1 %tmp.30 276 20 22 ];
+        %tmp.31 = lgetv %y2.6;
+        symbol [ y2 %tmp.31 276 25 27 ];
+        %tmp.32 = add %tmp.30 %tmp.31;
+        %tmp.33 = 2;
+        %tmp.34 = div %tmp.32 %tmp.33;
+        lputv %avgY.8 %tmp.34;
+        symbol [ avgY %avgY.8 276 12 16 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 279 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_12_279_85_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_13_279_39_begin:
+        %tmp.35 = lgetv %avgX.7;
+        symbol [ avgX %tmp.35 279 13 17 ];
+        %tmp.36 = 0.00001;
+        %tmp.37 = lt %tmp.35 %tmp.36;
+        bf %tmp.37 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_31_279_39_true:
+        %tmp.38 = lgetv %avgX.7;
+        symbol [ avgX %tmp.38 279 31 35 ];
+        %tmp.39 = -0.00001;
+        %tmp.40 = gt %tmp.38 %tmp.39;
+        push %tmp.40;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_31_279_39_end:
+        %tmp.41 = phi [%tmp.37 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_13_279_39_begin] [%tmp.40 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_31_279_39_true] [%tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_31_279_39_end];
+        bf %tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_51_279_85_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_52_279_78_begin:
+        %tmp.42 = lgetv %avgY.8;
+        symbol [ avgY %tmp.42 279 52 56 ];
+        %tmp.43 = 0.00001;
+        %tmp.44 = lt %tmp.42 %tmp.43;
+        bf %tmp.44 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_70_279_78_true:
+        %tmp.45 = lgetv %avgY.8;
+        symbol [ avgY %tmp.45 279 70 74 ];
+        %tmp.46 = -0.00001;
+        %tmp.47 = gt %tmp.45 %tmp.46;
+        push %tmp.47;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_70_279_78_end:
+        %tmp.48 = phi [%tmp.44 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_52_279_78_begin] [%tmp.47 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_70_279_78_true] [%tmp.48 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_70_279_78_end];
+        push %tmp.48;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_51_279_85_end:
+        %tmp.49 = phi [%tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_12_279_85_begin] [%tmp.48 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_51_279_85_true] [%tmp.49 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_51_279_85_end];
+        bf %tmp.49 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_88_281_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 280 12 ]
+        %tmp.50 = 0;
+        ret %tmp.50;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_88_281_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_279_8_281_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 284 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop" ]
+        %avgAngle.9 = local;
+        symbol [ avgAngle %avgAngle.9 284 12 20 ];
+        %tmp.51 = 0;
+        lputv %avgAngle.9 %tmp.51;
+        symbol [ avgAngle %avgAngle.9 284 12 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 285 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_stmt:
+        %tmp.52 = lgetv %avgX.7;
+        symbol [ avgX %tmp.52 285 12 16 ];
+        %tmp.53 = 0;
+        %tmp.54 = gt %tmp.52 %tmp.53;
+        bf %tmp.54 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_22_287_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 286 12 ]
+        symbol [ Math %tmp.55 286 23 27 ];
+        %tmp.55 = getm $.Toybox.Math;
+        symbol [ toDegrees %tmp.56 286 28 37 ];
+        %tmp.56 = getv function %tmp.55 :toDegrees;
+        symbol [ Math %tmp.57 286 38 42 ];
+        %tmp.57 = getm $.Toybox.Math;
+        symbol [ atan %tmp.58 286 43 47 ];
+        %tmp.58 = getv function %tmp.57 :atan;
+        %tmp.59 = lgetv %avgY.8;
+        symbol [ avgY %tmp.59 286 48 52 ];
+        %tmp.60 = lgetv %avgX.7;
+        symbol [ avgX %tmp.60 286 55 59 ];
+        %tmp.61 = div %tmp.59 %tmp.60;
+        %tmp.62 = invoke %tmp.57 %tmp.58(%tmp.61);
+        %tmp.63 = invoke %tmp.55 %tmp.56(%tmp.62);
+        lputv %avgAngle.9 %tmp.63;
+        symbol [ avgAngle %avgAngle.9 286 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_22_287_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 287 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_19_287_39_begin:
+        %tmp.64 = lgetv %avgX.7;
+        symbol [ avgX %tmp.64 287 19 23 ];
+        %tmp.65 = 0;
+        %tmp.66 = lt %tmp.64 %tmp.65;
+        bf %tmp.66 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_31_287_39_true:
+        %tmp.67 = lgetv %avgY.8;
+        symbol [ avgY %tmp.67 287 31 35 ];
+        %tmp.68 = 0;
+        %tmp.69 = gte %tmp.67 %tmp.68;
+        push %tmp.69;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_31_287_39_end:
+        %tmp.70 = phi [%tmp.66 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_19_287_39_begin] [%tmp.69 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_31_287_39_true] [%tmp.70 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_31_287_39_end];
+        bf %tmp.70 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_42_289_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 288 12 ]
+        symbol [ Math %tmp.71 288 23 27 ];
+        %tmp.71 = getm $.Toybox.Math;
+        symbol [ toDegrees %tmp.72 288 28 37 ];
+        %tmp.72 = getv function %tmp.71 :toDegrees;
+        symbol [ Math %tmp.73 288 38 42 ];
+        %tmp.73 = getm $.Toybox.Math;
+        symbol [ atan %tmp.74 288 43 47 ];
+        %tmp.74 = getv function %tmp.73 :atan;
+        %tmp.75 = lgetv %avgY.8;
+        symbol [ avgY %tmp.75 288 48 52 ];
+        %tmp.76 = lgetv %avgX.7;
+        symbol [ avgX %tmp.76 288 55 59 ];
+        %tmp.77 = div %tmp.75 %tmp.76;
+        %tmp.78 = invoke %tmp.73 %tmp.74(%tmp.77);
+        %tmp.79 = invoke %tmp.71 %tmp.72(%tmp.78);
+        %tmp.80 = 180;
+        %tmp.81 = add %tmp.79 %tmp.80;
+        lputv %avgAngle.9 %tmp.81;
+        symbol [ avgAngle %avgAngle.9 288 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_42_289_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 289 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_19_289_38_begin:
+        %tmp.82 = lgetv %avgX.7;
+        symbol [ avgX %tmp.82 289 19 23 ];
+        %tmp.83 = 0;
+        %tmp.84 = lt %tmp.82 %tmp.83;
+        bf %tmp.84 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_38_true:
+        %tmp.85 = lgetv %avgY.8;
+        symbol [ avgY %tmp.85 289 31 35 ];
+        %tmp.86 = 0;
+        %tmp.87 = lt %tmp.85 %tmp.86;
+        push %tmp.87;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_38_end:
+        %tmp.88 = phi [%tmp.84 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_19_289_38_begin] [%tmp.87 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_38_true] [%tmp.88 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_38_end];
+        bf %tmp.88 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_41_291_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 290 12 ]
+        symbol [ Math %tmp.89 290 23 27 ];
+        %tmp.89 = getm $.Toybox.Math;
+        symbol [ toDegrees %tmp.90 290 28 37 ];
+        %tmp.90 = getv function %tmp.89 :toDegrees;
+        symbol [ Math %tmp.91 290 38 42 ];
+        %tmp.91 = getm $.Toybox.Math;
+        symbol [ atan %tmp.92 290 43 47 ];
+        %tmp.92 = getv function %tmp.91 :atan;
+        %tmp.93 = lgetv %avgY.8;
+        symbol [ avgY %tmp.93 290 48 52 ];
+        %tmp.94 = lgetv %avgX.7;
+        symbol [ avgX %tmp.94 290 55 59 ];
+        %tmp.95 = div %tmp.93 %tmp.94;
+        %tmp.96 = invoke %tmp.91 %tmp.92(%tmp.95);
+        %tmp.97 = invoke %tmp.89 %tmp.90(%tmp.96);
+        %tmp.98 = 180;
+        %tmp.99 = sub %tmp.97 %tmp.98;
+        lputv %avgAngle.9 %tmp.99;
+        symbol [ avgAngle %avgAngle.9 290 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_41_291_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 291 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_19_291_65_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_20_291_46_begin:
+        %tmp.100 = lgetv %avgX.7;
+        symbol [ avgX %tmp.100 291 20 24 ];
+        %tmp.101 = 0.00001;
+        %tmp.102 = lt %tmp.100 %tmp.101;
+        bf %tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_38_291_46_true:
+        %tmp.103 = lgetv %avgX.7;
+        symbol [ avgX %tmp.103 291 38 42 ];
+        %tmp.104 = -0.00001;
+        %tmp.105 = gt %tmp.103 %tmp.104;
+        push %tmp.105;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_38_291_46_end:
+        %tmp.106 = phi [%tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_20_291_46_begin] [%tmp.105 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_38_291_46_true] [%tmp.106 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_38_291_46_end];
+        bf %tmp.106 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_58_291_65_true:
+        %tmp.107 = lgetv %avgY.8;
+        symbol [ avgY %tmp.107 291 58 62 ];
+        %tmp.108 = 0;
+        %tmp.109 = gt %tmp.107 %tmp.108;
+        push %tmp.109;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_58_291_65_end:
+        %tmp.110 = phi [%tmp.106 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_19_291_65_begin] [%tmp.109 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_58_291_65_true] [%tmp.110 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_58_291_65_end];
+        bf %tmp.110 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_68_293_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 292 12 ]
+        %tmp.111 = 90;
+        lputv %avgAngle.9 %tmp.111;
+        symbol [ avgAngle %avgAngle.9 292 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_68_293_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 293 15 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_19_293_65_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_20_293_46_begin:
+        %tmp.112 = lgetv %avgX.7;
+        symbol [ avgX %tmp.112 293 20 24 ];
+        %tmp.113 = 0.00001;
+        %tmp.114 = lt %tmp.112 %tmp.113;
+        bf %tmp.114 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_true:
+        %tmp.115 = lgetv %avgX.7;
+        symbol [ avgX %tmp.115 293 38 42 ];
+        %tmp.116 = -0.00001;
+        %tmp.117 = gt %tmp.115 %tmp.116;
+        push %tmp.117;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_end:
+        %tmp.118 = phi [%tmp.114 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_20_293_46_begin] [%tmp.117 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_true] [%tmp.118 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_end];
+        bf %tmp.118 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_true:
+        %tmp.119 = lgetv %avgY.8;
+        symbol [ avgY %tmp.119 293 58 62 ];
+        %tmp.120 = 0;
+        %tmp.121 = lt %tmp.119 %tmp.120;
+        push %tmp.121;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_end:
+        %tmp.122 = phi [%tmp.118 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_19_293_65_begin] [%tmp.121 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_true] [%tmp.122 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_end];
+        bf %tmp.122 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_68_295_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 294 12 ]
+        %tmp.123 = -90;
+        lputv %avgAngle.9 %tmp.123;
+        symbol [ avgAngle %avgAngle.9 294 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_68_295_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_295_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_295_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_295_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_287_15_295_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_285_8_295_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 298 8 ]
+        %tmp.124 = self;
+        symbol [ normalizeAngle %tmp.125 298 15 29 ];
+        %tmp.125 = getv function %tmp.124 :normalizeAngle;
+        %tmp.126 = lgetv %avgAngle.9;
+        symbol [ avgAngle %tmp.126 298 30 38 ];
+        %tmp.127 = invoke %tmp.124 %tmp.125(%tmp.126);
+        ret %tmp.127;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_263_52_299_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 302; @symbol_functiondef = [recalculateWithNewWindDirection,302,13,44]; @symbol_param<0> = [windDirection,302,45,58]; ]
+    function recalculateWithNewWindDirection(windDirection) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_302_60_308_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 304 8 ]
+        %tmp.1 = self;
+        symbol [ calculateWindAngleLessCOG %tmp.2 304 8 33 ];
+        %tmp.2 = getv function %tmp.1 :calculateWindAngleLessCOG;
+        symbol [ mSmoothedCOG %tmp.4 304 34 46 ];
+        %tmp.4 = getv ? :mSmoothedCOG;
+        %tmp.5 = lgetv %windDirection;
+        symbol [ windDirection %tmp.5 304 48 61 ];
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.5);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 307 8 ]
+        %tmp.6 = self;
+        symbol [ determinePointOfSail %tmp.7 307 8 28 ];
+        %tmp.7 = getv function %tmp.6 :determinePointOfSail;
+        invoke %tmp.6 %tmp.7();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_302_60_308_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 311; @symbol_functiondef = [getSmoothedCOG,311,13,27]; ]
+    function getSmoothedCOG() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_311_30_313_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 312 8 ]
+        symbol [ mSmoothedCOG %tmp.2 312 15 27 ];
+        %tmp.2 = getv ? :mSmoothedCOG;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_311_30_313_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 315; @symbol_functiondef = [getWindAngleLessCOG,315,13,32]; ]
+    function getWindAngleLessCOG() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_315_35_317_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 316 8 ]
+        symbol [ mWindAngleLessCOG %tmp.2 316 15 32 ];
+        %tmp.2 = getv ? :mWindAngleLessCOG;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_315_35_317_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 319; @symbol_functiondef = [getLastWindAngleLessCOG,319,13,36]; ]
+    function getLastWindAngleLessCOG() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_319_39_321_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 320 8 ]
+        symbol [ mLastWindAngleLessCOG %tmp.2 320 15 36 ];
+        %tmp.2 = getv ? :mLastWindAngleLessCOG;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_319_39_321_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 323; @symbol_functiondef = [isStarboardTack,323,13,28]; ]
+    function isStarboardTack() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_323_31_325_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 324 8 ]
+        symbol [ mIsStbdTack %tmp.2 324 15 26 ];
+        %tmp.2 = getv ? :mIsStbdTack;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_323_31_325_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 327; @symbol_functiondef = [setStarboardTack,327,13,29]; @symbol_param<0> = [isStbd,327,30,36]; ]
+    function setStarboardTack(isStbd) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_327_38_329_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 328 8 ]
+        %tmp.1 = lgetv %isStbd;
+        symbol [ isStbd %tmp.1 328 22 28 ];
+        symbol [ mIsStbdTack ? 328 8 19 ];
+        putv self :mIsStbdTack %tmp.1;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_327_38_329_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 331; @symbol_functiondef = [isUpwind,331,13,21]; ]
+    function isUpwind() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_331_24_333_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 332 8 ]
+        symbol [ mIsUpwind %tmp.2 332 15 24 ];
+        %tmp.2 = getv ? :mIsUpwind;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_331_24_333_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 335; @symbol_functiondef = [hasPreviousData,335,13,28]; ]
+    function hasPreviousData() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_335_31_337_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 336 8 ]
+        symbol [ mHasPreviousData %tmp.2 336 15 31 ];
+        %tmp.2 = getv ? :mHasPreviousData;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_335_31_337_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 339; @symbol_functiondef = [getAbsWindAngle,339,13,28]; ]
+    function getAbsWindAngle() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_339_31_345_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 340 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_339_31_345_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_339_31_345_4_stop" ]
+        %absAngle.1 = local;
+        symbol [ absAngle %absAngle.1 340 12 20 ];
+        symbol [ mWindAngleLessCOG %tmp.2 340 23 40 ];
+        %tmp.2 = getv ? :mWindAngleLessCOG;
+        lputv %absAngle.1 %tmp.2;
+        symbol [ absAngle %absAngle.1 340 12 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 341 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_8_343_8_if_stmt:
+        %tmp.3 = lgetv %absAngle.1;
+        symbol [ absAngle %tmp.3 341 12 20 ];
+        %tmp.4 = 0;
+        %tmp.5 = lt %tmp.3 %tmp.4;
+        bf %tmp.5 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_8_343_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_8_343_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_26_343_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 342 12 ]
+        %tmp.6 = lgetv %absAngle.1;
+        symbol [ absAngle %tmp.6 342 24 32 ];
+        %tmp.7 = sub 0 %tmp.6;
+        lputv %absAngle.1 %tmp.7;
+        symbol [ absAngle %absAngle.1 342 12 20 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_26_343_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_8_343_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_341_8_343_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 344 8 ]
+        %tmp.8 = lgetv %absAngle.1;
+        symbol [ absAngle %tmp.8 344 15 23 ];
+        ret %tmp.8;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_339_31_345_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 348; @symbol_functiondef = [getData,348,13,20]; ]
+    function getData() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 349 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_stop" ]
+        %tackStr.1 = local;
+        symbol [ tackStr %tackStr.1 349 12 19 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_begin:
+        symbol [ mIsStbdTack %tmp.2 349 22 33 ];
+        %tmp.2 = getv ? :mIsStbdTack;
+        bf %tmp.2 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_true:
+        %tmp.3 = "Starboard";
+        push %tmp.3;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_false:
+        %tmp.4 = "Port";
+        push %tmp.4;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_end:
+        %tmp.5 = phi [%tmp.2 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_begin] [%tmp.3 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_true] [%tmp.4 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_false] [%tmp.5 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_349_22_349_50_end];
+        lputv %tackStr.1 %tmp.5;
+        symbol [ tackStr %tackStr.1 349 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 350 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_stop" ]
+        %pointOfSailStr.2 = local;
+        symbol [ pointOfSailStr %pointOfSailStr.2 350 12 26 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_begin:
+        symbol [ mIsUpwind %tmp.7 350 29 38 ];
+        %tmp.7 = getv ? :mIsUpwind;
+        bf %tmp.7 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_true:
+        %tmp.8 = "Upwind";
+        push %tmp.8;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_false:
+        %tmp.9 = "Downwind";
+        push %tmp.9;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_end:
+        %tmp.10 = phi [%tmp.7 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_begin] [%tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_true] [%tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_false] [%tmp.10 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_350_29_350_52_end];
+        lputv %pointOfSailStr.2 %tmp.10;
+        symbol [ pointOfSailStr %pointOfSailStr.2 350 12 26 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 351 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_stop" ]
+        %tackDisplayStr.3 = local;
+        symbol [ tackDisplayStr %tackDisplayStr.3 351 12 26 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_begin:
+        symbol [ mIsStbdTack %tmp.12 351 29 40 ];
+        %tmp.12 = getv ? :mIsStbdTack;
+        bf %tmp.12 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_true:
+        %tmp.13 = "Stb";
+        push %tmp.13;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_false:
+        %tmp.14 = "Prt";
+        push %tmp.14;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_end:
+        %tmp.15 = phi [%tmp.12 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_begin] [%tmp.13 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_true] [%tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_false] [%tmp.15 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_351_29_351_51_end];
+        lputv %tackDisplayStr.3 %tmp.15;
+        symbol [ tackDisplayStr %tackDisplayStr.3 351 12 26 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 352 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_stop" ]
+        %tackColorId.4 = local;
+        symbol [ tackColorId %tackColorId.4 352 12 23 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_begin:
+        symbol [ mIsStbdTack %tmp.17 352 26 37 ];
+        %tmp.17 = getv ? :mIsStbdTack;
+        bf %tmp.17 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_true:
+        %tmp.18 = 1;
+        push %tmp.18;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_false:
+        %tmp.19 = 2;
+        push %tmp.19;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_end:
+        %tmp.20 = phi [%tmp.17 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_begin] [%tmp.18 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_true] [%tmp.19 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_false] [%tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_352_26_352_44_end];
+        lputv %tackColorId.4 %tmp.20;
+        symbol [ tackColorId %tackColorId.4 352 12 23 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc" 354 8 ]
+        %tmp.21 = newd 5;
+        %tmp.22 = "windAngleLessCOG";
+        symbol [ mWindAngleLessCOG %tmp.24 355 34 51 ];
+        %tmp.24 = getv ? :mWindAngleLessCOG;
+        %tmp.25 = dup %tmp.21;
+        %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
+        %tmp.27 = "currentTack";
+        %tmp.28 = lgetv %tackStr.1;
+        symbol [ tackStr %tmp.28 356 29 36 ];
+        %tmp.29 = dup %tmp.26;
+        %tmp.30 = aputv %tmp.29 %tmp.27 %tmp.28;
+        %tmp.31 = "currentPointOfSail";
+        %tmp.32 = lgetv %pointOfSailStr.2;
+        symbol [ pointOfSailStr %tmp.32 357 36 50 ];
+        %tmp.33 = dup %tmp.30;
+        %tmp.34 = aputv %tmp.33 %tmp.31 %tmp.32;
+        %tmp.35 = "tackDisplayText";
+        %tmp.36 = lgetv %tackDisplayStr.3;
+        symbol [ tackDisplayStr %tmp.36 358 33 47 ];
+        %tmp.37 = dup %tmp.34;
+        %tmp.38 = aputv %tmp.37 %tmp.35 %tmp.36;
+        %tmp.39 = "tackColorId";
+        %tmp.40 = lgetv %tackColorId.4;
+        symbol [ tackColorId %tmp.40 359 29 40 ];
+        %tmp.41 = dup %tmp.38;
+        %tmp.42 = aputv %tmp.41 %tmp.39 %tmp.40;
+        ret %tmp.42;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindAngleCalculator_mc_348_23_361_4_stop:
+    }
+}
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 2; ]
+<init> {
+}

@@ -1,0 +1,286 @@
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Math,2,13,17]; ]
+using Toybox.Math;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 5; @symbol_classdef = [VMGCalculator,5,6,19]; ]
+class VMGCalculator {
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 7; @position = 18; @symbol_constdef = [VMG_SMOOTHING_FACTOR,7,18,38]; ]
+    private
+    const VMG_SMOOTHING_FACTOR = 0.1;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 10; @position = 16; @symbol_vardef = [mParent,10,16,23]; ]
+    private
+    var mParent;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 11; @position = 16; @symbol_vardef = [mCurrentVMG,11,16,27]; ]
+    private
+    var mCurrentVMG;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 14; @symbol_functiondef = [initialize,14,13,23]; @symbol_param<0> = [parent,14,24,30]; ]
+    function initialize(parent) as Void {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_14_32_17_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 15 8 ]
+        %tmp.1 = lgetv %parent;
+        symbol [ parent %tmp.1 15 18 24 ];
+        symbol [ mParent ? 15 8 15 ];
+        putv self :mParent %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 16 8 ]
+        %tmp.2 = self;
+        symbol [ reset %tmp.3 16 8 13 ];
+        %tmp.3 = getv function %tmp.2 :reset;
+        invoke %tmp.2 %tmp.3();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_14_32_17_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 20; @symbol_functiondef = [reset,20,13,18]; ]
+    function reset() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_20_21_23_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 21 8 ]
+        %tmp.1 = 0.0;
+        symbol [ mCurrentVMG ? 21 8 19 ];
+        putv self :mCurrentVMG %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 22 8 ]
+        %tmp.2 = self;
+        symbol [ log %tmp.3 22 8 11 ];
+        %tmp.3 = getv function %tmp.2 :log;
+        %tmp.4 = "VMGCalculator reset";
+        invoke %tmp.2 %tmp.3(%tmp.4);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_20_21_23_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 26; @symbol_functiondef = [calculateVMG,26,13,25]; @symbol_param<0> = [heading,26,26,33]; @symbol_param<1> = [speed,26,35,40]; @symbol_param<2> = [isUpwind,26,42,50]; @symbol_param<3> = [windAngleLessCOG,26,52,68]; ]
+    function calculateVMG(heading, speed, isUpwind, windAngleLessCOG) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 27 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_8_30_8_if_stmt:
+        %tmp.1 = lgetv %speed;
+        symbol [ speed %tmp.1 27 12 17 ];
+        %tmp.2 = 0;
+        %tmp.3 = lte %tmp.1 %tmp.2;
+        bf %tmp.3 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_8_30_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_8_30_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_24_30_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 28 12 ]
+        %tmp.4 = 0.0;
+        symbol [ mCurrentVMG ? 28 12 23 ];
+        putv self :mCurrentVMG %tmp.4;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 29 12 ]
+        %tmp.5 = 0.0;
+        ret %tmp.5;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_24_30_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_8_30_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_27_8_30_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 33 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_stop" ]
+        %absWindAngle.1 = local;
+        symbol [ absWindAngle %absWindAngle.1 33 12 24 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_begin:
+        %tmp.6 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.6 33 28 44 ];
+        %tmp.7 = 0;
+        %tmp.8 = lt %tmp.6 %tmp.7;
+        bf %tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_true:
+        %tmp.9 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.9 33 53 69 ];
+        %tmp.10 = sub 0 %tmp.9;
+        push %tmp.10;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_false:
+        %tmp.11 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.11 33 72 88 ];
+        push %tmp.11;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_end:
+        %tmp.12 = phi [%tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_begin] [%tmp.10 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_true] [%tmp.11 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_false] [%tmp.12 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_33_27_33_72_end];
+        lputv %absWindAngle.1 %tmp.12;
+        symbol [ absWindAngle %absWindAngle.1 33 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 36 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_stop" ]
+        %windAngleRad.2 = local;
+        symbol [ windAngleRad %windAngleRad.2 36 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 37 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_stop" ]
+        %rawVMG.3 = local;
+        symbol [ rawVMG %rawVMG.3 37 12 18 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 39 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_stmt:
+        %tmp.13 = lgetv %isUpwind;
+        symbol [ isUpwind %tmp.13 39 12 20 ];
+        bf %tmp.13 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_22_43_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 41 12 ]
+        symbol [ Math %tmp.14 41 27 31 ];
+        %tmp.14 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.15 41 32 41 ];
+        %tmp.15 = getv function %tmp.14 :toRadians;
+        %tmp.16 = lgetv %absWindAngle.1;
+        symbol [ absWindAngle %tmp.16 41 42 54 ];
+        %tmp.17 = invoke %tmp.14 %tmp.15(%tmp.16);
+        lputv %windAngleRad.2 %tmp.17;
+        symbol [ windAngleRad %windAngleRad.2 41 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 42 12 ]
+        %tmp.18 = lgetv %speed;
+        symbol [ speed %tmp.18 42 21 26 ];
+        symbol [ Math %tmp.19 42 29 33 ];
+        %tmp.19 = getm $.Toybox.Math;
+        symbol [ cos %tmp.20 42 34 37 ];
+        %tmp.20 = getv function %tmp.19 :cos;
+        %tmp.21 = lgetv %windAngleRad.2;
+        symbol [ windAngleRad %tmp.21 42 38 50 ];
+        %tmp.22 = invoke %tmp.19 %tmp.20(%tmp.21);
+        %tmp.23 = mul %tmp.18 %tmp.22;
+        lputv %rawVMG.3 %tmp.23;
+        symbol [ rawVMG %rawVMG.3 42 12 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_22_43_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_43_15_47_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 45 12 ]
+        symbol [ Math %tmp.24 45 27 31 ];
+        %tmp.24 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.25 45 32 41 ];
+        %tmp.25 = getv function %tmp.24 :toRadians;
+        %tmp.26 = 180;
+        %tmp.27 = lgetv %absWindAngle.1;
+        symbol [ absWindAngle %tmp.27 45 48 60 ];
+        %tmp.28 = sub %tmp.26 %tmp.27;
+        %tmp.29 = invoke %tmp.24 %tmp.25(%tmp.28);
+        lputv %windAngleRad.2 %tmp.29;
+        symbol [ windAngleRad %windAngleRad.2 45 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 46 12 ]
+        %tmp.30 = lgetv %speed;
+        symbol [ speed %tmp.30 46 21 26 ];
+        symbol [ Math %tmp.31 46 29 33 ];
+        %tmp.31 = getm $.Toybox.Math;
+        symbol [ cos %tmp.32 46 34 37 ];
+        %tmp.32 = getv function %tmp.31 :cos;
+        %tmp.33 = lgetv %windAngleRad.2;
+        symbol [ windAngleRad %tmp.33 46 38 50 ];
+        %tmp.34 = invoke %tmp.31 %tmp.32(%tmp.33);
+        %tmp.35 = mul %tmp.30 %tmp.34;
+        lputv %rawVMG.3 %tmp.35;
+        symbol [ rawVMG %rawVMG.3 46 12 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_43_15_47_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_39_8_47_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 50 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_8_52_8_if_stmt:
+        %tmp.36 = lgetv %rawVMG.3;
+        symbol [ rawVMG %tmp.36 50 12 18 ];
+        %tmp.37 = 0;
+        %tmp.38 = lt %tmp.36 %tmp.37;
+        bf %tmp.38 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_8_52_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_8_52_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_24_52_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 51 12 ]
+        %tmp.39 = lgetv %rawVMG.3;
+        symbol [ rawVMG %tmp.39 51 22 28 ];
+        %tmp.40 = sub 0 %tmp.39;
+        lputv %rawVMG.3 %tmp.40;
+        symbol [ rawVMG %rawVMG.3 51 12 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_24_52_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_8_52_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_50_8_52_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 55 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_stmt:
+        symbol [ mCurrentVMG %tmp.42 55 12 23 ];
+        %tmp.42 = getv ? :mCurrentVMG;
+        %tmp.43 = 0;
+        %tmp.44 = gt %tmp.42 %tmp.43;
+        bf %tmp.44 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_29_57_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 56 12 ]
+        symbol [ mCurrentVMG %tmp.46 56 27 38 ];
+        %tmp.46 = getv ? :mCurrentVMG;
+        %tmp.47 = 1.0;
+        symbol [ VMG_SMOOTHING_FACTOR %tmp.49 56 48 68 ];
+        %tmp.49 = getv ? :VMG_SMOOTHING_FACTOR;
+        %tmp.50 = sub %tmp.47 %tmp.49;
+        %tmp.51 = mul %tmp.46 %tmp.50;
+        %tmp.52 = lgetv %rawVMG.3;
+        symbol [ rawVMG %tmp.52 56 74 80 ];
+        symbol [ VMG_SMOOTHING_FACTOR %tmp.54 56 83 103 ];
+        %tmp.54 = getv ? :VMG_SMOOTHING_FACTOR;
+        %tmp.55 = mul %tmp.52 %tmp.54;
+        %tmp.56 = add %tmp.51 %tmp.55;
+        symbol [ mCurrentVMG ? 56 12 23 ];
+        putv self :mCurrentVMG %tmp.56;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_29_57_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_57_15_59_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 58 12 ]
+        %tmp.57 = lgetv %rawVMG.3;
+        symbol [ rawVMG %tmp.57 58 26 32 ];
+        symbol [ mCurrentVMG ? 58 12 23 ];
+        putv self :mCurrentVMG %tmp.57;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_57_15_59_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_55_8_59_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 61 4 ]
+        %tmp.58 = self;
+        symbol [ log %tmp.59 61 4 7 ];
+        %tmp.59 = getv function %tmp.58 :log;
+        %tmp.60 = "VMG Calculation - Wind: ";
+        symbol [ mParent %tmp.62 61 37 44 ];
+        %tmp.62 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.63 61 45 61 ];
+        %tmp.63 = getv function %tmp.62 :getWindDirection;
+        %tmp.64 = invoke %tmp.62 %tmp.63();
+        %tmp.65 = add %tmp.60 %tmp.64;
+        %tmp.66 = "°, COG: ";
+        %tmp.67 = add %tmp.65 %tmp.66;
+        %tmp.68 = lgetv %heading;
+        symbol [ heading %tmp.68 62 21 28 ];
+        %tmp.69 = add %tmp.67 %tmp.68;
+        %tmp.70 = "°, WindAngle: ";
+        %tmp.71 = add %tmp.69 %tmp.70;
+        %tmp.72 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.72 63 27 43 ];
+        %tmp.73 = add %tmp.71 %tmp.72;
+        %tmp.74 = "°, VMG: ";
+        %tmp.75 = add %tmp.73 %tmp.74;
+        symbol [ mCurrentVMG %tmp.77 64 21 32 ];
+        %tmp.77 = getv ? :mCurrentVMG;
+        symbol [ format %tmp.78 64 33 39 ];
+        %tmp.78 = getv function %tmp.77 :format;
+        %tmp.79 = "%.2f";
+        %tmp.80 = invoke %tmp.77 %tmp.78(%tmp.79);
+        %tmp.81 = add %tmp.75 %tmp.80;
+        %tmp.82 = " kts";
+        %tmp.83 = add %tmp.81 %tmp.82;
+        invoke %tmp.58 %tmp.59(%tmp.83);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 66 8 ]
+        symbol [ mCurrentVMG %tmp.85 66 15 26 ];
+        %tmp.85 = getv ? :mCurrentVMG;
+        ret %tmp.85;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_26_70_67_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 70; @symbol_functiondef = [getCurrentVMG,70,13,26]; ]
+    function getCurrentVMG() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_70_29_72_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 71 8 ]
+        symbol [ mCurrentVMG %tmp.2 71 15 26 ];
+        %tmp.2 = getv ? :mCurrentVMG;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_70_29_72_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 75; @symbol_functiondef = [getData,75,13,20]; ]
+    function getData() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_75_23_79_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc" 76 8 ]
+        %tmp.1 = newd 1;
+        %tmp.2 = "currentVMG";
+        symbol [ mCurrentVMG %tmp.4 77 28 39 ];
+        %tmp.4 = getv ? :mCurrentVMG;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.2 %tmp.4;
+        ret %tmp.6;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_VMGCalculator_mc_75_23_79_4_stop:
+    }
+}
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\VMGCalculator.mc"; @line = 2; ]
+<init> {
+}

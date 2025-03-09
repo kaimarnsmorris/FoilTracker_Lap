@@ -1,0 +1,2079 @@
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Time,2,13,17]; ]
+using Toybox.Time;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 5; @symbol_classdef = [ManeuverDetector,5,6,22]; ]
+class ManeuverDetector {
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 7; @position = 18; @symbol_constdef = [MAN_ANGLE_TIME_MEASURE,7,18,40]; ]
+    private
+    const MAN_ANGLE_TIME_MEASURE = 10;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 8; @position = 18; @symbol_constdef = [MAN_ANGLE_TIME_IGNORE,8,18,39]; ]
+    private
+    const MAN_ANGLE_TIME_IGNORE = 2;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 11; @position = 16; @symbol_vardef = [mParent,11,16,23]; ]
+    private
+    var mParent;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 12; @position = 16; @symbol_vardef = [mTackCount,12,16,26]; ]
+    private
+    var mTackCount;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 13; @position = 16; @symbol_vardef = [mGybeCount,13,16,26]; ]
+    private
+    var mGybeCount;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 14; @position = 16; @symbol_vardef = [mLastTackAngle,14,16,30]; ]
+    private
+    var mLastTackAngle;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 15; @position = 16; @symbol_vardef = [mLastGybeAngle,15,16,30]; ]
+    private
+    var mLastGybeAngle;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 16; @position = 16; @symbol_vardef = [mLastTackHeadings,16,16,33]; ]
+    private
+    var mLastTackHeadings;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 17; @position = 16; @symbol_vardef = [mLastGybeHeadings,17,16,33]; ]
+    private
+    var mLastGybeHeadings;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 18; @position = 16; @symbol_vardef = [mManeuverHistory,18,16,32]; ]
+    private
+    var mManeuverHistory;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 19; @position = 16; @symbol_vardef = [mManeuverStats,19,16,30]; ]
+    private
+    var mManeuverStats;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 20; @position = 16; @symbol_vardef = [mManeuverTimestamp,20,16,34]; ]
+    private
+    var mManeuverTimestamp;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 21; @position = 16; @symbol_vardef = [mPendingManeuver,21,16,32]; ]
+    private
+    var mPendingManeuver;
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 24; @symbol_functiondef = [initialize,24,13,23]; @symbol_param<0> = [parent,24,24,30]; ]
+    function initialize(parent) as Void {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_24_32_27_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 25 8 ]
+        %tmp.1 = lgetv %parent;
+        symbol [ parent %tmp.1 25 18 24 ];
+        symbol [ mParent ? 25 8 15 ];
+        putv self :mParent %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 26 8 ]
+        %tmp.2 = self;
+        symbol [ reset %tmp.3 26 8 13 ];
+        %tmp.3 = getv function %tmp.2 :reset;
+        invoke %tmp.2 %tmp.3();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_24_32_27_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 30; @symbol_functiondef = [reset,30,13,18]; ]
+    function reset() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_30_21_47_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 31 8 ]
+        %tmp.1 = self;
+        symbol [ resetManeuverCounts %tmp.2 31 8 27 ];
+        %tmp.2 = getv function %tmp.1 :resetManeuverCounts;
+        invoke %tmp.1 %tmp.2();
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 34 8 ]
+        symbol [ mParent %tmp.5 34 32 39 ];
+        %tmp.5 = getv ? :mParent;
+        symbol [ MAX_MANEUVERS %tmp.6 34 40 53 ];
+        %tmp.6 = getv %tmp.5 :MAX_MANEUVERS;
+        %tmp.3 = newa %tmp.6;
+        symbol [ mManeuverHistory ? 34 8 24 ];
+        putv self :mManeuverHistory %tmp.3;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 36 8 ]
+        %tmp.7 = newd 4;
+        %tmp.8 = "avgTackAngle";
+        %tmp.9 = 0;
+        %tmp.10 = dup %tmp.7;
+        %tmp.11 = aputv %tmp.10 %tmp.8 %tmp.9;
+        %tmp.12 = "avgGybeAngle";
+        %tmp.13 = 0;
+        %tmp.14 = dup %tmp.11;
+        %tmp.15 = aputv %tmp.14 %tmp.12 %tmp.13;
+        %tmp.16 = "maxTackAngle";
+        %tmp.17 = 0;
+        %tmp.18 = dup %tmp.15;
+        %tmp.19 = aputv %tmp.18 %tmp.16 %tmp.17;
+        %tmp.20 = "maxGybeAngle";
+        %tmp.21 = 0;
+        %tmp.22 = dup %tmp.19;
+        %tmp.23 = aputv %tmp.22 %tmp.20 %tmp.21;
+        symbol [ mManeuverStats ? 36 8 22 ];
+        putv self :mManeuverStats %tmp.23;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 43 8 ]
+        %tmp.24 = 0;
+        symbol [ mManeuverTimestamp ? 43 8 26 ];
+        putv self :mManeuverTimestamp %tmp.24;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 44 8 ]
+        %tmp.25 = null;
+        symbol [ mPendingManeuver ? 44 8 24 ];
+        putv self :mPendingManeuver %tmp.25;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 46 8 ]
+        %tmp.26 = self;
+        symbol [ log %tmp.27 46 8 11 ];
+        %tmp.27 = getv function %tmp.26 :log;
+        %tmp.28 = "ManeuverDetector reset";
+        invoke %tmp.26 %tmp.27(%tmp.28);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_30_21_47_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 50; @symbol_functiondef = [resetManeuverCounts,50,13,32]; ]
+    function resetManeuverCounts() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_50_35_59_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 51 8 ]
+        %tmp.1 = 0;
+        symbol [ mTackCount ? 51 8 18 ];
+        putv self :mTackCount %tmp.1;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 52 8 ]
+        %tmp.2 = 0;
+        symbol [ mGybeCount ? 52 8 18 ];
+        putv self :mGybeCount %tmp.2;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 53 8 ]
+        %tmp.3 = 0;
+        symbol [ mLastTackAngle ? 53 8 22 ];
+        putv self :mLastTackAngle %tmp.3;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 54 8 ]
+        %tmp.4 = 0;
+        symbol [ mLastGybeAngle ? 54 8 22 ];
+        putv self :mLastGybeAngle %tmp.4;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 55 8 ]
+        %tmp.5 = newa 2;
+        %tmp.6 = 0;
+        %tmp.7 = dup %tmp.5;
+        %tmp.8 = aputv %tmp.7 0 %tmp.6;
+        %tmp.9 = 0;
+        %tmp.10 = dup %tmp.8;
+        %tmp.11 = aputv %tmp.10 1 %tmp.9;
+        symbol [ mLastTackHeadings ? 55 8 25 ];
+        putv self :mLastTackHeadings %tmp.11;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 56 8 ]
+        %tmp.12 = newa 2;
+        %tmp.13 = 0;
+        %tmp.14 = dup %tmp.12;
+        %tmp.15 = aputv %tmp.14 0 %tmp.13;
+        %tmp.16 = 0;
+        %tmp.17 = dup %tmp.15;
+        %tmp.18 = aputv %tmp.17 1 %tmp.16;
+        symbol [ mLastGybeHeadings ? 56 8 25 ];
+        putv self :mLastGybeHeadings %tmp.18;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 58 8 ]
+        %tmp.19 = self;
+        symbol [ log %tmp.20 58 8 11 ];
+        %tmp.20 = getv function %tmp.19 :log;
+        %tmp.21 = "ManeuverDetector counters reset";
+        invoke %tmp.19 %tmp.20(%tmp.21);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_50_35_59_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 62; @symbol_functiondef = [detectManeuver,62,13,27]; @symbol_param<0> = [heading,62,28,35]; @symbol_param<1> = [speed,62,37,42]; @symbol_param<2> = [currentTime,62,44,55]; @symbol_param<3> = [isStbdTack,62,57,67]; @symbol_param<4> = [isUpwind,62,69,77]; @symbol_param<5> = [windAngleLessCOG,62,79,95]; ]
+    function detectManeuver(heading, speed, currentTime, isStbdTack, isUpwind, windAngleLessCOG) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 64 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        %speedThreshold.1 = local;
+        symbol [ speedThreshold %speedThreshold.1 64 12 26 ];
+        %tmp.1 = 2.0;
+        lputv %speedThreshold.1 %tmp.1;
+        symbol [ speedThreshold %speedThreshold.1 64 12 26 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 67 8 ]
+        try @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_beginTry @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_endTry @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_catch @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_beginTry:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_12_78_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 68 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_12_78_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_12_78_8_stop" ]
+        %app.2 = local;
+        symbol [ app %app.2 68 16 19 ];
+        symbol [ Application %tmp.3 68 22 33 ];
+        %tmp.3 = getv ? :Application;
+        symbol [ getApp %tmp.4 68 34 40 ];
+        %tmp.4 = getv function %tmp.3 :getApp;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        lputv %app.2 %tmp.5;
+        symbol [ app %app.2 68 16 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 69 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_16_69_64_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_16_69_40_begin:
+        %tmp.6 = lgetv %app.2;
+        symbol [ app %tmp.6 69 16 19 ];
+        %tmp.7 = null;
+        %tmp.8 = ne %tmp.6 %tmp.7;
+        bf %tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_31_69_40_true:
+        %tmp.9 = lgetv %app.2;
+        symbol [ app %tmp.9 69 31 34 ];
+        %tmp.10 = as %tmp.9 { (!Null) };
+        %tmp.12 = const :mModel;
+        symbol [ mModel %tmp.12 69 40 46 const ];
+        %tmp.13 = canhazplz %tmp.10 %tmp.12;
+        push %tmp.13;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_31_69_40_end:
+        %tmp.14 = phi [%tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_16_69_40_begin] [%tmp.13 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_31_69_40_true] [%tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_31_69_40_end];
+        bf %tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_50_69_64_true:
+        %tmp.15 = lgetv %app.2;
+        symbol [ app %tmp.15 69 50 53 ];
+        %tmp.16 = as %tmp.15 { (interface { var mModel; }) && (!Null) };
+        symbol [ mModel %tmp.17 69 54 60 ];
+        %tmp.17 = getv %tmp.16 :mModel;
+        %tmp.18 = null;
+        %tmp.19 = ne %tmp.17 %tmp.18;
+        push %tmp.19;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_50_69_64_end:
+        %tmp.20 = phi [%tmp.14 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_16_69_64_begin] [%tmp.19 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_50_69_64_true] [%tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_50_69_64_end];
+        bf %tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_70_77_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 70 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_70_77_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_70_77_12_stop" ]
+        %data.3 = local;
+        symbol [ data %data.3 70 20 24 ];
+        %tmp.21 = lgetv %app.2;
+        symbol [ app %tmp.21 70 27 30 ];
+        %tmp.22 = as %tmp.21 { (interface { var mModel; }) && (!Null) };
+        symbol [ mModel %tmp.23 70 31 37 ];
+        %tmp.23 = getv %tmp.22 :mModel;
+        symbol [ getData %tmp.24 70 38 45 ];
+        %tmp.24 = getv function %tmp.23 :getData;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        lputv %data.3 %tmp.25;
+        symbol [ data %data.3 70 20 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 71 16 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_20_71_58_begin:
+        %tmp.26 = lgetv %data.3;
+        symbol [ data %tmp.26 71 20 24 ];
+        %tmp.27 = null;
+        %tmp.28 = ne %tmp.26 %tmp.27;
+        bf %tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_36_71_58_true:
+        %tmp.29 = lgetv %data.3;
+        symbol [ data %tmp.29 71 36 40 ];
+        %tmp.30 = as %tmp.29 { (!Null) };
+        symbol [ hasKey %tmp.31 71 41 47 ];
+        %tmp.31 = getv function %tmp.30 :hasKey;
+        %tmp.32 = "settings";
+        %tmp.33 = invoke %tmp.30 %tmp.31(%tmp.32);
+        push %tmp.33;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_36_71_58_end:
+        %tmp.34 = phi [%tmp.28 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_20_71_58_begin] [%tmp.33 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_36_71_58_true] [%tmp.34 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_36_71_58_end];
+        bf %tmp.34 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_61_76_16_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 72 20 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_61_76_16_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_61_76_16_stop" ]
+        %settings.4 = local;
+        symbol [ settings %settings.4 72 24 32 ];
+        %tmp.35 = lgetv %data.3;
+        symbol [ data %tmp.35 72 35 39 ];
+        %tmp.36 = as %tmp.35 { (!Null) };
+        %tmp.37 = "settings";
+        %tmp.38 = agetv %tmp.36 %tmp.37;
+        lputv %settings.4 %tmp.38;
+        symbol [ settings %settings.4 72 24 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 73 20 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_24_73_78_begin:
+        %tmp.39 = lgetv %settings.4;
+        symbol [ settings %tmp.39 73 24 32 ];
+        %tmp.40 = null;
+        %tmp.41 = ne %tmp.39 %tmp.40;
+        bf %tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_44_73_78_true:
+        %tmp.42 = lgetv %settings.4;
+        symbol [ settings %tmp.42 73 44 52 ];
+        %tmp.43 = as %tmp.42 { (!Null) };
+        symbol [ hasKey %tmp.44 73 53 59 ];
+        %tmp.44 = getv function %tmp.43 :hasKey;
+        %tmp.45 = "foilingThreshold";
+        %tmp.46 = invoke %tmp.43 %tmp.44(%tmp.45);
+        push %tmp.46;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_44_73_78_end:
+        %tmp.47 = phi [%tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_24_73_78_begin] [%tmp.46 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_44_73_78_true] [%tmp.47 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_44_73_78_end];
+        bf %tmp.47 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_81_75_20_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 74 24 ]
+        %tmp.48 = lgetv %settings.4;
+        symbol [ settings %tmp.48 74 41 49 ];
+        %tmp.49 = as %tmp.48 { (!Null) };
+        %tmp.50 = "foilingThreshold";
+        %tmp.51 = agetv %tmp.49 %tmp.50;
+        lputv %speedThreshold.1 %tmp.51;
+        symbol [ speedThreshold %speedThreshold.1 74 24 38 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_81_75_20_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_73_20_75_20_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_61_76_16_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_71_16_76_16_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_70_77_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_69_12_77_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_12_78_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_endTry:
+        jsr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_catch:
+        %tmp.52 = exception;
+        push %tmp.52;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 78 10 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_catch" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_10_80_8_end" ]
+        %e.5 = local;
+        symbol [ e %e.5 78 17 18 ];
+        %tmp.53 = dup %tmp.52;
+        lputv %e.5 %tmp.53;
+        symbol [ e %e.5 78 17 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_20_80_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 79 12 ]
+        %tmp.54 = self;
+        symbol [ log %tmp.55 79 12 15 ];
+        %tmp.55 = getv function %tmp.54 :log;
+        %tmp.56 = "Error getting speed threshold: ";
+        %tmp.57 = lgetv %e.5;
+        symbol [ e %tmp.57 79 52 53 ];
+        symbol [ getErrorMessage %tmp.58 79 54 69 ];
+        %tmp.58 = getv function %tmp.57 :getErrorMessage;
+        %tmp.59 = invoke %tmp.57 %tmp.58();
+        %tmp.60 = add %tmp.56 %tmp.59;
+        invoke %tmp.54 %tmp.55(%tmp.60);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_20_80_8_stop:
+        jsr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally;
+        pop;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_10_80_8_end:
+        try @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_catch @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_10_80_8_end @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_78_10_80_8_end @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally;
+        jsr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally;
+        throw %tmp.52;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_finally:
+        jsrret;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_67_8_80_8_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 83 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_stmt:
+        %tmp.61 = lgetv %speed;
+        symbol [ speed %tmp.61 83 12 17 ];
+        %tmp.62 = lgetv %speedThreshold.1;
+        symbol [ speedThreshold %tmp.62 83 20 34 ];
+        %tmp.63 = lt %tmp.61 %tmp.62;
+        bf %tmp.63 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_36_85_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 84 12 ]
+        %tmp.64 = false;
+        ret %tmp.64;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_36_85_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 87 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        %maneuverDetected.6 = local;
+        symbol [ maneuverDetected %maneuverDetected.6 87 12 28 ];
+        %tmp.65 = false;
+        lputv %maneuverDetected.6 %tmp.65;
+        symbol [ maneuverDetected %maneuverDetected.6 87 12 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 88 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        %isTack.7 = local;
+        symbol [ isTack %isTack.7 88 12 18 ];
+        %tmp.66 = false;
+        lputv %isTack.7 %tmp.66;
+        symbol [ isTack %isTack.7 88 12 18 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 89 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        %oldTack.8 = local;
+        symbol [ oldTack %oldTack.8 89 12 19 ];
+        %tmp.67 = lgetv %isStbdTack;
+        symbol [ isStbdTack %tmp.67 89 22 32 ];
+        lputv %oldTack.8 %tmp.67;
+        symbol [ oldTack %oldTack.8 89 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 92 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        %lastWindAngleLessCOG.9 = local;
+        symbol [ lastWindAngleLessCOG %lastWindAngleLessCOG.9 92 12 32 ];
+        symbol [ mParent %tmp.69 92 35 42 ];
+        %tmp.69 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.70 92 43 61 ];
+        %tmp.70 = getv function %tmp.69 :getAngleCalculator;
+        %tmp.71 = invoke %tmp.69 %tmp.70();
+        symbol [ getLastWindAngleLessCOG %tmp.72 92 64 87 ];
+        %tmp.72 = getv function %tmp.71 :getLastWindAngleLessCOG;
+        %tmp.73 = invoke %tmp.71 %tmp.72();
+        lputv %lastWindAngleLessCOG.9 %tmp.73;
+        symbol [ lastWindAngleLessCOG %lastWindAngleLessCOG.9 92 12 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 95 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_stmt:
+        %tmp.74 = lgetv %isStbdTack;
+        symbol [ isStbdTack %tmp.74 95 12 22 ];
+        bf %tmp.74 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_24_111_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 97 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_stmt:
+        %tmp.75 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.75 97 16 32 ];
+        symbol [ mParent %tmp.77 97 36 43 ];
+        %tmp.77 = getv ? :mParent;
+        symbol [ MANEUVER_THRESHOLD %tmp.78 97 44 62 ];
+        %tmp.78 = getv %tmp.77 :MANEUVER_THRESHOLD;
+        %tmp.79 = sub 0 %tmp.78;
+        %tmp.80 = lt %tmp.75 %tmp.79;
+        bf %tmp.80 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_64_103_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 99 16 ]
+        symbol [ mParent %tmp.82 99 16 23 ];
+        %tmp.82 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.83 99 24 42 ];
+        %tmp.83 = getv function %tmp.82 :getAngleCalculator;
+        %tmp.84 = invoke %tmp.82 %tmp.83();
+        symbol [ setStarboardTack %tmp.85 99 45 61 ];
+        %tmp.85 = getv function %tmp.84 :setStarboardTack;
+        %tmp.86 = false;
+        invoke %tmp.84 %tmp.85(%tmp.86);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 100 16 ]
+        %tmp.87 = true;
+        lputv %maneuverDetected.6 %tmp.87;
+        symbol [ maneuverDetected %maneuverDetected.6 100 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 101 16 ]
+        %tmp.88 = true;
+        lputv %isTack.7 %tmp.88;
+        symbol [ isTack %isTack.7 101 16 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 102 16 ]
+        %tmp.89 = self;
+        symbol [ log %tmp.90 102 16 19 ];
+        %tmp.90 = getv function %tmp.89 :log;
+        %tmp.91 = "Tack changed from Starboard to Port (WindAngle: ";
+        %tmp.92 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.92 102 73 89 ];
+        %tmp.93 = add %tmp.91 %tmp.92;
+        %tmp.94 = ")";
+        %tmp.95 = add %tmp.93 %tmp.94;
+        invoke %tmp.89 %tmp.90(%tmp.95);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_64_103_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 104 17 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_21_104_80_begin:
+        %tmp.96 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.96 104 21 37 ];
+        %tmp.97 = -180;
+        symbol [ mParent %tmp.99 104 48 55 ];
+        %tmp.99 = getv ? :mParent;
+        symbol [ MANEUVER_THRESHOLD %tmp.100 104 56 74 ];
+        %tmp.100 = getv %tmp.99 :MANEUVER_THRESHOLD;
+        %tmp.101 = add %tmp.97 %tmp.100;
+        %tmp.102 = lt %tmp.96 %tmp.101;
+        bf %tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_79_104_80_true:
+        %tmp.103 = lgetv %isUpwind;
+        symbol [ isUpwind %tmp.103 104 80 88 ];
+        %tmp.104 = not %tmp.103;
+        push %tmp.104;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_79_104_80_end:
+        %tmp.105 = phi [%tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_21_104_80_begin] [%tmp.104 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_79_104_80_true] [%tmp.105 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_79_104_80_end];
+        bf %tmp.105 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_90_110_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 106 16 ]
+        symbol [ mParent %tmp.107 106 16 23 ];
+        %tmp.107 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.108 106 24 42 ];
+        %tmp.108 = getv function %tmp.107 :getAngleCalculator;
+        %tmp.109 = invoke %tmp.107 %tmp.108();
+        symbol [ setStarboardTack %tmp.110 106 45 61 ];
+        %tmp.110 = getv function %tmp.109 :setStarboardTack;
+        %tmp.111 = false;
+        invoke %tmp.109 %tmp.110(%tmp.111);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 107 16 ]
+        %tmp.112 = true;
+        lputv %maneuverDetected.6 %tmp.112;
+        symbol [ maneuverDetected %maneuverDetected.6 107 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 108 16 ]
+        %tmp.113 = false;
+        lputv %isTack.7 %tmp.113;
+        symbol [ isTack %isTack.7 108 16 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 109 16 ]
+        %tmp.114 = self;
+        symbol [ log %tmp.115 109 16 19 ];
+        %tmp.115 = getv function %tmp.114 :log;
+        %tmp.116 = "Gybe detected from Starboard to Port (WindAngle: ";
+        %tmp.117 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.117 109 74 90 ];
+        %tmp.118 = add %tmp.116 %tmp.117;
+        %tmp.119 = ")";
+        %tmp.120 = add %tmp.118 %tmp.119;
+        invoke %tmp.114 %tmp.115(%tmp.120);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_90_110_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_104_17_110_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_97_12_110_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_24_111_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_111_15_127_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 113 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_stmt:
+        %tmp.121 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.121 113 16 32 ];
+        symbol [ mParent %tmp.123 113 35 42 ];
+        %tmp.123 = getv ? :mParent;
+        symbol [ MANEUVER_THRESHOLD %tmp.124 113 43 61 ];
+        %tmp.124 = getv %tmp.123 :MANEUVER_THRESHOLD;
+        %tmp.125 = gt %tmp.121 %tmp.124;
+        bf %tmp.125 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_63_119_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 115 16 ]
+        symbol [ mParent %tmp.127 115 16 23 ];
+        %tmp.127 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.128 115 24 42 ];
+        %tmp.128 = getv function %tmp.127 :getAngleCalculator;
+        %tmp.129 = invoke %tmp.127 %tmp.128();
+        symbol [ setStarboardTack %tmp.130 115 45 61 ];
+        %tmp.130 = getv function %tmp.129 :setStarboardTack;
+        %tmp.131 = true;
+        invoke %tmp.129 %tmp.130(%tmp.131);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 116 16 ]
+        %tmp.132 = true;
+        lputv %maneuverDetected.6 %tmp.132;
+        symbol [ maneuverDetected %maneuverDetected.6 116 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 117 16 ]
+        %tmp.133 = true;
+        lputv %isTack.7 %tmp.133;
+        symbol [ isTack %isTack.7 117 16 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 118 16 ]
+        %tmp.134 = self;
+        symbol [ log %tmp.135 118 16 19 ];
+        %tmp.135 = getv function %tmp.134 :log;
+        %tmp.136 = "Tack changed from Port to Starboard (WindAngle: ";
+        %tmp.137 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.137 118 73 89 ];
+        %tmp.138 = add %tmp.136 %tmp.137;
+        %tmp.139 = ")";
+        %tmp.140 = add %tmp.138 %tmp.139;
+        invoke %tmp.134 %tmp.135(%tmp.140);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_63_119_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 120 17 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_21_120_79_begin:
+        %tmp.141 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.141 120 21 37 ];
+        %tmp.142 = 180;
+        symbol [ mParent %tmp.144 120 47 54 ];
+        %tmp.144 = getv ? :mParent;
+        symbol [ MANEUVER_THRESHOLD %tmp.145 120 55 73 ];
+        %tmp.145 = getv %tmp.144 :MANEUVER_THRESHOLD;
+        %tmp.146 = sub %tmp.142 %tmp.145;
+        %tmp.147 = gt %tmp.141 %tmp.146;
+        bf %tmp.147 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_78_120_79_true:
+        %tmp.148 = lgetv %isUpwind;
+        symbol [ isUpwind %tmp.148 120 79 87 ];
+        %tmp.149 = not %tmp.148;
+        push %tmp.149;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_78_120_79_end:
+        %tmp.150 = phi [%tmp.147 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_21_120_79_begin] [%tmp.149 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_78_120_79_true] [%tmp.150 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_78_120_79_end];
+        bf %tmp.150 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_89_126_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 122 16 ]
+        symbol [ mParent %tmp.152 122 16 23 ];
+        %tmp.152 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.153 122 24 42 ];
+        %tmp.153 = getv function %tmp.152 :getAngleCalculator;
+        %tmp.154 = invoke %tmp.152 %tmp.153();
+        symbol [ setStarboardTack %tmp.155 122 45 61 ];
+        %tmp.155 = getv function %tmp.154 :setStarboardTack;
+        %tmp.156 = true;
+        invoke %tmp.154 %tmp.155(%tmp.156);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 123 16 ]
+        %tmp.157 = true;
+        lputv %maneuverDetected.6 %tmp.157;
+        symbol [ maneuverDetected %maneuverDetected.6 123 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 124 16 ]
+        %tmp.158 = false;
+        lputv %isTack.7 %tmp.158;
+        symbol [ isTack %isTack.7 124 16 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 125 16 ]
+        %tmp.159 = self;
+        symbol [ log %tmp.160 125 16 19 ];
+        %tmp.160 = getv function %tmp.159 :log;
+        %tmp.161 = "Gybe detected from Port to Starboard (WindAngle: ";
+        %tmp.162 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.162 125 74 90 ];
+        %tmp.163 = add %tmp.161 %tmp.162;
+        %tmp.164 = ")";
+        %tmp.165 = add %tmp.163 %tmp.164;
+        invoke %tmp.159 %tmp.160(%tmp.165);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_89_126_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_120_17_126_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_113_12_126_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_111_15_127_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 130 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_stmt:
+        %tmp.166 = lgetv %maneuverDetected.6;
+        symbol [ maneuverDetected %tmp.166 130 12 28 ];
+        bf %tmp.166 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 132 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_stop" ]
+        %lastUpwind.10 = local;
+        symbol [ lastUpwind %lastUpwind.10 132 16 26 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_30_132_83_begin:
+        %tmp.167 = lgetv %lastWindAngleLessCOG.9;
+        symbol [ lastWindAngleLessCOG %tmp.167 132 30 50 ];
+        %tmp.168 = -90;
+        %tmp.169 = gt %tmp.167 %tmp.168;
+        %tmp.170 = dup %tmp.169;
+        bf %tmp.170 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_60_132_83_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_60_132_83_true:
+        %tmp.171 = lgetv %lastWindAngleLessCOG.9;
+        symbol [ lastWindAngleLessCOG %tmp.171 132 60 80 ];
+        %tmp.172 = 90;
+        %tmp.173 = lt %tmp.171 %tmp.172;
+        %tmp.174 = and %tmp.169 %tmp.173;
+        push %tmp.174;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_60_132_83_end:
+        %tmp.175 = phi [%tmp.170 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_30_132_83_begin] [%tmp.174 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_60_132_83_true] [%tmp.175 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_132_60_132_83_end];
+        lputv %lastUpwind.10 %tmp.175;
+        symbol [ lastUpwind %lastUpwind.10 132 16 26 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 135 12 ]
+        %tmp.176 = lgetv %lastUpwind.10;
+        symbol [ lastUpwind %tmp.176 135 21 31 ];
+        lputv %isTack.7 %tmp.176;
+        symbol [ isTack %isTack.7 135 12 18 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 137 12 ]
+        %tmp.177 = self;
+        symbol [ log %tmp.178 137 12 15 ];
+        %tmp.178 = getv function %tmp.177 :log;
+        %tmp.179 = "Maneuver classified as ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_begin:
+        %tmp.180 = lgetv %isTack.7;
+        symbol [ isTack %tmp.180 137 45 51 ];
+        bf %tmp.180 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_true:
+        %tmp.181 = "Tack";
+        push %tmp.181;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_false:
+        %tmp.182 = "Gybe";
+        push %tmp.182;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_end:
+        %tmp.183 = phi [%tmp.180 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_begin] [%tmp.181 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_true] [%tmp.182 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_false] [%tmp.183 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_137_45_137_63_end];
+        %tmp.184 = add %tmp.179 %tmp.183;
+        %tmp.185 = " (was ";
+        %tmp.186 = add %tmp.184 %tmp.185;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_begin:
+        %tmp.187 = lgetv %lastUpwind.10;
+        symbol [ lastUpwind %tmp.187 138 28 38 ];
+        bf %tmp.187 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_true:
+        %tmp.188 = "upwind";
+        push %tmp.188;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_false:
+        %tmp.189 = "downwind";
+        push %tmp.189;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_end:
+        %tmp.190 = phi [%tmp.187 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_begin] [%tmp.188 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_true] [%tmp.189 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_false] [%tmp.190 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_138_28_138_52_end];
+        %tmp.191 = add %tmp.186 %tmp.190;
+        %tmp.192 = ", angle: ";
+        %tmp.193 = add %tmp.191 %tmp.192;
+        %tmp.194 = lgetv %lastWindAngleLessCOG.9;
+        symbol [ lastWindAngleLessCOG %tmp.194 139 30 50 ];
+        %tmp.195 = add %tmp.193 %tmp.194;
+        %tmp.196 = ")";
+        %tmp.197 = add %tmp.195 %tmp.196;
+        invoke %tmp.177 %tmp.178(%tmp.197);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 142 12 ]
+        %tmp.198 = newd 5;
+        %tmp.199 = "isTack";
+        %tmp.200 = lgetv %isTack.7;
+        symbol [ isTack %tmp.200 143 28 34 ];
+        %tmp.201 = dup %tmp.198;
+        %tmp.202 = aputv %tmp.201 %tmp.199 %tmp.200;
+        %tmp.203 = "timestamp";
+        %tmp.204 = lgetv %currentTime;
+        symbol [ currentTime %tmp.204 144 31 42 ];
+        %tmp.205 = dup %tmp.202;
+        %tmp.206 = aputv %tmp.205 %tmp.203 %tmp.204;
+        %tmp.207 = "lastWindAngle";
+        %tmp.208 = lgetv %lastWindAngleLessCOG.9;
+        symbol [ lastWindAngleLessCOG %tmp.208 145 35 55 ];
+        %tmp.209 = dup %tmp.206;
+        %tmp.210 = aputv %tmp.209 %tmp.207 %tmp.208;
+        %tmp.211 = "oldTack";
+        %tmp.212 = lgetv %oldTack.8;
+        symbol [ oldTack %tmp.212 146 29 36 ];
+        %tmp.213 = dup %tmp.210;
+        %tmp.214 = aputv %tmp.213 %tmp.211 %tmp.212;
+        %tmp.215 = "newTack";
+        %tmp.216 = lgetv %oldTack.8;
+        symbol [ oldTack %tmp.216 147 30 37 ];
+        %tmp.217 = not %tmp.216;
+        %tmp.218 = dup %tmp.214;
+        %tmp.219 = aputv %tmp.218 %tmp.215 %tmp.217;
+        symbol [ mPendingManeuver ? 142 12 28 ];
+        putv self :mPendingManeuver %tmp.219;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 151 12 ]
+        %tmp.220 = lgetv %currentTime;
+        symbol [ currentTime %tmp.220 151 33 44 ];
+        symbol [ mManeuverTimestamp ? 151 12 30 ];
+        putv self :mManeuverTimestamp %tmp.220;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 153 12 ]
+        %tmp.221 = self;
+        symbol [ log %tmp.222 153 12 15 ];
+        %tmp.222 = getv function %tmp.221 :log;
+        %tmp.223 = "Maneuver detected! Type: ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_begin:
+        %tmp.224 = lgetv %isTack.7;
+        symbol [ isTack %tmp.224 153 47 53 ];
+        bf %tmp.224 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_true:
+        %tmp.225 = "Tack";
+        push %tmp.225;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false:
+        %tmp.226 = "Gybe";
+        push %tmp.226;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end:
+        %tmp.227 = phi [%tmp.224 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_begin] [%tmp.225 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_true] [%tmp.226 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false] [%tmp.227 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end];
+        %tmp.228 = add %tmp.223 %tmp.227;
+        %tmp.229 = ", Timestamp: ";
+        %tmp.230 = add %tmp.228 %tmp.229;
+        %tmp.231 = lgetv %currentTime;
+        symbol [ currentTime %tmp.231 154 34 45 ];
+        %tmp.232 = add %tmp.230 %tmp.231;
+        invoke %tmp.221 %tmp.222(%tmp.232);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 156 12 ]
+        %tmp.233 = true;
+        ret %tmp.233;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 159 8 ]
+        %tmp.234 = false;
+        ret %tmp.234;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 163; @symbol_functiondef = [checkPendingManeuvers,163,13,34]; @symbol_param<0> = [currentTime,163,35,46]; ]
+    function checkPendingManeuvers(currentTime) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 165 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_12_165_62_begin:
+        symbol [ mPendingManeuver %tmp.2 165 12 28 ];
+        %tmp.2 = getv ? :mPendingManeuver;
+        %tmp.3 = null;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bt %tmp.4 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_true;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_false:
+        symbol [ mManeuverTimestamp %tmp.6 165 40 58 ];
+        %tmp.6 = getv ? :mManeuverTimestamp;
+        %tmp.7 = 0;
+        %tmp.8 = eq %tmp.6 %tmp.7;
+        push %tmp.8;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_end:
+        %tmp.9 = phi [%tmp.4 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_12_165_62_begin] [%tmp.8 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_false] [%tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_end];
+        bf %tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_65_167_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 166 12 ]
+        ret ?;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_65_167_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 170 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_stop" ]
+        %timeSinceManeuver.1 = local;
+        symbol [ timeSinceManeuver %timeSinceManeuver.1 170 12 29 ];
+        %tmp.10 = lgetv %currentTime;
+        symbol [ currentTime %tmp.10 170 32 43 ];
+        symbol [ mManeuverTimestamp %tmp.12 170 46 64 ];
+        %tmp.12 = getv ? :mManeuverTimestamp;
+        %tmp.13 = sub %tmp.10 %tmp.12;
+        lputv %timeSinceManeuver.1 %tmp.13;
+        symbol [ timeSinceManeuver %timeSinceManeuver.1 170 12 29 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 173 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_stmt:
+        %tmp.14 = lgetv %timeSinceManeuver.1;
+        symbol [ timeSinceManeuver %tmp.14 173 12 29 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.16 173 33 55 ];
+        %tmp.16 = getv ? :MAN_ANGLE_TIME_MEASURE;
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.18 173 58 79 ];
+        %tmp.18 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.19 = add %tmp.16 %tmp.18;
+        %tmp.20 = 1000;
+        %tmp.21 = mul %tmp.19 %tmp.20;
+        %tmp.22 = lt %tmp.14 %tmp.21;
+        bf %tmp.22 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_89_175_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 174 12 ]
+        ret ?;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_89_175_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 178 8 ]
+        %tmp.23 = self;
+        symbol [ calculateManeuverAngle %tmp.24 178 8 30 ];
+        %tmp.24 = getv function %tmp.23 :calculateManeuverAngle;
+        symbol [ mPendingManeuver %tmp.26 178 31 47 ];
+        %tmp.26 = getv ? :mPendingManeuver;
+        invoke %tmp.23 %tmp.24(%tmp.26);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 181 8 ]
+        %tmp.27 = null;
+        symbol [ mPendingManeuver ? 181 8 24 ];
+        putv self :mPendingManeuver %tmp.27;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 185; @symbol_functiondef = [calculateManeuverAngle,185,13,35]; @symbol_param<0> = [pendingManeuver,185,36,51]; ]
+    function calculateManeuverAngle(pendingManeuver) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 186 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %maneuverTimestamp.1 = local;
+        symbol [ maneuverTimestamp %maneuverTimestamp.1 186 12 29 ];
+        %tmp.1 = lgetv %pendingManeuver;
+        symbol [ pendingManeuver %tmp.1 186 32 47 ];
+        %tmp.2 = "timestamp";
+        %tmp.3 = agetv %tmp.1 %tmp.2;
+        lputv %maneuverTimestamp.1 %tmp.3;
+        symbol [ maneuverTimestamp %maneuverTimestamp.1 186 12 29 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 187 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %isTack.2 = local;
+        symbol [ isTack %isTack.2 187 12 18 ];
+        %tmp.4 = lgetv %pendingManeuver;
+        symbol [ pendingManeuver %tmp.4 187 21 36 ];
+        %tmp.5 = "isTack";
+        %tmp.6 = agetv %tmp.4 %tmp.5;
+        lputv %isTack.2 %tmp.6;
+        symbol [ isTack %isTack.2 187 12 18 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 190 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %beforeStart.3 = local;
+        symbol [ beforeStart %beforeStart.3 190 12 23 ];
+        %tmp.7 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.7 190 26 43 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.9 190 47 69 ];
+        %tmp.9 = getv ? :MAN_ANGLE_TIME_MEASURE;
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.11 190 72 93 ];
+        %tmp.11 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.12 = add %tmp.9 %tmp.11;
+        %tmp.13 = 1000;
+        %tmp.14 = mul %tmp.12 %tmp.13;
+        %tmp.15 = sub %tmp.7 %tmp.14;
+        lputv %beforeStart.3 %tmp.15;
+        symbol [ beforeStart %beforeStart.3 190 12 23 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 191 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %beforeEnd.4 = local;
+        symbol [ beforeEnd %beforeEnd.4 191 12 21 ];
+        %tmp.16 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.16 191 24 41 ];
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.18 191 44 65 ];
+        %tmp.18 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.19 = 1000;
+        %tmp.20 = mul %tmp.18 %tmp.19;
+        %tmp.21 = sub %tmp.16 %tmp.20;
+        lputv %beforeEnd.4 %tmp.21;
+        symbol [ beforeEnd %beforeEnd.4 191 12 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 192 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %afterStart.5 = local;
+        symbol [ afterStart %afterStart.5 192 12 22 ];
+        %tmp.22 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.22 192 25 42 ];
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.24 192 45 66 ];
+        %tmp.24 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.25 = 1000;
+        %tmp.26 = mul %tmp.24 %tmp.25;
+        %tmp.27 = add %tmp.22 %tmp.26;
+        lputv %afterStart.5 %tmp.27;
+        symbol [ afterStart %afterStart.5 192 12 22 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 193 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %afterEnd.6 = local;
+        symbol [ afterEnd %afterEnd.6 193 12 20 ];
+        %tmp.28 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.28 193 23 40 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.30 193 44 66 ];
+        %tmp.30 = getv ? :MAN_ANGLE_TIME_MEASURE;
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.32 193 69 90 ];
+        %tmp.32 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.33 = add %tmp.30 %tmp.32;
+        %tmp.34 = 1000;
+        %tmp.35 = mul %tmp.33 %tmp.34;
+        %tmp.36 = add %tmp.28 %tmp.35;
+        lputv %afterEnd.6 %tmp.36;
+        symbol [ afterEnd %afterEnd.6 193 12 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 196 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %beforeHeading.7 = local;
+        symbol [ beforeHeading %beforeHeading.7 196 12 25 ];
+        symbol [ mParent %tmp.38 196 28 35 ];
+        %tmp.38 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.39 196 36 54 ];
+        %tmp.39 = getv function %tmp.38 :getAngleCalculator;
+        %tmp.40 = invoke %tmp.38 %tmp.39();
+        symbol [ calculateAverageHeading %tmp.41 196 57 80 ];
+        %tmp.41 = getv function %tmp.40 :calculateAverageHeading;
+        %tmp.42 = lgetv %beforeStart.3;
+        symbol [ beforeStart %tmp.42 196 81 92 ];
+        %tmp.43 = lgetv %beforeEnd.4;
+        symbol [ beforeEnd %tmp.43 196 94 103 ];
+        %tmp.44 = invoke %tmp.40 %tmp.41(%tmp.42, %tmp.43);
+        lputv %beforeHeading.7 %tmp.44;
+        symbol [ beforeHeading %beforeHeading.7 196 12 25 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 197 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %afterHeading.8 = local;
+        symbol [ afterHeading %afterHeading.8 197 12 24 ];
+        symbol [ mParent %tmp.46 197 27 34 ];
+        %tmp.46 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.47 197 35 53 ];
+        %tmp.47 = getv function %tmp.46 :getAngleCalculator;
+        %tmp.48 = invoke %tmp.46 %tmp.47();
+        symbol [ calculateAverageHeading %tmp.49 197 56 79 ];
+        %tmp.49 = getv function %tmp.48 :calculateAverageHeading;
+        %tmp.50 = lgetv %afterStart.5;
+        symbol [ afterStart %tmp.50 197 80 90 ];
+        %tmp.51 = lgetv %afterEnd.6;
+        symbol [ afterEnd %tmp.51 197 92 100 ];
+        %tmp.52 = invoke %tmp.48 %tmp.49(%tmp.50, %tmp.51);
+        lputv %afterHeading.8 %tmp.52;
+        symbol [ afterHeading %afterHeading.8 197 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 200 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_12_200_53_begin:
+        %tmp.53 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.53 200 12 25 ];
+        %tmp.54 = null;
+        %tmp.55 = eq %tmp.53 %tmp.54;
+        bt %tmp.55 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_true;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_37_200_53_false:
+        %tmp.56 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.56 200 37 49 ];
+        %tmp.57 = null;
+        %tmp.58 = eq %tmp.56 %tmp.57;
+        push %tmp.58;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_37_200_53_end:
+        %tmp.59 = phi [%tmp.55 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_12_200_53_begin] [%tmp.58 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_37_200_53_false] [%tmp.59 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_37_200_53_end];
+        bf %tmp.59 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_59_204_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 201 12 ]
+        %tmp.60 = self;
+        symbol [ log %tmp.61 201 12 15 ];
+        %tmp.61 = getv function %tmp.60 :log;
+        %tmp.62 = "Cannot calculate ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_begin:
+        %tmp.63 = lgetv %isTack.2;
+        symbol [ isTack %tmp.63 201 39 45 ];
+        bf %tmp.63 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_true:
+        %tmp.64 = "tack";
+        push %tmp.64;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_false:
+        %tmp.65 = "gybe";
+        push %tmp.65;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_end:
+        %tmp.66 = phi [%tmp.63 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_begin] [%tmp.64 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_true] [%tmp.65 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_false] [%tmp.66 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_201_39_201_57_end];
+        %tmp.67 = add %tmp.62 %tmp.66;
+        %tmp.68 = " angle - insufficient heading history data";
+        %tmp.69 = add %tmp.67 %tmp.68;
+        invoke %tmp.60 %tmp.61(%tmp.69);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 203 12 ]
+        ret ?;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_59_204_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_200_8_204_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 207 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop" ]
+        %maneuverAngle.9 = local;
+        symbol [ maneuverAngle %maneuverAngle.9 207 12 25 ];
+        symbol [ mParent %tmp.71 207 28 35 ];
+        %tmp.71 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.72 207 36 54 ];
+        %tmp.72 = getv function %tmp.71 :getAngleCalculator;
+        %tmp.73 = invoke %tmp.71 %tmp.72();
+        symbol [ angleAbsDifference %tmp.74 207 57 75 ];
+        %tmp.74 = getv function %tmp.73 :angleAbsDifference;
+        %tmp.75 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.75 207 76 89 ];
+        %tmp.76 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.76 207 91 103 ];
+        %tmp.77 = invoke %tmp.73 %tmp.74(%tmp.75, %tmp.76);
+        lputv %maneuverAngle.9 %tmp.77;
+        symbol [ maneuverAngle %maneuverAngle.9 207 12 25 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 209 8 ]
+        %tmp.78 = self;
+        symbol [ log %tmp.79 209 8 11 ];
+        %tmp.79 = getv function %tmp.78 :log;
+        %tmp.80 = "Maneuver Angle Calculation:";
+        invoke %tmp.78 %tmp.79(%tmp.80);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 210 8 ]
+        %tmp.81 = self;
+        symbol [ log %tmp.82 210 8 11 ];
+        %tmp.82 = getv function %tmp.81 :log;
+        %tmp.83 = "- Before heading: ";
+        %tmp.84 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.84 210 35 48 ];
+        %tmp.85 = add %tmp.83 %tmp.84;
+        invoke %tmp.81 %tmp.82(%tmp.85);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 211 8 ]
+        %tmp.86 = self;
+        symbol [ log %tmp.87 211 8 11 ];
+        %tmp.87 = getv function %tmp.86 :log;
+        %tmp.88 = "- After heading: ";
+        %tmp.89 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.89 211 34 46 ];
+        %tmp.90 = add %tmp.88 %tmp.89;
+        invoke %tmp.86 %tmp.87(%tmp.90);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 212 8 ]
+        %tmp.91 = self;
+        symbol [ log %tmp.92 212 8 11 ];
+        %tmp.92 = getv function %tmp.91 :log;
+        %tmp.93 = "- Calculated ";
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_begin:
+        %tmp.94 = lgetv %isTack.2;
+        symbol [ isTack %tmp.94 212 31 37 ];
+        bf %tmp.94 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_true:
+        %tmp.95 = "Tack";
+        push %tmp.95;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_false:
+        %tmp.96 = "Gybe";
+        push %tmp.96;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_end:
+        %tmp.97 = phi [%tmp.94 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_begin] [%tmp.95 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_true] [%tmp.96 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_false] [%tmp.97 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_212_31_212_49_end];
+        %tmp.98 = add %tmp.93 %tmp.97;
+        %tmp.99 = " angle: ";
+        %tmp.100 = add %tmp.98 %tmp.99;
+        %tmp.101 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.101 212 72 85 ];
+        %tmp.102 = add %tmp.100 %tmp.101;
+        invoke %tmp.91 %tmp.92(%tmp.102);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 215 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_stmt:
+        %tmp.103 = lgetv %isTack.2;
+        symbol [ isTack %tmp.103 215 12 18 ];
+        bf %tmp.103 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_20_230_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 217 12 ]
+        symbol [ mTackCount %tmp.104 217 12 22 ];
+        %tmp.104 = getv self :mTackCount;
+        %tmp.105 = 1;
+        %tmp.106 = add %tmp.104 %tmp.105;
+        symbol [ mTackCount ? 217 12 22 ];
+        putv self :mTackCount dup %tmp.106;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 220 12 ]
+        %tmp.107 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.107 220 29 42 ];
+        symbol [ mLastTackAngle ? 220 12 26 ];
+        putv self :mLastTackAngle %tmp.107;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 223 12 ]
+        symbol [ mLastTackHeadings %tmp.108 223 12 29 ];
+        %tmp.108 = getv self :mLastTackHeadings;
+        symbol [ mLastTackHeadings %tmp.110 223 35 52 ];
+        %tmp.110 = getv ? :mLastTackHeadings;
+        %tmp.111 = 1;
+        %tmp.112 = agetv %tmp.110 %tmp.111;
+        %tmp.113 = 0;
+        aputv %tmp.108 %tmp.113 %tmp.112;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 224 12 ]
+        symbol [ mLastTackHeadings %tmp.114 224 12 29 ];
+        %tmp.114 = getv self :mLastTackHeadings;
+        %tmp.115 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.115 224 35 47 ];
+        %tmp.116 = 1;
+        aputv %tmp.114 %tmp.116 %tmp.115;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 227 12 ]
+        %tmp.117 = self;
+        symbol [ recordManeuver %tmp.118 227 12 26 ];
+        %tmp.118 = getv function %tmp.117 :recordManeuver;
+        %tmp.119 = true;
+        %tmp.120 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.120 227 33 45 ];
+        %tmp.121 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.121 227 47 60 ];
+        invoke %tmp.117 %tmp.118(%tmp.119, %tmp.120, %tmp.121);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 229 12 ]
+        %tmp.122 = self;
+        symbol [ log %tmp.123 229 12 15 ];
+        %tmp.123 = getv function %tmp.122 :log;
+        %tmp.124 = "Tack recorded: #";
+        symbol [ mTackCount %tmp.126 229 37 47 ];
+        %tmp.126 = getv ? :mTackCount;
+        %tmp.127 = add %tmp.124 %tmp.126;
+        %tmp.128 = ", angle: ";
+        %tmp.129 = add %tmp.127 %tmp.128;
+        %tmp.130 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.130 229 64 77 ];
+        %tmp.131 = add %tmp.129 %tmp.130;
+        %tmp.132 = "°";
+        %tmp.133 = add %tmp.131 %tmp.132;
+        invoke %tmp.122 %tmp.123(%tmp.133);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_20_230_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_230_15_245_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 232 12 ]
+        symbol [ mGybeCount %tmp.134 232 12 22 ];
+        %tmp.134 = getv self :mGybeCount;
+        %tmp.135 = 1;
+        %tmp.136 = add %tmp.134 %tmp.135;
+        symbol [ mGybeCount ? 232 12 22 ];
+        putv self :mGybeCount dup %tmp.136;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 235 12 ]
+        %tmp.137 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.137 235 29 42 ];
+        symbol [ mLastGybeAngle ? 235 12 26 ];
+        putv self :mLastGybeAngle %tmp.137;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 238 12 ]
+        symbol [ mLastGybeHeadings %tmp.138 238 12 29 ];
+        %tmp.138 = getv self :mLastGybeHeadings;
+        symbol [ mLastGybeHeadings %tmp.140 238 35 52 ];
+        %tmp.140 = getv ? :mLastGybeHeadings;
+        %tmp.141 = 1;
+        %tmp.142 = agetv %tmp.140 %tmp.141;
+        %tmp.143 = 0;
+        aputv %tmp.138 %tmp.143 %tmp.142;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 239 12 ]
+        symbol [ mLastGybeHeadings %tmp.144 239 12 29 ];
+        %tmp.144 = getv self :mLastGybeHeadings;
+        %tmp.145 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.145 239 35 47 ];
+        %tmp.146 = 1;
+        aputv %tmp.144 %tmp.146 %tmp.145;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 242 12 ]
+        %tmp.147 = self;
+        symbol [ recordManeuver %tmp.148 242 12 26 ];
+        %tmp.148 = getv function %tmp.147 :recordManeuver;
+        %tmp.149 = false;
+        %tmp.150 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.150 242 34 46 ];
+        %tmp.151 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.151 242 48 61 ];
+        invoke %tmp.147 %tmp.148(%tmp.149, %tmp.150, %tmp.151);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 244 12 ]
+        %tmp.152 = self;
+        symbol [ log %tmp.153 244 12 15 ];
+        %tmp.153 = getv function %tmp.152 :log;
+        %tmp.154 = "Gybe recorded: #";
+        symbol [ mGybeCount %tmp.156 244 37 47 ];
+        %tmp.156 = getv ? :mGybeCount;
+        %tmp.157 = add %tmp.154 %tmp.156;
+        %tmp.158 = ", angle: ";
+        %tmp.159 = add %tmp.157 %tmp.158;
+        %tmp.160 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.160 244 64 77 ];
+        %tmp.161 = add %tmp.159 %tmp.160;
+        %tmp.162 = "°";
+        %tmp.163 = add %tmp.161 %tmp.162;
+        invoke %tmp.152 %tmp.153(%tmp.163);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_230_15_245_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_215_8_245_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_185_53_246_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 249; @symbol_functiondef = [recordManeuver,249,13,27]; @symbol_param<0> = [isTack,249,28,34]; @symbol_param<1> = [heading,249,36,43]; @symbol_param<2> = [angle,249,45,50]; ]
+    function recordManeuver(isTack, heading, angle) {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 251 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_stop" ]
+        %maneuver.1 = local;
+        symbol [ maneuver %maneuver.1 251 12 20 ];
+        %tmp.1 = newd 6;
+        %tmp.2 = "isTack";
+        %tmp.3 = lgetv %isTack;
+        symbol [ isTack %tmp.3 252 24 30 ];
+        %tmp.4 = dup %tmp.1;
+        %tmp.5 = aputv %tmp.4 %tmp.2 %tmp.3;
+        %tmp.6 = "heading";
+        %tmp.7 = lgetv %heading;
+        symbol [ heading %tmp.7 253 25 32 ];
+        %tmp.8 = dup %tmp.5;
+        %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
+        %tmp.10 = "angle";
+        %tmp.11 = lgetv %angle;
+        symbol [ angle %tmp.11 254 23 28 ];
+        %tmp.12 = dup %tmp.9;
+        %tmp.13 = aputv %tmp.12 %tmp.10 %tmp.11;
+        %tmp.14 = "time";
+        symbol [ Time %tmp.15 255 22 26 ];
+        %tmp.15 = getm $.Toybox.Time;
+        symbol [ now %tmp.16 255 27 30 ];
+        %tmp.16 = getv function %tmp.15 :now;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        symbol [ value %tmp.18 255 33 38 ];
+        %tmp.18 = getv function %tmp.17 :value;
+        %tmp.19 = invoke %tmp.17 %tmp.18();
+        %tmp.20 = dup %tmp.13;
+        %tmp.21 = aputv %tmp.20 %tmp.14 %tmp.19;
+        %tmp.22 = "timestamp";
+        symbol [ System %tmp.23 256 27 33 ];
+        %tmp.23 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.24 256 34 42 ];
+        %tmp.24 = getv function %tmp.23 :getTimer;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        %tmp.26 = dup %tmp.21;
+        %tmp.27 = aputv %tmp.26 %tmp.22 %tmp.25;
+        %tmp.28 = "lapNumber";
+        symbol [ mParent %tmp.30 257 27 34 ];
+        %tmp.30 = getv ? :mParent;
+        symbol [ getLapTracker %tmp.31 257 35 48 ];
+        %tmp.31 = getv function %tmp.30 :getLapTracker;
+        %tmp.32 = invoke %tmp.30 %tmp.31();
+        symbol [ getCurrentLap %tmp.33 257 51 64 ];
+        %tmp.33 = getv function %tmp.32 :getCurrentLap;
+        %tmp.34 = invoke %tmp.32 %tmp.33();
+        %tmp.35 = dup %tmp.27;
+        %tmp.36 = aputv %tmp.35 %tmp.28 %tmp.34;
+        lputv %maneuver.1 %tmp.36;
+        symbol [ maneuver %maneuver.1 251 12 20 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 261 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_stop" ]
+        %index.2 = local;
+        symbol [ index %index.2 261 12 17 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_begin:
+        %tmp.37 = lgetv %isTack;
+        symbol [ isTack %tmp.37 261 20 26 ];
+        bf %tmp.37 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_true:
+        symbol [ mTackCount %tmp.39 261 30 40 ];
+        %tmp.39 = getv ? :mTackCount;
+        %tmp.40 = 1;
+        %tmp.41 = sub %tmp.39 %tmp.40;
+        push %tmp.41;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_false:
+        symbol [ mGybeCount %tmp.43 261 49 59 ];
+        %tmp.43 = getv ? :mGybeCount;
+        %tmp.44 = 1;
+        %tmp.45 = sub %tmp.43 %tmp.44;
+        push %tmp.45;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_end:
+        %tmp.46 = phi [%tmp.37 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_begin] [%tmp.41 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_true] [%tmp.45 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_false] [%tmp.46 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_261_20_261_63_end];
+        lputv %index.2 %tmp.46;
+        symbol [ index %index.2 261 12 17 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 264 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_12_264_42_begin:
+        %tmp.47 = lgetv %index.2;
+        symbol [ index %tmp.47 264 12 17 ];
+        %tmp.48 = 0;
+        %tmp.49 = gte %tmp.47 %tmp.48;
+        bf %tmp.49 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_26_264_42_true:
+        %tmp.50 = lgetv %index.2;
+        symbol [ index %tmp.50 264 26 31 ];
+        symbol [ mParent %tmp.52 264 34 41 ];
+        %tmp.52 = getv ? :mParent;
+        symbol [ MAX_MANEUVERS %tmp.53 264 42 55 ];
+        %tmp.53 = getv %tmp.52 :MAX_MANEUVERS;
+        %tmp.54 = lt %tmp.50 %tmp.53;
+        push %tmp.54;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_26_264_42_end:
+        %tmp.55 = phi [%tmp.49 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_12_264_42_begin] [%tmp.54 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_26_264_42_true] [%tmp.55 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_26_264_42_end];
+        bf %tmp.55 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_57_272_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 265 12 ]
+        symbol [ mManeuverHistory %tmp.56 265 12 28 ];
+        %tmp.56 = getv self :mManeuverHistory;
+        %tmp.57 = lgetv %maneuver.1;
+        symbol [ maneuver %tmp.57 265 38 46 ];
+        %tmp.58 = lgetv %index.2;
+        symbol [ index %tmp.58 265 29 34 ];
+        aputv %tmp.56 %tmp.58 %tmp.57;
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 268 12 ]
+        symbol [ mParent %tmp.60 268 12 19 ];
+        %tmp.60 = getv ? :mParent;
+        symbol [ getLapTracker %tmp.61 268 20 33 ];
+        %tmp.61 = getv function %tmp.60 :getLapTracker;
+        %tmp.62 = invoke %tmp.60 %tmp.61();
+        symbol [ recordManeuverInLap %tmp.63 268 36 55 ];
+        %tmp.63 = getv function %tmp.62 :recordManeuverInLap;
+        %tmp.64 = lgetv %maneuver.1;
+        symbol [ maneuver %tmp.64 268 56 64 ];
+        invoke %tmp.62 %tmp.63(%tmp.64);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 271 12 ]
+        %tmp.65 = self;
+        symbol [ updateManeuverStats %tmp.66 271 12 31 ];
+        %tmp.66 = getv function %tmp.65 :updateManeuverStats;
+        invoke %tmp.65 %tmp.66();
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_57_272_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_264_8_272_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_249_52_273_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 276; @symbol_functiondef = [updateManeuverStats,276,13,32]; ]
+    function updateManeuverStats() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 277 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %tackCount.1 = local;
+        symbol [ tackCount %tackCount.1 277 12 21 ];
+        %tmp.1 = 0;
+        lputv %tackCount.1 %tmp.1;
+        symbol [ tackCount %tackCount.1 277 12 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 278 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %gybeCount.2 = local;
+        symbol [ gybeCount %gybeCount.2 278 12 21 ];
+        %tmp.2 = 0;
+        lputv %gybeCount.2 %tmp.2;
+        symbol [ gybeCount %gybeCount.2 278 12 21 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 279 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %tackSum.3 = local;
+        symbol [ tackSum %tackSum.3 279 12 19 ];
+        %tmp.3 = 0;
+        lputv %tackSum.3 %tmp.3;
+        symbol [ tackSum %tackSum.3 279 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 280 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %gybeSum.4 = local;
+        symbol [ gybeSum %gybeSum.4 280 12 19 ];
+        %tmp.4 = 0;
+        lputv %gybeSum.4 %tmp.4;
+        symbol [ gybeSum %gybeSum.4 280 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 281 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %maxTack.5 = local;
+        symbol [ maxTack %maxTack.5 281 12 19 ];
+        %tmp.5 = 0;
+        lputv %maxTack.5 %tmp.5;
+        symbol [ maxTack %maxTack.5 281 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 282 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %maxGybe.6 = local;
+        symbol [ maxGybe %maxGybe.6 282 12 19 ];
+        %tmp.6 = 0;
+        lputv %maxGybe.6 %tmp.6;
+        symbol [ maxGybe %maxGybe.6 282 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 285 8 ]
+        for @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_test @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_incr @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_init:
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_begin" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_end" ]
+        %i.7 = local;
+        symbol [ i %i.7 285 17 18 ];
+        %tmp.7 = 0;
+        lputv %i.7 %tmp.7;
+        symbol [ i %i.7 285 17 18 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_test:
+        %tmp.8 = lgetv %i.7;
+        symbol [ i %tmp.8 285 24 25 ];
+        symbol [ mParent %tmp.10 285 28 35 ];
+        %tmp.10 = getv ? :mParent;
+        symbol [ MAX_MANEUVERS %tmp.11 285 36 49 ];
+        %tmp.11 = getv %tmp.10 :MAX_MANEUVERS;
+        %tmp.12 = lt %tmp.8 %tmp.11;
+        bf %tmp.12 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_begin:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_56_303_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 286 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_12_302_12_if_stmt:
+        symbol [ mManeuverHistory %tmp.14 286 16 32 ];
+        %tmp.14 = getv ? :mManeuverHistory;
+        %tmp.15 = lgetv %i.7;
+        symbol [ i %tmp.15 286 33 34 ];
+        %tmp.16 = agetv %tmp.14 %tmp.15;
+        %tmp.17 = null;
+        %tmp.18 = ne %tmp.16 %tmp.17;
+        bf %tmp.18 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_12_302_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_12_302_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_45_302_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 287 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_45_302_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_45_302_12_stop" ]
+        %maneuver.8 = local;
+        symbol [ maneuver %maneuver.8 287 20 28 ];
+        symbol [ mManeuverHistory %tmp.20 287 31 47 ];
+        %tmp.20 = getv ? :mManeuverHistory;
+        %tmp.21 = lgetv %i.7;
+        symbol [ i %tmp.21 287 48 49 ];
+        %tmp.22 = agetv %tmp.20 %tmp.21;
+        lputv %maneuver.8 %tmp.22;
+        symbol [ maneuver %maneuver.8 287 20 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 289 16 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_stmt:
+        %tmp.23 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.23 289 20 28 ];
+        %tmp.24 = "isTack";
+        %tmp.25 = agetv %tmp.23 %tmp.24;
+        bf %tmp.25 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_else_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_40_295_16_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 290 20 ]
+        %tmp.28 = lgetv %tackCount.1;
+        symbol [ tackCount %tmp.28 290 20 29 ];
+        %tmp.29 = add %tmp.28 1;
+        lputv %tackCount.1 %tmp.29;
+        symbol [ tackCount %tackCount.1 290 20 29 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 291 20 ]
+        %tmp.30 = lgetv %tackSum.3;
+        symbol [ tackSum %tmp.30 291 20 27 ];
+        %tmp.31 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.31 291 31 39 ];
+        %tmp.32 = "angle";
+        %tmp.33 = agetv %tmp.31 %tmp.32;
+        %tmp.34 = add %tmp.30 %tmp.33;
+        lputv %tackSum.3 %tmp.34;
+        symbol [ tackSum %tackSum.3 291 20 27 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 292 20 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_20_294_20_if_stmt:
+        %tmp.35 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.35 292 24 32 ];
+        %tmp.36 = "angle";
+        %tmp.37 = agetv %tmp.35 %tmp.36;
+        %tmp.38 = lgetv %maxTack.5;
+        symbol [ maxTack %tmp.38 292 44 51 ];
+        %tmp.39 = gt %tmp.37 %tmp.38;
+        bf %tmp.39 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_20_294_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_20_294_20_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_53_294_20_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 293 24 ]
+        %tmp.40 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.40 293 34 42 ];
+        %tmp.41 = "angle";
+        %tmp.42 = agetv %tmp.40 %tmp.41;
+        lputv %maxTack.5 %tmp.42;
+        symbol [ maxTack %maxTack.5 293 24 31 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_53_294_20_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_20_294_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_292_20_294_20_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_40_295_16_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_else_false:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_295_23_301_16_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 296 20 ]
+        %tmp.45 = lgetv %gybeCount.2;
+        symbol [ gybeCount %tmp.45 296 20 29 ];
+        %tmp.46 = add %tmp.45 1;
+        lputv %gybeCount.2 %tmp.46;
+        symbol [ gybeCount %gybeCount.2 296 20 29 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 297 20 ]
+        %tmp.47 = lgetv %gybeSum.4;
+        symbol [ gybeSum %tmp.47 297 20 27 ];
+        %tmp.48 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.48 297 31 39 ];
+        %tmp.49 = "angle";
+        %tmp.50 = agetv %tmp.48 %tmp.49;
+        %tmp.51 = add %tmp.47 %tmp.50;
+        lputv %gybeSum.4 %tmp.51;
+        symbol [ gybeSum %gybeSum.4 297 20 27 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 298 20 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_20_300_20_if_stmt:
+        %tmp.52 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.52 298 24 32 ];
+        %tmp.53 = "angle";
+        %tmp.54 = agetv %tmp.52 %tmp.53;
+        %tmp.55 = lgetv %maxGybe.6;
+        symbol [ maxGybe %tmp.55 298 44 51 ];
+        %tmp.56 = gt %tmp.54 %tmp.55;
+        bf %tmp.56 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_20_300_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_20_300_20_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_53_300_20_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 299 24 ]
+        %tmp.57 = lgetv %maneuver.8;
+        symbol [ maneuver %tmp.57 299 34 42 ];
+        %tmp.58 = "angle";
+        %tmp.59 = agetv %tmp.57 %tmp.58;
+        lputv %maxGybe.6 %tmp.59;
+        symbol [ maxGybe %maxGybe.6 299 24 31 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_53_300_20_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_20_300_20_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_298_20_300_20_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_295_23_301_16_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_289_16_301_16_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_45_302_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_12_302_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_286_12_302_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_56_303_8_stop:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_incr:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 285 ]
+        %tmp.62 = lgetv %i.7;
+        symbol [ i %tmp.62 285 51 52 ];
+        %tmp.63 = add %tmp.62 1;
+        lputv %i.7 %tmp.63;
+        symbol [ i %i.7 285 51 52 ];
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_test;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_285_8_303_8_for_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 306 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %avgTack.9 = local;
+        symbol [ avgTack %avgTack.9 306 12 19 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_begin:
+        %tmp.64 = lgetv %tackCount.1;
+        symbol [ tackCount %tmp.64 306 23 32 ];
+        %tmp.65 = 0;
+        %tmp.66 = gt %tmp.64 %tmp.65;
+        bf %tmp.66 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_true:
+        %tmp.67 = lgetv %tackSum.3;
+        symbol [ tackSum %tmp.67 306 40 47 ];
+        %tmp.68 = lgetv %tackCount.1;
+        symbol [ tackCount %tmp.68 306 50 59 ];
+        %tmp.69 = div %tmp.67 %tmp.68;
+        push %tmp.69;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_false:
+        %tmp.70 = 0;
+        push %tmp.70;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_end:
+        %tmp.71 = phi [%tmp.66 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_begin] [%tmp.69 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_true] [%tmp.70 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_false] [%tmp.71 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_306_22_306_62_end];
+        lputv %avgTack.9 %tmp.71;
+        symbol [ avgTack %avgTack.9 306 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 307 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop" ]
+        %avgGybe.10 = local;
+        symbol [ avgGybe %avgGybe.10 307 12 19 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_begin:
+        %tmp.72 = lgetv %gybeCount.2;
+        symbol [ gybeCount %tmp.72 307 23 32 ];
+        %tmp.73 = 0;
+        %tmp.74 = gt %tmp.72 %tmp.73;
+        bf %tmp.74 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_true:
+        %tmp.75 = lgetv %gybeSum.4;
+        symbol [ gybeSum %tmp.75 307 40 47 ];
+        %tmp.76 = lgetv %gybeCount.2;
+        symbol [ gybeCount %tmp.76 307 50 59 ];
+        %tmp.77 = div %tmp.75 %tmp.76;
+        push %tmp.77;
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_false:
+        %tmp.78 = 0;
+        push %tmp.78;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_end:
+        %tmp.79 = phi [%tmp.74 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_begin] [%tmp.77 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_true] [%tmp.78 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_false] [%tmp.79 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_307_22_307_62_end];
+        lputv %avgGybe.10 %tmp.79;
+        symbol [ avgGybe %avgGybe.10 307 12 19 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 310 8 ]
+        %tmp.80 = newd 4;
+        %tmp.81 = "avgTackAngle";
+        %tmp.82 = lgetv %avgTack.9;
+        symbol [ avgTack %tmp.82 311 30 37 ];
+        %tmp.83 = dup %tmp.80;
+        %tmp.84 = aputv %tmp.83 %tmp.81 %tmp.82;
+        %tmp.85 = "avgGybeAngle";
+        %tmp.86 = lgetv %avgGybe.10;
+        symbol [ avgGybe %tmp.86 312 30 37 ];
+        %tmp.87 = dup %tmp.84;
+        %tmp.88 = aputv %tmp.87 %tmp.85 %tmp.86;
+        %tmp.89 = "maxTackAngle";
+        %tmp.90 = lgetv %maxTack.5;
+        symbol [ maxTack %tmp.90 313 30 37 ];
+        %tmp.91 = dup %tmp.88;
+        %tmp.92 = aputv %tmp.91 %tmp.89 %tmp.90;
+        %tmp.93 = "maxGybeAngle";
+        %tmp.94 = lgetv %maxGybe.6;
+        symbol [ maxGybe %tmp.94 314 30 37 ];
+        %tmp.95 = dup %tmp.92;
+        %tmp.96 = aputv %tmp.95 %tmp.93 %tmp.94;
+        symbol [ mManeuverStats ? 310 8 22 ];
+        putv self :mManeuverStats %tmp.96;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_276_35_316_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 319; @symbol_functiondef = [getRecommendedWindDirection,319,13,40]; ]
+    function getRecommendedWindDirection() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 320 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_stop" ]
+        %shouldUpdate.1 = local;
+        symbol [ shouldUpdate %shouldUpdate.1 320 12 24 ];
+        %tmp.1 = false;
+        lputv %shouldUpdate.1 %tmp.1;
+        symbol [ shouldUpdate %shouldUpdate.1 320 12 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 321 8 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_stop" ]
+        %newWindDirection.2 = local;
+        symbol [ newWindDirection %newWindDirection.2 321 12 28 ];
+        symbol [ mParent %tmp.3 321 31 38 ];
+        %tmp.3 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.4 321 39 55 ];
+        %tmp.4 = getv function %tmp.3 :getWindDirection;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        lputv %newWindDirection.2 %tmp.5;
+        symbol [ newWindDirection %newWindDirection.2 321 12 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 324 8 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_stmt:
+        symbol [ mTackCount %tmp.7 324 12 22 ];
+        %tmp.7 = getv ? :mTackCount;
+        %tmp.8 = 2;
+        %tmp.9 = gte %tmp.7 %tmp.8;
+        bf %tmp.9 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_false;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 325 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_stop" ]
+        %heading1.3 = local;
+        symbol [ heading1 %heading1.3 325 16 24 ];
+        symbol [ mLastTackHeadings %tmp.11 325 27 44 ];
+        %tmp.11 = getv ? :mLastTackHeadings;
+        %tmp.12 = 0;
+        %tmp.13 = agetv %tmp.11 %tmp.12;
+        lputv %heading1.3 %tmp.13;
+        symbol [ heading1 %heading1.3 325 16 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 326 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_stop" ]
+        %heading2.4 = local;
+        symbol [ heading2 %heading2.4 326 16 24 ];
+        symbol [ mLastTackHeadings %tmp.15 326 27 44 ];
+        %tmp.15 = getv ? :mLastTackHeadings;
+        %tmp.16 = 1;
+        %tmp.17 = agetv %tmp.15 %tmp.16;
+        lputv %heading2.4 %tmp.17;
+        symbol [ heading2 %heading2.4 326 16 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 328 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_16_328_45_begin:
+        %tmp.18 = lgetv %heading1.3;
+        symbol [ heading1 %tmp.18 328 16 24 ];
+        %tmp.19 = 0;
+        %tmp.20 = ne %tmp.18 %tmp.19;
+        bf %tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_33_328_45_true:
+        %tmp.21 = lgetv %heading2.4;
+        symbol [ heading2 %tmp.21 328 33 41 ];
+        %tmp.22 = 0;
+        %tmp.23 = ne %tmp.21 %tmp.22;
+        push %tmp.23;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_33_328_45_end:
+        %tmp.24 = phi [%tmp.20 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_16_328_45_begin] [%tmp.23 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_33_328_45_true] [%tmp.24 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_33_328_45_end];
+        bf %tmp.24 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 330 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_stop" ]
+        %bisector.5 = local;
+        symbol [ bisector %bisector.5 330 20 28 ];
+        symbol [ mParent %tmp.26 330 31 38 ];
+        %tmp.26 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.27 330 39 57 ];
+        %tmp.27 = getv function %tmp.26 :getAngleCalculator;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        symbol [ calculateBisectorAngle %tmp.29 330 60 82 ];
+        %tmp.29 = getv function %tmp.28 :calculateBisectorAngle;
+        %tmp.30 = lgetv %heading1.3;
+        symbol [ heading1 %tmp.30 330 83 91 ];
+        %tmp.31 = lgetv %heading2.4;
+        symbol [ heading2 %tmp.31 330 93 101 ];
+        %tmp.32 = invoke %tmp.28 %tmp.29(%tmp.30, %tmp.31);
+        lputv %bisector.5 %tmp.32;
+        symbol [ bisector %bisector.5 330 20 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 331 16 ]
+        %tmp.33 = lgetv %bisector.5;
+        symbol [ bisector %tmp.33 331 35 43 ];
+        lputv %newWindDirection.2 %tmp.33;
+        symbol [ newWindDirection %newWindDirection.2 331 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 333 16 ]
+        %tmp.34 = self;
+        symbol [ log %tmp.35 333 16 19 ];
+        %tmp.35 = getv function %tmp.34 :log;
+        %tmp.36 = "Auto wind calculation from tacks:";
+        invoke %tmp.34 %tmp.35(%tmp.36);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 334 16 ]
+        %tmp.37 = self;
+        symbol [ log %tmp.38 334 16 19 ];
+        %tmp.38 = getv function %tmp.37 :log;
+        %tmp.39 = "- Heading 1: ";
+        %tmp.40 = lgetv %heading1.3;
+        symbol [ heading1 %tmp.40 334 38 46 ];
+        %tmp.41 = add %tmp.39 %tmp.40;
+        %tmp.42 = "°";
+        %tmp.43 = add %tmp.41 %tmp.42;
+        invoke %tmp.37 %tmp.38(%tmp.43);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 335 16 ]
+        %tmp.44 = self;
+        symbol [ log %tmp.45 335 16 19 ];
+        %tmp.45 = getv function %tmp.44 :log;
+        %tmp.46 = "- Heading 2: ";
+        %tmp.47 = lgetv %heading2.4;
+        symbol [ heading2 %tmp.47 335 38 46 ];
+        %tmp.48 = add %tmp.46 %tmp.47;
+        %tmp.49 = "°";
+        %tmp.50 = add %tmp.48 %tmp.49;
+        invoke %tmp.44 %tmp.45(%tmp.50);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 336 16 ]
+        %tmp.51 = self;
+        symbol [ log %tmp.52 336 16 19 ];
+        %tmp.52 = getv function %tmp.51 :log;
+        %tmp.53 = "- Calculated bisector: ";
+        %tmp.54 = lgetv %bisector.5;
+        symbol [ bisector %tmp.54 336 48 56 ];
+        %tmp.55 = add %tmp.53 %tmp.54;
+        %tmp.56 = "°";
+        %tmp.57 = add %tmp.55 %tmp.56;
+        invoke %tmp.51 %tmp.52(%tmp.57);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 339 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_stop" ]
+        %windDiff.6 = local;
+        symbol [ windDiff %windDiff.6 339 20 28 ];
+        symbol [ mParent %tmp.59 339 31 38 ];
+        %tmp.59 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.60 339 39 57 ];
+        %tmp.60 = getv function %tmp.59 :getAngleCalculator;
+        %tmp.61 = invoke %tmp.59 %tmp.60();
+        symbol [ angleAbsDifference %tmp.62 339 60 78 ];
+        %tmp.62 = getv function %tmp.61 :angleAbsDifference;
+        %tmp.63 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.63 339 79 95 ];
+        symbol [ mParent %tmp.65 339 97 104 ];
+        %tmp.65 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.66 339 105 121 ];
+        %tmp.66 = getv function %tmp.65 :getWindDirection;
+        %tmp.67 = invoke %tmp.65 %tmp.66();
+        %tmp.68 = invoke %tmp.61 %tmp.62(%tmp.63, %tmp.67);
+        lputv %windDiff.6 %tmp.68;
+        symbol [ windDiff %windDiff.6 339 20 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 340 16 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_16_344_16_if_stmt:
+        %tmp.69 = lgetv %windDiff.6;
+        symbol [ windDiff %tmp.69 340 20 28 ];
+        %tmp.70 = 120;
+        %tmp.71 = gt %tmp.69 %tmp.70;
+        bf %tmp.71 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_16_344_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_16_344_16_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_36_344_16_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 342 20 ]
+        symbol [ mParent %tmp.73 342 39 46 ];
+        %tmp.73 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.74 342 47 65 ];
+        %tmp.74 = getv function %tmp.73 :getAngleCalculator;
+        %tmp.75 = invoke %tmp.73 %tmp.74();
+        symbol [ normalizeAngle %tmp.76 342 68 82 ];
+        %tmp.76 = getv function %tmp.75 :normalizeAngle;
+        %tmp.77 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.77 342 83 99 ];
+        %tmp.78 = 180;
+        %tmp.79 = add %tmp.77 %tmp.78;
+        %tmp.80 = invoke %tmp.75 %tmp.76(%tmp.79);
+        lputv %newWindDirection.2 %tmp.80;
+        symbol [ newWindDirection %newWindDirection.2 342 20 36 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 343 20 ]
+        %tmp.81 = self;
+        symbol [ log %tmp.82 343 20 23 ];
+        %tmp.82 = getv function %tmp.81 :log;
+        %tmp.83 = "- Wind direction adjusted by 180° due to large difference";
+        invoke %tmp.81 %tmp.82(%tmp.83);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_36_344_16_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_16_344_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_340_16_344_16_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 346 16 ]
+        %tmp.84 = true;
+        lputv %shouldUpdate.1 %tmp.84;
+        symbol [ shouldUpdate %shouldUpdate.1 346 16 28 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_48_347_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_328_12_347_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_29_348_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_false:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 350 13 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_13_375_8_if_stmt:
+        symbol [ mGybeCount %tmp.86 350 17 27 ];
+        %tmp.86 = getv ? :mGybeCount;
+        %tmp.87 = 2;
+        %tmp.88 = gte %tmp.86 %tmp.87;
+        bf %tmp.88 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_13_375_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_13_375_8_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 351 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_stop" ]
+        %heading1.7 = local;
+        symbol [ heading1 %heading1.7 351 16 24 ];
+        symbol [ mLastGybeHeadings %tmp.90 351 27 44 ];
+        %tmp.90 = getv ? :mLastGybeHeadings;
+        %tmp.91 = 0;
+        %tmp.92 = agetv %tmp.90 %tmp.91;
+        lputv %heading1.7 %tmp.92;
+        symbol [ heading1 %heading1.7 351 16 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 352 12 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_stop" ]
+        %heading2.8 = local;
+        symbol [ heading2 %heading2.8 352 16 24 ];
+        symbol [ mLastGybeHeadings %tmp.94 352 27 44 ];
+        %tmp.94 = getv ? :mLastGybeHeadings;
+        %tmp.95 = 1;
+        %tmp.96 = agetv %tmp.94 %tmp.95;
+        lputv %heading2.8 %tmp.96;
+        symbol [ heading2 %heading2.8 352 16 24 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 354 12 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_stmt:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_16_354_45_begin:
+        %tmp.97 = lgetv %heading1.7;
+        symbol [ heading1 %tmp.97 354 16 24 ];
+        %tmp.98 = 0;
+        %tmp.99 = ne %tmp.97 %tmp.98;
+        bf %tmp.99 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_33_354_45_true:
+        %tmp.100 = lgetv %heading2.8;
+        symbol [ heading2 %tmp.100 354 33 41 ];
+        %tmp.101 = 0;
+        %tmp.102 = ne %tmp.100 %tmp.101;
+        push %tmp.102;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_33_354_45_end:
+        %tmp.103 = phi [%tmp.99 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_16_354_45_begin] [%tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_33_354_45_true] [%tmp.103 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_33_354_45_end];
+        bf %tmp.103 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 356 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_stop" ]
+        %bisector.9 = local;
+        symbol [ bisector %bisector.9 356 20 28 ];
+        symbol [ mParent %tmp.105 356 31 38 ];
+        %tmp.105 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.106 356 39 57 ];
+        %tmp.106 = getv function %tmp.105 :getAngleCalculator;
+        %tmp.107 = invoke %tmp.105 %tmp.106();
+        symbol [ calculateBisectorAngle %tmp.108 356 60 82 ];
+        %tmp.108 = getv function %tmp.107 :calculateBisectorAngle;
+        %tmp.109 = lgetv %heading1.7;
+        symbol [ heading1 %tmp.109 356 83 91 ];
+        %tmp.110 = lgetv %heading2.8;
+        symbol [ heading2 %tmp.110 356 93 101 ];
+        %tmp.111 = invoke %tmp.107 %tmp.108(%tmp.109, %tmp.110);
+        lputv %bisector.9 %tmp.111;
+        symbol [ bisector %bisector.9 356 20 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 357 16 ]
+        symbol [ mParent %tmp.113 357 35 42 ];
+        %tmp.113 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.114 357 43 61 ];
+        %tmp.114 = getv function %tmp.113 :getAngleCalculator;
+        %tmp.115 = invoke %tmp.113 %tmp.114();
+        symbol [ normalizeAngle %tmp.116 357 64 78 ];
+        %tmp.116 = getv function %tmp.115 :normalizeAngle;
+        %tmp.117 = lgetv %bisector.9;
+        symbol [ bisector %tmp.117 357 79 87 ];
+        %tmp.118 = 180;
+        %tmp.119 = add %tmp.117 %tmp.118;
+        %tmp.120 = invoke %tmp.115 %tmp.116(%tmp.119);
+        lputv %newWindDirection.2 %tmp.120;
+        symbol [ newWindDirection %newWindDirection.2 357 16 32 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 359 16 ]
+        %tmp.121 = self;
+        symbol [ log %tmp.122 359 16 19 ];
+        %tmp.122 = getv function %tmp.121 :log;
+        %tmp.123 = "Auto wind calculation from gybes:";
+        invoke %tmp.121 %tmp.122(%tmp.123);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 360 16 ]
+        %tmp.124 = self;
+        symbol [ log %tmp.125 360 16 19 ];
+        %tmp.125 = getv function %tmp.124 :log;
+        %tmp.126 = "- Heading 1: ";
+        %tmp.127 = lgetv %heading1.7;
+        symbol [ heading1 %tmp.127 360 38 46 ];
+        %tmp.128 = add %tmp.126 %tmp.127;
+        %tmp.129 = "°";
+        %tmp.130 = add %tmp.128 %tmp.129;
+        invoke %tmp.124 %tmp.125(%tmp.130);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 361 16 ]
+        %tmp.131 = self;
+        symbol [ log %tmp.132 361 16 19 ];
+        %tmp.132 = getv function %tmp.131 :log;
+        %tmp.133 = "- Heading 2: ";
+        %tmp.134 = lgetv %heading2.8;
+        symbol [ heading2 %tmp.134 361 38 46 ];
+        %tmp.135 = add %tmp.133 %tmp.134;
+        %tmp.136 = "°";
+        %tmp.137 = add %tmp.135 %tmp.136;
+        invoke %tmp.131 %tmp.132(%tmp.137);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 362 16 ]
+        %tmp.138 = self;
+        symbol [ log %tmp.139 362 16 19 ];
+        %tmp.139 = getv function %tmp.138 :log;
+        %tmp.140 = "- Calculated bisector: ";
+        %tmp.141 = lgetv %bisector.9;
+        symbol [ bisector %tmp.141 362 48 56 ];
+        %tmp.142 = add %tmp.140 %tmp.141;
+        %tmp.143 = "°";
+        %tmp.144 = add %tmp.142 %tmp.143;
+        invoke %tmp.138 %tmp.139(%tmp.144);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 363 16 ]
+        %tmp.145 = self;
+        symbol [ log %tmp.146 363 16 19 ];
+        %tmp.146 = getv function %tmp.145 :log;
+        %tmp.147 = "- Wind direction (bisector + 180°): ";
+        %tmp.148 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.148 363 61 77 ];
+        %tmp.149 = add %tmp.147 %tmp.148;
+        %tmp.150 = "°";
+        %tmp.151 = add %tmp.149 %tmp.150;
+        invoke %tmp.145 %tmp.146(%tmp.151);
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 366 16 ]
+        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_stop" ]
+        %windDiff.10 = local;
+        symbol [ windDiff %windDiff.10 366 20 28 ];
+        symbol [ mParent %tmp.153 366 31 38 ];
+        %tmp.153 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.154 366 39 57 ];
+        %tmp.154 = getv function %tmp.153 :getAngleCalculator;
+        %tmp.155 = invoke %tmp.153 %tmp.154();
+        symbol [ angleAbsDifference %tmp.156 366 60 78 ];
+        %tmp.156 = getv function %tmp.155 :angleAbsDifference;
+        %tmp.157 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.157 366 79 95 ];
+        symbol [ mParent %tmp.159 366 97 104 ];
+        %tmp.159 = getv ? :mParent;
+        symbol [ getWindDirection %tmp.160 366 105 121 ];
+        %tmp.160 = getv function %tmp.159 :getWindDirection;
+        %tmp.161 = invoke %tmp.159 %tmp.160();
+        %tmp.162 = invoke %tmp.155 %tmp.156(%tmp.157, %tmp.161);
+        lputv %windDiff.10 %tmp.162;
+        symbol [ windDiff %windDiff.10 366 20 28 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 367 16 ]
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_16_371_16_if_stmt:
+        %tmp.163 = lgetv %windDiff.10;
+        symbol [ windDiff %tmp.163 367 20 28 ];
+        %tmp.164 = 120;
+        %tmp.165 = gt %tmp.163 %tmp.164;
+        bf %tmp.165 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_16_371_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_16_371_16_if_true:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_36_371_16_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 369 20 ]
+        symbol [ mParent %tmp.167 369 39 46 ];
+        %tmp.167 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.168 369 47 65 ];
+        %tmp.168 = getv function %tmp.167 :getAngleCalculator;
+        %tmp.169 = invoke %tmp.167 %tmp.168();
+        symbol [ normalizeAngle %tmp.170 369 68 82 ];
+        %tmp.170 = getv function %tmp.169 :normalizeAngle;
+        %tmp.171 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.171 369 83 99 ];
+        %tmp.172 = 180;
+        %tmp.173 = add %tmp.171 %tmp.172;
+        %tmp.174 = invoke %tmp.169 %tmp.170(%tmp.173);
+        lputv %newWindDirection.2 %tmp.174;
+        symbol [ newWindDirection %newWindDirection.2 369 20 36 ];
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 370 20 ]
+        %tmp.175 = self;
+        symbol [ log %tmp.176 370 20 23 ];
+        %tmp.176 = getv function %tmp.175 :log;
+        %tmp.177 = "- Wind direction adjusted by 180° due to large difference";
+        invoke %tmp.175 %tmp.176(%tmp.177);
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_36_371_16_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_16_371_16_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_367_16_371_16_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 373 16 ]
+        %tmp.178 = true;
+        lputv %shouldUpdate.1 %tmp.178;
+        symbol [ shouldUpdate %shouldUpdate.1 373 16 28 ];
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_48_374_12_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_354_12_374_12_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_34_375_8_stop:
+        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_13_375_8_if_end;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_350_13_375_8_if_end:
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_324_8_375_8_if_end:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 377 8 ]
+        %tmp.179 = newd 2;
+        %tmp.180 = "updateNeeded";
+        %tmp.181 = lgetv %shouldUpdate.1;
+        symbol [ shouldUpdate %tmp.181 378 30 42 ];
+        %tmp.182 = dup %tmp.179;
+        %tmp.183 = aputv %tmp.182 %tmp.180 %tmp.181;
+        %tmp.184 = "direction";
+        %tmp.185 = lgetv %newWindDirection.2;
+        symbol [ newWindDirection %tmp.185 379 27 43 ];
+        %tmp.186 = dup %tmp.183;
+        %tmp.187 = aputv %tmp.186 %tmp.184 %tmp.185;
+        ret %tmp.187;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_319_43_381_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 384; @symbol_functiondef = [getTackCount,384,13,25]; ]
+    function getTackCount() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_384_28_386_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 385 8 ]
+        symbol [ mTackCount %tmp.2 385 15 25 ];
+        %tmp.2 = getv ? :mTackCount;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_384_28_386_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 388; @symbol_functiondef = [getGybeCount,388,13,25]; ]
+    function getGybeCount() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_388_28_390_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 389 8 ]
+        symbol [ mGybeCount %tmp.2 389 15 25 ];
+        %tmp.2 = getv ? :mGybeCount;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_388_28_390_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 392; @symbol_functiondef = [getLastTackAngle,392,13,29]; ]
+    function getLastTackAngle() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_392_32_394_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 393 8 ]
+        symbol [ mLastTackAngle %tmp.2 393 15 29 ];
+        %tmp.2 = getv ? :mLastTackAngle;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_392_32_394_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 396; @symbol_functiondef = [getLastGybeAngle,396,13,29]; ]
+    function getLastGybeAngle() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_396_32_398_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 397 8 ]
+        symbol [ mLastGybeAngle %tmp.2 397 15 29 ];
+        %tmp.2 = getv ? :mLastGybeAngle;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_396_32_398_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 400; @symbol_functiondef = [getManeuverStats,400,13,29]; ]
+    function getManeuverStats() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_400_32_402_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 401 8 ]
+        symbol [ mManeuverStats %tmp.2 401 15 29 ];
+        %tmp.2 = getv ? :mManeuverStats;
+        ret %tmp.2;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_400_32_402_4_stop:
+    }
+    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 405; @symbol_functiondef = [getData,405,13,20]; ]
+    function getData() {
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_405_23_414_4_start:
+[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc" 406 8 ]
+        %tmp.1 = newd 6;
+        %tmp.2 = "tackCount";
+        symbol [ mTackCount %tmp.4 407 27 37 ];
+        %tmp.4 = getv ? :mTackCount;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.2 %tmp.4;
+        %tmp.7 = "gybeCount";
+        symbol [ mGybeCount %tmp.9 408 27 37 ];
+        %tmp.9 = getv ? :mGybeCount;
+        %tmp.10 = dup %tmp.6;
+        %tmp.11 = aputv %tmp.10 %tmp.7 %tmp.9;
+        %tmp.12 = "lastTackAngle";
+        symbol [ mLastTackAngle %tmp.14 409 31 45 ];
+        %tmp.14 = getv ? :mLastTackAngle;
+        %tmp.15 = dup %tmp.11;
+        %tmp.16 = aputv %tmp.15 %tmp.12 %tmp.14;
+        %tmp.17 = "lastGybeAngle";
+        symbol [ mLastGybeAngle %tmp.19 410 31 45 ];
+        %tmp.19 = getv ? :mLastGybeAngle;
+        %tmp.20 = dup %tmp.16;
+        %tmp.21 = aputv %tmp.20 %tmp.17 %tmp.19;
+        %tmp.22 = "maneuverStats";
+        symbol [ mManeuverStats %tmp.24 411 31 45 ];
+        %tmp.24 = getv ? :mManeuverStats;
+        %tmp.25 = dup %tmp.21;
+        %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
+        %tmp.27 = "maneuverHistory";
+        symbol [ mManeuverHistory %tmp.29 412 33 49 ];
+        %tmp.29 = getv ? :mManeuverHistory;
+        %tmp.30 = dup %tmp.26;
+        %tmp.31 = aputv %tmp.30 %tmp.27 %tmp.29;
+        ret %tmp.31;
+C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_ManeuverDetector_mc_405_23_414_4_stop:
+    }
+}
+[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 2; ]
+<init> {
+}

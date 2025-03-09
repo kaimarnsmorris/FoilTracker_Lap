@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker\manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="1" lineNum="40" parent="globals/AboutDelegate" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="2" lineNum="11" parent="globals/FoilTrackerApp" pc="268435472" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="3" lineNum="5" parent="globals/FoilTrackerMenuView" pc="268435484" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="4" lineNum="5" parent="globals/FoilTrackerMenuDelegate" pc="268435496" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="5" lineNum="6" parent="globals/WindStrengthPickerView" pc="268435508" symbol="&lt;init&gt;"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="6" lineNum="7" parent="globals/Rez" pc="268435520" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="7" lineNum="110" parent="globals/ConfirmationDelegate" pc="268435540" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="8" lineNum="80" parent="globals/ConfirmationView" pc="268435552" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="9" lineNum="5" parent="globals/AboutView" pc="268435564" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="10" lineNum="6" parent="globals/FoilTrackerView" pc="268435576" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="11" lineNum="5" parent="globals/SettingsView" pc="268435588" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="12" lineNum="5" parent="globals/StartupWindStrengthDelegate" pc="268435600" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="13" lineNum="6" parent="globals/FoilTrackerDelegate" pc="268435612" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="14" lineNum="125" parent="globals/HistoryDelegate" pc="268435624" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="15" lineNum="71" parent="globals/WindStrengthPickerDelegate" pc="268435636" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="16" lineNum="8" parent="globals/HistoryView" pc="268435648" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="17" lineNum="56" parent="globals/SettingsDelegate" pc="268435660" symbol="&lt;init&gt;"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="18" lineNum="45" parent="globals/AboutDelegate" pc="268435672" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="18" lineNum="47" parent="globals/AboutDelegate" pc="268435674" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="18" lineNum="48" parent="globals/AboutDelegate" pc="268435689" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="19" lineNum="41" parent="globals/AboutDelegate" pc="268435691" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="19" lineNum="42" parent="globals/AboutDelegate" pc="268435693" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="52" parent="globals/FoilTrackerApp" pc="268435706" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="55" parent="globals/FoilTrackerApp" pc="268435709" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="56" parent="globals/FoilTrackerApp" pc="268435716" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="57" parent="globals/FoilTrackerApp" pc="268435752" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="58" parent="globals/FoilTrackerApp" pc="268435771" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="59" parent="globals/FoilTrackerApp" pc="268435781" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="63" parent="globals/FoilTrackerApp" pc="268435805" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="70" parent="globals/FoilTrackerApp" pc="268435851" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="71" parent="globals/FoilTrackerApp" pc="268435863" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="72" parent="globals/FoilTrackerApp" pc="268435890" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="20" lineNum="73" parent="globals/FoilTrackerApp" pc="268435894" symbol="startActivitySession"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="170" parent="globals/FoilTrackerApp" pc="268435933" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="172" parent="globals/FoilTrackerApp" pc="268435936" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="173" parent="globals/FoilTrackerApp" pc="268435945" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="177" parent="globals/FoilTrackerApp" pc="268435977" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="178" parent="globals/FoilTrackerApp" pc="268436006" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="179" parent="globals/FoilTrackerApp" pc="268436036" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="21" lineNum="182" parent="globals/FoilTrackerApp" pc="268436048" symbol="getInitialView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="31" parent="globals/FoilTrackerApp" pc="268436063" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="32" parent="globals/FoilTrackerApp" pc="268436065" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="34" parent="globals/FoilTrackerApp" pc="268436083" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="35" parent="globals/FoilTrackerApp" pc="268436092" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="37" parent="globals/FoilTrackerApp" pc="268436124" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="40" parent="globals/FoilTrackerApp" pc="268436142" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="41" parent="globals/FoilTrackerApp" pc="268436150" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="47" parent="globals/FoilTrackerApp" pc="268436168" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="22" lineNum="48" parent="globals/FoilTrackerApp" pc="268436175" symbol="onStart"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="120" parent="globals/FoilTrackerApp" pc="268436194" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="121" parent="globals/FoilTrackerApp" pc="268436197" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="122" parent="globals/FoilTrackerApp" pc="268436206" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="125" parent="globals/FoilTrackerApp" pc="268436219" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="127" parent="globals/FoilTrackerApp" pc="268436262" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="128" parent="globals/FoilTrackerApp" pc="268436284" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="133" parent="globals/FoilTrackerApp" pc="268436315" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="136" parent="globals/FoilTrackerApp" pc="268436331" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="139" parent="globals/FoilTrackerApp" pc="268436346" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="140" parent="globals/FoilTrackerApp" pc="268436374" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="23" lineNum="145" parent="globals/FoilTrackerApp" pc="268436389" symbol="processData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="24" lineNum="111" parent="globals/FoilTrackerApp" pc="268436404" symbol="onTimerTick"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="24" lineNum="113" parent="globals/FoilTrackerApp" pc="268436407" symbol="onTimerTick"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="24" lineNum="114" parent="globals/FoilTrackerApp" pc="268436420" symbol="onTimerTick"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="24" lineNum="115" parent="globals/FoilTrackerApp" pc="268436424" symbol="onTimerTick"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="99" parent="globals/FoilTrackerApp" pc="268436463" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="100" parent="globals/FoilTrackerApp" pc="268436465" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="101" parent="globals/FoilTrackerApp" pc="268436474" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="105" parent="globals/FoilTrackerApp" pc="268436506" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="106" parent="globals/FoilTrackerApp" pc="268436537" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="25" lineNum="107" parent="globals/FoilTrackerApp" pc="268436545" symbol="startSimpleTimer"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="21" parent="globals/FoilTrackerApp" pc="268436564" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="22" parent="globals/FoilTrackerApp" pc="268436566" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="23" parent="globals/FoilTrackerApp" pc="268436578" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="24" parent="globals/FoilTrackerApp" pc="268436586" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="25" parent="globals/FoilTrackerApp" pc="268436594" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="26" parent="globals/FoilTrackerApp" pc="268436602" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="26" lineNum="27" parent="globals/FoilTrackerApp" pc="268436610" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="78" parent="globals/FoilTrackerApp" pc="268436619" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="79" parent="globals/FoilTrackerApp" pc="268436622" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="82" parent="globals/FoilTrackerApp" pc="268436645" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="83" parent="globals/FoilTrackerApp" pc="268436654" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="84" parent="globals/FoilTrackerApp" pc="268436673" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="89" parent="globals/FoilTrackerApp" pc="268436697" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="90" parent="globals/FoilTrackerApp" pc="268436709" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="92" parent="globals/FoilTrackerApp" pc="268436736" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="27" lineNum="93" parent="globals/FoilTrackerApp" pc="268436740" symbol="updateSessionWithWindData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="150" parent="globals/FoilTrackerApp" pc="268436782" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="152" parent="globals/FoilTrackerApp" pc="268436784" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="153" parent="globals/FoilTrackerApp" pc="268436801" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="154" parent="globals/FoilTrackerApp" pc="268436813" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="158" parent="globals/FoilTrackerApp" pc="268436824" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="159" parent="globals/FoilTrackerApp" pc="268436847" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="160" parent="globals/FoilTrackerApp" pc="268436859" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="164" parent="globals/FoilTrackerApp" pc="268436874" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerApp.mc" id="28" lineNum="165" parent="globals/FoilTrackerApp" pc="268436883" symbol="onStop"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="6" parent="globals/FoilTrackerMenuView" pc="268436899" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="7" parent="globals/FoilTrackerMenuView" pc="268436901" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="8" parent="globals/FoilTrackerMenuView" pc="268436913" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="11" parent="globals/FoilTrackerMenuView" pc="268436927" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="12" parent="globals/FoilTrackerMenuView" pc="268436946" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="13" parent="globals/FoilTrackerMenuView" pc="268436965" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuView.mc" id="29" lineNum="14" parent="globals/FoilTrackerMenuView" pc="268436984" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="229" parent="globals/FoilTrackerModel" pc="268437004" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="230" parent="globals/FoilTrackerModel" pc="268437007" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="231" parent="globals/FoilTrackerModel" pc="268437020" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="232" parent="globals/FoilTrackerModel" pc="268437030" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="233" parent="globals/FoilTrackerModel" pc="268437037" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="236" parent="globals/FoilTrackerModel" pc="268437046" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="237" parent="globals/FoilTrackerModel" pc="268437057" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="238" parent="globals/FoilTrackerModel" pc="268437066" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="30" lineNum="240" parent="globals/FoilTrackerModel" pc="268437071" symbol="hasSignificantChange"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="174" parent="globals/FoilTrackerModel" pc="268437073" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="176" parent="globals/FoilTrackerModel" pc="268437076" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="177" parent="globals/FoilTrackerModel" pc="268437102" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="178" parent="globals/FoilTrackerModel" pc="268437114" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="181" parent="globals/FoilTrackerModel" pc="268437170" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="182" parent="globals/FoilTrackerModel" pc="268437182" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="183" parent="globals/FoilTrackerModel" pc="268437192" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="184" parent="globals/FoilTrackerModel" pc="268437200" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="187" parent="globals/FoilTrackerModel" pc="268437213" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="31" lineNum="188" parent="globals/FoilTrackerModel" pc="268437227" symbol="updateTimeDisplay"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="147" parent="globals/FoilTrackerModel" pc="268437249" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="149" parent="globals/FoilTrackerModel" pc="268437252" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="150" parent="globals/FoilTrackerModel" pc="268437264" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="151" parent="globals/FoilTrackerModel" pc="268437274" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="152" parent="globals/FoilTrackerModel" pc="268437282" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="153" parent="globals/FoilTrackerModel" pc="268437295" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="156" parent="globals/FoilTrackerModel" pc="268437308" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="157" parent="globals/FoilTrackerModel" pc="268437322" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="158" parent="globals/FoilTrackerModel" pc="268437337" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="162" parent="globals/FoilTrackerModel" pc="268437356" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="163" parent="globals/FoilTrackerModel" pc="268437363" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="164" parent="globals/FoilTrackerModel" pc="268437388" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="168" parent="globals/FoilTrackerModel" pc="268437413" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="169" parent="globals/FoilTrackerModel" pc="268437439" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="32" lineNum="170" parent="globals/FoilTrackerModel" pc="268437451" symbol="updateData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="33" lineNum="100" parent="globals/FoilTrackerModel" pc="268437508" symbol="getCurrentSpeed"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="33" lineNum="101" parent="globals/FoilTrackerModel" pc="268437510" symbol="getCurrentSpeed"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="82" parent="globals/FoilTrackerModel" pc="268437522" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="83" parent="globals/FoilTrackerModel" pc="268437525" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="85" parent="globals/FoilTrackerModel" pc="268437545" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="86" parent="globals/FoilTrackerModel" pc="268437557" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="87" parent="globals/FoilTrackerModel" pc="268437578" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="89" parent="globals/FoilTrackerModel" pc="268437611" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="91" parent="globals/FoilTrackerModel" pc="268437631" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="92" parent="globals/FoilTrackerModel" pc="268437643" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="93" parent="globals/FoilTrackerModel" pc="268437655" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="94" parent="globals/FoilTrackerModel" pc="268437671" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="34" lineNum="95" parent="globals/FoilTrackerModel" pc="268437690" symbol="setPauseState"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="250" parent="globals/FoilTrackerModel" pc="268437739" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="253" parent="globals/FoilTrackerModel" pc="268437742" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="256" parent="globals/FoilTrackerModel" pc="268437760" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="262" parent="globals/FoilTrackerModel" pc="268437791" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="265" parent="globals/FoilTrackerModel" pc="268437809" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="266" parent="globals/FoilTrackerModel" pc="268437817" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="269" parent="globals/FoilTrackerModel" pc="268437835" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="270" parent="globals/FoilTrackerModel" pc="268437839" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="271" parent="globals/FoilTrackerModel" pc="268437851" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="274" parent="globals/FoilTrackerModel" pc="268437869" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="275" parent="globals/FoilTrackerModel" pc="268437886" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="277" parent="globals/FoilTrackerModel" pc="268437904" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="278" parent="globals/FoilTrackerModel" pc="268437915" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="279" parent="globals/FoilTrackerModel" pc="268437919" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="280" parent="globals/FoilTrackerModel" pc="268437945" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="35" lineNum="281" parent="globals/FoilTrackerModel" pc="268437963" symbol="saveActivityData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="36" lineNum="285" parent="globals/FoilTrackerModel" pc="268437982" symbol="getData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="36" lineNum="286" parent="globals/FoilTrackerModel" pc="268437984" symbol="getData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="105" parent="globals/FoilTrackerModel" pc="268437990" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="106" parent="globals/FoilTrackerModel" pc="268437993" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="108" parent="globals/FoilTrackerModel" pc="268438015" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="111" parent="globals/FoilTrackerModel" pc="268438030" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="114" parent="globals/FoilTrackerModel" pc="268438043" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="115" parent="globals/FoilTrackerModel" pc="268438060" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="116" parent="globals/FoilTrackerModel" pc="268438073" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="120" parent="globals/FoilTrackerModel" pc="268438089" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="121" parent="globals/FoilTrackerModel" pc="268438102" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="124" parent="globals/FoilTrackerModel" pc="268438120" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="125" parent="globals/FoilTrackerModel" pc="268438123" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="126" parent="globals/FoilTrackerModel" pc="268438126" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="127" parent="globals/FoilTrackerModel" pc="268438137" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="128" parent="globals/FoilTrackerModel" pc="268438150" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="129" parent="globals/FoilTrackerModel" pc="268438163" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="133" parent="globals/FoilTrackerModel" pc="268438183" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="136" parent="globals/FoilTrackerModel" pc="268438201" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="137" parent="globals/FoilTrackerModel" pc="268438218" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="138" parent="globals/FoilTrackerModel" pc="268438231" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="37" lineNum="142" parent="globals/FoilTrackerModel" pc="268438247" symbol="processLocationData"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="204" parent="globals/FoilTrackerModel" pc="268438270" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="205" parent="globals/FoilTrackerModel" pc="268438273" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="208" parent="globals/FoilTrackerModel" pc="268438281" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="214" parent="globals/FoilTrackerModel" pc="268438312" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="217" parent="globals/FoilTrackerModel" pc="268438329" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="38" lineNum="220" parent="globals/FoilTrackerModel" pc="268438342" symbol="saveWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="39" lineNum="290" parent="globals/FoilTrackerModel" pc="268438356" symbol="saveSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="39" lineNum="291" parent="globals/FoilTrackerModel" pc="268438359" symbol="saveSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="39" lineNum="292" parent="globals/FoilTrackerModel" pc="268438367" symbol="saveSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="193" parent="globals/FoilTrackerModel" pc="268438388" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="194" parent="globals/FoilTrackerModel" pc="268438390" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="195" parent="globals/FoilTrackerModel" pc="268438414" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="196" parent="globals/FoilTrackerModel" pc="268438433" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="197" parent="globals/FoilTrackerModel" pc="268438446" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="198" parent="globals/FoilTrackerModel" pc="268438465" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="40" lineNum="200" parent="globals/FoilTrackerModel" pc="268438470" symbol="setWindStrength"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="41" lineNum="296" parent="globals/FoilTrackerModel" pc="268438472" symbol="loadSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="41" lineNum="297" parent="globals/FoilTrackerModel" pc="268438475" symbol="loadSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="41" lineNum="298" parent="globals/FoilTrackerModel" pc="268438483" symbol="loadSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="41" lineNum="300" parent="globals/FoilTrackerModel" pc="268438504" symbol="loadSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="41" lineNum="302" parent="globals/FoilTrackerModel" pc="268438513" symbol="loadSettings"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="42" lineNum="224" parent="globals/FoilTrackerModel" pc="268438529" symbol="getWindStrengthOptions"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="42" lineNum="225" parent="globals/FoilTrackerModel" pc="268438531" symbol="getWindStrengthOptions"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="37" parent="globals/FoilTrackerModel" pc="268438537" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="38" parent="globals/FoilTrackerModel" pc="268438540" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="55" parent="globals/FoilTrackerModel" pc="268438552" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="56" parent="globals/FoilTrackerModel" pc="268438562" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="57" parent="globals/FoilTrackerModel" pc="268438573" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="59" parent="globals/FoilTrackerModel" pc="268438592" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="60" parent="globals/FoilTrackerModel" pc="268438600" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="63" parent="globals/FoilTrackerModel" pc="268438608" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="64" parent="globals/FoilTrackerModel" pc="268438625" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="65" parent="globals/FoilTrackerModel" pc="268438633" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="66" parent="globals/FoilTrackerModel" pc="268438641" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="69" parent="globals/FoilTrackerModel" pc="268438649" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerModel.mc" id="43" lineNum="78" parent="globals/FoilTrackerModel" pc="268438661" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="14" parent="globals/FoilTrackerMenuDelegate" pc="268438669" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="15" parent="globals/FoilTrackerMenuDelegate" pc="268438672" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="17" parent="globals/FoilTrackerMenuDelegate" pc="268438683" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="18" parent="globals/FoilTrackerMenuDelegate" pc="268438696" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="19" parent="globals/FoilTrackerMenuDelegate" pc="268438705" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="20" parent="globals/FoilTrackerMenuDelegate" pc="268438714" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="21" parent="globals/FoilTrackerMenuDelegate" pc="268438723" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="22" parent="globals/FoilTrackerMenuDelegate" pc="268438732" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="23" parent="globals/FoilTrackerMenuDelegate" pc="268438750" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="25" parent="globals/FoilTrackerMenuDelegate" pc="268438761" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="26" parent="globals/FoilTrackerMenuDelegate" pc="268438823" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="28" parent="globals/FoilTrackerMenuDelegate" pc="268438834" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="29" parent="globals/FoilTrackerMenuDelegate" pc="268438863" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="30" parent="globals/FoilTrackerMenuDelegate" pc="268438892" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="31" parent="globals/FoilTrackerMenuDelegate" pc="268438904" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="32" parent="globals/FoilTrackerMenuDelegate" pc="268438926" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="44" lineNum="34" parent="globals/FoilTrackerMenuDelegate" pc="268438937" symbol="onMenuItem"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="45" lineNum="8" parent="globals/FoilTrackerMenuDelegate" pc="268439000" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="45" lineNum="9" parent="globals/FoilTrackerMenuDelegate" pc="268439002" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerMenuDelegate.mc" id="45" lineNum="10" parent="globals/FoilTrackerMenuDelegate" pc="268439014" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="46" lineNum="10" parent="globals/WindStrengthPickerView" pc="268439024" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="46" lineNum="11" parent="globals/WindStrengthPickerView" pc="268439026" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="46" lineNum="12" parent="globals/WindStrengthPickerView" pc="268439038" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="46" lineNum="13" parent="globals/WindStrengthPickerView" pc="268439047" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="16" parent="globals/WindStrengthPickerView" pc="268439056" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="18" parent="globals/WindStrengthPickerView" pc="268439059" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="19" parent="globals/WindStrengthPickerView" pc="268439071" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="22" parent="globals/WindStrengthPickerView" pc="268439079" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="23" parent="globals/WindStrengthPickerView" pc="268439088" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="26" parent="globals/WindStrengthPickerView" pc="268439097" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="27" parent="globals/WindStrengthPickerView" pc="268439114" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="30" parent="globals/WindStrengthPickerView" pc="268439140" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="31" parent="globals/WindStrengthPickerView" pc="268439156" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="34" parent="globals/WindStrengthPickerView" pc="268439177" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="39" parent="globals/WindStrengthPickerView" pc="268439190" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="40" parent="globals/WindStrengthPickerView" pc="268439207" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="43" parent="globals/WindStrengthPickerView" pc="268439239" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="46" parent="globals/WindStrengthPickerView" pc="268439256" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="48" parent="globals/WindStrengthPickerView" pc="268439266" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="49" parent="globals/WindStrengthPickerView" pc="268439305" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="50" parent="globals/WindStrengthPickerView" pc="268439344" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="54" parent="globals/WindStrengthPickerView" pc="268439389" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="56" parent="globals/WindStrengthPickerView" pc="268439408" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="57" parent="globals/WindStrengthPickerView" pc="268439447" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="58" parent="globals/WindStrengthPickerView" pc="268439486" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="62" parent="globals/WindStrengthPickerView" pc="268439531" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="63" parent="globals/WindStrengthPickerView" pc="268439548" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="47" lineNum="64" parent="globals/WindStrengthPickerView" pc="268439577" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="48" lineNum="150" parent="globals/ConfirmationDelegate" pc="268439607" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="48" lineNum="152" parent="globals/ConfirmationDelegate" pc="268439609" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="48" lineNum="153" parent="globals/ConfirmationDelegate" pc="268439623" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="49" lineNum="113" parent="globals/ConfirmationDelegate" pc="268439625" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="49" lineNum="114" parent="globals/ConfirmationDelegate" pc="268439627" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="49" lineNum="115" parent="globals/ConfirmationDelegate" pc="268439639" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="118" parent="globals/ConfirmationDelegate" pc="268439649" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="120" parent="globals/ConfirmationDelegate" pc="268439652" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="121" parent="globals/ConfirmationDelegate" pc="268439665" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="122" parent="globals/ConfirmationDelegate" pc="268439674" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="123" parent="globals/ConfirmationDelegate" pc="268439683" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="126" parent="globals/ConfirmationDelegate" pc="268439692" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="129" parent="globals/ConfirmationDelegate" pc="268439704" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="132" parent="globals/ConfirmationDelegate" pc="268439748" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="133" parent="globals/ConfirmationDelegate" pc="268439762" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="134" parent="globals/ConfirmationDelegate" pc="268439776" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="137" parent="globals/ConfirmationDelegate" pc="268439794" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="138" parent="globals/ConfirmationDelegate" pc="268439803" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="140" parent="globals/ConfirmationDelegate" pc="268439824" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="141" parent="globals/ConfirmationDelegate" pc="268439828" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="146" parent="globals/ConfirmationDelegate" pc="268439869" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="50" lineNum="147" parent="globals/ConfirmationDelegate" pc="268439880" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="51" lineNum="88" parent="globals/ConfirmationView" pc="268439882" symbol="onLayout"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="52" lineNum="83" parent="globals/ConfirmationView" pc="268439885" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="52" lineNum="84" parent="globals/ConfirmationView" pc="268439887" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="52" lineNum="85" parent="globals/ConfirmationView" pc="268439899" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="92" parent="globals/ConfirmationView" pc="268439909" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="94" parent="globals/ConfirmationView" pc="268439912" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="95" parent="globals/ConfirmationView" pc="268439924" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="98" parent="globals/ConfirmationView" pc="268439932" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="99" parent="globals/ConfirmationView" pc="268439941" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="102" parent="globals/ConfirmationView" pc="268439950" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="103" parent="globals/ConfirmationView" pc="268439967" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="104" parent="globals/ConfirmationView" pc="268439999" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="53" lineNum="105" parent="globals/ConfirmationView" pc="268440031" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="54" lineNum="10" parent="globals/AboutView" pc="268440064" symbol="onLayout"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="55" lineNum="6" parent="globals/AboutView" pc="268440067" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="55" lineNum="7" parent="globals/AboutView" pc="268440069" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="14" parent="globals/AboutView" pc="268440082" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="16" parent="globals/AboutView" pc="268440085" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="17" parent="globals/AboutView" pc="268440097" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="20" parent="globals/AboutView" pc="268440105" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="21" parent="globals/AboutView" pc="268440114" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="24" parent="globals/AboutView" pc="268440123" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="25" parent="globals/AboutView" pc="268440140" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="26" parent="globals/AboutView" pc="268440172" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="28" parent="globals/AboutView" pc="268440204" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="29" parent="globals/AboutView" pc="268440221" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="30" parent="globals/AboutView" pc="268440250" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="31" parent="globals/AboutView" pc="268440282" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="32" parent="globals/AboutView" pc="268440314" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="34" parent="globals/AboutView" pc="268440346" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\AboutView.mc" id="56" lineNum="35" parent="globals/AboutView" pc="268440363" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="57" lineNum="17" parent="globals/FoilTrackerView" pc="268440399" symbol="onLayout"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="58" lineNum="11" parent="globals/FoilTrackerView" pc="268440402" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="58" lineNum="12" parent="globals/FoilTrackerView" pc="268440404" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="58" lineNum="13" parent="globals/FoilTrackerView" pc="268440416" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="22" parent="globals/FoilTrackerView" pc="268440426" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="23" parent="globals/FoilTrackerView" pc="268440429" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="26" parent="globals/FoilTrackerView" pc="268440442" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="27" parent="globals/FoilTrackerView" pc="268440454" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="30" parent="globals/FoilTrackerView" pc="268440462" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="31" parent="globals/FoilTrackerView" pc="268440471" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="34" parent="globals/FoilTrackerView" pc="268440480" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="37" parent="globals/FoilTrackerView" pc="268440510" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="39" parent="globals/FoilTrackerView" pc="268440515" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="40" parent="globals/FoilTrackerView" pc="268440535" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="41" parent="globals/FoilTrackerView" pc="268440546" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="43" parent="globals/FoilTrackerView" pc="268440565" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="47" parent="globals/FoilTrackerView" pc="268440582" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="51" parent="globals/FoilTrackerView" pc="268440605" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="54" parent="globals/FoilTrackerView" pc="268440628" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="57" parent="globals/FoilTrackerView" pc="268440638" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="58" parent="globals/FoilTrackerView" pc="268440655" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="59" parent="globals/FoilTrackerView" pc="268440681" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="60" parent="globals/FoilTrackerView" pc="268440698" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="63" parent="globals/FoilTrackerView" pc="268440743" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="64" parent="globals/FoilTrackerView" pc="268440760" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="65" parent="globals/FoilTrackerView" pc="268440789" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="66" parent="globals/FoilTrackerView" pc="268440806" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="69" parent="globals/FoilTrackerView" pc="268440854" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="70" parent="globals/FoilTrackerView" pc="268440870" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="73" parent="globals/FoilTrackerView" pc="268440897" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="74" parent="globals/FoilTrackerView" pc="268440907" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="75" parent="globals/FoilTrackerView" pc="268440917" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="78" parent="globals/FoilTrackerView" pc="268440933" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="79" parent="globals/FoilTrackerView" pc="268440950" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="80" parent="globals/FoilTrackerView" pc="268440979" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="81" parent="globals/FoilTrackerView" pc="268440996" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="84" parent="globals/FoilTrackerView" pc="268441040" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="85" parent="globals/FoilTrackerView" pc="268441058" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="88" parent="globals/FoilTrackerView" pc="268441082" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="90" parent="globals/FoilTrackerView" pc="268441089" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="91" parent="globals/FoilTrackerView" pc="268441097" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="92" parent="globals/FoilTrackerView" pc="268441118" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="93" parent="globals/FoilTrackerView" pc="268441126" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="95" parent="globals/FoilTrackerView" pc="268441149" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="97" parent="globals/FoilTrackerView" pc="268441169" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="101" parent="globals/FoilTrackerView" pc="268441198" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="104" parent="globals/FoilTrackerView" pc="268441215" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="105" parent="globals/FoilTrackerView" pc="268441218" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="106" parent="globals/FoilTrackerView" pc="268441235" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="109" parent="globals/FoilTrackerView" pc="268441245" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="110" parent="globals/FoilTrackerView" pc="268441262" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="114" parent="globals/FoilTrackerView" pc="268441282" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="115" parent="globals/FoilTrackerView" pc="268441327" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="116" parent="globals/FoilTrackerView" pc="268441352" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="119" parent="globals/FoilTrackerView" pc="268441362" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="120" parent="globals/FoilTrackerView" pc="268441369" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="125" parent="globals/FoilTrackerView" pc="268441378" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="126" parent="globals/FoilTrackerView" pc="268441392" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="127" parent="globals/FoilTrackerView" pc="268441409" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="130" parent="globals/FoilTrackerView" pc="268441422" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="133" parent="globals/FoilTrackerView" pc="268441480" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="136" parent="globals/FoilTrackerView" pc="268441506" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="138" parent="globals/FoilTrackerView" pc="268441511" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="139" parent="globals/FoilTrackerView" pc="268441528" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="140" parent="globals/FoilTrackerView" pc="268441560" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="143" parent="globals/FoilTrackerView" pc="268441571" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="144" parent="globals/FoilTrackerView" pc="268441587" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="145" parent="globals/FoilTrackerView" pc="268441603" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerView.mc" id="59" lineNum="146" parent="globals/FoilTrackerView" pc="268441623" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="60" lineNum="15" parent="globals/SettingsView" pc="268441649" symbol="onLayout"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="61" lineNum="9" parent="globals/SettingsView" pc="268441652" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="61" lineNum="10" parent="globals/SettingsView" pc="268441654" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="61" lineNum="11" parent="globals/SettingsView" pc="268441666" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="61" lineNum="12" parent="globals/SettingsView" pc="268441675" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="19" parent="globals/SettingsView" pc="268441684" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="21" parent="globals/SettingsView" pc="268441687" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="22" parent="globals/SettingsView" pc="268441699" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="25" parent="globals/SettingsView" pc="268441707" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="26" parent="globals/SettingsView" pc="268441716" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="29" parent="globals/SettingsView" pc="268441725" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="30" parent="globals/SettingsView" pc="268441742" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="33" parent="globals/SettingsView" pc="268441768" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="34" parent="globals/SettingsView" pc="268441784" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="37" parent="globals/SettingsView" pc="268441805" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="40" parent="globals/SettingsView" pc="268441824" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="41" parent="globals/SettingsView" pc="268441834" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="43" parent="globals/SettingsView" pc="268441853" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="45" parent="globals/SettingsView" pc="268441870" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="46" parent="globals/SettingsView" pc="268441896" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="49" parent="globals/SettingsView" pc="268441944" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="50" parent="globals/SettingsView" pc="268441961" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="62" lineNum="51" parent="globals/SettingsView" pc="268441990" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="63" lineNum="79" parent="globals/StartupWindStrengthDelegate" pc="268442020" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="63" lineNum="81" parent="globals/StartupWindStrengthDelegate" pc="268442022" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="63" lineNum="82" parent="globals/StartupWindStrengthDelegate" pc="268442033" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="32" parent="globals/StartupWindStrengthDelegate" pc="268442035" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="33" parent="globals/StartupWindStrengthDelegate" pc="268442037" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="34" parent="globals/StartupWindStrengthDelegate" pc="268442046" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="35" parent="globals/StartupWindStrengthDelegate" pc="268442061" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="36" parent="globals/StartupWindStrengthDelegate" pc="268442080" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="64" lineNum="39" parent="globals/StartupWindStrengthDelegate" pc="268442097" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="65" lineNum="17" parent="globals/StartupWindStrengthDelegate" pc="268442099" symbol="setPickerView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="65" lineNum="18" parent="globals/StartupWindStrengthDelegate" pc="268442101" symbol="setPickerView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="66" lineNum="10" parent="globals/StartupWindStrengthDelegate" pc="268442111" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="66" lineNum="11" parent="globals/StartupWindStrengthDelegate" pc="268442113" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="66" lineNum="12" parent="globals/StartupWindStrengthDelegate" pc="268442125" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="66" lineNum="13" parent="globals/StartupWindStrengthDelegate" pc="268442134" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="66" lineNum="14" parent="globals/StartupWindStrengthDelegate" pc="268442142" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="21" parent="globals/StartupWindStrengthDelegate" pc="268442152" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="22" parent="globals/StartupWindStrengthDelegate" pc="268442155" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="23" parent="globals/StartupWindStrengthDelegate" pc="268442164" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="24" parent="globals/StartupWindStrengthDelegate" pc="268442177" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="25" parent="globals/StartupWindStrengthDelegate" pc="268442201" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="26" parent="globals/StartupWindStrengthDelegate" pc="268442220" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="67" lineNum="29" parent="globals/StartupWindStrengthDelegate" pc="268442237" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="42" parent="globals/StartupWindStrengthDelegate" pc="268442239" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="45" parent="globals/StartupWindStrengthDelegate" pc="268442242" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="46" parent="globals/StartupWindStrengthDelegate" pc="268442251" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="49" parent="globals/StartupWindStrengthDelegate" pc="268442263" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="50" parent="globals/StartupWindStrengthDelegate" pc="268442272" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="51" parent="globals/StartupWindStrengthDelegate" pc="268442288" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="53" parent="globals/StartupWindStrengthDelegate" pc="268442304" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="58" parent="globals/StartupWindStrengthDelegate" pc="268442331" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="60" parent="globals/StartupWindStrengthDelegate" pc="268442340" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="63" parent="globals/StartupWindStrengthDelegate" pc="268442352" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="64" parent="globals/StartupWindStrengthDelegate" pc="268442381" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="65" parent="globals/StartupWindStrengthDelegate" pc="268442412" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="67" parent="globals/StartupWindStrengthDelegate" pc="268442439" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="68" parent="globals/StartupWindStrengthDelegate" pc="268442443" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="71" parent="globals/StartupWindStrengthDelegate" pc="268442469" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="72" parent="globals/StartupWindStrengthDelegate" pc="268442498" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="73" parent="globals/StartupWindStrengthDelegate" pc="268442529" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\StartUpWindStrengthDelegate.mc" id="68" lineNum="76" parent="globals/StartupWindStrengthDelegate" pc="268442559" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="44" parent="globals/FoilTrackerDelegate" pc="268442561" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="45" parent="globals/FoilTrackerDelegate" pc="268442564" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="48" parent="globals/FoilTrackerDelegate" pc="268442577" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="51" parent="globals/FoilTrackerDelegate" pc="268442580" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="52" parent="globals/FoilTrackerDelegate" pc="268442608" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="56" parent="globals/FoilTrackerDelegate" pc="268442614" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="57" parent="globals/FoilTrackerDelegate" pc="268442642" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="61" parent="globals/FoilTrackerDelegate" pc="268442648" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="64" parent="globals/FoilTrackerDelegate" pc="268442653" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="65" parent="globals/FoilTrackerDelegate" pc="268442682" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="68" parent="globals/FoilTrackerDelegate" pc="268442711" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="69" parent="globals/FoilTrackerDelegate" pc="268442735" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="70" parent="globals/FoilTrackerDelegate" pc="268442739" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="72" parent="globals/FoilTrackerDelegate" pc="268442777" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="69" lineNum="75" parent="globals/FoilTrackerDelegate" pc="268442782" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="70" lineNum="18" parent="globals/FoilTrackerDelegate" pc="268442784" symbol="onMenu"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="70" lineNum="20" parent="globals/FoilTrackerDelegate" pc="268442786" symbol="onMenu"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="70" lineNum="21" parent="globals/FoilTrackerDelegate" pc="268442850" symbol="onMenu"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="71" lineNum="11" parent="globals/FoilTrackerDelegate" pc="268442852" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="71" lineNum="12" parent="globals/FoilTrackerDelegate" pc="268442854" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="71" lineNum="13" parent="globals/FoilTrackerDelegate" pc="268442866" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="71" lineNum="14" parent="globals/FoilTrackerDelegate" pc="268442875" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="25" parent="globals/FoilTrackerDelegate" pc="268442885" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="26" parent="globals/FoilTrackerDelegate" pc="268442888" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="29" parent="globals/FoilTrackerDelegate" pc="268442901" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="32" parent="globals/FoilTrackerDelegate" pc="268442918" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="35" parent="globals/FoilTrackerDelegate" pc="268442929" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="38" parent="globals/FoilTrackerDelegate" pc="268442945" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\FoilTrackerDelegate.mc" id="72" lineNum="40" parent="globals/FoilTrackerDelegate" pc="268442956" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="73" lineNum="130" parent="globals/HistoryDelegate" pc="268442958" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="73" lineNum="132" parent="globals/HistoryDelegate" pc="268442960" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="73" lineNum="133" parent="globals/HistoryDelegate" pc="268442975" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="74" lineNum="126" parent="globals/HistoryDelegate" pc="268442977" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="74" lineNum="127" parent="globals/HistoryDelegate" pc="268442979" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="75" lineNum="146" parent="globals/WindStrengthPickerDelegate" pc="268442992" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="75" lineNum="148" parent="globals/WindStrengthPickerDelegate" pc="268442994" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="75" lineNum="151" parent="globals/WindStrengthPickerDelegate" pc="268443005" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="96" parent="globals/WindStrengthPickerDelegate" pc="268443007" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="97" parent="globals/WindStrengthPickerDelegate" pc="268443009" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="98" parent="globals/WindStrengthPickerDelegate" pc="268443018" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="99" parent="globals/WindStrengthPickerDelegate" pc="268443033" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="100" parent="globals/WindStrengthPickerDelegate" pc="268443052" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="76" lineNum="103" parent="globals/WindStrengthPickerDelegate" pc="268443069" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="77" lineNum="81" parent="globals/WindStrengthPickerDelegate" pc="268443071" symbol="setPickerView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="77" lineNum="82" parent="globals/WindStrengthPickerDelegate" pc="268443073" symbol="setPickerView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="78" lineNum="75" parent="globals/WindStrengthPickerDelegate" pc="268443083" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="78" lineNum="76" parent="globals/WindStrengthPickerDelegate" pc="268443085" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="78" lineNum="77" parent="globals/WindStrengthPickerDelegate" pc="268443097" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="78" lineNum="78" parent="globals/WindStrengthPickerDelegate" pc="268443106" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="85" parent="globals/WindStrengthPickerDelegate" pc="268443115" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="86" parent="globals/WindStrengthPickerDelegate" pc="268443118" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="87" parent="globals/WindStrengthPickerDelegate" pc="268443127" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="88" parent="globals/WindStrengthPickerDelegate" pc="268443140" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="89" parent="globals/WindStrengthPickerDelegate" pc="268443164" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="90" parent="globals/WindStrengthPickerDelegate" pc="268443183" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="79" lineNum="93" parent="globals/WindStrengthPickerDelegate" pc="268443200" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="106" parent="globals/WindStrengthPickerDelegate" pc="268443202" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="109" parent="globals/WindStrengthPickerDelegate" pc="268443205" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="110" parent="globals/WindStrengthPickerDelegate" pc="268443214" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="113" parent="globals/WindStrengthPickerDelegate" pc="268443226" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="114" parent="globals/WindStrengthPickerDelegate" pc="268443235" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="115" parent="globals/WindStrengthPickerDelegate" pc="268443251" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="119" parent="globals/WindStrengthPickerDelegate" pc="268443267" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="120" parent="globals/WindStrengthPickerDelegate" pc="268443279" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="121" parent="globals/WindStrengthPickerDelegate" pc="268443290" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="126" parent="globals/WindStrengthPickerDelegate" pc="268443306" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="127" parent="globals/WindStrengthPickerDelegate" pc="268443318" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="128" parent="globals/WindStrengthPickerDelegate" pc="268443345" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="129" parent="globals/WindStrengthPickerDelegate" pc="268443349" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="135" parent="globals/WindStrengthPickerDelegate" pc="268443393" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="136" parent="globals/WindStrengthPickerDelegate" pc="268443410" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="137" parent="globals/WindStrengthPickerDelegate" pc="268443414" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="139" parent="globals/WindStrengthPickerDelegate" pc="268443440" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\WindStrengthPickerView.mc" id="80" lineNum="143" parent="globals/WindStrengthPickerDelegate" pc="268443463" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="81" lineNum="22" parent="globals/HistoryView" pc="268443465" symbol="onLayout"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="11" parent="globals/HistoryView" pc="268443468" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="12" parent="globals/HistoryView" pc="268443471" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="15" parent="globals/HistoryView" pc="268443483" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="16" parent="globals/HistoryView" pc="268443491" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="17" parent="globals/HistoryView" pc="268443512" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="82" lineNum="18" parent="globals/HistoryView" pc="268443521" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="29" parent="globals/HistoryView" pc="268443534" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="31" parent="globals/HistoryView" pc="268443537" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="32" parent="globals/HistoryView" pc="268443549" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="35" parent="globals/HistoryView" pc="268443557" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="36" parent="globals/HistoryView" pc="268443566" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="39" parent="globals/HistoryView" pc="268443575" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="40" parent="globals/HistoryView" pc="268443592" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="43" parent="globals/HistoryView" pc="268443618" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="44" parent="globals/HistoryView" pc="268443634" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="47" parent="globals/HistoryView" pc="268443655" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="48" parent="globals/HistoryView" pc="268443671" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="49" parent="globals/HistoryView" pc="268443688" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="50" parent="globals/HistoryView" pc="268443717" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="54" parent="globals/HistoryView" pc="268443721" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="55" parent="globals/HistoryView" pc="268443756" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="57" parent="globals/HistoryView" pc="268443760" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="58" parent="globals/HistoryView" pc="268443771" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="62" parent="globals/HistoryView" pc="268443796" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="63" parent="globals/HistoryView" pc="268443813" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="64" parent="globals/HistoryView" pc="268443834" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="68" parent="globals/HistoryView" pc="268443847" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="69" parent="globals/HistoryView" pc="268443885" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="71" parent="globals/HistoryView" pc="268443889" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="72" parent="globals/HistoryView" pc="268443901" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="76" parent="globals/HistoryView" pc="268443942" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="79" parent="globals/HistoryView" pc="268443954" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="80" parent="globals/HistoryView" pc="268443971" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="83" parent="globals/HistoryView" pc="268443992" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="84" parent="globals/HistoryView" pc="268444009" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="87" parent="globals/HistoryView" pc="268444029" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="88" parent="globals/HistoryView" pc="268444046" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="90" parent="globals/HistoryView" pc="268444112" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="93" parent="globals/HistoryView" pc="268444135" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="95" parent="globals/HistoryView" pc="268444201" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="98" parent="globals/HistoryView" pc="268444223" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="100" parent="globals/HistoryView" pc="268444252" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="101" parent="globals/HistoryView" pc="268444268" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="104" parent="globals/HistoryView" pc="268444295" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="105" parent="globals/HistoryView" pc="268444311" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="109" parent="globals/HistoryView" pc="268444352" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="112" parent="globals/HistoryView" pc="268444359" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="113" parent="globals/HistoryView" pc="268444370" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="114" parent="globals/HistoryView" pc="268444386" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="119" parent="globals/HistoryView" pc="268444426" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\HistoryView.mc" id="83" lineNum="120" parent="globals/HistoryView" pc="268444443" symbol="onUpdate"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="84" lineNum="103" parent="globals/SettingsDelegate" pc="268444473" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="84" lineNum="104" parent="globals/SettingsDelegate" pc="268444475" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="84" lineNum="105" parent="globals/SettingsDelegate" pc="268444490" symbol="onBack"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="85" lineNum="80" parent="globals/SettingsDelegate" pc="268444492" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="85" lineNum="81" parent="globals/SettingsDelegate" pc="268444494" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="85" lineNum="82" parent="globals/SettingsDelegate" pc="268444503" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="85" lineNum="83" parent="globals/SettingsDelegate" pc="268444530" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="85" lineNum="85" parent="globals/SettingsDelegate" pc="268444544" symbol="onPreviousPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="86" lineNum="60" parent="globals/SettingsDelegate" pc="268444546" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="86" lineNum="61" parent="globals/SettingsDelegate" pc="268444548" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="86" lineNum="62" parent="globals/SettingsDelegate" pc="268444560" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="86" lineNum="63" parent="globals/SettingsDelegate" pc="268444569" symbol="initialize"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="87" lineNum="67" parent="globals/SettingsDelegate" pc="268444578" symbol="setSettingsView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="87" lineNum="68" parent="globals/SettingsDelegate" pc="268444580" symbol="setSettingsView"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="88" lineNum="71" parent="globals/SettingsDelegate" pc="268444590" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="88" lineNum="73" parent="globals/SettingsDelegate" pc="268444592" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="88" lineNum="74" parent="globals/SettingsDelegate" pc="268444601" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="88" lineNum="75" parent="globals/SettingsDelegate" pc="268444628" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="88" lineNum="77" parent="globals/SettingsDelegate" pc="268444642" symbol="onNextPage"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="88" parent="globals/SettingsDelegate" pc="268444644" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="89" parent="globals/SettingsDelegate" pc="268444647" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="90" parent="globals/SettingsDelegate" pc="268444656" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="91" parent="globals/SettingsDelegate" pc="268444675" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="92" parent="globals/SettingsDelegate" pc="268444690" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="93" parent="globals/SettingsDelegate" pc="268444709" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="94" parent="globals/SettingsDelegate" pc="268444726" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="97" parent="globals/SettingsDelegate" pc="268444745" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="98" parent="globals/SettingsDelegate" pc="268444757" symbol="onSelect"/>
+        <entry filename="C:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\source\\SettingsView.mc" id="89" lineNum="100" parent="globals/SettingsDelegate" pc="268444771" symbol="onSelect"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="90" lineNum="13" parent="globals/Rez/Layouts" pc="268444773" symbol="MainLayout"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="90" lineNum="14" parent="globals/Rez/Layouts" pc="268444784" symbol="MainLayout"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="90" lineNum="16" parent="globals/Rez/Layouts" pc="268444895" symbol="MainLayout"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="91" lineNum="21" parent="globals/Rez/Menus/MainMenu" pc="268444905" symbol="&lt;init&gt;"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="22" parent="globals/Rez/Menus/MainMenu" pc="268444917" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="23" parent="globals/Rez/Menus/MainMenu" pc="268444919" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="24" parent="globals/Rez/Menus/MainMenu" pc="268444931" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="25" parent="globals/Rez/Menus/MainMenu" pc="268444976" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="26" parent="globals/Rez/Menus/MainMenu" pc="268445021" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="27" parent="globals/Rez/Menus/MainMenu" pc="268445066" symbol="initialize"/>
+        <entry filename="c:\\Users\\skyeAM\\OneDrive - Verona Capital\\Documents\\garmin\\FoilTracker\\bin\\gen\\006-B3991-00\\source\\Rez.mcgen" id="92" lineNum="28" parent="globals/Rez/Menus/MainMenu" pc="268445111" symbol="initialize"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="8389346" symbol="text"/>
+        <entry id="16" object="true" symbol="HistoryDelegate"/>
+        <entry field="true" id="60" symbol="mSelectedIndex"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="110" symbol="about"/>
+        <entry id="5" module="true" symbol="globals/Rez/Menus"/>
+        <entry field="true" id="93" symbol="Max3sSpeed"/>
+        <entry id="8388638" module="true" symbol="ActivityRecording"/>
+        <entry id="29" method="true" symbol="onTimerTick"/>
+        <entry field="true" id="66" symbol="&lt;globals/SettingsView/&lt;&gt;mModel&gt;"/>
+        <entry id="81" method="true" symbol="MainLayout"/>
+        <entry field="true" id="88" symbol="ColorGreen"/>
+        <entry field="true" id="64" symbol="&lt;globals/ConfirmationView/&lt;&gt;mPrompt&gt;"/>
+        <entry field="true" id="43" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mLastSignificantSpeed&gt;"/>
+        <entry field="true" id="84" symbol="AppVersion"/>
+        <entry field="true" id="8388890" symbol="sport"/>
+        <entry field="true" id="72" symbol="&lt;globals/FoilTrackerDelegate/&lt;&gt;mModel&gt;"/>
+        <entry id="35" method="true" symbol="getCurrentSpeed"/>
+        <entry id="21" object="true" symbol="WindStrengthPickerDelegate"/>
+        <entry id="52" method="true" symbol="saveSettings"/>
+        <entry field="true" id="95" symbol="MenuItemAbout"/>
+        <entry field="true" id="98" symbol="MenuItemSettings"/>
+        <entry field="true" id="102" symbol="ThresholdTitle"/>
+        <entry field="true" id="41" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mBufferIndex&gt;"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry id="20" object="true" symbol="StartupWindStrengthDelegate"/>
+        <entry field="true" id="94" symbol="MaxSpeed"/>
+        <entry field="true" id="65" symbol="&lt;globals/FoilTrackerView/&lt;&gt;mModel&gt;"/>
+        <entry field="true" id="46" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mSettings&gt;"/>
+        <entry id="79" method="true" symbol="setSettingsView"/>
+        <entry field="true" id="87" symbol="ColorBlue"/>
+        <entry id="8392382" method="true" symbol="reset"/>
+        <entry id="37" method="true" symbol="getWindStrengthOptions"/>
+        <entry id="8" object="true" symbol="AboutView"/>
+        <entry id="108" symbol="history"/>
+        <entry field="true" id="83" symbol="AppName"/>
+        <entry field="true" id="8388963" symbol="altitude"/>
+        <entry id="6" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="8389080" method="true" symbol="onMenu"/>
+        <entry id="56" method="true" symbol="updateData"/>
+        <entry field="true" id="92" symbol="Knots"/>
+        <entry field="true" id="99" symbol="MenuTitle"/>
+        <entry id="8388631" module="true" symbol="Activity"/>
+        <entry id="51" method="true" symbol="saveActivityData"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389081" method="true" symbol="onBack"/>
+        <entry id="2" module="true" symbol="globals/Rez"/>
+        <entry field="true" id="40" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mActivityStartTime&gt;"/>
+        <entry field="true" id="96" symbol="MenuItemHistory"/>
+        <entry field="true" id="97" symbol="MenuItemReset"/>
+        <entry id="13" object="true" symbol="FoilTrackerMenuView"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="8389065" symbol="locY"/>
+        <entry field="true" id="8389064" symbol="locX"/>
+        <entry id="107" symbol="mSession"/>
+        <entry field="true" id="49" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mWindStrength&gt;"/>
+        <entry id="57" method="true" symbol="updateTimeDisplay"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry field="true" id="101" symbol="ThresholdDesc"/>
+        <entry id="8389348" symbol="font"/>
+        <entry id="8389079" method="true" symbol="onPreviousPage"/>
+        <entry id="62" module="true" symbol="Menus"/>
+        <entry id="4" module="true" symbol="globals/Rez/Layouts"/>
+        <entry id="17" object="true" symbol="HistoryView"/>
+        <entry id="36" method="true" symbol="getData"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry field="true" id="100" symbol="PercentOnFoil"/>
+        <entry field="true" id="8389063" symbol="identifier"/>
+        <entry id="8389349" symbol="justification"/>
+        <entry id="14" object="true" symbol="FoilTrackerModel"/>
+        <entry field="true" id="69" symbol="&lt;globals/StartupWindStrengthDelegate/&lt;&gt;mModel&gt;"/>
+        <entry field="true" id="86" symbol="ColorBlack"/>
+        <entry id="33" method="true" symbol="updateSessionWithWindData"/>
+        <entry field="true" id="63" symbol="&lt;globals/ConfirmationDelegate/&lt;&gt;mModel&gt;"/>
+        <entry id="30" method="true" symbol="processData"/>
+        <entry field="true" id="89" symbol="ConfirmExit"/>
+        <entry field="true" id="23" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mModel&gt;"/>
+        <entry id="3" module="true" symbol="globals/Rez/Drawables"/>
+        <entry field="true" id="68" symbol="&lt;globals/StartupWindStrengthDelegate/&lt;&gt;mApp&gt;"/>
+        <entry id="82" object="true" symbol="MainMenu"/>
+        <entry id="7" object="true" symbol="AboutDelegate"/>
+        <entry id="55" method="true" symbol="setWindStrength"/>
+        <entry id="105" symbol="menuItemSettings"/>
+        <entry id="38" method="true" symbol="hasSignificantChange"/>
+        <entry field="true" id="78" symbol="&lt;globals/SettingsDelegate/&lt;&gt;mSettingsView&gt;"/>
+        <entry id="22" object="true" symbol="WindStrengthPickerView"/>
+        <entry id="15" object="true" symbol="FoilTrackerView"/>
+        <entry field="true" id="48" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mTimeAboveThreshold&gt;"/>
+        <entry field="true" id="25" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mSession&gt;"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8389619" method="true" symbol="onSelect"/>
+        <entry id="8388645" module="true" symbol="Time"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="54" method="true" symbol="setPauseState"/>
+        <entry id="106" symbol="menuItemAbout"/>
+        <entry id="9" object="true" symbol="ConfirmationView"/>
+        <entry id="18" object="true" symbol="SettingsDelegate"/>
+        <entry field="true" id="24" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mPositionEnabled&gt;"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry field="true" id="80" symbol="LauncherIcon"/>
+        <entry field="true" id="58" symbol="&lt;globals/FoilTrackerMenuDelegate/&lt;&gt;mModel&gt;"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry field="true" id="26" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mTimer&gt;"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry field="true" id="85" symbol="BackgroundColorTitle"/>
+        <entry id="12" object="true" symbol="FoilTrackerMenuDelegate"/>
+        <entry field="true" id="8388958" symbol="speed"/>
+        <entry field="true" id="91" symbol="ConfirmYes"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="34" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;WIND_STRENGTHS&gt;"/>
+        <entry field="true" id="74" symbol="&lt;globals/WindStrengthPickerDelegate/&lt;&gt;mModel&gt;"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry id="31" method="true" symbol="startActivitySession"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry field="true" id="8388891" symbol="subSport"/>
+        <entry id="32" method="true" symbol="startSimpleTimer"/>
+        <entry field="true" id="76" symbol="&lt;globals/HistoryView/&lt;&gt;mHistory&gt;"/>
+        <entry field="true" id="8388892" symbol="name"/>
+        <entry id="8389032" object="true" symbol="ConfirmationDelegate"/>
+        <entry id="109" symbol="settings"/>
+        <entry field="true" id="67" symbol="mSelectedOption"/>
+        <entry id="50" method="true" symbol="processLocationData"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="103" symbol="menuItemReset"/>
+        <entry field="true" id="59" symbol="&lt;globals/WindStrengthPickerView/&lt;&gt;mModel&gt;"/>
+        <entry id="8389109" method="true" symbol="onMenuItem"/>
+        <entry field="true" id="8389347" symbol="color"/>
+        <entry field="true" id="90" symbol="ConfirmNo"/>
+        <entry id="71" method="true" symbol="setPickerView"/>
+        <entry field="true" id="42" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mData&gt;"/>
+        <entry id="10" object="true" symbol="FoilTrackerApp"/>
+        <entry field="true" id="8389311" symbol="accuracy"/>
+        <entry field="true" id="47" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mSpeedBuffer&gt;"/>
+        <entry field="true" id="75" symbol="&lt;globals/WindStrengthPickerDelegate/&lt;&gt;mPickerView&gt;"/>
+        <entry id="8388646" module="true" object="true" symbol="Timer"/>
+        <entry id="61" module="true" symbol="Layouts"/>
+        <entry field="true" id="28" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mView&gt;"/>
+        <entry field="true" id="73" symbol="&lt;globals/FoilTrackerDelegate/&lt;&gt;mView&gt;"/>
+        <entry id="39" method="true" symbol="loadSettings"/>
+        <entry field="true" id="77" symbol="&lt;globals/SettingsDelegate/&lt;&gt;mModel&gt;"/>
+        <entry id="104" symbol="menuItemHistory"/>
+        <entry id="8388642" module="true" symbol="Position"/>
+        <entry id="19" object="true" symbol="SettingsView"/>
+        <entry field="true" id="44" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mSession&gt;"/>
+        <entry id="11" object="true" symbol="FoilTrackerDelegate"/>
+        <entry field="true" id="70" symbol="&lt;globals/StartupWindStrengthDelegate/&lt;&gt;mPickerView&gt;"/>
+        <entry field="true" id="27" symbol="&lt;globals/FoilTrackerApp/&lt;&gt;mTimerRunning&gt;"/>
+        <entry id="8389078" method="true" symbol="onNextPage"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry field="true" id="45" symbol="&lt;globals/FoilTrackerModel/&lt;&gt;mSessionStats&gt;"/>
+        <entry id="53" method="true" symbol="saveWindStrength"/>
+    </symbolTable>
+    <localVars>
+        <entry endPc="268435883" name="sessionName" stackId="1" startPc="268435709"/>
+        <entry endPc="268435801" name="windStrength" stackId="2" startPc="268435752"/>
+        <entry endPc="268435926" name="e" stackId="3" startPc="268435890"/>
+        <entry endPc="268436062" name="windView" stackId="1" startPc="268435936"/>
+        <entry endPc="268436062" name="windDelegate" stackId="2" startPc="268435936"/>
+        <entry arg="true" endPc="268436193" name="state" stackId="1" startPc="268436063"/>
+        <entry endPc="268436399" name="data" stackId="1" startPc="268436206"/>
+        <entry endPc="268436342" name="mockSpeed" stackId="2" startPc="268436262"/>
+        <entry endPc="268436342" name="info" stackId="3" startPc="268436262"/>
+        <entry endPc="268436456" name="e" stackId="1" startPc="268436420"/>
+        <entry arg="true" endPc="268436781" name="windStrength" stackId="1" startPc="268436619"/>
+        <entry endPc="268436772" name="e" stackId="2" startPc="268436736"/>
+        <entry arg="true" endPc="268436898" name="state" stackId="1" startPc="268436782"/>
+        <entry endPc="268437072" name="currentSpeed" stackId="1" startPc="268437007"/>
+        <entry endPc="268437072" name="diff" stackId="2" startPc="268437007"/>
+        <entry endPc="268437247" name="now" stackId="1" startPc="268437076"/>
+        <entry endPc="268437247" name="currentTime" stackId="2" startPc="268437076"/>
+        <entry endPc="268437247" name="elapsedMilliseconds" stackId="3" startPc="268437076"/>
+        <entry endPc="268437247" name="elapsedSeconds" stackId="4" startPc="268437076"/>
+        <entry endPc="268437506" name="currentTime" stackId="1" startPc="268437252"/>
+        <entry endPc="268437506" name="elapsedMilliseconds" stackId="2" startPc="268437252"/>
+        <entry endPc="268437506" name="elapsedSeconds" stackId="3" startPc="268437252"/>
+        <entry endPc="268437506" name="now" stackId="4" startPc="268437252"/>
+        <entry arg="true" endPc="268437738" name="isPaused" stackId="1" startPc="268437522"/>
+        <entry endPc="268437734" name="currentTime" stackId="2" startPc="268437631"/>
+        <entry endPc="268437734" name="pauseDuration" stackId="3" startPc="268437631"/>
+        <entry endPc="268437908" name="minimalSession" stackId="1" startPc="268437742"/>
+        <entry endPc="268437908" name="storage" stackId="2" startPc="268437742"/>
+        <entry endPc="268437908" name="simpleHistory" stackId="3" startPc="268437742"/>
+        <entry endPc="268437975" name="e" stackId="4" startPc="268437915"/>
+        <entry arg="true" endPc="268438269" name="info" stackId="1" startPc="268437990"/>
+        <entry endPc="268438265" name="speedKnots" stackId="2" startPc="268438015"/>
+        <entry endPc="268438265" name="sum" stackId="3" startPc="268438015"/>
+        <entry endPc="268438265" name="count" stackId="4" startPc="268438015"/>
+        <entry endPc="268438182" name="i" stackId="5" startPc="268438137"/>
+        <entry endPc="268438265" name="avg3sSpeed" stackId="6" startPc="268438015"/>
+        <entry arg="true" endPc="268438355" name="windStrength" stackId="1" startPc="268438270"/>
+        <entry endPc="268438354" name="storage" stackId="2" startPc="268438273"/>
+        <entry endPc="268438354" name="windData" stackId="3" startPc="268438273"/>
+        <entry endPc="268438386" name="storage" stackId="1" startPc="268438359"/>
+        <entry arg="true" endPc="268438471" name="index" stackId="1" startPc="268438388"/>
+        <entry endPc="268438527" name="storage" stackId="1" startPc="268438475"/>
+        <entry endPc="268438591" name="i" stackId="1" startPc="268438573"/>
+        <entry arg="true" endPc="268438999" name="item" stackId="1" startPc="268438669"/>
+        <entry endPc="268438746" name="data" stackId="2" startPc="268438683"/>
+        <entry endPc="268438922" name="view" stackId="3" startPc="268438834"/>
+        <entry endPc="268438922" name="delegate" stackId="4" startPc="268438834"/>
+        <entry arg="true" endPc="268439023" name="model" stackId="1" startPc="268439000"/>
+        <entry arg="true" endPc="268439055" name="model" stackId="1" startPc="268439024"/>
+        <entry arg="true" endPc="268439606" name="dc" stackId="1" startPc="268439056"/>
+        <entry endPc="268439605" name="width" stackId="2" startPc="268439059"/>
+        <entry endPc="268439605" name="height" stackId="3" startPc="268439059"/>
+        <entry endPc="268439605" name="options" stackId="4" startPc="268439059"/>
+        <entry arg="true" endPc="268439648" name="model" stackId="1" startPc="268439625"/>
+        <entry endPc="268439881" name="data" stackId="1" startPc="268439652"/>
+        <entry endPc="268439881" name="app" stackId="2" startPc="268439652"/>
+        <entry endPc="268439860" name="e" stackId="3" startPc="268439824"/>
+        <entry arg="true" endPc="268439908" name="prompt" stackId="1" startPc="268439885"/>
+        <entry arg="true" endPc="268440063" name="dc" stackId="1" startPc="268439909"/>
+        <entry endPc="268440062" name="width" stackId="2" startPc="268439912"/>
+        <entry endPc="268440062" name="height" stackId="3" startPc="268439912"/>
+        <entry arg="true" endPc="268440398" name="dc" stackId="1" startPc="268440082"/>
+        <entry endPc="268440397" name="width" stackId="2" startPc="268440085"/>
+        <entry endPc="268440397" name="height" stackId="3" startPc="268440085"/>
+        <entry arg="true" endPc="268440425" name="model" stackId="1" startPc="268440402"/>
+        <entry arg="true" endPc="268441648" name="dc" stackId="1" startPc="268440426"/>
+        <entry endPc="268441647" name="data" stackId="2" startPc="268440429"/>
+        <entry endPc="268441647" name="width" stackId="3" startPc="268440429"/>
+        <entry endPc="268441647" name="height" stackId="4" startPc="268440429"/>
+        <entry endPc="268441647" name="isPaused" stackId="5" startPc="268440429"/>
+        <entry endPc="268441647" name="speedStr" stackId="6" startPc="268440429"/>
+        <entry endPc="268441647" name="statsY" stackId="7" startPc="268440429"/>
+        <entry endPc="268441647" name="percentY" stackId="8" startPc="268440429"/>
+        <entry endPc="268441647" name="percentOnFoil" stackId="9" startPc="268440429"/>
+        <entry endPc="268441647" name="barWidth" stackId="10" startPc="268440429"/>
+        <entry endPc="268441647" name="elapsedSecs" stackId="11" startPc="268440429"/>
+        <entry endPc="268441358" name="currentPauseDuration" stackId="12" startPc="268441327"/>
+        <entry endPc="268441647" name="hours" stackId="13" startPc="268440429"/>
+        <entry endPc="268441647" name="minutes" stackId="14" startPc="268440429"/>
+        <entry endPc="268441647" name="seconds" stackId="15" startPc="268440429"/>
+        <entry endPc="268441647" name="timeStr" stackId="16" startPc="268440429"/>
+        <entry endPc="268441644" name="timerSeconds" stackId="17" startPc="268441571"/>
+        <entry arg="true" endPc="268441683" name="model" stackId="1" startPc="268441652"/>
+        <entry arg="true" endPc="268442019" name="dc" stackId="1" startPc="268441684"/>
+        <entry endPc="268442018" name="width" stackId="2" startPc="268441687"/>
+        <entry endPc="268442018" name="height" stackId="3" startPc="268441687"/>
+        <entry endPc="268442018" name="settings" stackId="4" startPc="268441687"/>
+        <entry arg="true" endPc="268442110" name="view" stackId="1" startPc="268442099"/>
+        <entry arg="true" endPc="268442151" name="model" stackId="1" startPc="268442111"/>
+        <entry arg="true" endPc="268442151" name="app" stackId="2" startPc="268442111"/>
+        <entry endPc="268442233" name="options" stackId="1" startPc="268442164"/>
+        <entry endPc="268442327" name="selectedIndex" stackId="1" startPc="268442251"/>
+        <entry endPc="268442324" name="windStrength" stackId="2" startPc="268442272"/>
+        <entry endPc="268442429" name="view" stackId="3" startPc="268442340"/>
+        <entry endPc="268442429" name="delegate" stackId="4" startPc="268442340"/>
+        <entry endPc="268442553" name="e" stackId="5" startPc="268442439"/>
+        <entry endPc="268442546" name="view" stackId="6" startPc="268442443"/>
+        <entry endPc="268442546" name="delegate" stackId="7" startPc="268442443"/>
+        <entry endPc="268442783" name="data" stackId="1" startPc="268442564"/>
+        <entry endPc="268442783" name="isActive" stackId="2" startPc="268442564"/>
+        <entry endPc="268442728" name="confirmView" stackId="3" startPc="268442653"/>
+        <entry endPc="268442728" name="confirmDelegate" stackId="4" startPc="268442653"/>
+        <entry endPc="268442771" name="e" stackId="5" startPc="268442735"/>
+        <entry arg="true" endPc="268442884" name="view" stackId="1" startPc="268442852"/>
+        <entry arg="true" endPc="268442884" name="model" stackId="2" startPc="268442852"/>
+        <entry endPc="268442957" name="data" stackId="1" startPc="268442888"/>
+        <entry endPc="268442957" name="isPaused" stackId="2" startPc="268442888"/>
+        <entry arg="true" endPc="268443082" name="view" stackId="1" startPc="268443071"/>
+        <entry arg="true" endPc="268443114" name="model" stackId="1" startPc="268443083"/>
+        <entry endPc="268443196" name="options" stackId="1" startPc="268443127"/>
+        <entry endPc="268443389" name="selectedIndex" stackId="1" startPc="268443214"/>
+        <entry endPc="268443386" name="windStrength" stackId="2" startPc="268443235"/>
+        <entry endPc="268443386" name="app" stackId="3" startPc="268443235"/>
+        <entry endPc="268443381" name="e" stackId="4" startPc="268443345"/>
+        <entry endPc="268443457" name="e" stackId="5" startPc="268443410"/>
+        <entry endPc="268443532" name="storage" stackId="1" startPc="268443471"/>
+        <entry arg="true" endPc="268444472" name="dc" stackId="1" startPc="268443534"/>
+        <entry endPc="268444471" name="width" stackId="2" startPc="268443537"/>
+        <entry endPc="268444471" name="height" stackId="3" startPc="268443537"/>
+        <entry endPc="268444471" name="displayCount" stackId="4" startPc="268443537"/>
+        <entry endPc="268444471" name="yPos" stackId="5" startPc="268443537"/>
+        <entry endPc="268444425" name="i" stackId="6" startPc="268443771"/>
+        <entry endPc="268444415" name="session" stackId="7" startPc="268443771"/>
+        <entry endPc="268444415" name="dateObj" stackId="8" startPc="268443771"/>
+        <entry endPc="268443933" name="e" stackId="9" startPc="268443885"/>
+        <entry endPc="268444415" name="date" stackId="10" startPc="268443771"/>
+        <entry endPc="268444415" name="dateStr" stackId="11" startPc="268443771"/>
+        <entry endPc="268444415" name="maxSpeed" stackId="12" startPc="268443771"/>
+        <entry endPc="268444415" name="percentOnFoil" stackId="13" startPc="268443771"/>
+        <entry arg="true" endPc="268444577" name="model" stackId="1" startPc="268444546"/>
+        <entry arg="true" endPc="268444589" name="view" stackId="1" startPc="268444578"/>
+        <entry endPc="268444767" name="settings" stackId="1" startPc="268444656"/>
+        <entry arg="true" endPc="268444904" name="dc" stackId="1" startPc="268444773"/>
+        <entry endPc="268444904" name="rez_cmp_local_text_title" stackId="2" startPc="268444784"/>
+    </localVars>
+    <deviceInfo deviceVersion="de121dfa604491767422db2c3063530f8fd6465b" partNumber="006-B3991-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppVersion"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Max3sSpeed"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MaxSpeed"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ColorBlue"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MenuItemSettings"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ColorGreen"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ConfirmNo"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="Knots"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="BackgroundColorTitle"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ConfirmYes"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="PercentOnFoil"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ThresholdTitle"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MenuItemReset"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ConfirmExit"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MenuItemAbout"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ColorBlack"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MenuItemHistory"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="MenuTitle"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="ThresholdDesc"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="67" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/AboutDelegate" offset="260" parentId="globals" symbolId="AboutDelegate" type="class"/>
+        <dataEntry label="globals/FoilTrackerApp" offset="313" parentId="globals" symbolId="FoilTrackerApp" type="class"/>
+        <dataEntry label="globals/FoilTrackerMenuView" offset="483" parentId="globals" symbolId="FoilTrackerMenuView" type="class"/>
+        <dataEntry label="globals/FoilTrackerModel" offset="527" parentId="globals" symbolId="FoilTrackerModel" type="class"/>
+        <dataEntry label="globals/FoilTrackerMenuDelegate" offset="787" parentId="globals" symbolId="FoilTrackerMenuDelegate" type="class"/>
+        <dataEntry label="globals/WindStrengthPickerView" offset="849" parentId="globals" symbolId="WindStrengthPickerView" type="class"/>
+        <dataEntry label="globals/Rez" offset="920" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/ConfirmationDelegate" offset="982" parentId="globals" symbolId="ConfirmationDelegate" type="class"/>
+        <dataEntry label="globals/ConfirmationView" offset="1053" parentId="globals" symbolId="ConfirmationView" type="class"/>
+        <dataEntry label="globals/AboutView" offset="1124" parentId="globals" symbolId="AboutView" type="class"/>
+        <dataEntry label="globals/FoilTrackerView" offset="1186" parentId="globals" symbolId="FoilTrackerView" type="class"/>
+        <dataEntry label="globals/SettingsView" offset="1257" parentId="globals" symbolId="SettingsView" type="class"/>
+        <dataEntry label="globals/StartupWindStrengthDelegate" offset="1337" parentId="globals" symbolId="StartupWindStrengthDelegate" type="class"/>
+        <dataEntry label="globals/FoilTrackerDelegate" offset="1453" parentId="globals" symbolId="FoilTrackerDelegate" type="class"/>
+        <dataEntry label="globals/HistoryDelegate" offset="1542" parentId="globals" symbolId="HistoryDelegate" type="class"/>
+        <dataEntry label="globals/WindStrengthPickerDelegate" offset="1595" parentId="globals" symbolId="WindStrengthPickerDelegate" type="class"/>
+        <dataEntry label="globals/HistoryView" offset="1702" parentId="globals" symbolId="HistoryView" type="class"/>
+        <dataEntry label="globals/SettingsDelegate" offset="1773" parentId="globals" symbolId="SettingsDelegate" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="1880" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Layouts" offset="1915" parentId="Rez" symbolId="Layouts" type="module"/>
+        <dataEntry label="globals/Rez/Menus" offset="1950" parentId="Rez" symbolId="Menus" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="1985" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/Rez/Menus/MainMenu" offset="2191" parentId="Menus" symbolId="MainMenu" type="class"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435471" name="&lt;init&gt;" parent="AboutDelegate" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435483" name="&lt;init&gt;" parent="FoilTrackerApp" startPc="268435472">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435495" name="&lt;init&gt;" parent="FoilTrackerMenuView" startPc="268435484">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="FoilTrackerModel">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435507" name="&lt;init&gt;" parent="FoilTrackerMenuDelegate" startPc="268435496">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435519" name="&lt;init&gt;" parent="WindStrengthPickerView" startPc="268435508">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435539" name="&lt;init&gt;" parent="Rez" startPc="268435520">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435551" name="&lt;init&gt;" parent="ConfirmationDelegate" startPc="268435540">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435563" name="&lt;init&gt;" parent="ConfirmationView" startPc="268435552">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435575" name="&lt;init&gt;" parent="AboutView" startPc="268435564">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435587" name="&lt;init&gt;" parent="FoilTrackerView" startPc="268435576">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435599" name="&lt;init&gt;" parent="SettingsView" startPc="268435588">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435611" name="&lt;init&gt;" parent="StartupWindStrengthDelegate" startPc="268435600">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435623" name="&lt;init&gt;" parent="FoilTrackerDelegate" startPc="268435612">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435635" name="&lt;init&gt;" parent="HistoryDelegate" startPc="268435624">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435647" name="&lt;init&gt;" parent="WindStrengthPickerDelegate" startPc="268435636">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435659" name="&lt;init&gt;" parent="HistoryView" startPc="268435648">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435671" name="&lt;init&gt;" parent="SettingsDelegate" startPc="268435660">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435690" name="onBack" parent="AboutDelegate" startPc="268435672">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435705" name="initialize" parent="AboutDelegate" startPc="268435691">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435932" name="startActivitySession" parent="FoilTrackerApp" startPc="268435706">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436062" name="getInitialView" parent="FoilTrackerApp" startPc="268435933">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436193" name="onStart" parent="FoilTrackerApp" startPc="268436063">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436403" name="processData" parent="FoilTrackerApp" startPc="268436194">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436462" name="onTimerTick" parent="FoilTrackerApp" startPc="268436404">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436563" name="startSimpleTimer" parent="FoilTrackerApp" startPc="268436463">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436618" name="initialize" parent="FoilTrackerApp" startPc="268436564">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436781" name="updateSessionWithWindData" parent="FoilTrackerApp" startPc="268436619">
+            <param id="windStrength"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436898" name="onStop" parent="FoilTrackerApp" startPc="268436782">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437003" name="initialize" parent="FoilTrackerMenuView" startPc="268436899">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437072" name="hasSignificantChange" parent="FoilTrackerModel" startPc="268437004">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437248" name="updateTimeDisplay" parent="FoilTrackerModel" startPc="268437073">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437507" name="updateData" parent="FoilTrackerModel" startPc="268437249">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437521" name="getCurrentSpeed" parent="FoilTrackerModel" startPc="268437508">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437738" name="setPauseState" parent="FoilTrackerModel" startPc="268437522">
+            <param id="isPaused"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437981" name="saveActivityData" parent="FoilTrackerModel" startPc="268437739">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437989" name="getData" parent="FoilTrackerModel" startPc="268437982">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438269" name="processLocationData" parent="FoilTrackerModel" startPc="268437990">
+            <param id="info"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438355" name="saveWindStrength" parent="FoilTrackerModel" startPc="268438270">
+            <param id="windStrength"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438387" name="saveSettings" parent="FoilTrackerModel" startPc="268438356">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438471" name="setWindStrength" parent="FoilTrackerModel" startPc="268438388">
+            <param id="index"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438528" name="loadSettings" parent="FoilTrackerModel" startPc="268438472">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438536" name="getWindStrengthOptions" parent="FoilTrackerModel" startPc="268438529">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438668" name="initialize" parent="FoilTrackerModel" startPc="268438537">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438999" name="onMenuItem" parent="FoilTrackerMenuDelegate" startPc="268438669">
+            <param id="item"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439023" name="initialize" parent="FoilTrackerMenuDelegate" startPc="268439000">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439055" name="initialize" parent="WindStrengthPickerView" startPc="268439024">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439606" name="onUpdate" parent="WindStrengthPickerView" startPc="268439056">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Layouts">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Menus">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439624" name="onBack" parent="ConfirmationDelegate" startPc="268439607">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439648" name="initialize" parent="ConfirmationDelegate" startPc="268439625">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439881" name="onSelect" parent="ConfirmationDelegate" startPc="268439649">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439884" name="onLayout" parent="ConfirmationView" startPc="268439882">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439908" name="initialize" parent="ConfirmationView" startPc="268439885">
+            <param id="prompt"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440063" name="onUpdate" parent="ConfirmationView" startPc="268439909">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440066" name="onLayout" parent="AboutView" startPc="268440064">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440081" name="initialize" parent="AboutView" startPc="268440067">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440398" name="onUpdate" parent="AboutView" startPc="268440082">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440401" name="onLayout" parent="FoilTrackerView" startPc="268440399">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440425" name="initialize" parent="FoilTrackerView" startPc="268440402">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441648" name="onUpdate" parent="FoilTrackerView" startPc="268440426">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441651" name="onLayout" parent="SettingsView" startPc="268441649">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268441683" name="initialize" parent="SettingsView" startPc="268441652">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442019" name="onUpdate" parent="SettingsView" startPc="268441684">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442034" name="onBack" parent="StartupWindStrengthDelegate" startPc="268442020">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442098" name="onPreviousPage" parent="StartupWindStrengthDelegate" startPc="268442035">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442110" name="setPickerView" parent="StartupWindStrengthDelegate" startPc="268442099">
+            <param id="view"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442151" name="initialize" parent="StartupWindStrengthDelegate" startPc="268442111">
+            <param id="model"/>
+            <param id="app"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442238" name="onNextPage" parent="StartupWindStrengthDelegate" startPc="268442152">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442560" name="onSelect" parent="StartupWindStrengthDelegate" startPc="268442239">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442783" name="onBack" parent="FoilTrackerDelegate" startPc="268442561">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442851" name="onMenu" parent="FoilTrackerDelegate" startPc="268442784">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442884" name="initialize" parent="FoilTrackerDelegate" startPc="268442852">
+            <param id="view"/>
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442957" name="onSelect" parent="FoilTrackerDelegate" startPc="268442885">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442976" name="onBack" parent="HistoryDelegate" startPc="268442958">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268442991" name="initialize" parent="HistoryDelegate" startPc="268442977">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443006" name="onBack" parent="WindStrengthPickerDelegate" startPc="268442992">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443070" name="onPreviousPage" parent="WindStrengthPickerDelegate" startPc="268443007">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443082" name="setPickerView" parent="WindStrengthPickerDelegate" startPc="268443071">
+            <param id="view"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443114" name="initialize" parent="WindStrengthPickerDelegate" startPc="268443083">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443201" name="onNextPage" parent="WindStrengthPickerDelegate" startPc="268443115">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443464" name="onSelect" parent="WindStrengthPickerDelegate" startPc="268443202">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443467" name="onLayout" parent="HistoryView" startPc="268443465">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268443533" name="initialize" parent="HistoryView" startPc="268443468">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444472" name="onUpdate" parent="HistoryView" startPc="268443534">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444491" name="onBack" parent="SettingsDelegate" startPc="268444473">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444545" name="onPreviousPage" parent="SettingsDelegate" startPc="268444492">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444577" name="initialize" parent="SettingsDelegate" startPc="268444546">
+            <param id="model"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444589" name="setSettingsView" parent="SettingsDelegate" startPc="268444578">
+            <param id="view"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444643" name="onNextPage" parent="SettingsDelegate" startPc="268444590">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444772" name="onSelect" parent="SettingsDelegate" startPc="268444644">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444904" name="MainLayout" parent="Layouts" startPc="268444773">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268444916" name="&lt;init&gt;" parent="MainMenu" startPc="268444905">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268445156" name="initialize" parent="MainMenu" startPc="268444917">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>
