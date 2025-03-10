@@ -1007,6 +1007,7 @@ class FoilTrackerApp extends Application.AppBase {
 
     // Helper function to ensure lap fields exist
     // Helper function to ensure lap fields exist
+    // Helper function to ensure lap fields exist
     function createLapFields() {
         // Only create fields if they don't already exist
         if (mLapPctOnFoilField == null) {
@@ -1111,25 +1112,8 @@ class FoilTrackerApp extends Application.AppBase {
                     { :mesgType => FitContributor.MESG_TYPE_LAP }
                 );
                 System.println("Created field 110: gybeCount");
-
-                // Add these field creations to createLapFields method
-                // 10. Tack Count - Field ID 109
-                mLapTackCountField = mSession.createField(
-                    "tackCount",
-                    109,
-                    FitContributor.DATA_TYPE_UINT8,
-                    { :mesgType => FitContributor.MESG_TYPE_LAP }
-                );
-                System.println("Created field 109: tackCount");
-
-                // 11. Gybe Count - Field ID 110
-                mLapGybeCountField = mSession.createField(
-                    "gybeCount",
-                    110,
-                    FitContributor.DATA_TYPE_UINT8,
-                    { :mesgType => FitContributor.MESG_TYPE_LAP }
-                );
-                System.println("Created field 110: gybeCount");
+                
+                // REMOVED DUPLICATE FIELD CREATION FOR 109 AND 110
                 
             } catch (e) {
                 System.println("Error creating lap fields: " + e.getErrorMessage());
