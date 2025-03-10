@@ -1,48 +1,48 @@
-[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; ]
 using Toybox.WatchUi;
-[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
 using Toybox.Graphics;
-[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [System,5,13,19]; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [System,5,13,19]; ]
 using Toybox.System;
-[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; @symbol_classdef = [WindStrengthPickerView,8,6,28]; @symbol_extends<0> = [WatchUi,8,37,44]; @symbol_extends<1> = [View,8,45,49]; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; @symbol_classdef = [WindStrengthPickerView,8,6,28]; @symbol_extends<0> = [WatchUi,8,37,44]; @symbol_extends<1> = [View,8,45,49]; ]
 class WindStrengthPickerView extends WatchUi.View {
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; ]
     <init> {
     }
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 8; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 9; @position = 16; @symbol_vardef = [mModel,9,16,22]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 9; @position = 16; @symbol_vardef = [mModel,9,16,22]; ]
     private
     var mModel;
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 10; @position = 15; @symbol_vardef = [mSelectedIndex,10,15,29]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 10; @position = 15; @symbol_vardef = [mSelectedIndex,10,15,29]; ]
     public
     var mSelectedIndex;
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 12; @symbol_functiondef = [initialize,12,13,23]; @symbol_param<0> = [model,12,24,29]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 12; @symbol_functiondef = [initialize,12,13,23]; @symbol_param<0> = [model,12,24,29]; ]
     function initialize(model) as Void {
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_12_31_16_4_start:
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 13 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_12_31_16_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 13 8 ]
         symbol [ View %tmp.2 13 8 12 ];
         %tmp.2 = getv ? :View;
         symbol [ initialize %tmp.3 13 13 23 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 14 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 14 8 ]
         %tmp.4 = lgetv %model;
         symbol [ model %tmp.4 14 17 22 ];
         symbol [ mModel ? 14 8 14 ];
         putv self :mModel %tmp.4;
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 15 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 15 8 ]
         %tmp.5 = 0;
         symbol [ mSelectedIndex ? 15 8 22 ];
         putv self :mSelectedIndex %tmp.5;
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_12_31_16_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_12_31_16_4_stop:
     }
-    [ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 18; @symbol_functiondef = [onUpdate,18,13,21]; @symbol_param<0> = [dc,18,22,24]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 18; @symbol_functiondef = [onUpdate,18,13,21]; @symbol_param<0> = [dc,18,22,24]; ]
     function onUpdate(dc) {
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start:
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 20 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 20 8 ]
         %tmp.1 = lgetv %dc;
         symbol [ dc %tmp.1 20 8 10 ];
         symbol [ setColor %tmp.2 20 11 19 ];
@@ -56,14 +56,14 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ COLOR_BLACK %tmp.6 20 51 62 ];
         %tmp.6 = getv %tmp.5 :COLOR_BLACK;
         invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 21 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 21 8 ]
         %tmp.7 = lgetv %dc;
         symbol [ dc %tmp.7 21 8 10 ];
         symbol [ clear %tmp.8 21 11 16 ];
         %tmp.8 = getv function %tmp.7 :clear;
         invoke %tmp.7 %tmp.8();
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 24 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 24 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %width.1 = local;
         symbol [ width %width.1 24 12 17 ];
         %tmp.9 = lgetv %dc;
@@ -73,8 +73,8 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.11 = invoke %tmp.9 %tmp.10();
         lputv %width.1 %tmp.11;
         symbol [ width %width.1 24 12 17 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 25 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 25 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %height.2 = local;
         symbol [ height %height.2 25 12 18 ];
         %tmp.12 = lgetv %dc;
@@ -84,7 +84,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.14 = invoke %tmp.12 %tmp.13();
         lputv %height.2 %tmp.14;
         symbol [ height %height.2 25 12 18 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 28 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 28 8 ]
         %tmp.15 = lgetv %dc;
         symbol [ dc %tmp.15 28 8 10 ];
         symbol [ setColor %tmp.16 28 11 19 ];
@@ -98,8 +98,8 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ COLOR_TRANSPARENT %tmp.20 28 51 68 ];
         %tmp.20 = getv %tmp.19 :COLOR_TRANSPARENT;
         invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 29 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 29 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %fontHeight.3 = local;
         symbol [ fontHeight %fontHeight.3 29 12 22 ];
         %tmp.21 = lgetv %dc;
@@ -115,7 +115,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.27 = div %tmp.25 %tmp.26;
         lputv %fontHeight.3 %tmp.27;
         symbol [ fontHeight %fontHeight.3 29 12 22 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 30 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 30 8 ]
         %tmp.28 = lgetv %dc;
         symbol [ dc %tmp.28 30 8 10 ];
         symbol [ drawText %tmp.29 30 11 19 ];
@@ -138,7 +138,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ TEXT_JUSTIFY_CENTER %tmp.40 30 92 111 ];
         %tmp.40 = getv %tmp.39 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.28 %tmp.29(%tmp.32, %tmp.35, %tmp.37, %tmp.38, %tmp.40);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 33 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 33 8 ]
         %tmp.41 = lgetv %dc;
         symbol [ dc %tmp.41 33 8 10 ];
         symbol [ setColor %tmp.42 33 11 19 ];
@@ -152,7 +152,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ COLOR_TRANSPARENT %tmp.46 33 53 70 ];
         %tmp.46 = getv %tmp.45 :COLOR_TRANSPARENT;
         invoke %tmp.41 %tmp.42(%tmp.44, %tmp.46);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 34 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 34 8 ]
         %tmp.47 = lgetv %dc;
         symbol [ dc %tmp.47 34 8 10 ];
         symbol [ drawLine %tmp.48 34 11 19 ];
@@ -171,8 +171,8 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ fontHeight %tmp.57 34 56 66 ];
         %tmp.58 = add %tmp.56 %tmp.57;
         invoke %tmp.47 %tmp.48(%tmp.49, %tmp.52, %tmp.55, %tmp.58);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 37 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 37 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %options.4 = local;
         symbol [ options %options.4 37 12 19 ];
         symbol [ mModel %tmp.60 37 22 28 ];
@@ -182,7 +182,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.62 = invoke %tmp.60 %tmp.61();
         lputv %options.4 %tmp.62;
         symbol [ options %options.4 37 12 19 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 40 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 40 8 ]
         %tmp.63 = lgetv %dc;
         symbol [ dc %tmp.63 40 8 10 ];
         symbol [ setColor %tmp.64 40 11 19 ];
@@ -196,7 +196,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ COLOR_TRANSPARENT %tmp.68 40 51 68 ];
         %tmp.68 = getv %tmp.67 :COLOR_TRANSPARENT;
         invoke %tmp.63 %tmp.64(%tmp.66, %tmp.68);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 41 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 41 8 ]
         %tmp.69 = lgetv %dc;
         symbol [ dc %tmp.69 41 8 10 ];
         symbol [ drawText %tmp.70 41 11 19 ];
@@ -223,8 +223,8 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ TEXT_JUSTIFY_CENTER %tmp.84 41 95 114 ];
         %tmp.84 = getv %tmp.83 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.69 %tmp.70(%tmp.73, %tmp.76, %tmp.78, %tmp.82, %tmp.84);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 44 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 44 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %mediumFontHeight.5 = local;
         symbol [ mediumFontHeight %mediumFontHeight.5 44 12 28 ];
         %tmp.85 = lgetv %dc;
@@ -238,8 +238,8 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.89 = invoke %tmp.85 %tmp.86(%tmp.88);
         lputv %mediumFontHeight.5 %tmp.89;
         symbol [ mediumFontHeight %mediumFontHeight.5 44 12 28 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 45 8 ]
-        [ "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 45 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop" ]
         %arrowOffset.6 = local;
         symbol [ arrowOffset %arrowOffset.6 45 12 23 ];
         %tmp.90 = lgetv %mediumFontHeight.5;
@@ -248,7 +248,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.92 = div %tmp.90 %tmp.91;
         lputv %arrowOffset.6 %tmp.92;
         symbol [ arrowOffset %arrowOffset.6 45 12 23 ];
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 48 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 48 8 ]
         %tmp.93 = lgetv %dc;
         symbol [ dc %tmp.93 48 8 10 ];
         symbol [ setColor %tmp.94 48 11 19 ];
@@ -262,16 +262,16 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ COLOR_TRANSPARENT %tmp.98 48 53 70 ];
         %tmp.98 = getv %tmp.97 :COLOR_TRANSPARENT;
         invoke %tmp.93 %tmp.94(%tmp.96, %tmp.98);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 51 8 ]
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_stmt:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 51 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_stmt:
         symbol [ mSelectedIndex %tmp.100 51 12 26 ];
         %tmp.100 = getv ? :mSelectedIndex;
         %tmp.101 = 0;
         %tmp.102 = gt %tmp.100 %tmp.101;
-        bf %tmp.102 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end;
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_true:
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_32_56_8_start:
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 53 12 ]
+        bf %tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_32_56_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 53 12 ]
         %tmp.103 = lgetv %dc;
         symbol [ dc %tmp.103 53 12 14 ];
         symbol [ drawLine %tmp.104 53 15 23 ];
@@ -305,7 +305,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.125 53 92 103 ];
         %tmp.126 = sub %tmp.124 %tmp.125;
         invoke %tmp.103 %tmp.104(%tmp.107, %tmp.114, %tmp.119, %tmp.126);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 54 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 54 12 ]
         %tmp.127 = lgetv %dc;
         symbol [ dc %tmp.127 54 12 14 ];
         symbol [ drawLine %tmp.128 54 15 23 ];
@@ -339,7 +339,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.149 54 92 103 ];
         %tmp.150 = sub %tmp.148 %tmp.149;
         invoke %tmp.127 %tmp.128(%tmp.131, %tmp.138, %tmp.143, %tmp.150);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 55 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 55 12 ]
         %tmp.151 = lgetv %dc;
         symbol [ dc %tmp.151 55 12 14 ];
         symbol [ drawLine %tmp.152 55 15 23 ];
@@ -375,11 +375,11 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.175 55 97 108 ];
         %tmp.176 = sub %tmp.174 %tmp.175;
         invoke %tmp.151 %tmp.152(%tmp.157, %tmp.164, %tmp.169, %tmp.176);
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_32_56_8_stop:
-        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end;
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end:
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 59 8 ]
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_32_56_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_51_8_56_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 59 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_stmt:
         symbol [ mSelectedIndex %tmp.178 59 12 26 ];
         %tmp.178 = getv ? :mSelectedIndex;
         %tmp.179 = lgetv %options.4;
@@ -390,10 +390,10 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         %tmp.182 = 1;
         %tmp.183 = sub %tmp.181 %tmp.182;
         %tmp.184 = lt %tmp.178 %tmp.183;
-        bf %tmp.184 @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end;
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_true:
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_49_64_8_start:
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 61 12 ]
+        bf %tmp.184 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_49_64_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 61 12 ]
         %tmp.185 = lgetv %dc;
         symbol [ dc %tmp.185 61 12 14 ];
         symbol [ drawLine %tmp.186 61 15 23 ];
@@ -427,7 +427,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.207 61 92 103 ];
         %tmp.208 = add %tmp.206 %tmp.207;
         invoke %tmp.185 %tmp.186(%tmp.189, %tmp.196, %tmp.201, %tmp.208);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 62 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 62 12 ]
         %tmp.209 = lgetv %dc;
         symbol [ dc %tmp.209 62 12 14 ];
         symbol [ drawLine %tmp.210 62 15 23 ];
@@ -461,7 +461,7 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.231 62 92 103 ];
         %tmp.232 = add %tmp.230 %tmp.231;
         invoke %tmp.209 %tmp.210(%tmp.213, %tmp.220, %tmp.225, %tmp.232);
-[ "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc" 63 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc" 63 12 ]
         %tmp.233 = lgetv %dc;
         symbol [ dc %tmp.233 63 12 14 ];
         symbol [ drawLine %tmp.234 63 15 23 ];
@@ -497,12 +497,12 @@ C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPicke
         symbol [ arrowOffset %tmp.257 63 97 108 ];
         %tmp.258 = add %tmp.256 %tmp.257;
         invoke %tmp.233 %tmp.234(%tmp.239, %tmp.246, %tmp.251, %tmp.258);
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_49_64_8_stop:
-        goto @C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end;
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end:
-C_Users_kaima_OneDrive_Documents_GitHub_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_49_64_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_59_8_64_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindStrengthPickerView_mc_18_26_67_4_stop:
     }
 }
-[ @file = "C:\Users\kaima\OneDrive\Documents\GitHub\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 3; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindStrengthPickerView.mc"; @line = 3; ]
 <init> {
 }

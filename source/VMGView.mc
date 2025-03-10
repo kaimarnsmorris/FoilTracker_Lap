@@ -188,6 +188,7 @@ class VMGView extends WatchUi.View {
     }
     
     // Update the view
+    // VMGView.mc - Complete onUpdate method
     function onUpdate(dc) {
         // Always update from wind tracker
         updateFromWindTracker();
@@ -214,32 +215,62 @@ class VMGView extends WatchUi.View {
         var textColor = (mTackColorId == 1) ? Graphics.COLOR_GREEN : Graphics.COLOR_RED;
         
         // Draw tack indicator text to the left of the wind angle with correct color
-        // Moved down 20px as requested (from y=85 to y=105)
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(90, 105, Graphics.FONT_SMALL, mTackDisplayText, Graphics.TEXT_JUSTIFY_CENTER);
         dc.drawText(130, 90, Graphics.FONT_NUMBER_MEDIUM, absWindAngle.format("%d") + "°", Graphics.TEXT_JUSTIFY_LEFT);
         
-        // Statistics section - Tacks/Gybes moved right 10px
+        // Statistics section - Tacks/Gybes
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         
-        // Tacks section
-        dc.drawText(25, 140, Graphics.FONT_TINY, "Tacks: " + mTackCount, Graphics.TEXT_JUSTIFY_LEFT);
+        // Get total counts
+        var totalTackCount = 0;
+        var totalGybeCount = 0;
+        
+        // Get session model to retrieve total counts
+        var app = Application.getApp();
+        if (app != null) {
+            // We can't directly access app.mModel, so we need an accessor method
+            var data = null;
+            if (app has :getModelData) {
+                data = app.getModelData();
+            }
+            
+            if (data != null) {
+                if (data.hasKey("totalTackCount")) {
+                    totalTackCount = data["totalTackCount"];
+                }
+                if (data.hasKey("totalGybeCount")) {
+                    totalGybeCount = data["totalGybeCount"];
+                }
+            }
+        }
+        
+        // If no totals found in model, try to use current counts
+        if (totalTackCount == 0) {
+            totalTackCount = mTackCount;
+        }
+        if (totalGybeCount == 0) {
+            totalGybeCount = mGybeCount;
+        }
+        
+        // Tacks section - Use total tack count for display
+        dc.drawText(25, 140, Graphics.FONT_TINY, "Tacks: " + totalTackCount, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last tack angle directly underneath
         var tackText = "Last: ";
-        if (mTackCount > 0) {
+        if (mLastTackAngle > 0) {
             tackText += mLastTackAngle.format("%d") + "°";
         } else {
             tackText += "--";
         }
         dc.drawText(25, 160, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
         
-        // Gybes section
-        dc.drawText(140, 140, Graphics.FONT_TINY, "Gybes: " + mGybeCount, Graphics.TEXT_JUSTIFY_LEFT);
+        // Gybes section - Use total gybe count for display
+        dc.drawText(140, 140, Graphics.FONT_TINY, "Gybes: " + totalGybeCount, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last gybe angle directly underneath
         var gybeText = "Last: ";
-        if (mGybeCount > 0) {
+        if (mLastGybeAngle > 0) {
             gybeText += mLastGybeAngle.format("%d") + "°";
         } else {
             gybeText += "--";

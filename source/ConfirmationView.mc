@@ -25,15 +25,21 @@ class ConfirmationView extends WatchUi.View {
         var width = dc.getWidth();
         var height = dc.getHeight();
         
+        // Draw PAUSED text at the top
+        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(width/2, height/2 - 60, Graphics.FONT_SMALL, "PAUSED", Graphics.TEXT_JUSTIFY_CENTER);
+        
         // Draw confirmation text
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(width/2, height/2 - 30, Graphics.FONT_MEDIUM, mPrompt, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width/2, height/2 + 10, Graphics.FONT_SMALL, "Press SELECT to confirm", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width/2, height/2 + 35, Graphics.FONT_SMALL, "Press BACK to cancel", Graphics.TEXT_JUSTIFY_CENTER);
+        
+        // Button instructions
+        dc.drawText(width/2, height/2 + 10, Graphics.FONT_SMALL, "Press SELECT to return", Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width/2, height/2 + 35, Graphics.FONT_SMALL, "Press BACK to end", Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
 
-// Confirmation delegate - modified to show custom save/discard dialog
+// Confirmation delegate - MODIFIED for new button flow
 class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
     private var mModel;
     private var mApp;
@@ -44,7 +50,25 @@ class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
         mApp = Application.getApp();
     }
     
+    // CHANGED: Select now returns to recording (unpauses)
     function onSelect() {
+        // Resume recording
+        if (mModel != null) {
+            var data = mModel.getData();
+            data["sessionPaused"] = false;
+            
+            // Update pause state in model
+            mModel.setPauseState(false);
+            
+            // Pop view to return to main screen
+            WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
+        }
+        
+        return true;
+    }
+    
+    // CHANGED: Back now ends the activity
+    function onBack() {
         // End recording immediately
         if (mModel != null) {
             var data = mModel.getData();
@@ -60,12 +84,6 @@ class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
         // Push the view
         WatchUi.pushView(saveView, saveDelegate, WatchUi.SLIDE_LEFT);
         
-        return true;
-    }
-    
-    function onBack() {
-        // Cancel exit - go back to the main view
-        WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         return true;
     }
 }

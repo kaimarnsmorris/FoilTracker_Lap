@@ -182,6 +182,8 @@ class ManeuverDetector {
     }
     
     // Calculate maneuver angle based on heading history
+    // calculateManeuverAngle method in ManeuverDetector class
+    // calculateManeuverAngle method in ManeuverDetector class
     function calculateManeuverAngle(pendingManeuver) {
         var maneuverTimestamp = pendingManeuver["timestamp"];
         var isTack = pendingManeuver["isTack"];
@@ -226,6 +228,16 @@ class ManeuverDetector {
             // Record maneuver in history
             recordManeuver(true, afterHeading, maneuverAngle);
             
+            // Directly notify lap tracker of this tack with proper angle
+            mParent.getLapTracker().recordManeuverInLap({
+                "isTack" => true,
+                "heading" => afterHeading,
+                "angle" => maneuverAngle,
+                "time" => Time.now().value(),
+                "timestamp" => System.getTimer(),
+                "lapNumber" => mParent.getLapTracker().getCurrentLap()
+            });
+            
             log("Tack recorded: #" + mTackCount + ", angle: " + maneuverAngle + "°");
         } else {
             // Increment gybe counter
@@ -240,6 +252,16 @@ class ManeuverDetector {
             
             // Record maneuver in history
             recordManeuver(false, afterHeading, maneuverAngle);
+            
+            // Directly notify lap tracker of this gybe with proper angle
+            mParent.getLapTracker().recordManeuverInLap({
+                "isTack" => false,
+                "heading" => afterHeading,
+                "angle" => maneuverAngle,
+                "time" => Time.now().value(),
+                "timestamp" => System.getTimer(),
+                "lapNumber" => mParent.getLapTracker().getCurrentLap()
+            });
             
             log("Gybe recorded: #" + mGybeCount + ", angle: " + maneuverAngle + "°");
         }

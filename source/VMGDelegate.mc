@@ -25,30 +25,48 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    // Handle select button press - Reset wind direction to initial user input
+    // Handle select button press - Records lap (same as in main view)
     function onSelect() {
-        if (mWindTracker != null) {
-            // Reset the wind tracker to use the initial user input and unlock
-            mWindTracker.unlockWindDirection();
-            mWindTracker.resetToManualDirection();
-            
-            // Log the reset action
-            System.println("Wind direction reset to manual input");
-            
-            // Request UI update to reflect changes
-            WatchUi.requestUpdate();
+        var data = mModel.getData();
+        
+        // Check if the activity is recording and not paused
+        var isActive = false;
+        if (data.hasKey("isRecording") && data["isRecording"]) {
+            if (!(data.hasKey("sessionPaused") && data["sessionPaused"])) {
+                isActive = true;
+            }
         }
+        
+        if (isActive) {
+            System.println("SELECT BUTTON PRESSED - ADDING LAP FROM VMG VIEW");
+            
+            // Add a lap marker with all custom fields
+            mApp.addLapMarker();
+            
+            // Show lap feedback in the view if available
+            if (mView has :showLapFeedback) {
+                mView.showLapFeedback();
+            }
+            
+            System.println("Lap marker added from VMG view");
+        } else {
+            System.println("Cannot add lap marker - not recording or paused");
+        }
+        
         return true;
     }
     
-    // Handle back button press - Lock wind direction instead of ending session
+    // Handle back button press - Lock/unlock wind direction
     function onBack() {
         if (mWindTracker != null) {
-            // Lock the wind direction at current value
-            mWindTracker.lockWindDirection();
-            
-            // Log the action
-            System.println("Wind direction locked");
+            // Toggle wind direction lock
+            if (mWindTracker.isWindDirectionLocked()) {
+                mWindTracker.unlockWindDirection();
+                System.println("Wind direction unlocked");
+            } else {
+                mWindTracker.lockWindDirection();
+                System.println("Wind direction locked at: " + mWindTracker.getWindDirection());
+            }
             
             // Request UI update to reflect changes
             WatchUi.requestUpdate();
@@ -65,80 +83,28 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    // Handle next page button (down) - Stay on this page (VMG view)
+    // Handle next page button (down) - Reset wind direction to initial user input
     function onNextPage() {
-        // Already on VMG view, do nothing but force an update
-        WatchUi.requestUpdate();
+        if (mWindTracker != null) {
+            // Reset the wind tracker to use the initial user input and unlock
+            mWindTracker.unlockWindDirection();
+            mWindTracker.resetToManualDirection();
+            
+            // Log the reset action
+            System.println("Wind direction reset to manual input");
+            
+            // Request UI update to reflect changes
+            WatchUi.requestUpdate();
+        }
         return true;
     }
     
-    // NEW FUNCTION: Handle light button press - Add lap marker with custom fields
-    function onLight() {
-        // Check if the activity is recording
-        var data = mModel.getData();
-        var isActive = false;
-        
-        // Only add lap when activity is recording and not paused
-        if (data.hasKey("isRecording") && data["isRecording"]) {
-            if (!(data.hasKey("sessionPaused") && data["sessionPaused"])) {
-                isActive = true;
-            }
-        }
-        
-        if (isActive) {
-            // Add a lap marker with all custom fields
-            mApp.addLapMarker();
-            
-            // Show lap feedback in the view
-            if (mView has :showLapFeedback) {
-                mView.showLapFeedback();
-            }
-            
-            // Optional: WatchUi.playTone(Attention.TONE_LAP); // Play a tone if needed
-            System.println("Lap marker added from VMG view");
-        } else {
-            System.println("Cannot add lap marker - not recording or paused");
-        }
-        
-        return true;
-    }
-    
-    // In VMGDelegate.mc
+    // Handle key events (for compatibility with devices that use onKey)
     function onKey(keyEvent) {
-        // Check if the key is the LIGHT button
-        if (keyEvent.getKey() == WatchUi.KEY_LIGHT || keyEvent.getKey() == WatchUi.KEY_ENTER) {
-            System.println("LIGHT button detected in VMG view!");
-            
-            // Check if the activity is recording
-            var data = mModel.getData();
-            var isActive = false;
-            
-            // Only add lap when activity is recording and not paused
-            if (data.hasKey("isRecording") && data["isRecording"]) {
-                if (!(data.hasKey("sessionPaused") && data["sessionPaused"])) {
-                    isActive = true;
-                }
-            }
-            
-            if (isActive) {
-                // Add a lap marker with all custom fields
-                mApp.addLapMarker();
-                
-                // Show lap feedback in the view
-                if (mView has :showLapFeedback) {
-                    mView.showLapFeedback();
-                }
-                
-                System.println("Lap marker added from VMG view");
-                return true;
-            } else {
-                System.println("Cannot add lap marker - not recording or paused");
-            }
-        }
-        
         // Let parent class handle other keys
         return BehaviorDelegate.onKey(keyEvent);
     }
+    
     // Override the onShow handler to ensure view is updated when shown
     function onShow() {
         // Force an update when view is shown

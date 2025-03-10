@@ -156,6 +156,17 @@ class FoilTrackerView extends WatchUi.View {
             // PAUSED text for clear indication - made smaller
             dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
             dc.drawText(width/2, height - 60, Graphics.FONT_TINY, "PAUSED", Graphics.TEXT_JUSTIFY_CENTER);
+            
+            // ADDED: Small pause timer
+            if (data.hasKey("pauseStartTime")) {
+                var pauseDuration = (System.getTimer() - data["pauseStartTime"]) / 1000;
+                var pauseMinutes = (pauseDuration / 60).toNumber();
+                var pauseSeconds = (pauseDuration % 60).toNumber();
+                var pauseTimeStr = pauseMinutes.format("%d") + ":" + pauseSeconds.format("%02d");
+                
+                dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+                dc.drawText(width/2, height - 80, Graphics.FONT_TINY, "Paused: " + pauseTimeStr, Graphics.TEXT_JUSTIFY_CENTER);
+            }
         } else if (data["isRecording"]) {
             // Blinking red dot for recording indication
             // Use a different variable name to avoid conflict
@@ -175,10 +186,6 @@ class FoilTrackerView extends WatchUi.View {
             dc.drawText(width/2, 2, Graphics.FONT_SMALL, "LAP MARKED", Graphics.TEXT_JUSTIFY_CENTER);
         }
         
-        // Draw "Light=Lap" indicator at bottom
-        if (!mShowLapFeedback && !isPaused && data["isRecording"]) {
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(width/2, height - 20, Graphics.FONT_TINY, "Light=Lap", Graphics.TEXT_JUSTIFY_CENTER);
-        }
+        // Removed button hints as requested
     }
 }
