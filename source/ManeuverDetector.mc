@@ -266,6 +266,16 @@ class ManeuverDetector {
             log("Gybe recorded: #" + mGybeCount + ", angle: " + maneuverAngle + "°");
         }
     }
+
+    function resetTackGybeCountsForLap() {
+    log("Resetting tack/gybe counts for new lap");
+    
+    // We don't reset mTackCount and mGybeCount because they're used 
+    // for wind direction calculation and overall session statistics
+    
+    // Instead, we rely on lap-specific tracking in LapTracker
+    // which initializes new counts for each lap in its onLapMarked method
+    }
     
     // Record maneuver in history
     function recordManeuver(isTack, heading, angle) {

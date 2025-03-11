@@ -784,7 +784,6 @@ class FoilTrackerApp extends Application.AppBase {
     }
 
     // Method to add a lap marker
-    // Method to add a lap marker
     function addLapMarker() {
         if (mSession != null && mSession.isRecording()) {
             try {
@@ -794,7 +793,7 @@ class FoilTrackerApp extends Application.AppBase {
                 createLapFields();
                 
                 // Get lap data from wind tracker
-                var lapData = mWindTracker.getLapData();
+                var lapData = getLapData();
                 if (lapData == null) {
                     System.println("WARNING: No lap data available - using default values");
                     lapData = {
@@ -816,6 +815,25 @@ class FoilTrackerApp extends Application.AppBase {
                     }
                 }
                 
+                // Retrieve the maneuver detector's data for current tack/gybe counts
+                var windData = mWindTracker.getWindData();
+                if (windData != null && windData.hasKey("valid") && windData["valid"]) {
+                    // Get the current lap from the lap tracker
+                    var currentLap = mWindTracker.getLapTracker().getCurrentLap();
+                    var lapStats = mWindTracker.getLapTracker().getLapStats(currentLap);
+                    
+                    // Check if we have valid lap-specific counts
+                    if (lapStats != null && lapStats.hasKey("tackCount")) {
+                        lapData["tackCount"] = lapStats["tackCount"];
+                        System.println("Using lap-specific tackCount from lapStats: " + lapData["tackCount"]);
+                    }
+                    
+                    if (lapStats != null && lapStats.hasKey("gybeCount")) {
+                        lapData["gybeCount"] = lapStats["gybeCount"];
+                        System.println("Using lap-specific gybeCount from lapStats: " + lapData["gybeCount"]);
+                    }
+                }
+                
                 System.println("=== SETTING FIELD VALUES ===");
                 
                 // Set field values
@@ -831,35 +849,6 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("ERROR setting field 100: " + e.getErrorMessage());
                 }
                 
-                // Add these try/catch blocks to your addLapMarker method
-                try {
-                    if (mLapTackCountField != null) {
-                        var tackCount = 0;
-                        if (lapData.hasKey("tackCount")) {
-                            tackCount = lapData["tackCount"];
-                        }
-                        System.println("Setting field 109 (tack count) = " + tackCount);
-                        var result = mLapTackCountField.setData(tackCount);
-                        System.println("Result of setting field 109: " + result);
-                    }
-                } catch (e) {
-                    System.println("ERROR setting field 109: " + e.getErrorMessage());
-                }
-
-                try {
-                    if (mLapGybeCountField != null) {
-                        var gybeCount = 0;
-                        if (lapData.hasKey("gybeCount")) {
-                            gybeCount = lapData["gybeCount"];
-                        }
-                        System.println("Setting field 110 (gybe count) = " + gybeCount);
-                        var result = mLapGybeCountField.setData(gybeCount);
-                        System.println("Result of setting field 110: " + result);
-                    }
-                } catch (e) {
-                    System.println("ERROR setting field 110: " + e.getErrorMessage());
-                }
-
                 // Set VMG Up value
                 try {
                     if (mLapVMGUpField != null) {
@@ -956,13 +945,15 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("ERROR setting field 108: " + e.getErrorMessage());
                 }
                 
-                // Set Tack Count value
+                // Set Tack Count value - Modified to directly use lap-specific count
                 try {
                     if (mLapTackCountField != null) {
-                        var tackCount = 0;
-                        if (lapData.hasKey("tackCount")) {
-                            tackCount = lapData["tackCount"];
-                        }
+                        // Get the active lap's tack count directly
+                        var tackCount = lapData["tackCount"];
+                        
+                        // Ensure it's a number
+                        if (tackCount == null) { tackCount = 0; }
+                        
                         System.println("Setting field 109 (tack count) = " + tackCount);
                         var result = mLapTackCountField.setData(tackCount);
                         System.println("Result of setting field 109: " + result);
@@ -971,13 +962,15 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("ERROR setting field 109: " + e.getErrorMessage());
                 }
                 
-                // Set Gybe Count value
+                // Set Gybe Count value - Modified to directly use lap-specific count
                 try {
                     if (mLapGybeCountField != null) {
-                        var gybeCount = 0;
-                        if (lapData.hasKey("gybeCount")) {
-                            gybeCount = lapData["gybeCount"];
-                        }
+                        // Get the active lap's gybe count directly
+                        var gybeCount = lapData["gybeCount"];
+                        
+                        // Ensure it's a number
+                        if (gybeCount == null) { gybeCount = 0; }
+                        
                         System.println("Setting field 110 (gybe count) = " + gybeCount);
                         var result = mLapGybeCountField.setData(gybeCount);
                         System.println("Result of setting field 110: " + result);
@@ -1005,8 +998,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Helper function to ensure lap fields exist
-    // Helper function to ensure lap fields exist
     // Helper function to ensure lap fields exist
     function createLapFields() {
         // Only create fields if they don't already exist

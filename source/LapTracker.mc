@@ -61,6 +61,7 @@ class LapTracker {
     }
     
     // Mark the start of a new lap
+    // Mark the start of a new lap
     function onLapMarked(position) {
         // Increment lap counter
         mCurrentLapNumber++;
@@ -417,18 +418,33 @@ class LapTracker {
         }
         
         var isTack = maneuver["isTack"];
+        var lapNumber = mCurrentLapNumber;
         
         // Add to lap-specific collections
         if (isTack) {
-            mLapManeuvers[mCurrentLapNumber]["tacks"].add(maneuver);
-            log("Added tack to lap " + mCurrentLapNumber + " with angle " + maneuver["angle"]);
+            mLapManeuvers[lapNumber]["tacks"].add(maneuver);
+            
+            // Update tackCount in lap stats directly
+            if (mLapStats.hasKey(lapNumber)) {
+                mLapStats[lapNumber]["tackCount"] = mLapManeuvers[lapNumber]["tacks"].size();
+            }
+            
+            log("Added tack to lap " + lapNumber + " with angle " + maneuver["angle"] + 
+                " (lap tack count: " + mLapManeuvers[lapNumber]["tacks"].size() + ")");
         } else {
-            mLapManeuvers[mCurrentLapNumber]["gybes"].add(maneuver);
-            log("Added gybe to lap " + mCurrentLapNumber + " with angle " + maneuver["angle"]);
+            mLapManeuvers[lapNumber]["gybes"].add(maneuver);
+            
+            // Update gybeCount in lap stats directly
+            if (mLapStats.hasKey(lapNumber)) {
+                mLapStats[lapNumber]["gybeCount"] = mLapManeuvers[lapNumber]["gybes"].size();
+            }
+            
+            log("Added gybe to lap " + lapNumber + " with angle " + maneuver["angle"] + 
+                " (lap gybe count: " + mLapManeuvers[lapNumber]["gybes"].size() + ")");
         }
         
         // Update lap-specific statistics
-        updateLapManeuverStats(mCurrentLapNumber);
+        updateLapManeuverStats(lapNumber);
     }
     
     // Update lap-specific maneuver statistics
@@ -510,6 +526,7 @@ class LapTracker {
     }
     
     // Get data for lap markers
+    // Get data for lap markers
     function getLapData() {
         // Create a data structure for lap fields with default values
         var lapData = {
@@ -522,7 +539,9 @@ class LapTracker {
             "lapVMG" => 0.0,
             "pctOnFoil" => 0.0,
             "windDirection" => 0,
-            "windStrength" => 0
+            "windStrength" => 0,
+            "tackCount" => 0,
+            "gybeCount" => 0
         };
         
         log("Preparing lap data for current lap: " + mCurrentLapNumber);
@@ -532,6 +551,26 @@ class LapTracker {
         if (mCurrentLapNumber > 0 && mLapStats.hasKey(mCurrentLapNumber)) {
             var lapStats = mLapStats[mCurrentLapNumber];
             log("Found lap stats for lap " + mCurrentLapNumber);
+            
+            // Get lap-specific tack count - make absolutely sure this is set properly
+            if (lapStats.hasKey("tackCount")) {
+                lapData["tackCount"] = lapStats["tackCount"];
+                log("- Using lap-specific tackCount: " + lapData["tackCount"]);
+            } else if (mLapManeuvers.hasKey(mCurrentLapNumber)) {
+                // This is a failsafe to ensure we have tack counts even if not in stats
+                lapData["tackCount"] = mLapManeuvers[mCurrentLapNumber]["tacks"].size();
+                log("- Using lap-specific tackCount from maneuvers: " + lapData["tackCount"]);
+            }
+            
+            // Get lap-specific gybe count - make absolutely sure this is set properly
+            if (lapStats.hasKey("gybeCount")) {
+                lapData["gybeCount"] = lapStats["gybeCount"];
+                log("- Using lap-specific gybeCount: " + lapData["gybeCount"]);
+            } else if (mLapManeuvers.hasKey(mCurrentLapNumber)) {
+                // This is a failsafe to ensure we have gybe counts even if not in stats
+                lapData["gybeCount"] = mLapManeuvers[mCurrentLapNumber]["gybes"].size();
+                log("- Using lap-specific gybeCount from maneuvers: " + lapData["gybeCount"]);
+            }
             
             // Get lap-specific VMG values
             if (lapStats.hasKey("avgVMGUp")) {
@@ -549,13 +588,13 @@ class LapTracker {
                 lapData["pctOnFoil"] = lapStats["pctOnFoil"];
                 log("- Using lap-specific pctOnFoil from stats: " + lapData["pctOnFoil"]);
             } else if (mLapFoilingPoints.hasKey(mCurrentLapNumber) && 
-                       mLapTotalPoints.hasKey(mCurrentLapNumber) && 
-                       mLapTotalPoints[mCurrentLapNumber] > 0) {
-                           
+                    mLapTotalPoints.hasKey(mCurrentLapNumber) && 
+                    mLapTotalPoints[mCurrentLapNumber] > 0) {
+                        
                 // Calculate directly if not in stats
                 lapData["pctOnFoil"] = (mLapFoilingPoints[mCurrentLapNumber] * 100.0) / 
-                                       mLapTotalPoints[mCurrentLapNumber];
-                                       
+                                    mLapTotalPoints[mCurrentLapNumber];
+                                    
                 log("- Calculated pctOnFoil directly: " + 
                     mLapFoilingPoints[mCurrentLapNumber] + "/" + 
                     mLapTotalPoints[mCurrentLapNumber] + " = " + 
@@ -628,6 +667,20 @@ class LapTracker {
                 lapData["avgGybeAngle"] = maneuverStats["avgGybeAngle"];
                 log("- Fallback avgGybeAngle (overall): " + lapData["avgGybeAngle"]);
             }
+            
+            // Fall back to overall maneuver detector for tack count
+            var windData = mParent.getWindData();
+            if (windData != null && windData.hasKey("valid") && windData["valid"]) {
+                if (windData.hasKey("tackCount")) {
+                    lapData["tackCount"] = 0; // We only want lap-specific counts
+                    log("- Setting tackCount to 0 for new lap (not using total count)");
+                }
+                
+                if (windData.hasKey("gybeCount")) {
+                    lapData["gybeCount"] = 0; // We only want lap-specific counts
+                    log("- Setting gybeCount to 0 for new lap (not using total count)");
+                }
+            }
         }
         
         // Calculate average wind direction for this lap
@@ -637,7 +690,7 @@ class LapTracker {
             mLapWindDirectionPoints[mCurrentLapNumber] > 0) {
             
             avgWindDirection = mLapWindDirectionSum[mCurrentLapNumber] / 
-                              mLapWindDirectionPoints[mCurrentLapNumber];
+                            mLapWindDirectionPoints[mCurrentLapNumber];
             
             // Round to nearest degree
             avgWindDirection = Math.round(avgWindDirection).toNumber();
@@ -677,7 +730,6 @@ class LapTracker {
         // Make sure values are sensible - round to 1 decimal place
         try {
             // Round floating point values to 1 decimal place
-            // Round floating point values to 1 decimal place
             lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
             lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
             lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
@@ -687,6 +739,10 @@ class LapTracker {
             lapData["avgTackAngle"] = Math.round(lapData["avgTackAngle"]);
             lapData["avgGybeAngle"] = Math.round(lapData["avgGybeAngle"]);
             lapData["windDirection"] = Math.round(lapData["windDirection"]);
+            
+            // Make sure the tack/gybe counts are integers
+            lapData["tackCount"] = lapData["tackCount"].toNumber();
+            lapData["gybeCount"] = lapData["gybeCount"].toNumber();
             
             log("Rounded all lap data values");
         } catch (e) {

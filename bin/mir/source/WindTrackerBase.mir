@@ -717,78 +717,95 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_170_8_179_8_if_end:
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_160_39_180_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 183; @symbol_functiondef = [onLapMarked,183,13,24]; @symbol_param<0> = [position,183,25,33]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 184; @symbol_functiondef = [onLapMarked,184,13,24]; @symbol_param<0> = [position,184,25,33]; ]
     function onLapMarked(position) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_183_35_185_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 184 8 ]
-        symbol [ mLapTracker %tmp.2 184 15 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_184_35_194_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 186 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_184_35_194_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_184_35_194_4_stop" ]
+        %lapResult.1 = local;
+        symbol [ lapResult %lapResult.1 186 12 21 ];
+        symbol [ mLapTracker %tmp.2 186 24 35 ];
         %tmp.2 = getv ? :mLapTracker;
-        symbol [ onLapMarked %tmp.3 184 27 38 ];
+        symbol [ onLapMarked %tmp.3 186 36 47 ];
         %tmp.3 = getv function %tmp.2 :onLapMarked;
         %tmp.4 = lgetv %position;
-        symbol [ position %tmp.4 184 39 47 ];
+        symbol [ position %tmp.4 186 48 56 ];
         %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
-        ret %tmp.5;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_183_35_185_4_stop:
+        lputv %lapResult.1 %tmp.5;
+        symbol [ lapResult %lapResult.1 186 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 191 8 ]
+        %tmp.6 = self;
+        symbol [ log %tmp.7 191 8 11 ];
+        %tmp.7 = getv function %tmp.6 :log;
+        %tmp.8 = "Lap marked in WindTracker - lap number: ";
+        %tmp.9 = lgetv %lapResult.1;
+        symbol [ lapResult %tmp.9 191 57 66 ];
+        %tmp.10 = add %tmp.8 %tmp.9;
+        invoke %tmp.6 %tmp.7(%tmp.10);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 193 8 ]
+        %tmp.11 = lgetv %lapResult.1;
+        symbol [ lapResult %tmp.11 193 15 24 ];
+        ret %tmp.11;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_184_35_194_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 188; @symbol_functiondef = [getWindData,188,13,24]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 197; @symbol_functiondef = [getWindData,197,13,24]; ]
     function getWindData() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 190 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 199 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_stop" ]
         %angleData.1 = local;
-        symbol [ angleData %angleData.1 190 12 21 ];
-        symbol [ mAngleCalculator %tmp.2 190 24 40 ];
+        symbol [ angleData %angleData.1 199 12 21 ];
+        symbol [ mAngleCalculator %tmp.2 199 24 40 ];
         %tmp.2 = getv ? :mAngleCalculator;
-        symbol [ getData %tmp.3 190 41 48 ];
+        symbol [ getData %tmp.3 199 41 48 ];
         %tmp.3 = getv function %tmp.2 :getData;
         %tmp.4 = invoke %tmp.2 %tmp.3();
         lputv %angleData.1 %tmp.4;
-        symbol [ angleData %angleData.1 190 12 21 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 191 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_stop" ]
+        symbol [ angleData %angleData.1 199 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 200 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_stop" ]
         %maneuverData.2 = local;
-        symbol [ maneuverData %maneuverData.2 191 12 24 ];
-        symbol [ mManeuverDetector %tmp.6 191 27 44 ];
+        symbol [ maneuverData %maneuverData.2 200 12 24 ];
+        symbol [ mManeuverDetector %tmp.6 200 27 44 ];
         %tmp.6 = getv ? :mManeuverDetector;
-        symbol [ getData %tmp.7 191 45 52 ];
+        symbol [ getData %tmp.7 200 45 52 ];
         %tmp.7 = getv function %tmp.6 :getData;
         %tmp.8 = invoke %tmp.6 %tmp.7();
         lputv %maneuverData.2 %tmp.8;
-        symbol [ maneuverData %maneuverData.2 191 12 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 192 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_stop" ]
+        symbol [ maneuverData %maneuverData.2 200 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 201 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_stop" ]
         %vmgData.3 = local;
-        symbol [ vmgData %vmgData.3 192 12 19 ];
-        symbol [ mVMGCalculator %tmp.10 192 22 36 ];
+        symbol [ vmgData %vmgData.3 201 12 19 ];
+        symbol [ mVMGCalculator %tmp.10 201 22 36 ];
         %tmp.10 = getv ? :mVMGCalculator;
-        symbol [ getData %tmp.11 192 37 44 ];
+        symbol [ getData %tmp.11 201 37 44 ];
         %tmp.11 = getv function %tmp.10 :getData;
         %tmp.12 = invoke %tmp.10 %tmp.11();
         lputv %vmgData.3 %tmp.12;
-        symbol [ vmgData %vmgData.3 192 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 195 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_stop" ]
+        symbol [ vmgData %vmgData.3 201 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 204 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_stop" ]
         %windData.4 = local;
-        symbol [ windData %windData.4 195 12 20 ];
+        symbol [ windData %windData.4 204 12 20 ];
         %tmp.13 = newd 5;
         %tmp.14 = "windDirection";
-        symbol [ mWindDirection %tmp.16 197 31 45 ];
+        symbol [ mWindDirection %tmp.16 206 31 45 ];
         %tmp.16 = getv ? :mWindDirection;
         %tmp.17 = dup %tmp.13;
         %tmp.18 = aputv %tmp.17 %tmp.14 %tmp.16;
         %tmp.19 = "initialWindDirection";
-        symbol [ mInitialWindDirection %tmp.21 198 38 59 ];
+        symbol [ mInitialWindDirection %tmp.21 207 38 59 ];
         %tmp.21 = getv ? :mInitialWindDirection;
         %tmp.22 = dup %tmp.18;
         %tmp.23 = aputv %tmp.22 %tmp.19 %tmp.21;
         %tmp.24 = "autoWindDetection";
-        symbol [ mAutoWindDetection %tmp.26 199 35 53 ];
+        symbol [ mAutoWindDetection %tmp.26 208 35 53 ];
         %tmp.26 = getv ? :mAutoWindDetection;
         %tmp.27 = dup %tmp.23;
         %tmp.28 = aputv %tmp.27 %tmp.24 %tmp.26;
         %tmp.29 = "windDirectionLocked";
-        symbol [ mWindDirectionLocked %tmp.31 200 37 57 ];
+        symbol [ mWindDirectionLocked %tmp.31 209 37 57 ];
         %tmp.31 = getv ? :mWindDirectionLocked;
         %tmp.32 = dup %tmp.28;
         %tmp.33 = aputv %tmp.32 %tmp.29 %tmp.31;
@@ -797,365 +814,365 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         %tmp.36 = dup %tmp.33;
         %tmp.37 = aputv %tmp.36 %tmp.34 %tmp.35;
         lputv %windData.4 %tmp.37;
-        symbol [ windData %windData.4 195 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 207 8 ]
-        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_beginTry:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_12_230_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 209 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_12_215_12_if_stmt:
+        symbol [ windData %windData.4 204 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 216 8 ]
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_beginTry:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_12_239_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 218 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_stmt:
         %tmp.38 = lgetv %angleData.1;
-        symbol [ angleData %tmp.38 209 16 25 ];
+        symbol [ angleData %tmp.38 218 16 25 ];
         %tmp.39 = null;
         %tmp.40 = ne %tmp.38 %tmp.39;
-        bf %tmp.40 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_12_215_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_12_215_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_35_215_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 210 16 ]
+        bf %tmp.40 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_35_224_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 219 16 ]
         %tmp.41 = lgetv %windData.4;
-        symbol [ windData %tmp.41 210 16 24 ];
-        symbol [ put %tmp.42 210 25 28 ];
+        symbol [ windData %tmp.41 219 16 24 ];
+        symbol [ put %tmp.42 219 25 28 ];
         %tmp.42 = getv function %tmp.41 :put;
         %tmp.43 = "windAngleLessCOG";
         %tmp.44 = lgetv %angleData.1;
-        symbol [ angleData %tmp.44 210 49 58 ];
+        symbol [ angleData %tmp.44 219 49 58 ];
         %tmp.45 = as %tmp.44 { (!Null) };
         %tmp.46 = "windAngleLessCOG";
         %tmp.47 = agetv %tmp.45 %tmp.46;
         invoke %tmp.41 %tmp.42(%tmp.43, %tmp.47);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 211 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 220 16 ]
         %tmp.48 = lgetv %windData.4;
-        symbol [ windData %tmp.48 211 16 24 ];
-        symbol [ put %tmp.49 211 25 28 ];
+        symbol [ windData %tmp.48 220 16 24 ];
+        symbol [ put %tmp.49 220 25 28 ];
         %tmp.49 = getv function %tmp.48 :put;
         %tmp.50 = "currentTack";
         %tmp.51 = lgetv %angleData.1;
-        symbol [ angleData %tmp.51 211 44 53 ];
+        symbol [ angleData %tmp.51 220 44 53 ];
         %tmp.52 = as %tmp.51 { (!Null) };
         %tmp.53 = "currentTack";
         %tmp.54 = agetv %tmp.52 %tmp.53;
         invoke %tmp.48 %tmp.49(%tmp.50, %tmp.54);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 212 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 221 16 ]
         %tmp.55 = lgetv %windData.4;
-        symbol [ windData %tmp.55 212 16 24 ];
-        symbol [ put %tmp.56 212 25 28 ];
+        symbol [ windData %tmp.55 221 16 24 ];
+        symbol [ put %tmp.56 221 25 28 ];
         %tmp.56 = getv function %tmp.55 :put;
         %tmp.57 = "currentPointOfSail";
         %tmp.58 = lgetv %angleData.1;
-        symbol [ angleData %tmp.58 212 51 60 ];
+        symbol [ angleData %tmp.58 221 51 60 ];
         %tmp.59 = as %tmp.58 { (!Null) };
         %tmp.60 = "currentPointOfSail";
         %tmp.61 = agetv %tmp.59 %tmp.60;
         invoke %tmp.55 %tmp.56(%tmp.57, %tmp.61);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 213 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 222 16 ]
         %tmp.62 = lgetv %windData.4;
-        symbol [ windData %tmp.62 213 16 24 ];
-        symbol [ put %tmp.63 213 25 28 ];
+        symbol [ windData %tmp.62 222 16 24 ];
+        symbol [ put %tmp.63 222 25 28 ];
         %tmp.63 = getv function %tmp.62 :put;
         %tmp.64 = "tackDisplayText";
         %tmp.65 = lgetv %angleData.1;
-        symbol [ angleData %tmp.65 213 48 57 ];
+        symbol [ angleData %tmp.65 222 48 57 ];
         %tmp.66 = as %tmp.65 { (!Null) };
         %tmp.67 = "tackDisplayText";
         %tmp.68 = agetv %tmp.66 %tmp.67;
         invoke %tmp.62 %tmp.63(%tmp.64, %tmp.68);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 214 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 223 16 ]
         %tmp.69 = lgetv %windData.4;
-        symbol [ windData %tmp.69 214 16 24 ];
-        symbol [ put %tmp.70 214 25 28 ];
+        symbol [ windData %tmp.69 223 16 24 ];
+        symbol [ put %tmp.70 223 25 28 ];
         %tmp.70 = getv function %tmp.69 :put;
         %tmp.71 = "tackColorId";
         %tmp.72 = lgetv %angleData.1;
-        symbol [ angleData %tmp.72 214 44 53 ];
+        symbol [ angleData %tmp.72 223 44 53 ];
         %tmp.73 = as %tmp.72 { (!Null) };
         %tmp.74 = "tackColorId";
         %tmp.75 = agetv %tmp.73 %tmp.74;
         invoke %tmp.69 %tmp.70(%tmp.71, %tmp.75);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_35_215_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_12_215_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_209_12_215_12_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 218 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_35_224_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 227 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_233_12_if_stmt:
         %tmp.76 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.76 218 16 28 ];
+        symbol [ maneuverData %tmp.76 227 16 28 ];
         %tmp.77 = null;
         %tmp.78 = ne %tmp.76 %tmp.77;
-        bf %tmp.78 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_38_224_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 219 16 ]
+        bf %tmp.78 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_233_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_233_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_38_233_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 228 16 ]
         %tmp.79 = lgetv %windData.4;
-        symbol [ windData %tmp.79 219 16 24 ];
-        symbol [ put %tmp.80 219 25 28 ];
+        symbol [ windData %tmp.79 228 16 24 ];
+        symbol [ put %tmp.80 228 25 28 ];
         %tmp.80 = getv function %tmp.79 :put;
         %tmp.81 = "tackCount";
         %tmp.82 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.82 219 42 54 ];
+        symbol [ maneuverData %tmp.82 228 42 54 ];
         %tmp.83 = as %tmp.82 { (!Null) };
         %tmp.84 = "tackCount";
         %tmp.85 = agetv %tmp.83 %tmp.84;
         invoke %tmp.79 %tmp.80(%tmp.81, %tmp.85);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 220 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 229 16 ]
         %tmp.86 = lgetv %windData.4;
-        symbol [ windData %tmp.86 220 16 24 ];
-        symbol [ put %tmp.87 220 25 28 ];
+        symbol [ windData %tmp.86 229 16 24 ];
+        symbol [ put %tmp.87 229 25 28 ];
         %tmp.87 = getv function %tmp.86 :put;
         %tmp.88 = "gybeCount";
         %tmp.89 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.89 220 42 54 ];
+        symbol [ maneuverData %tmp.89 229 42 54 ];
         %tmp.90 = as %tmp.89 { (!Null) };
         %tmp.91 = "gybeCount";
         %tmp.92 = agetv %tmp.90 %tmp.91;
         invoke %tmp.86 %tmp.87(%tmp.88, %tmp.92);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 221 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 230 16 ]
         %tmp.93 = lgetv %windData.4;
-        symbol [ windData %tmp.93 221 16 24 ];
-        symbol [ put %tmp.94 221 25 28 ];
+        symbol [ windData %tmp.93 230 16 24 ];
+        symbol [ put %tmp.94 230 25 28 ];
         %tmp.94 = getv function %tmp.93 :put;
         %tmp.95 = "lastTackAngle";
         %tmp.96 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.96 221 46 58 ];
+        symbol [ maneuverData %tmp.96 230 46 58 ];
         %tmp.97 = as %tmp.96 { (!Null) };
         %tmp.98 = "lastTackAngle";
         %tmp.99 = agetv %tmp.97 %tmp.98;
         invoke %tmp.93 %tmp.94(%tmp.95, %tmp.99);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 222 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 231 16 ]
         %tmp.100 = lgetv %windData.4;
-        symbol [ windData %tmp.100 222 16 24 ];
-        symbol [ put %tmp.101 222 25 28 ];
+        symbol [ windData %tmp.100 231 16 24 ];
+        symbol [ put %tmp.101 231 25 28 ];
         %tmp.101 = getv function %tmp.100 :put;
         %tmp.102 = "lastGybeAngle";
         %tmp.103 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.103 222 46 58 ];
+        symbol [ maneuverData %tmp.103 231 46 58 ];
         %tmp.104 = as %tmp.103 { (!Null) };
         %tmp.105 = "lastGybeAngle";
         %tmp.106 = agetv %tmp.104 %tmp.105;
         invoke %tmp.100 %tmp.101(%tmp.102, %tmp.106);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 223 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 232 16 ]
         %tmp.107 = lgetv %windData.4;
-        symbol [ windData %tmp.107 223 16 24 ];
-        symbol [ put %tmp.108 223 25 28 ];
+        symbol [ windData %tmp.107 232 16 24 ];
+        symbol [ put %tmp.108 232 25 28 ];
         %tmp.108 = getv function %tmp.107 :put;
         %tmp.109 = "maneuverStats";
         %tmp.110 = lgetv %maneuverData.2;
-        symbol [ maneuverData %tmp.110 223 46 58 ];
+        symbol [ maneuverData %tmp.110 232 46 58 ];
         %tmp.111 = as %tmp.110 { (!Null) };
         %tmp.112 = "maneuverStats";
         %tmp.113 = agetv %tmp.111 %tmp.112;
         invoke %tmp.107 %tmp.108(%tmp.109, %tmp.113);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_38_224_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_218_12_224_12_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 227 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_229_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_38_233_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_233_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_233_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 236 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_12_238_12_if_stmt:
         %tmp.114 = lgetv %vmgData.3;
-        symbol [ vmgData %tmp.114 227 16 23 ];
+        symbol [ vmgData %tmp.114 236 16 23 ];
         %tmp.115 = null;
         %tmp.116 = ne %tmp.114 %tmp.115;
-        bf %tmp.116 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_229_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_229_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_33_229_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 228 16 ]
+        bf %tmp.116 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_12_238_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_12_238_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_33_238_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 237 16 ]
         %tmp.117 = lgetv %windData.4;
-        symbol [ windData %tmp.117 228 16 24 ];
-        symbol [ put %tmp.118 228 25 28 ];
+        symbol [ windData %tmp.117 237 16 24 ];
+        symbol [ put %tmp.118 237 25 28 ];
         %tmp.118 = getv function %tmp.117 :put;
         %tmp.119 = "currentVMG";
         %tmp.120 = lgetv %vmgData.3;
-        symbol [ vmgData %tmp.120 228 43 50 ];
+        symbol [ vmgData %tmp.120 237 43 50 ];
         %tmp.121 = as %tmp.120 { (!Null) };
         %tmp.122 = "currentVMG";
         %tmp.123 = agetv %tmp.121 %tmp.122;
         invoke %tmp.117 %tmp.118(%tmp.119, %tmp.123);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_33_229_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_229_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_227_12_229_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_12_230_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_endTry:
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_catch:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_33_238_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_12_238_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_236_12_238_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_12_239_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_endTry:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_catch:
         %tmp.124 = exception;
         push %tmp.124;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 230 10 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_10_232_8_end" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 239 10 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_10_241_8_end" ]
         %ex.5 = local;
-        symbol [ ex %ex.5 230 17 19 ];
+        symbol [ ex %ex.5 239 17 19 ];
         %tmp.125 = dup %tmp.124;
         lputv %ex.5 %tmp.125;
-        symbol [ ex %ex.5 230 17 19 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_21_232_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 231 12 ]
+        symbol [ ex %ex.5 239 17 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_21_241_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 240 12 ]
         %tmp.126 = self;
-        symbol [ log %tmp.127 231 12 15 ];
+        symbol [ log %tmp.127 240 12 15 ];
         %tmp.127 = getv function %tmp.126 :log;
         %tmp.128 = "Error in getWindData: ";
         %tmp.129 = lgetv %ex.5;
-        symbol [ ex %tmp.129 231 43 45 ];
-        symbol [ getErrorMessage %tmp.130 231 46 61 ];
+        symbol [ ex %tmp.129 240 43 45 ];
+        symbol [ getErrorMessage %tmp.130 240 46 61 ];
         %tmp.130 = getv function %tmp.129 :getErrorMessage;
         %tmp.131 = invoke %tmp.129 %tmp.130();
         %tmp.132 = add %tmp.128 %tmp.131;
         invoke %tmp.126 %tmp.127(%tmp.132);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_21_232_8_stop:
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_21_241_8_stop:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally;
         pop;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_10_232_8_end:
-        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_10_232_8_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_230_10_232_8_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally;
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_10_241_8_end:
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_10_241_8_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_239_10_241_8_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally;
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally;
         throw %tmp.124;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_finally:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_finally:
         jsrret;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_207_8_232_8_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 234 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_216_8_241_8_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 243 8 ]
         %tmp.133 = lgetv %windData.4;
-        symbol [ windData %tmp.133 234 15 23 ];
+        symbol [ windData %tmp.133 243 15 23 ];
         ret %tmp.133;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_188_27_235_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_197_27_244_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 238; @symbol_functiondef = [getLapData,238,13,23]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 247; @symbol_functiondef = [getLapData,247,13,23]; ]
     function getLapData() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_238_26_240_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 239 8 ]
-        symbol [ mLapTracker %tmp.2 239 15 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_247_26_249_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 248 8 ]
+        symbol [ mLapTracker %tmp.2 248 15 26 ];
         %tmp.2 = getv ? :mLapTracker;
-        symbol [ getLapData %tmp.3 239 27 37 ];
+        symbol [ getLapData %tmp.3 248 27 37 ];
         %tmp.3 = getv function %tmp.2 :getLapData;
         %tmp.4 = invoke %tmp.2 %tmp.3();
         ret %tmp.4;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_238_26_240_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_247_26_249_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 243; @symbol_functiondef = [getWindDirection,243,13,29]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 252; @symbol_functiondef = [getWindDirection,252,13,29]; ]
     function getWindDirection() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_243_32_245_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 244 8 ]
-        symbol [ mWindDirection %tmp.2 244 15 29 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_252_32_254_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 253 8 ]
+        symbol [ mWindDirection %tmp.2 253 15 29 ];
         %tmp.2 = getv ? :mWindDirection;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_243_32_245_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_252_32_254_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 247; @symbol_functiondef = [getInitialWindDirection,247,13,36]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 256; @symbol_functiondef = [getInitialWindDirection,256,13,36]; ]
     function getInitialWindDirection() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_247_39_249_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 248 8 ]
-        symbol [ mInitialWindDirection %tmp.2 248 15 36 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_256_39_258_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 257 8 ]
+        symbol [ mInitialWindDirection %tmp.2 257 15 36 ];
         %tmp.2 = getv ? :mInitialWindDirection;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_247_39_249_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_256_39_258_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 251; @symbol_functiondef = [isAutoWindDetection,251,13,32]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 260; @symbol_functiondef = [isAutoWindDetection,260,13,32]; ]
     function isAutoWindDetection() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_251_35_253_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 252 8 ]
-        symbol [ mAutoWindDetection %tmp.2 252 15 33 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_260_35_262_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 261 8 ]
+        symbol [ mAutoWindDetection %tmp.2 261 15 33 ];
         %tmp.2 = getv ? :mAutoWindDetection;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_251_35_253_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_260_35_262_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 255; @symbol_functiondef = [isWindDirectionLocked,255,13,34]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 264; @symbol_functiondef = [isWindDirectionLocked,264,13,34]; ]
     function isWindDirectionLocked() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_255_37_257_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 256 8 ]
-        symbol [ mWindDirectionLocked %tmp.2 256 15 35 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_264_37_266_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 265 8 ]
+        symbol [ mWindDirectionLocked %tmp.2 265 15 35 ];
         %tmp.2 = getv ? :mWindDirectionLocked;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_255_37_257_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_264_37_266_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 259; @symbol_functiondef = [getLastSignificantHeading,259,13,38]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 268; @symbol_functiondef = [getLastSignificantHeading,268,13,38]; ]
     function getLastSignificantHeading() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_259_41_261_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 260 8 ]
-        symbol [ mLastSignificantHeading %tmp.2 260 15 38 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_268_41_270_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 269 8 ]
+        symbol [ mLastSignificantHeading %tmp.2 269 15 38 ];
         %tmp.2 = getv ? :mLastSignificantHeading;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_259_41_261_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_268_41_270_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 264; @symbol_functiondef = [getAngleCalculator,264,13,31]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 273; @symbol_functiondef = [getAngleCalculator,273,13,31]; ]
     function getAngleCalculator() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_264_34_266_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 265 8 ]
-        symbol [ mAngleCalculator %tmp.2 265 15 31 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_273_34_275_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 274 8 ]
+        symbol [ mAngleCalculator %tmp.2 274 15 31 ];
         %tmp.2 = getv ? :mAngleCalculator;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_264_34_266_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_273_34_275_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 268; @symbol_functiondef = [getManeuverDetector,268,13,32]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 277; @symbol_functiondef = [getManeuverDetector,277,13,32]; ]
     function getManeuverDetector() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_268_35_270_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 269 8 ]
-        symbol [ mManeuverDetector %tmp.2 269 15 32 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_277_35_279_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 278 8 ]
+        symbol [ mManeuverDetector %tmp.2 278 15 32 ];
         %tmp.2 = getv ? :mManeuverDetector;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_268_35_270_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_277_35_279_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 272; @symbol_functiondef = [getLapTracker,272,13,26]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 281; @symbol_functiondef = [getLapTracker,281,13,26]; ]
     function getLapTracker() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_272_29_274_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 273 8 ]
-        symbol [ mLapTracker %tmp.2 273 15 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_281_29_283_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 282 8 ]
+        symbol [ mLapTracker %tmp.2 282 15 26 ];
         %tmp.2 = getv ? :mLapTracker;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_272_29_274_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_281_29_283_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 276; @symbol_functiondef = [getVMGCalculator,276,13,29]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 285; @symbol_functiondef = [getVMGCalculator,285,13,29]; ]
     function getVMGCalculator() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_276_32_278_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 277 8 ]
-        symbol [ mVMGCalculator %tmp.2 277 15 29 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_285_32_287_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 286 8 ]
+        symbol [ mVMGCalculator %tmp.2 286 15 29 ];
         %tmp.2 = getv ? :mVMGCalculator;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_276_32_278_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_285_32_287_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 281; @symbol_functiondef = [setWindDirectionValue,281,13,34]; @symbol_param<0> = [value,281,35,40]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 290; @symbol_functiondef = [setWindDirectionValue,290,13,34]; @symbol_param<0> = [value,290,35,40]; ]
     function setWindDirectionValue(value) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_281_42_283_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 282 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_290_42_292_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 291 8 ]
         %tmp.1 = lgetv %value;
-        symbol [ value %tmp.1 282 25 30 ];
-        symbol [ mWindDirection ? 282 8 22 ];
+        symbol [ value %tmp.1 291 25 30 ];
+        symbol [ mWindDirection ? 291 8 22 ];
         putv self :mWindDirection %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_281_42_283_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_290_42_292_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 285; @symbol_functiondef = [setInitialWindDirectionValue,285,13,41]; @symbol_param<0> = [value,285,42,47]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 294; @symbol_functiondef = [setInitialWindDirectionValue,294,13,41]; @symbol_param<0> = [value,294,42,47]; ]
     function setInitialWindDirectionValue(value) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_285_49_287_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 286 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_294_49_296_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 295 8 ]
         %tmp.1 = lgetv %value;
-        symbol [ value %tmp.1 286 32 37 ];
-        symbol [ mInitialWindDirection ? 286 8 29 ];
+        symbol [ value %tmp.1 295 32 37 ];
+        symbol [ mInitialWindDirection ? 295 8 29 ];
         putv self :mInitialWindDirection %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_285_49_287_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_294_49_296_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 289; @symbol_functiondef = [setAutoWindDetection,289,13,33]; @symbol_param<0> = [value,289,34,39]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 298; @symbol_functiondef = [setAutoWindDetection,298,13,33]; @symbol_param<0> = [value,298,34,39]; ]
     function setAutoWindDetection(value) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_289_41_291_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 290 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_298_41_300_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 299 8 ]
         %tmp.1 = lgetv %value;
-        symbol [ value %tmp.1 290 29 34 ];
-        symbol [ mAutoWindDetection ? 290 8 26 ];
+        symbol [ value %tmp.1 299 29 34 ];
+        symbol [ mAutoWindDetection ? 299 8 26 ];
         putv self :mAutoWindDetection %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_289_41_291_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_298_41_300_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 293; @symbol_functiondef = [setWindDirectionLocked,293,13,35]; @symbol_param<0> = [value,293,36,41]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 302; @symbol_functiondef = [setWindDirectionLocked,302,13,35]; @symbol_param<0> = [value,302,36,41]; ]
     function setWindDirectionLocked(value) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_293_43_295_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 294 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_302_43_304_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 303 8 ]
         %tmp.1 = lgetv %value;
-        symbol [ value %tmp.1 294 31 36 ];
-        symbol [ mWindDirectionLocked ? 294 8 28 ];
+        symbol [ value %tmp.1 303 31 36 ];
+        symbol [ mWindDirectionLocked ? 303 8 28 ];
         putv self :mWindDirectionLocked %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_293_43_295_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_302_43_304_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 297; @symbol_functiondef = [setLastSignificantHeading,297,13,38]; @symbol_param<0> = [value,297,39,44]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 306; @symbol_functiondef = [setLastSignificantHeading,306,13,38]; @symbol_param<0> = [value,306,39,44]; ]
     function setLastSignificantHeading(value) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_297_46_299_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 298 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_306_46_308_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc" 307 8 ]
         %tmp.1 = lgetv %value;
-        symbol [ value %tmp.1 298 34 39 ];
-        symbol [ mLastSignificantHeading ? 298 8 31 ];
+        symbol [ value %tmp.1 307 34 39 ];
+        symbol [ mLastSignificantHeading ? 307 8 31 ];
         putv self :mLastSignificantHeading %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_297_46_299_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindTrackerBase_mc_306_46_308_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindTrackerBase.mc"; @line = 2; ]

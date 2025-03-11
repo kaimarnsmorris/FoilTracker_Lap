@@ -180,8 +180,17 @@ class WindTracker {
     }
     
     // Lap marker notification
+    // Lap marker notification
     function onLapMarked(position) {
-        return mLapTracker.onLapMarked(position);
+        // Tell the LapTracker about the lap
+        var lapResult = mLapTracker.onLapMarked(position);
+        
+        // Note: We don't reset the global tack/gybe counters because they're used 
+        // for wind direction calculation. Instead, we rely on the 
+        // lap-specific tracking in LapTracker.
+        log("Lap marked in WindTracker - lap number: " + lapResult);
+        
+        return lapResult;
     }
     
     // Get wind data for display and recording
