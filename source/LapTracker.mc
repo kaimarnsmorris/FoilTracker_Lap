@@ -3,7 +3,11 @@ using Toybox.System;
 using Toybox.Math;
 
 class LapTracker {
-    // Properties
+    // Constants
+    private const UPWIND_THRESHOLD = 70;     // Angle threshold for upwind (0-70 degrees)
+    private const DOWNWIND_THRESHOLD = 110;  // Angle threshold for downwind (110-180 degrees)
+
+    // Private variables for LapTracker class
     private var mParent;                  // Reference to WindTracker parent
     private var mCurrentLapNumber;        // Current lap number
     private var mLapManeuvers;            // Dictionary of maneuvers by lap
@@ -22,17 +26,23 @@ class LapTracker {
     private var mLapVMGDownTotal;         // Total downwind VMG by lap
     private var mLapUpwindPoints;         // Upwind data points by lap
     private var mLapDownwindPoints;       // Downwind data points by lap
-    
+
     // Wind direction tracking
-    private var mLapWindDirectionSum;       // Sum of wind directions in lap
-    private var mLapWindDirectionPoints;    // Number of wind direction points in lap
+    private var mLapWindDirectionSum;     // Sum of wind directions in lap
+    private var mLapWindDirectionPoints;  // Number of wind direction points in lap
+
+    // New point of sail tracking
+    private var mLapReachingPoints;       // Points spent reaching by lap
+    private var mLapWindAngleSum;         // Sum of wind angles in lap (for average)
+    private var mLapSpeedSum;             // Sum of speeds in lap (for average)
+    private var mLapMaxSpeed;             // Max speed in lap
     
     // Initialize
     function initialize(parent) {
         mParent = parent;
         reset();
     }
-    
+    // Reset lap data
     // Reset lap data
     function reset() {
         mCurrentLapNumber = 0;
@@ -57,9 +67,18 @@ class LapTracker {
         mLapWindDirectionSum = {};
         mLapWindDirectionPoints = {};
         
+        // Reset point of sail tracking
+        mLapUpwindPoints = {};
+        mLapDownwindPoints = {};
+        mLapReachingPoints = {};
+        mLapWindAngleSum = {};
+        mLapSpeedSum = {};
+        mLapMaxSpeed = {};
+        
         log("LapTracker reset");
     }
     
+    // Mark the start of a new lap
     // Mark the start of a new lap
     // Mark the start of a new lap
     function onLapMarked(position) {
@@ -93,6 +112,14 @@ class LapTracker {
         // Initialize wind direction tracking
         mLapWindDirectionSum[mCurrentLapNumber] = 0.0;
         mLapWindDirectionPoints[mCurrentLapNumber] = 0;
+        
+        // Initialize point of sail counters for this specific lap
+        mLapUpwindPoints[mCurrentLapNumber] = 0;
+        mLapDownwindPoints[mCurrentLapNumber] = 0;
+        mLapReachingPoints[mCurrentLapNumber] = 0;
+        mLapWindAngleSum[mCurrentLapNumber] = 0;
+        mLapSpeedSum[mCurrentLapNumber] = 0.0;
+        mLapMaxSpeed[mCurrentLapNumber] = 0.0;
         
         // Initialize maneuver tracking for this lap
         mLapManeuvers[mCurrentLapNumber] = {
@@ -128,6 +155,7 @@ class LapTracker {
         
         // Track foiling status
         var foilingThreshold = 7.0; // Default threshold in knots
+        var isActive = true; // Assume active unless determined otherwise
         
         // Try to get from settings
         try {
@@ -140,6 +168,11 @@ class LapTracker {
                         foilingThreshold = settings["foilingThreshold"];
                     }
                 }
+                
+                // Check if app is paused
+                if (data != null && data.hasKey("sessionPaused") && data["sessionPaused"]) {
+                    isActive = false;
+                }
             }
         } catch (e) {
             log("Error getting foiling threshold: " + e.getErrorMessage());
@@ -149,16 +182,22 @@ class LapTracker {
         var isOnFoil = (speed >= foilingThreshold);
         
         // Update foiling percentage for current lap
-        updateLapFoilingPercentage(isOnFoil);
+        if (isActive) {
+            updateLapFoilingPercentage(isOnFoil);
+        }
         
         // Update lap VMG averages
-        updateLapVMGAverages(speed, isUpwind);
+        if (isActive) {
+            updateLapVMGAverages(speed, isUpwind);
+        }
         
         // Update lap VMG calculation
-        updateLapVMG(info);
+        if (isActive) {
+            updateLapVMG(info);
+        }
         
         // Track average wind direction for this lap
-        if (mCurrentLapNumber > 0) {
+        if (mCurrentLapNumber > 0 && isActive) {
             var windDirection = mParent.getWindDirection();
             
             // Add to running sum for this lap
@@ -171,6 +210,56 @@ class LapTracker {
             mLapWindDirectionPoints[mCurrentLapNumber]++;
         }
         
+        // Track point of sail data for current lap
+        if (mCurrentLapNumber > 0 && isActive) {
+            // Get absolute wind angle
+            var windAngleLessCOG = mParent.getAngleCalculator().getWindAngleLessCOG();
+            var absWindAngle = (windAngleLessCOG < 0) ? -windAngleLessCOG : windAngleLessCOG;
+            
+            // Update wind angle sum for averaging
+            if (!mLapWindAngleSum.hasKey(mCurrentLapNumber)) {
+                mLapWindAngleSum[mCurrentLapNumber] = 0;
+            }
+            mLapWindAngleSum[mCurrentLapNumber] += absWindAngle;
+            
+            // Update speed data
+            if (!mLapSpeedSum.hasKey(mCurrentLapNumber)) {
+                mLapSpeedSum[mCurrentLapNumber] = 0.0;
+            }
+            mLapSpeedSum[mCurrentLapNumber] += speed;
+            
+            // Update max speed
+            if (!mLapMaxSpeed.hasKey(mCurrentLapNumber)) {
+                mLapMaxSpeed[mCurrentLapNumber] = 0.0;
+            }
+            if (speed > mLapMaxSpeed[mCurrentLapNumber]) {
+                mLapMaxSpeed[mCurrentLapNumber] = speed;
+            }
+            
+            // Ensure point of sail counters exist
+            if (!mLapUpwindPoints.hasKey(mCurrentLapNumber)) {
+                mLapUpwindPoints[mCurrentLapNumber] = 0;
+            }
+            if (!mLapDownwindPoints.hasKey(mCurrentLapNumber)) {
+                mLapDownwindPoints[mCurrentLapNumber] = 0;
+            }
+            if (!mLapReachingPoints.hasKey(mCurrentLapNumber)) {
+                mLapReachingPoints[mCurrentLapNumber] = 0;
+            }
+            
+            // IMPORTANT: Increment only one counter per point - no double counting
+            if (absWindAngle <= UPWIND_THRESHOLD) {
+                // Upwind - must increment only counter, not the others
+                mLapUpwindPoints[mCurrentLapNumber]++;
+            } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
+                // Downwind - must increment only counter, not the others
+                mLapDownwindPoints[mCurrentLapNumber]++;
+            } else {
+                // Reaching - must increment only counter, not the others
+                mLapReachingPoints[mCurrentLapNumber]++;
+            }
+        }
+        
         // Diagnostic output for every 50th data point
         if (mLapTotalPoints.hasKey(mCurrentLapNumber) && 
             mLapTotalPoints[mCurrentLapNumber] % 50 == 0) {
@@ -181,8 +270,30 @@ class LapTracker {
             
             if (mLapTotalPoints[mCurrentLapNumber] > 0) {
                 var pct = (mLapFoilingPoints[mCurrentLapNumber] * 100.0) / 
-                         mLapTotalPoints[mCurrentLapNumber];
+                        mLapTotalPoints[mCurrentLapNumber];
                 log("- Pct on foil: " + pct.format("%.1f") + "%");
+                
+                // Add debug info for point of sail percentages
+                var upPct = 0.0;
+                var downPct = 0.0;
+                var reachPct = 0.0;
+                
+                if (mLapUpwindPoints.hasKey(mCurrentLapNumber)) {
+                    upPct = (mLapUpwindPoints[mCurrentLapNumber] * 100.0) / mLapTotalPoints[mCurrentLapNumber];
+                    log("- Upwind: " + mLapUpwindPoints[mCurrentLapNumber] + " pts (" + upPct.format("%.1f") + "%)");
+                }
+                
+                if (mLapDownwindPoints.hasKey(mCurrentLapNumber)) {
+                    downPct = (mLapDownwindPoints[mCurrentLapNumber] * 100.0) / mLapTotalPoints[mCurrentLapNumber];
+                    log("- Downwind: " + mLapDownwindPoints[mCurrentLapNumber] + " pts (" + downPct.format("%.1f") + "%)");
+                }
+                
+                if (mLapReachingPoints.hasKey(mCurrentLapNumber)) {
+                    reachPct = (mLapReachingPoints[mCurrentLapNumber] * 100.0) / mLapTotalPoints[mCurrentLapNumber];
+                    log("- Reaching: " + mLapReachingPoints[mCurrentLapNumber] + " pts (" + reachPct.format("%.1f") + "%)");
+                }
+                
+                log("- Total point of sail: " + (upPct + downPct + reachPct).format("%.1f") + "%");
             }
             
             // If we have lap stats, show those too
@@ -196,14 +307,15 @@ class LapTracker {
     }
     
     // Update lap VMG calculations
-    function updateLapVMG(posInfo) {
-        if (mCurrentLapNumber <= 0 || posInfo == null) {
+    // Update lap VMG calculations
+    function updateLapVMG(info) {
+        if (mCurrentLapNumber <= 0 || info == null) {
             return;
         }
         
         // Store position as start if none exists
         if (!mLapStartPositions.hasKey(mCurrentLapNumber)) {
-            mLapStartPositions[mCurrentLapNumber] = posInfo;
+            mLapStartPositions[mCurrentLapNumber] = info;
             return;
         }
         
@@ -214,46 +326,34 @@ class LapTracker {
         var distance = 0.0;
         var bearing = 0.0;
         
-        // Use Garmin's Position.distanceToPosition if available
-        if (posInfo has :distanceToPosition && startPos has :toRadians) {
+        // Use a more compatible approach for distance calculation between positions
+        if (info has :position && startPos has :position) {
             try {
-                var distanceResult = Position.distanceToPosition(posInfo, startPos);
-                if (distanceResult != null) {
-                    distance = distanceResult[0];  // Distance in meters
-                    bearing = distanceResult[1];   // Bearing in radians
-                    
-                    // Convert bearing to degrees if needed
-                    if (bearing < 2 * Math.PI) {
-                        bearing = Math.toDegrees(bearing);
-                    }
-                }
-            } catch(e) {
-                log("Error calculating distance: " + e.getErrorMessage());
+                // Basic distance calculation
+                var lat1 = startPos.position[0];
+                var lon1 = startPos.position[1];
+                var lat2 = info.position[0];
+                var lon2 = info.position[1];
                 
-                // Fallback to simplified calculation
-                if (posInfo has :position && startPos has :position) {
-                    // Basic distance calculation
-                    var lat1 = startPos.position[0];
-                    var lon1 = startPos.position[1];
-                    var lat2 = posInfo.position[0];
-                    var lon2 = posInfo.position[1];
-                    
-                    // Approximate distance using Pythagorean theorem
-                    var latDiff = lat2 - lat1;
-                    var lonDiff = lon2 - lon1;
-                    
-                    // Converting to approximate meters
-                    var latMeters = latDiff * 111320; // 1 degree lat is ~111.32 km
-                    var lonMeters = lonDiff * 111320 * Math.cos(Math.toRadians((lat1 + lat2) / 2));
-                    
-                    distance = Math.sqrt(latMeters * latMeters + lonMeters * lonMeters);
-                    
-                    // Calculate bearing
-                    bearing = Math.toDegrees(Math.atan2(lonDiff, latDiff));
-                    if (bearing < 0) {
-                        bearing += 360;
-                    }
+                // Approximate distance using Pythagorean theorem
+                var latDiff = lat2 - lat1;
+                var lonDiff = lon2 - lon1;
+                
+                // Converting to approximate meters
+                var latMeters = latDiff * 111320; // 1 degree lat is ~111.32 km
+                var lonMeters = lonDiff * 111320 * Math.cos(Math.toRadians((lat1 + lat2) / 2));
+                
+                distance = Math.sqrt(latMeters * latMeters + lonMeters * lonMeters);
+                
+                // Calculate bearing
+                bearing = Math.toDegrees(Math.atan2(lonDiff, latDiff));
+                if (bearing < 0) {
+                    bearing += 360;
                 }
+            } catch (e) {
+                log("Error calculating position: " + e.getErrorMessage());
+                distance = 0.0;
+                bearing = 0.0;
             }
         }
         
@@ -413,37 +513,24 @@ class LapTracker {
     
     // Record a maneuver in the current lap
     function recordManeuverInLap(maneuver) {
-        if (mCurrentLapNumber <= 0 || !mLapManeuvers.hasKey(mCurrentLapNumber)) {
+        // Extract lap number from the maneuver
+        var lapNumber = maneuver["lapNumber"];
+        if (lapNumber <= 0 || !mLapManeuvers.hasKey(lapNumber)) {
             return;
         }
         
         var isTack = maneuver["isTack"];
-        var lapNumber = mCurrentLapNumber;
         
         // Add to lap-specific collections
         if (isTack) {
             mLapManeuvers[lapNumber]["tacks"].add(maneuver);
-            
-            // Update tackCount in lap stats directly
-            if (mLapStats.hasKey(lapNumber)) {
-                mLapStats[lapNumber]["tackCount"] = mLapManeuvers[lapNumber]["tacks"].size();
-            }
-            
-            log("Added tack to lap " + lapNumber + " with angle " + maneuver["angle"] + 
-                " (lap tack count: " + mLapManeuvers[lapNumber]["tacks"].size() + ")");
+            log("Added tack to lap " + lapNumber + " with angle " + maneuver["angle"]);
         } else {
             mLapManeuvers[lapNumber]["gybes"].add(maneuver);
-            
-            // Update gybeCount in lap stats directly
-            if (mLapStats.hasKey(lapNumber)) {
-                mLapStats[lapNumber]["gybeCount"] = mLapManeuvers[lapNumber]["gybes"].size();
-            }
-            
-            log("Added gybe to lap " + lapNumber + " with angle " + maneuver["angle"] + 
-                " (lap gybe count: " + mLapManeuvers[lapNumber]["gybes"].size() + ")");
+            log("Added gybe to lap " + lapNumber + " with angle " + maneuver["angle"]);
         }
         
-        // Update lap-specific statistics
+        // Update lap-specific statistics immediately
         updateLapManeuverStats(lapNumber);
     }
     
@@ -490,7 +577,7 @@ class LapTracker {
         
         // Update lap stats with existing fields preserved
         var existingStats = mLapStats[lapNumber];
-        mLapStats[lapNumber] = {
+        var updatedStats = {
             "tackCount" => tackCount,
             "gybeCount" => gybeCount,
             "avgTackAngle" => avgTack,
@@ -502,6 +589,9 @@ class LapTracker {
             "avgVMGUp" => existingStats.hasKey("avgVMGUp") ? existingStats["avgVMGUp"] : 0.0,
             "avgVMGDown" => existingStats.hasKey("avgVMGDown") ? existingStats["avgVMGDown"] : 0.0
         };
+        
+        // Completely replace the stats object to ensure all fields are updated
+        mLapStats[lapNumber] = updatedStats;
     }
     
     // Get time since last tack in current lap
@@ -526,7 +616,6 @@ class LapTracker {
     }
     
     // Get data for lap markers
-    // Get data for lap markers
     function getLapData() {
         // Create a data structure for lap fields with default values
         var lapData = {
@@ -540,37 +629,21 @@ class LapTracker {
             "pctOnFoil" => 0.0,
             "windDirection" => 0,
             "windStrength" => 0,
+            "pctUpwind" => 0,
+            "pctDownwind" => 0,
+            "avgWindAngle" => 0,
+            "avgSpeed" => 0.0,
+            "maxSpeed" => 0.0,
             "tackCount" => 0,
             "gybeCount" => 0
         };
         
         log("Preparing lap data for current lap: " + mCurrentLapNumber);
-        log("Getting percentage on foil for lap " + mCurrentLapNumber);
         
         // Use lap-specific values if available
         if (mCurrentLapNumber > 0 && mLapStats.hasKey(mCurrentLapNumber)) {
             var lapStats = mLapStats[mCurrentLapNumber];
             log("Found lap stats for lap " + mCurrentLapNumber);
-            
-            // Get lap-specific tack count - make absolutely sure this is set properly
-            if (lapStats.hasKey("tackCount")) {
-                lapData["tackCount"] = lapStats["tackCount"];
-                log("- Using lap-specific tackCount: " + lapData["tackCount"]);
-            } else if (mLapManeuvers.hasKey(mCurrentLapNumber)) {
-                // This is a failsafe to ensure we have tack counts even if not in stats
-                lapData["tackCount"] = mLapManeuvers[mCurrentLapNumber]["tacks"].size();
-                log("- Using lap-specific tackCount from maneuvers: " + lapData["tackCount"]);
-            }
-            
-            // Get lap-specific gybe count - make absolutely sure this is set properly
-            if (lapStats.hasKey("gybeCount")) {
-                lapData["gybeCount"] = lapStats["gybeCount"];
-                log("- Using lap-specific gybeCount: " + lapData["gybeCount"]);
-            } else if (mLapManeuvers.hasKey(mCurrentLapNumber)) {
-                // This is a failsafe to ensure we have gybe counts even if not in stats
-                lapData["gybeCount"] = mLapManeuvers[mCurrentLapNumber]["gybes"].size();
-                log("- Using lap-specific gybeCount from maneuvers: " + lapData["gybeCount"]);
-            }
             
             // Get lap-specific VMG values
             if (lapStats.hasKey("avgVMGUp")) {
@@ -599,8 +672,6 @@ class LapTracker {
                     mLapFoilingPoints[mCurrentLapNumber] + "/" + 
                     mLapTotalPoints[mCurrentLapNumber] + " = " + 
                     lapData["pctOnFoil"]);
-            } else {
-                log("- No lap-specific foiling data available");
             }
             
             // Get lap-specific tack angle
@@ -621,66 +692,20 @@ class LapTracker {
                 log("- Using lap-specific lapVMG: " + lapData["lapVMG"]);
             }
             
+            // Get lap-specific tack/gybe counts
+            if (lapStats.hasKey("tackCount")) {
+                lapData["tackCount"] = lapStats["tackCount"];
+                log("- Using lap-specific tackCount: " + lapData["tackCount"]);
+            }
+            
+            if (lapStats.hasKey("gybeCount")) {
+                lapData["gybeCount"] = lapStats["gybeCount"];
+                log("- Using lap-specific gybeCount: " + lapData["gybeCount"]);
+            }
+            
             // Calculate time since last tack
             lapData["tackSec"] = getTimeSinceLastTack();
             log("- Time since last tack: " + lapData["tackSec"] + "s");
-        } else {
-            log("No lap-specific data found for lap " + mCurrentLapNumber + ", using fallback values");
-            
-            // Fall back to current VMG values based on point of sail
-            var currentVMG = mParent.getVMGCalculator().getCurrentVMG();
-            var isUpwind = mParent.getAngleCalculator().isUpwind();
-            
-            if (isUpwind) {
-                lapData["vmgUp"] = currentVMG;
-                lapData["vmgDown"] = 0.0;
-                log("- Fallback VMG Up (current): " + currentVMG);
-            } else {
-                lapData["vmgUp"] = 0.0;
-                lapData["vmgDown"] = currentVMG;
-                log("- Fallback VMG Down (current): " + currentVMG);
-            }
-            
-            // Fall back to model percent on foil
-            try {
-                var app = Application.getApp();
-                if (app != null && app has :mModel && app.mModel != null) {
-                    var data = app.mModel.getData();
-                    if (data != null && data.hasKey("percentOnFoil")) {
-                        lapData["pctOnFoil"] = data["percentOnFoil"];
-                        log("- Fallback pctOnFoil (from model): " + lapData["pctOnFoil"]);
-                    }
-                }
-            } catch (e) {
-                log("Error getting fallback pctOnFoil: " + e.getErrorMessage());
-            }
-            
-            // Fall back to overall maneuver stats for tack angle
-            var maneuverStats = mParent.getManeuverDetector().getManeuverStats();
-            if (maneuverStats != null && maneuverStats.hasKey("avgTackAngle")) {
-                lapData["avgTackAngle"] = maneuverStats["avgTackAngle"];
-                log("- Fallback avgTackAngle (overall): " + lapData["avgTackAngle"]);
-            }
-            
-            // Fall back to overall maneuver stats for gybe angle
-            if (maneuverStats != null && maneuverStats.hasKey("avgGybeAngle")) {
-                lapData["avgGybeAngle"] = maneuverStats["avgGybeAngle"];
-                log("- Fallback avgGybeAngle (overall): " + lapData["avgGybeAngle"]);
-            }
-            
-            // Fall back to overall maneuver detector for tack count
-            var windData = mParent.getWindData();
-            if (windData != null && windData.hasKey("valid") && windData["valid"]) {
-                if (windData.hasKey("tackCount")) {
-                    lapData["tackCount"] = 0; // We only want lap-specific counts
-                    log("- Setting tackCount to 0 for new lap (not using total count)");
-                }
-                
-                if (windData.hasKey("gybeCount")) {
-                    lapData["gybeCount"] = 0; // We only want lap-specific counts
-                    log("- Setting gybeCount to 0 for new lap (not using total count)");
-                }
-            }
         }
         
         // Calculate average wind direction for this lap
@@ -727,27 +752,66 @@ class LapTracker {
             log("- Distance for this lap: " + lapData["tackMtr"] + "m");
         }
         
-        // Make sure values are sensible - round to 1 decimal place
-        try {
-            // Round floating point values to 1 decimal place
-            lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
-            lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
-            lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
-            lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
-            lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
-            lapData["pctOnFoil"] = Math.round(lapData["pctOnFoil"]);
-            lapData["avgTackAngle"] = Math.round(lapData["avgTackAngle"]);
-            lapData["avgGybeAngle"] = Math.round(lapData["avgGybeAngle"]);
-            lapData["windDirection"] = Math.round(lapData["windDirection"]);
+        // Calculate percentages and averages
+        if (mCurrentLapNumber > 0 && mLapTotalPoints.hasKey(mCurrentLapNumber) && mLapTotalPoints[mCurrentLapNumber] > 0) {
+            var totalPoints = mLapTotalPoints[mCurrentLapNumber];
             
-            // Make sure the tack/gybe counts are integers
-            lapData["tackCount"] = lapData["tackCount"].toNumber();
-            lapData["gybeCount"] = lapData["gybeCount"].toNumber();
+            // Always use the same denominator (totalPoints) for all percentages
+            if (mLapUpwindPoints.hasKey(mCurrentLapNumber)) {
+                lapData["pctUpwind"] = Math.round((mLapUpwindPoints[mCurrentLapNumber] * 100.0) / totalPoints);
+                log("- Upwind: " + mLapUpwindPoints[mCurrentLapNumber] + "/" + totalPoints + " = " + lapData["pctUpwind"] + "%");
+            }
             
-            log("Rounded all lap data values");
-        } catch (e) {
-            log("Error rounding lap data values: " + e.getErrorMessage());
+            if (mLapDownwindPoints.hasKey(mCurrentLapNumber)) {
+                lapData["pctDownwind"] = Math.round((mLapDownwindPoints[mCurrentLapNumber] * 100.0) / totalPoints);
+                log("- Downwind: " + mLapDownwindPoints[mCurrentLapNumber] + "/" + totalPoints + " = " + lapData["pctDownwind"] + "%");
+            }
+            
+            // Add reaching percentage to validate total
+            var pctReaching = 0;
+            if (mLapReachingPoints.hasKey(mCurrentLapNumber)) {
+                pctReaching = Math.round((mLapReachingPoints[mCurrentLapNumber] * 100.0) / totalPoints);
+                log("- Reaching: " + mLapReachingPoints[mCurrentLapNumber] + "/" + totalPoints + " = " + pctReaching + "%");
+            }
+            
+            // Validate total percentage
+            var totalPct = lapData["pctUpwind"] + lapData["pctDownwind"] + pctReaching;
+            log("- Total point of sail percentage: " + totalPct + "%");
+            
+            // Calculate average wind angle
+            if (mLapWindAngleSum.hasKey(mCurrentLapNumber)) {
+                lapData["avgWindAngle"] = Math.round(mLapWindAngleSum[mCurrentLapNumber] / totalPoints);
+                log("- Average wind angle: " + lapData["avgWindAngle"] + "°");
+            }
+            
+            // Calculate average speed
+            if (mLapSpeedSum.hasKey(mCurrentLapNumber)) {
+                lapData["avgSpeed"] = (Math.round((mLapSpeedSum[mCurrentLapNumber] / totalPoints) * 10)) / 10.0;
+                log("- Average speed: " + lapData["avgSpeed"] + " kts");
+            }
+            
+            // Get max speed
+            if (mLapMaxSpeed.hasKey(mCurrentLapNumber)) {
+                lapData["maxSpeed"] = (Math.round(mLapMaxSpeed[mCurrentLapNumber] * 10)) / 10.0;
+                log("- Max speed: " + lapData["maxSpeed"] + " kts");
+            }
         }
+        
+        // Round all values for consistency
+        lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
+        lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
+        lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
+        lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
+        lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
+        lapData["pctOnFoil"] = Math.round(lapData["pctOnFoil"]);
+        lapData["avgWindAngle"] = Math.round(lapData["avgWindAngle"]);
+        lapData["windDirection"] = Math.round(lapData["windDirection"]);
+        lapData["pctUpwind"] = Math.round(lapData["pctUpwind"]);
+        lapData["pctDownwind"] = Math.round(lapData["pctDownwind"]);
+        lapData["avgSpeed"] = Math.round(lapData["avgSpeed"] * 10) / 10.0;
+        lapData["maxSpeed"] = Math.round(lapData["maxSpeed"] * 10) / 10.0;
+        
+        log("Rounded all lap data values");
         
         return lapData;
     }
@@ -771,3 +835,4 @@ class LapTracker {
         return null;
     }
 }
+

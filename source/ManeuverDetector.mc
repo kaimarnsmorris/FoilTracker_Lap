@@ -182,8 +182,7 @@ class ManeuverDetector {
     }
     
     // Calculate maneuver angle based on heading history
-    // calculateManeuverAngle method in ManeuverDetector class
-    // calculateManeuverAngle method in ManeuverDetector class
+    // Calculate maneuver angle based on heading history
     function calculateManeuverAngle(pendingManeuver) {
         var maneuverTimestamp = pendingManeuver["timestamp"];
         var isTack = pendingManeuver["isTack"];
@@ -213,6 +212,9 @@ class ManeuverDetector {
         log("- After heading: " + afterHeading);
         log("- Calculated " + (isTack ? "Tack" : "Gybe") + " angle: " + maneuverAngle);
         
+        // Get current lap before processing the maneuver
+        var currentLap = mParent.getLapTracker().getCurrentLap();
+        
         // Process based on maneuver type
         if (isTack) {
             // Increment tack counter
@@ -228,17 +230,17 @@ class ManeuverDetector {
             // Record maneuver in history
             recordManeuver(true, afterHeading, maneuverAngle);
             
-            // Directly notify lap tracker of this tack with proper angle
+            // Directly notify lap tracker of this tack with proper angle and current lap
             mParent.getLapTracker().recordManeuverInLap({
                 "isTack" => true,
                 "heading" => afterHeading,
                 "angle" => maneuverAngle,
                 "time" => Time.now().value(),
                 "timestamp" => System.getTimer(),
-                "lapNumber" => mParent.getLapTracker().getCurrentLap()
+                "lapNumber" => currentLap
             });
             
-            log("Tack recorded: #" + mTackCount + ", angle: " + maneuverAngle + "°");
+            log("Tack recorded: #" + mTackCount + ", angle: " + maneuverAngle + "°, lap: " + currentLap);
         } else {
             // Increment gybe counter
             mGybeCount += 1;
@@ -253,17 +255,17 @@ class ManeuverDetector {
             // Record maneuver in history
             recordManeuver(false, afterHeading, maneuverAngle);
             
-            // Directly notify lap tracker of this gybe with proper angle
+            // Directly notify lap tracker of this gybe with proper angle and current lap
             mParent.getLapTracker().recordManeuverInLap({
                 "isTack" => false,
                 "heading" => afterHeading,
                 "angle" => maneuverAngle,
                 "time" => Time.now().value(),
                 "timestamp" => System.getTimer(),
-                "lapNumber" => mParent.getLapTracker().getCurrentLap()
+                "lapNumber" => currentLap
             });
             
-            log("Gybe recorded: #" + mGybeCount + ", angle: " + maneuverAngle + "°");
+            log("Gybe recorded: #" + mGybeCount + ", angle: " + maneuverAngle + "°, lap: " + currentLap);
         }
     }
 
