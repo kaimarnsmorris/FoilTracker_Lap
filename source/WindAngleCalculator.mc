@@ -6,6 +6,8 @@ class WindAngleCalculator {
     // Constants
     private const COG_SMOOTHING_FACTOR = 0.15;     // Smoothing factor for heading
     private const HEADING_HISTORY_SIZE = 60;       // Store 60 seconds of heading history
+    private const UPWIND_THRESHOLD = 70;           // Angle threshold for upwind (0-70 degrees)
+    private const DOWNWIND_THRESHOLD = 110;        // Angle threshold for downwind (110-180 degrees)
 
     // Properties
     private var mParent;                     // Reference to WindTracker parent

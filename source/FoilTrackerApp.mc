@@ -24,11 +24,11 @@ class FoilTrackerApp extends Application.AppBase {
     private var mTimerRunning;
     private var mWindTracker;  // Wind tracker
     
-    // FitContributor fields for Session
+    // For FoilTrackerApp class
+    // Standard fields
     private var mWorkoutNameField;
     private var mWindStrengthField;
     private var mWindDirectionField;
-    
     private var mLapPctOnFoilField;
     private var mLapVMGUpField;
     private var mLapVMGDownField;
@@ -39,16 +39,20 @@ class FoilTrackerApp extends Application.AppBase {
     private var mLapWindStrengthField;
     private var mLapAvgGybeAngleField;
 
+
+    // New fields
+    private var mLapPctUpwindField;
+    private var mLapPctDownwindField;
+    private var mLapAvgWindAngleField;
+    private var mLapAvgSpeedField;
+    private var mLapMaxSpeedField;
+
     // Update FoilTrackerModel.mc initialize method
-    // In FoilTrackerApp initialize method
     function initialize() {
         AppBase.initialize();
         
         // Initialize the model first
-        mModel = new FoilTrackerModel();
-        
-        // Then access data through the model
-        var data = mModel.getData(); // Correct way to access the data
+        mModel = new FoilTrackerModel();       
         
         // Rest of your initialization
         mSession = null;
@@ -72,6 +76,13 @@ class FoilTrackerApp extends Application.AppBase {
         mLapAvgGybeAngleField = null;
         mLapTackCountField = null;
         mLapGybeCountField = null;
+        
+        // New field initializations
+        mLapPctUpwindField = null;
+        mLapPctDownwindField = null;
+        mLapAvgWindAngleField = null;
+        mLapAvgSpeedField = null;
+        mLapMaxSpeedField = null;
     }
 
     // onStart() is called when the application is starting
@@ -186,9 +197,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Create FitContributor fields for the session - simplified for compatibility
-    // Modified to use proper lap field creation syntax and add tack/gybe counts
-    // Create FitContributor fields for the session
     function createFitContributorFields(sessionName, windStrength) {
         try {
             // Check if the session is valid
@@ -336,7 +344,7 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("✓ Created lap field: tackAng (ID: 105)");
                 }
                 
-                // 7. Wind Direction - Field ID 106
+    // 7. Wind Direction - Field ID 106
                 mLapWindDirectionField = mSession.createField(
                     "windDir",
                     106,
@@ -411,6 +419,81 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("✓ Created lap field: gybeCount (ID: 110)");
                 }
                 
+                // 12. Percent Upwind - Field ID 111
+                mLapPctUpwindField = mSession.createField(
+                    "pctUpwind",
+                    111,
+                    FitContributor.DATA_TYPE_UINT8,
+                    { 
+                        :mesgType => FitContributor.MESG_TYPE_LAP,
+                        :units => "%"
+                    }
+                );
+                
+                if (mLapPctUpwindField != null) {
+                    System.println("✓ Created lap field: pctUpwind (ID: 111)");
+                }
+                
+                // 13. Percent Downwind - Field ID 112
+                mLapPctDownwindField = mSession.createField(
+                    "pctDownwind",
+                    112,
+                    FitContributor.DATA_TYPE_UINT8,
+                    { 
+                        :mesgType => FitContributor.MESG_TYPE_LAP,
+                        :units => "%"
+                    }
+                );
+                
+                if (mLapPctDownwindField != null) {
+                    System.println("✓ Created lap field: pctDownwind (ID: 112)");
+                }
+                
+                // 14. Average Wind Angle - Field ID 113
+                mLapAvgWindAngleField = mSession.createField(
+                    "avgWindAng",
+                    113,
+                    FitContributor.DATA_TYPE_UINT16,
+                    { 
+                        :mesgType => FitContributor.MESG_TYPE_LAP,
+                        :units => "deg"
+                    }
+                );
+                
+                if (mLapAvgWindAngleField != null) {
+                    System.println("✓ Created lap field: avgWindAng (ID: 113)");
+                }
+                
+                // 15. Average Speed - Field ID 114
+                mLapAvgSpeedField = mSession.createField(
+                    "avgSpeed",
+                    114,
+                    FitContributor.DATA_TYPE_FLOAT,
+                    { 
+                        :mesgType => FitContributor.MESG_TYPE_LAP,
+                        :units => "kts"
+                    }
+                );
+                
+                if (mLapAvgSpeedField != null) {
+                    System.println("✓ Created lap field: avgSpeed (ID: 114)");
+                }
+                
+                // 16. Max Speed - Field ID 115
+                mLapMaxSpeedField = mSession.createField(
+                    "maxSpeed",
+                    115,
+                    FitContributor.DATA_TYPE_FLOAT,
+                    { 
+                        :mesgType => FitContributor.MESG_TYPE_LAP,
+                        :units => "kts"
+                    }
+                );
+                
+                if (mLapMaxSpeedField != null) {
+                    System.println("✓ Created lap field: maxSpeed (ID: 115)");
+                }
+                
             } else {
                 System.println("✗ Failed to create pctOnFoil field - subsequent fields not created");
             }
@@ -421,7 +504,6 @@ class FoilTrackerApp extends Application.AppBase {
             System.println("ERROR in createFitContributorFields: " + e.getErrorMessage());
         }
     }
-
     // Get data for lap markers with robust error handling
     function getLapData() {
         try {
@@ -723,11 +805,8 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Add new helper method to update lap fields
-    // Helper method to update lap fields
-    // Helper method to update lap fields
-    // Complete updateLapFields method
-    function updateLapFields(pctOnFoil, vmgUp, vmgDown, tackSec, tackMtr, tackAng, gybeAng, avgWindDir, windStr, tackCount, gybeCount) {
+    function updateLapFields(pctOnFoil, vmgUp, vmgDown, tackSec, tackMtr, tackAng, gybeAng, avgWindDir, windStr, tackCount, gybeCount, 
+                            pctUpwind, pctDownwind, avgWindAngle, avgSpeed, maxSpeed) {
         if (mSession != null && mSession.isRecording()) {
             try {
                 // Set each field value if the field exists
@@ -775,6 +854,27 @@ class FoilTrackerApp extends Application.AppBase {
                     mLapGybeCountField.setData(gybeCount);
                 }
                 
+                // New fields
+                if (mLapPctUpwindField != null) {
+                    mLapPctUpwindField.setData(pctUpwind);
+                }
+                
+                if (mLapPctDownwindField != null) {
+                    mLapPctDownwindField.setData(pctDownwind);
+                }
+                
+                if (mLapAvgWindAngleField != null) {
+                    mLapAvgWindAngleField.setData(avgWindAngle);
+                }
+                
+                if (mLapAvgSpeedField != null) {
+                    mLapAvgSpeedField.setData(avgSpeed);
+                }
+                
+                if (mLapMaxSpeedField != null) {
+                    mLapMaxSpeedField.setData(maxSpeed);
+                }
+                
                 // No need to call addLap() here - this just keeps the field values up to date
                 // The system will grab these values when a lap is actually triggered
             } catch (e) {
@@ -783,8 +883,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Method to add a lap marker
-    // Method to add a lap marker
     function addLapMarker() {
         if (mSession != null && mSession.isRecording()) {
             try {
@@ -808,7 +906,12 @@ class FoilTrackerApp extends Application.AppBase {
                         "windDirection" => mWindTracker.getWindDirection(),
                         "windStrength" => 0,
                         "tackCount" => 0,
-                        "gybeCount" => 0
+                        "gybeCount" => 0,
+                        "pctUpwind" => 0,
+                        "pctDownwind" => 0,
+                        "avgWindAngle" => 0,
+                        "avgSpeed" => 0.0,
+                        "maxSpeed" => 0.0
                     };
                     
                     if (mModel != null && mModel.getData().hasKey("windStrengthIndex")) {
@@ -831,35 +934,6 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("ERROR setting field 100: " + e.getErrorMessage());
                 }
                 
-                // Add these try/catch blocks to your addLapMarker method
-                try {
-                    if (mLapTackCountField != null) {
-                        var tackCount = 0;
-                        if (lapData.hasKey("tackCount")) {
-                            tackCount = lapData["tackCount"];
-                        }
-                        System.println("Setting field 109 (tack count) = " + tackCount);
-                        var result = mLapTackCountField.setData(tackCount);
-                        System.println("Result of setting field 109: " + result);
-                    }
-                } catch (e) {
-                    System.println("ERROR setting field 109: " + e.getErrorMessage());
-                }
-
-                try {
-                    if (mLapGybeCountField != null) {
-                        var gybeCount = 0;
-                        if (lapData.hasKey("gybeCount")) {
-                            gybeCount = lapData["gybeCount"];
-                        }
-                        System.println("Setting field 110 (gybe count) = " + gybeCount);
-                        var result = mLapGybeCountField.setData(gybeCount);
-                        System.println("Result of setting field 110: " + result);
-                    }
-                } catch (e) {
-                    System.println("ERROR setting field 110: " + e.getErrorMessage());
-                }
-
                 // Set VMG Up value
                 try {
                     if (mLapVMGUpField != null) {
@@ -986,6 +1060,81 @@ class FoilTrackerApp extends Application.AppBase {
                     System.println("ERROR setting field 110: " + e.getErrorMessage());
                 }
                 
+                // Set Percent Upwind value
+                try {
+                    if (mLapPctUpwindField != null) {
+                        var pctUpwind = 0;
+                        if (lapData.hasKey("pctUpwind")) {
+                            pctUpwind = lapData["pctUpwind"];
+                        }
+                        System.println("Setting field 111 (pct upwind) = " + pctUpwind);
+                        var result = mLapPctUpwindField.setData(pctUpwind);
+                        System.println("Result of setting field 111: " + result);
+                    }
+                } catch (e) {
+                    System.println("ERROR setting field 111: " + e.getErrorMessage());
+                }
+                
+                // Set Percent Downwind value
+                try {
+                    if (mLapPctDownwindField != null) {
+                        var pctDownwind = 0;
+                        if (lapData.hasKey("pctDownwind")) {
+                            pctDownwind = lapData["pctDownwind"];
+                        }
+                        System.println("Setting field 112 (pct downwind) = " + pctDownwind);
+                        var result = mLapPctDownwindField.setData(pctDownwind);
+                        System.println("Result of setting field 112: " + result);
+                    }
+                } catch (e) {
+                    System.println("ERROR setting field 112: " + e.getErrorMessage());
+                }
+                
+                // Set Average Wind Angle value
+                try {
+                    if (mLapAvgWindAngleField != null) {
+                        var avgWindAngle = 0;
+                        if (lapData.hasKey("avgWindAngle")) {
+                            avgWindAngle = lapData["avgWindAngle"];
+                        }
+                        System.println("Setting field 113 (avg wind angle) = " + avgWindAngle);
+                        var result = mLapAvgWindAngleField.setData(avgWindAngle);
+                        System.println("Result of setting field 113: " + result);
+                    }
+                } catch (e) {
+                    System.println("ERROR setting field 113: " + e.getErrorMessage());
+                }
+                
+                // Set Average Speed value
+                try {
+                    if (mLapAvgSpeedField != null) {
+                        var avgSpeed = 0.0;
+                        if (lapData.hasKey("avgSpeed")) {
+                            avgSpeed = lapData["avgSpeed"];
+                        }
+                        System.println("Setting field 114 (avg speed) = " + avgSpeed);
+                        var result = mLapAvgSpeedField.setData(avgSpeed);
+                        System.println("Result of setting field 114: " + result);
+                    }
+                } catch (e) {
+                    System.println("ERROR setting field 114: " + e.getErrorMessage());
+                }
+                
+                // Set Max Speed value
+                try {
+                    if (mLapMaxSpeedField != null) {
+                        var maxSpeed = 0.0;
+                        if (lapData.hasKey("maxSpeed")) {
+                            maxSpeed = lapData["maxSpeed"];
+                        }
+                        System.println("Setting field 115 (max speed) = " + maxSpeed);
+                        var result = mLapMaxSpeedField.setData(maxSpeed);
+                        System.println("Result of setting field 115: " + result);
+                    }
+                } catch (e) {
+                    System.println("ERROR setting field 115: " + e.getErrorMessage());
+                }
+                
                 // Add a lap marker
                 System.println("=== ADDING LAP MARKER ===");
                 mSession.addLap();
@@ -1005,9 +1154,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Helper function to ensure lap fields exist
-    // Helper function to ensure lap fields exist
-    // Helper function to ensure lap fields exist
     function createLapFields() {
         // Only create fields if they don't already exist
         if (mLapPctOnFoilField == null) {
@@ -1086,7 +1232,7 @@ class FoilTrackerApp extends Application.AppBase {
                 );
                 System.println("Created field 107: windStr");
                 
-                // 9. Avg Gybe Angle - Field ID 108
+    // 9. Avg Gybe Angle - Field ID 108
                 mLapAvgGybeAngleField = mSession.createField(
                     "gybeAng",
                     108,
@@ -1113,14 +1259,56 @@ class FoilTrackerApp extends Application.AppBase {
                 );
                 System.println("Created field 110: gybeCount");
                 
-                // REMOVED DUPLICATE FIELD CREATION FOR 109 AND 110
+                // 12. Percent Upwind - Field ID 111
+                mLapPctUpwindField = mSession.createField(
+                    "pctUpwind",
+                    111,
+                    FitContributor.DATA_TYPE_UINT8,
+                    { :mesgType => FitContributor.MESG_TYPE_LAP }
+                );
+                System.println("Created field 111: pctUpwind");
+                
+                // 13. Percent Downwind - Field ID 112
+                mLapPctDownwindField = mSession.createField(
+                    "pctDownwind",
+                    112,
+                    FitContributor.DATA_TYPE_UINT8,
+                    { :mesgType => FitContributor.MESG_TYPE_LAP }
+                );
+                System.println("Created field 112: pctDownwind");
+                
+                // 14. Average Wind Angle - Field ID 113
+                mLapAvgWindAngleField = mSession.createField(
+                    "avgWindAng",
+                    113,
+                    FitContributor.DATA_TYPE_UINT16,
+                    { :mesgType => FitContributor.MESG_TYPE_LAP }
+                );
+                System.println("Created field 113: avgWindAng");
+                
+                // 15. Average Speed - Field ID 114
+                mLapAvgSpeedField = mSession.createField(
+                    "avgSpeed",
+                    114,
+                    FitContributor.DATA_TYPE_FLOAT,
+                    { :mesgType => FitContributor.MESG_TYPE_LAP }
+                );
+                System.println("Created field 114: avgSpeed");
+                
+                // 16. Max Speed - Field ID 115
+                mLapMaxSpeedField = mSession.createField(
+                    "maxSpeed",
+                    115,
+                    FitContributor.DATA_TYPE_FLOAT,
+                    { :mesgType => FitContributor.MESG_TYPE_LAP }
+                );
+                System.println("Created field 115: maxSpeed");
                 
             } catch (e) {
                 System.println("Error creating lap fields: " + e.getErrorMessage());
             }
         }
     }
-
     // Basic function to record wind data in the activity
     function updateSessionWithWindData(windStrength) {
         if (mSession != null && mSession.isRecording()) {
@@ -1192,6 +1380,13 @@ class FoilTrackerApp extends Application.AppBase {
                 var windStr = 0;
                 var tackCount = 0;
                 var gybeCount = 0;
+                
+                // New metrics
+                var pctUpwind = 0;
+                var pctDownwind = 0;
+                var avgWindAngle = 0;
+                var avgSpeed = 0.0;
+                var maxSpeed = 0.0;
                 
                 // Get data from model
                 if (data.hasKey("percentOnFoil")) {
@@ -1281,12 +1476,30 @@ class FoilTrackerApp extends Application.AppBase {
                         if (lapData.hasKey("gybeCount")) {
                             gybeCount = lapData["gybeCount"];
                         }
+                        
+                        // Get new metrics
+                        if (lapData.hasKey("pctUpwind")) {
+                            pctUpwind = lapData["pctUpwind"];
+                        }
+                        if (lapData.hasKey("pctDownwind")) {
+                            pctDownwind = lapData["pctDownwind"];
+                        }
+                        if (lapData.hasKey("avgWindAngle")) {
+                            avgWindAngle = lapData["avgWindAngle"];
+                        }
+                        if (lapData.hasKey("avgSpeed")) {
+                            avgSpeed = lapData["avgSpeed"];
+                        }
+                        if (lapData.hasKey("maxSpeed")) {
+                            maxSpeed = lapData["maxSpeed"];
+                        }
                     }
                 }
                 
                 // Now continuously update the lap fields with current values
                 System.println("Updating lap fields with current values");
-                updateLapFields(pctOnFoil, vmgUp, vmgDown, tackSec, tackMtr, tackAng, gybeAng, avgWindDir, windStr, tackCount, gybeCount);
+                updateLapFields(pctOnFoil, vmgUp, vmgDown, tackSec, tackMtr, tackAng, gybeAng, avgWindDir, windStr, 
+                            tackCount, gybeCount, pctUpwind, pctDownwind, avgWindAngle, avgSpeed, maxSpeed);
                 
                 mModel.updateData();
             } else {
