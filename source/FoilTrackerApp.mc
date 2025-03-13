@@ -414,37 +414,200 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Get lap data efficiently
+    // Get data for lap markers with robust error handling
     function getLapData() {
         try {
             System.println("Generating lap data");
             
-            // Get default lap data structure
-            var lapData = createDefaultLapData();
+            // Create a data structure for lap fields with default values
+            var lapData = {
+                "vmgUp" => 0.0,
+                "vmgDown" => 0.0,
+                "tackSec" => 0.0,
+                "tackMtr" => 0.0,
+                "avgTackAngle" => 0,
+                "avgGybeAngle" => 0,
+                "lapVMG" => 0.0,
+                "pctOnFoil" => 0.0,
+                "windDirection" => 0,
+                "windStrength" => 0,
+                "pctUpwind" => 0,
+                "pctDownwind" => 0,
+                "avgWindAngle" => 0,
+                "tackCount" => 0,
+                "gybeCount" => 0
+            };
             
-            // Get data from wind tracker
+            // Get data from WindTracker 
             var windData = mWindTracker != null ? mWindTracker.getWindData() : null;
-            var lapSpecificData = mWindTracker != null ? mWindTracker.getLapData() : null;
+            System.println("- Acquired wind data: " + (windData != null && windData.hasKey("valid")));
             
-            // Use lap-specific data when available
-            if (lapSpecificData != null) {
-                updateFromLapSpecificData(lapData, lapSpecificData);
+            // Get lap-specific data if available
+            var lapSpecificData = null;
+            if (mWindTracker != null) {
+                lapSpecificData = mWindTracker.getLapData();
+                System.println("- Acquired lap-specific data: " + (lapSpecificData != null));
             }
             
-            // Use fallbacks when needed
-            if (needsFallbackData(lapData)) {
-                applyFallbackData(lapData, windData);
+            // Use lap-specific data if available, otherwise fall back to general data
+            if (lapSpecificData != null) {
+                // VMG data
+                if (lapSpecificData.hasKey("vmgUp")) { 
+                    lapData["vmgUp"] = lapSpecificData["vmgUp"]; 
+                }
+                if (lapSpecificData.hasKey("vmgDown")) { 
+                    lapData["vmgDown"] = lapSpecificData["vmgDown"]; 
+                }
+                
+                // Tack data
+                if (lapSpecificData.hasKey("tackSec")) { 
+                    lapData["tackSec"] = lapSpecificData["tackSec"]; 
+                }
+                if (lapSpecificData.hasKey("tackMtr")) { 
+                    lapData["tackMtr"] = lapSpecificData["tackMtr"]; 
+                }
+                
+                // Angle data
+                if (lapSpecificData.hasKey("avgTackAngle")) { 
+                    lapData["avgTackAngle"] = Math.round(lapSpecificData["avgTackAngle"]).toNumber(); 
+                }
+                if (lapSpecificData.hasKey("avgGybeAngle")) { 
+                    lapData["avgGybeAngle"] = Math.round(lapSpecificData["avgGybeAngle"]).toNumber(); 
+                }
+                
+                // Performance metrics
+                if (lapSpecificData.hasKey("lapVMG")) { 
+                    lapData["lapVMG"] = lapSpecificData["lapVMG"]; 
+                }
+                if (lapSpecificData.hasKey("pctOnFoil")) { 
+                    lapData["pctOnFoil"] = Math.round(lapSpecificData["pctOnFoil"]).toNumber(); 
+                }
+                
+                // Wind data
+                if (lapSpecificData.hasKey("windDirection")) { 
+                    lapData["windDirection"] = Math.round(lapSpecificData["windDirection"]).toNumber(); 
+                }
+                
+                // Maneuver counts
+                if (lapSpecificData.hasKey("tackCount")) { 
+                    lapData["tackCount"] = lapSpecificData["tackCount"]; 
+                }
+                if (lapSpecificData.hasKey("gybeCount")) { 
+                    lapData["gybeCount"] = lapSpecificData["gybeCount"]; 
+                }
+                
+                // Point of sail percentages
+                if (lapSpecificData.hasKey("pctUpwind")) { 
+                    lapData["pctUpwind"] = Math.round(lapSpecificData["pctUpwind"]).toNumber(); 
+                }
+                if (lapSpecificData.hasKey("pctDownwind")) { 
+                    lapData["pctDownwind"] = Math.round(lapSpecificData["pctDownwind"]).toNumber(); 
+                }
+                if (lapSpecificData.hasKey("avgWindAngle")) { 
+                    lapData["avgWindAngle"] = Math.round(lapSpecificData["avgWindAngle"]).toNumber(); 
+                }
+            }
+            
+            // Calculate wind strength as index*3 + 7 (lower wind limit)
+            var windStrength = 0;
+            try {
+                var modelData = mModel != null ? mModel.getData() : null;
+                if (modelData != null && modelData.hasKey("windStrengthIndex")) {
+                    var windIndex = modelData["windStrengthIndex"];
+                    // Convert index to actual wind strength in knots
+                    windStrength = windIndex * 3 + 7;
+                    System.println("- Wind strength calculated from index " + windIndex + " = " + windStrength + " knots");
+                }
+            } catch (e) {
+                System.println("Error getting wind strength: " + e.getErrorMessage());
+            }
+            
+            // Apply the calculated wind strength
+            lapData["windStrength"] = windStrength;
+            
+            // Apply fallbacks for any missing values
+            if (lapData["vmgUp"] == 0.0 && lapData["vmgDown"] == 0.0 && windData != null) {
+                if (windData.hasKey("currentVMG") && windData.hasKey("currentPointOfSail")) {
+                    var vmg = windData["currentVMG"];
+                    var isUpwind = (windData["currentPointOfSail"] == "Upwind");
+                    
+                    if (isUpwind) {
+                        lapData["vmgUp"] = vmg;
+                    } else {
+                        lapData["vmgDown"] = vmg;
+                    }
+                }
+            }
+            
+            // Percent on foil fallback
+            if (lapData["pctOnFoil"] == 0.0) {
+                var modelData = mModel != null ? mModel.getData() : null;
+                if (modelData != null && modelData.hasKey("percentOnFoil")) {
+                    lapData["pctOnFoil"] = Math.round(modelData["percentOnFoil"]).toNumber();
+                }
+            }
+            
+            // Wind direction fallback
+            if (lapData["windDirection"] == 0 && windData != null && windData.hasKey("windDirection")) {
+                lapData["windDirection"] = windData["windDirection"];
             }
             
             // Validate and normalize
-            return validateLapData(lapData);
+            lapData = validateLapData(lapData);
             
+            return lapData;
         } catch (e) {
             System.println("CRITICAL ERROR in getLapData: " + e.getErrorMessage());
-            return createDefaultLapData();
+            
+            // Return minimal valid data structure as emergency fallback
+            return {
+                "vmgUp" => 0.0,
+                "vmgDown" => 0.0,
+                "tackSec" => 0.0,
+                "tackMtr" => 0.0,
+                "avgTackAngle" => 0,
+                "avgGybeAngle" => 0,
+                "lapVMG" => 0.0,
+                "pctOnFoil" => 0.0,
+                "windDirection" => 0,
+                "windStrength" => 0,
+                "pctUpwind" => 0,
+                "pctDownwind" => 0,
+                "avgWindAngle" => 0,
+                "tackCount" => 0,
+                "gybeCount" => 0
+            };
         }
     }
-    
+
+    // Helper to validate lap data
+    function validateLapData(lapData) {
+        // Apply range limits
+        lapData["vmgUp"] = limitRange(lapData["vmgUp"], 0.0, 99.9);
+        lapData["vmgDown"] = limitRange(lapData["vmgDown"], 0.0, 99.9);
+        lapData["tackSec"] = limitRange(lapData["tackSec"], 0.0, 9999.9);
+        lapData["tackMtr"] = limitRange(lapData["tackMtr"], 0.0, 9999.9);
+        lapData["avgTackAngle"] = limitRange(lapData["avgTackAngle"], 0, 180);
+        lapData["avgGybeAngle"] = limitRange(lapData["avgGybeAngle"], 0, 180);
+        lapData["pctOnFoil"] = limitRange(lapData["pctOnFoil"], 0, 100);
+        lapData["pctUpwind"] = limitRange(lapData["pctUpwind"], 0, 100);
+        lapData["pctDownwind"] = limitRange(lapData["pctDownwind"], 0, 100);
+        
+        // Normalize angles
+        if (lapData["windDirection"] >= 360) {
+            lapData["windDirection"] = lapData["windDirection"] % 360;
+        }
+        
+        // Round values for consistency
+        lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
+        lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
+        lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
+        lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
+        lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
+        
+        return lapData;
+    }
+  
     // Helper to create default lap data
     function createDefaultLapData() {
         return {
@@ -573,33 +736,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
     
-    // Helper to validate lap data
-    function validateLapData(lapData) {
-        // Apply range limits
-        lapData["vmgUp"] = limitRange(lapData["vmgUp"], 0.0, 99.9);
-        lapData["vmgDown"] = limitRange(lapData["vmgDown"], 0.0, 99.9);
-        lapData["tackSec"] = limitRange(lapData["tackSec"], 0.0, 9999.9);
-        lapData["tackMtr"] = limitRange(lapData["tackMtr"], 0.0, 9999.9);
-        lapData["avgTackAngle"] = limitRange(lapData["avgTackAngle"], 0, 180);
-        lapData["avgGybeAngle"] = limitRange(lapData["avgGybeAngle"], 0, 180);
-        lapData["pctOnFoil"] = limitRange(lapData["pctOnFoil"], 0, 100);
-        lapData["pctUpwind"] = limitRange(lapData["pctUpwind"], 0, 100);
-        lapData["pctDownwind"] = limitRange(lapData["pctDownwind"], 0, 100);
-        
-        // Normalize angles
-        if (lapData["windDirection"] >= 360) {
-            lapData["windDirection"] = lapData["windDirection"] % 360;
-        }
-        
-        // Round values for consistency
-        lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
-        lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
-        lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
-        lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
-        lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
-        
-        return lapData;
-    }
     
     // Helper to limit numeric range
     function limitRange(value, min, max) {
