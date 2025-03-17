@@ -6,3 +6,4 @@ bin/mir/source/FoilTrackerApp.mir
 bin/test_fr255m_FoilTracker_Lap.prg.debug.xml
 bin/mir/source/LapTracker.mir
 
+bin/FoilTracker_Lap.prg.debug.xml

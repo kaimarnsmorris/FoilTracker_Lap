@@ -1058,7 +1058,7 @@ class FoilTrackerApp extends Application.AppBase {
         return [windView, windDelegate];
     }
     
- // onStop() is called when the application is exiting
+// onStop() is called when the application is exiting
     function onStop(state) {
         System.println("App stopping - checking whether to save activity data");
         
