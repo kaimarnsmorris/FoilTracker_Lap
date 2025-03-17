@@ -195,7 +195,12 @@ class WindAngleCalculator {
             " (at " + debugTimestamps + "s, weights: " + debugWeights + "), avg: " + 
             normalizedHeading.format("%.6f") + "°");
         
-        return normalizedHeading;
+        // Return both the calculated average and the raw data
+        return {
+            "average" => normalizedHeading,
+            "headings" => headings,
+            "timestamps" => timestamps
+        };
     }
 
     // Store heading in history with timestamp

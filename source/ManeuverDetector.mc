@@ -160,6 +160,61 @@ class ManeuverDetector {
         return false;
     }
     
+    // Check if a maneuver's headings are reliable
+    function isReliableManeuver(beforeHeadingData, afterHeadingData) {
+        // Extract the headings from the raw data
+        var beforeHeadings = beforeHeadingData["headings"];
+        var afterHeadings = afterHeadingData["headings"];
+        
+        // Calculate the max variation in each set
+        var beforeVariation = calculateMaxVariation(beforeHeadings);
+        var afterVariation = calculateMaxVariation(afterHeadings);
+        
+        // Define max acceptable variation (e.g., 25 degrees)
+        var MAX_ACCEPTABLE_VARIATION = 15.0;
+        
+        // Log the variations for debugging
+        log("Heading variations - before: " + beforeVariation.format("%.1f") + 
+            "°, after: " + afterVariation.format("%.1f") + "°");
+        
+        // Return true if both variations are acceptable
+        return (beforeVariation <= MAX_ACCEPTABLE_VARIATION && 
+                afterVariation <= MAX_ACCEPTABLE_VARIATION);
+    }
+
+    // Helper function to calculate maximum variation in a set of headings
+    function calculateMaxVariation(headings) {
+        if (headings == null || headings.size() < 2) {
+            return 0.0;
+        }
+        
+        var minHeading = 360.0;
+        var maxHeading = 0.0;
+        
+        // Find min and max headings
+        for (var i = 0; i < headings.size(); i++) {
+            var heading = headings[i];
+            if (heading < minHeading) {
+                minHeading = heading;
+            }
+            if (heading > maxHeading) {
+                maxHeading = heading;
+            }
+        }
+        
+        // Return the range
+        return mParent.getAngleCalculator().angleAbsDifference(minHeading, maxHeading);
+    }
+
+    // Determine if the heading is in "reaching" mode based on wind angle
+    function isReaching(heading, windDirection) {
+        // Calculate wind angle
+        var windAngle = mParent.getAngleCalculator().angleAbsDifference(heading, windDirection);
+        
+        // Upwind: 0-70 degrees, Downwind: 110-180 degrees, Reaching: 70-110 degrees
+        return (windAngle > 70 && windAngle < 110);
+    }
+
     // Check for pending maneuvers that need angle calculation
     function checkPendingManeuvers(currentTime) {
         // If no pending maneuver, return
@@ -202,21 +257,40 @@ class ManeuverDetector {
             "], after [" + (afterStart/1000) + "-" + (afterEnd/1000) + "]");
         
         // Calculate headings before and after maneuver using weighted average
-        var beforeHeading = mParent.getAngleCalculator().calculateWeightedAverageHeading(beforeStart, beforeEnd, true);
-        var afterHeading = mParent.getAngleCalculator().calculateWeightedAverageHeading(afterStart, afterEnd, false);
+        var beforeHeadingData = mParent.getAngleCalculator().calculateWeightedAverageHeading(beforeStart, beforeEnd, true);
+        var afterHeadingData = mParent.getAngleCalculator().calculateWeightedAverageHeading(afterStart, afterEnd, false);
         
         // If we don't have enough data, bail out
-        if (beforeHeading == null || afterHeading == null) {
+        if (beforeHeadingData == null || afterHeadingData == null) {
             log("Cannot calculate " + (isTack ? "tack" : "gybe") + 
                 " angle - insufficient heading history data");
             return;
         }
         
+        // Extract the averages
+        var beforeHeading = beforeHeadingData["average"];
+        var afterHeading = afterHeadingData["average"];
+        
+        // Check if the maneuver is reliable based on heading variations
+        if (!isReliableManeuver(beforeHeadingData, afterHeadingData)) {
+            log("Rejecting unreliable " + (isTack ? "tack" : "gybe") + 
+                " - excessive heading variation");
+            return;
+        }
+        
+        // Get current wind direction
+        var windDirection = mParent.getWindDirection();
+        
+        // Check if both before and after headings are in "reaching" mode
+        var beforeReaching = isReaching(beforeHeading, windDirection);
+        var afterReaching = isReaching(afterHeading, windDirection);
+        
         // Calculate maneuver angle - simple COG-based approach for both tacks and gybes
         var maneuverAngle = mParent.getAngleCalculator().angleAbsDifference(beforeHeading, afterHeading);
         
         log("Maneuver Angle: before=" + beforeHeading + "°, after=" + afterHeading + 
-            "°, diff=" + maneuverAngle + "°, type=" + (isTack ? "Tack" : "Gybe"));
+            "°, diff=" + maneuverAngle + "°, type=" + (isTack ? "Tack" : "Gybe") +
+            ", reaching=" + (beforeReaching && afterReaching));
         
         // Get current lap before processing the maneuver
         var currentLap = mParent.getLapTracker().getCurrentLap();
@@ -229,9 +303,15 @@ class ManeuverDetector {
             // Update last tack angle
             mLastTackAngle = maneuverAngle;
             
-            // Record tack headings for auto wind calculation
-            mLastTackHeadings[0] = mLastTackHeadings[1];
-            mLastTackHeadings[1] = afterHeading;
+            // Only update wind direction if not in reaching mode on both sides
+            if (!(beforeReaching && afterReaching)) {
+                // Record tack headings for auto wind calculation
+                mLastTackHeadings[0] = mLastTackHeadings[1];
+                mLastTackHeadings[1] = afterHeading;
+                log("Updated tack headings for wind calculation");
+            } else {
+                log("Both headings in reaching mode - not updating wind direction");
+            }
             
             // Record maneuver in history
             recordManeuver(true, afterHeading, maneuverAngle);
@@ -254,9 +334,15 @@ class ManeuverDetector {
             // Update last gybe angle
             mLastGybeAngle = maneuverAngle;
             
-            // Record gybe headings for auto wind calculation
-            mLastGybeHeadings[0] = mLastGybeHeadings[1];
-            mLastGybeHeadings[1] = afterHeading;
+            // Only update wind direction if not in reaching mode on both sides
+            if (!(beforeReaching && afterReaching)) {
+                // Record gybe headings for auto wind calculation
+                mLastGybeHeadings[0] = mLastGybeHeadings[1];
+                mLastGybeHeadings[1] = afterHeading;
+                log("Updated gybe headings for wind calculation");
+            } else {
+                log("Both headings in reaching mode - not updating wind direction");
+            }
             
             // Record maneuver in history
             recordManeuver(false, afterHeading, maneuverAngle);
