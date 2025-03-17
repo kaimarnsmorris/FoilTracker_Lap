@@ -1058,27 +1058,58 @@ class FoilTrackerApp extends Application.AppBase {
         return [windView, windDelegate];
     }
     
-    // App stopping - save data
+ // onStop() is called when the application is exiting
     function onStop(state) {
-        System.println("App stopping");
+        System.println("App stopping - checking whether to save activity data");
         
+        // Emergency timestamp save first (always works)
         try {
-            // Save emergency timestamp
-            Application.Storage.setValue("appStopTime", Time.now().value());
+            var storage = Application.Storage;
+            storage.setValue("appStopTime", Time.now().value());
+            System.println("Emergency timestamp saved");
+        } 
+        catch (e) {
+            System.println("Even timestamp save failed");
+        }
+        
+        // Attempt full data save if model is available and NOT discarded by user
+        if (mModel != null) {
+            // Check if session was explicitly discarded
+            var data = mModel.getData();
+            var wasDiscarded = data.hasKey("sessionDiscarded") && data["sessionDiscarded"];
             
-            // Save activity data
-            if (mModel != null) {
+            if (wasDiscarded) {
+                System.println("Activity was explicitly discarded by user - not saving");
+                return;
+            }
+            
+            try {
                 var saveResult = mModel.saveActivityData();
-                if (!saveResult) {
-                    // Backup save if main save failed
-                    saveEmergencyBackup();
+                if (saveResult) {
+                    System.println("Activity data saved successfully");
+                } else {
+                    System.println("Activity save reported failure");
+                }
+            } 
+            catch (e) {
+                System.println("Error in onStop when saving: " + e.getErrorMessage());
+                
+                // Try one more emergency direct save
+                try {
+                    var storage = Application.Storage;
+                    var finalBackup = {
+                        "date" => Time.now().value(),
+                        "onStopEmergency" => true
+                    };
+                    storage.setValue("onStop_emergency", finalBackup);
+                    System.println("OnStop emergency save succeeded");
+                } catch (e2) {
+                    System.println("All save attempts failed");
                 }
             }
-        } catch (e) {
-            System.println("Error in onStop: " + e.getErrorMessage());
-            
-            // Try emergency backup
-            saveEmergencyBackup();
+        } 
+        else {
+            System.println("Model not available in onStop");
         }
     }
 

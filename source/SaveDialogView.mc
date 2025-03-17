@@ -119,10 +119,12 @@ class SaveDialogDelegate extends WatchUi.BehaviorDelegate {
     function discardActivity() {
         System.println("Discarding activity");
         
-        // Mark as complete in the model so we don't auto-save
+        // Mark as complete AND discarded in the model so we don't auto-save
         if (mModel != null) {
             var data = mModel.getData();
             data["sessionComplete"] = true;
+            // Add specific flag to indicate this was discarded by user
+            data["sessionDiscarded"] = true;
         }
         
         // Discard the activity recording session

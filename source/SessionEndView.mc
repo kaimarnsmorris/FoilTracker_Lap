@@ -38,6 +38,14 @@ class SessionEndView extends WatchUi.ConfirmationDelegate {
             // Discard activity
             System.println("Discarding activity");
             
+            // Mark as discarded in the model so auto-save doesn't run
+            if (mModel != null) {
+                var data = mModel.getData();
+                data["sessionComplete"] = true;
+                data["sessionDiscarded"] = true;
+                System.println("Session marked as discarded in model");
+            }
+            
             // Discard the activity recording session
             if (mApp != null && mApp has :mSession && mApp.mSession != null && mApp.mSession.isRecording()) {
                 try {
