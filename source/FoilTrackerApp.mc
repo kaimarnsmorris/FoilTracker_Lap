@@ -51,11 +51,27 @@ class FoilTrackerApp extends Application.AppBase {
         System.println("Timer started");
     }
     
-    // Separate position tracking setup for clarity
     function enablePositionTracking() {
         try {
-            Position.enableLocationEvents(Position.LOCATION_CONTINUOUS, method(:onPositionCallback));
-            System.println("Position tracking enabled");
+            // Standard approach for most devices
+            Position.enableLocationEvents(
+                Position.LOCATION_CONTINUOUS,
+                method(:onPositionCallback)
+            );
+            System.println("Position tracking enabled with default frequency");
+            
+            // Try to set a higher update frequency using setLocationOptions if available
+            if (Position has :setLocationOptions) {
+                try {
+                    var options = {
+                        :updateRate => 1  // Request 1-second updates
+                    };
+                    Position.setLocationOptions(options);
+                    System.println("Requested higher update rate of 1 second");
+                } catch (e) {
+                    System.println("Could not set higher frequency: " + e.getErrorMessage());
+                }
+            }
         } catch (e) {
             System.println("Error enabling position tracking: " + e.getErrorMessage());
         }

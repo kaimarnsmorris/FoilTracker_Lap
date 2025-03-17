@@ -209,8 +209,13 @@ class LapTracker {
     }
     
     // In LapTracker.mc
-    // Updated updatePositionData method without using size()
+ // In LapTracker.mc
+    // Updated updatePositionData method with proper error handling for Garmin devices
     function updatePositionData(info) {
+        var lat1 = null;
+        var lon1 = null;
+        var lat2 = null;
+        var lon2 = null;
         var lapNum = mCurrentLapNumber;
         if (lapNum <= 0 || info == null) { return; }
         
@@ -234,20 +239,36 @@ class LapTracker {
         // Make sure both positions have the required data before calculating
         var startPos = posData["startPosition"];
         
-        // Safety check before position calculations - avoid using size()
-        if (info has :position && info.position != null && 
-            startPos has :position && startPos.position != null) {
-            
-            try {
-                // Try to access array elements directly with safer checks
-                if (info.position[0] != null && info.position[1] != null && 
-                    startPos.position[0] != null && startPos.position[1] != null) {
-                    
-                    var lat1 = startPos.position[0];
-                    var lon1 = startPos.position[1];
-                    var lat2 = info.position[0];
-                    var lon2 = info.position[1];
-                    
+        // Safety check before position calculations - with safe property access
+        try {
+            // Check if position property exists and is not null
+            if (info has :position && startPos has :position && 
+                info.position != null && startPos.position != null) {
+                
+                // Extract latitude and longitude directly from the position objects
+                // According to Garmin docs, position is accessed with individual lat/lon properties               
+                // Try direct array access first (some devices provide position as array)
+                try {
+                    if (startPos.position[0] != null && startPos.position[1] != null &&
+                        info.position[0] != null && info.position[1] != null) {
+                        lat1 = startPos.position[0];
+                        lon1 = startPos.position[1];
+                        lat2 = info.position[0];
+                        lon2 = info.position[1];
+                    }
+                } catch (e) {
+                    // If array access fails, try accessing as lat/lon properties
+                    if (startPos.position has :latitude && startPos.position has :longitude &&
+                        info.position has :latitude && info.position has :longitude) {
+                        lat1 = startPos.position.latitude;
+                        lon1 = startPos.position.longitude;
+                        lat2 = info.position.latitude;
+                        lon2 = info.position.longitude;
+                    }
+                }
+                
+                // Calculate distance only if we have valid coordinates
+                if (lat1 != null && lon1 != null && lat2 != null && lon2 != null) {
                     // Approximate distance using Pythagorean theorem
                     var latDiff = lat2 - lat1;
                     var lonDiff = lon2 - lon1;
@@ -261,14 +282,18 @@ class LapTracker {
                     // Calculate lap VMG safely
                     calculateLapVMG(info);
                 }
-            } catch (e) {
-                log("Error calculating position: " + e.getErrorMessage());
             }
+        } catch (e) {
+            log("Error calculating position: " + e.getErrorMessage());
         }
     }
 
-    // Similarly update calculateLapVMG method without using size()
+    // Updated calculateLapVMG method with improved safety checks
     function calculateLapVMG(info) {
+        var lat1 = null;
+        var lon1 = null;
+        var lat2 = null;
+        var lon2 = null;
         var lapNum = mCurrentLapNumber;
         if (lapNum <= 0 || info == null || !mLapPositionData.hasKey(lapNum)) {
             return;
@@ -298,21 +323,37 @@ class LapTracker {
         // Try to get bearing
         var bearing = 0.0;
         
-        // Calculate bearing safely if we have valid positions - avoid using size()
-        var startPos = posData["startPosition"];
-        if (info has :position && startPos has :position && 
-            info.position != null && startPos.position != null) {
+        // Calculate bearing safely with comprehensive validation
+        try {
+            var startPos = posData["startPosition"];
             
-            try {
-                // Check array elements individually
-                if (info.position[0] != null && info.position[1] != null && 
-                    startPos.position[0] != null && startPos.position[1] != null) {
-                    
-                    var lat1 = startPos.position[0];
-                    var lon1 = startPos.position[1];
-                    var lat2 = info.position[0];
-                    var lon2 = info.position[1];
-                    
+            // Check if position exists and has required data
+            if (info has :position && startPos has :position && 
+                info.position != null && startPos.position != null) {
+
+                
+                // Try direct array access first
+                try {
+                    if (startPos.position[0] != null && startPos.position[1] != null &&
+                        info.position[0] != null && info.position[1] != null) {
+                        lat1 = startPos.position[0];
+                        lon1 = startPos.position[1];
+                        lat2 = info.position[0];
+                        lon2 = info.position[1];
+                    }
+                } catch (e) {
+                    // If array access fails, try accessing as lat/lon properties
+                    if (startPos.position has :latitude && startPos.position has :longitude &&
+                        info.position has :latitude && info.position has :longitude) {
+                        lat1 = startPos.position.latitude;
+                        lon1 = startPos.position.longitude;
+                        lat2 = info.position.latitude;
+                        lon2 = info.position.longitude;
+                    }
+                }
+                
+                // Calculate bearing only if coordinates are valid
+                if (lat1 != null && lon1 != null && lat2 != null && lon2 != null) {
                     // Calculate bearing
                     var lonDiff = lon2 - lon1;
                     bearing = Math.toDegrees(Math.atan2(lonDiff, lat2 - lat1));
@@ -320,10 +361,10 @@ class LapTracker {
                         bearing += 360;
                     }
                 }
-            } catch (e) {
-                log("Error calculating bearing: " + e.getErrorMessage());
-                bearing = 0.0;
             }
+        } catch (e) {
+            log("Error calculating bearing: " + e.getErrorMessage());
+            bearing = 0.0;
         }
         
         // Calculate projection onto wind direction

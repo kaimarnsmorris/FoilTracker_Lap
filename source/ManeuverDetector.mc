@@ -4,8 +4,8 @@ using Toybox.System;
 
 class ManeuverDetector {
     // Constants
-    private const MAN_ANGLE_TIME_MEASURE = 10;  // Time period to measure course (seconds)
-    private const MAN_ANGLE_TIME_IGNORE = 2;    // Time to ignore before/after maneuver (seconds)
+    private const MAN_ANGLE_TIME_MEASURE = 15;   // Time period to measure course (seconds) - increased from 10
+    private const MAN_ANGLE_TIME_IGNORE = 15;     // Time to ignore before/after maneuver (seconds) - increased from 4
     
     // Properties
     private var mParent;                  // Reference to WindTracker parent
@@ -182,7 +182,7 @@ class ManeuverDetector {
         mPendingManeuver = null;
     }
     
-    // Calculate maneuver angle based on heading history - with improved logging
+    // Calculate maneuver angle based on heading history - with weighted averages
     function calculateManeuverAngle(pendingManeuver) {
         var maneuverTimestamp = pendingManeuver["timestamp"];
         var isTack = pendingManeuver["isTack"];
@@ -192,6 +192,8 @@ class ManeuverDetector {
         // Calculate time periods for measurement
         var beforeStart = maneuverTimestamp - (MAN_ANGLE_TIME_MEASURE + MAN_ANGLE_TIME_IGNORE) * 1000;
         var beforeEnd = maneuverTimestamp - MAN_ANGLE_TIME_IGNORE * 1000;
+        
+        // Use same ignore period after the maneuver
         var afterStart = maneuverTimestamp + MAN_ANGLE_TIME_IGNORE * 1000;
         var afterEnd = maneuverTimestamp + (MAN_ANGLE_TIME_MEASURE + MAN_ANGLE_TIME_IGNORE) * 1000;
         
@@ -199,9 +201,9 @@ class ManeuverDetector {
             "], ignore [" + (beforeEnd/1000) + "-" + (afterStart/1000) + 
             "], after [" + (afterStart/1000) + "-" + (afterEnd/1000) + "]");
         
-        // Calculate headings before and after maneuver
-        var beforeHeading = mParent.getAngleCalculator().calculateAverageHeading(beforeStart, beforeEnd);
-        var afterHeading = mParent.getAngleCalculator().calculateAverageHeading(afterStart, afterEnd);
+        // Calculate headings before and after maneuver using weighted average
+        var beforeHeading = mParent.getAngleCalculator().calculateWeightedAverageHeading(beforeStart, beforeEnd, true);
+        var afterHeading = mParent.getAngleCalculator().calculateWeightedAverageHeading(afterStart, afterEnd, false);
         
         // If we don't have enough data, bail out
         if (beforeHeading == null || afterHeading == null) {
