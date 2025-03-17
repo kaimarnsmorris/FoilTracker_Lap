@@ -730,967 +730,1075 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
     }
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 188; @symbol_functiondef = [calculateAverageHeading,188,13,36]; @symbol_param<0> = [startTime,188,37,46]; @symbol_param<1> = [endTime,188,48,55]; ]
     function calculateAverageHeading(startTime, endTime) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 189 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
         %sumX.1 = local;
         symbol [ sumX %sumX.1 189 12 16 ];
         %tmp.1 = 0.0;
         lputv %sumX.1 %tmp.1;
         symbol [ sumX %sumX.1 189 12 16 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 190 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
         %sumY.2 = local;
         symbol [ sumY %sumY.2 190 12 16 ];
         %tmp.2 = 0.0;
         lputv %sumY.2 %tmp.2;
         symbol [ sumY %sumY.2 190 12 16 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 191 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
         %count.3 = local;
         symbol [ count %count.3 191 12 17 ];
         %tmp.3 = 0;
         lputv %count.3 %tmp.3;
         symbol [ count %count.3 191 12 17 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 194 8 ]
-        for @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_incr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_init:
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_begin" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_end" ]
-        %i.4 = local;
-        symbol [ i %i.4 194 17 18 ];
-        %tmp.4 = 0;
-        lputv %i.4 %tmp.4;
-        symbol [ i %i.4 194 17 18 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_test:
-        %tmp.5 = lgetv %i.4;
-        symbol [ i %tmp.5 194 24 25 ];
-        symbol [ HEADING_HISTORY_SIZE %tmp.7 194 28 48 ];
-        %tmp.7 = getv ? :HEADING_HISTORY_SIZE;
-        %tmp.8 = lt %tmp.5 %tmp.7;
-        bf %tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 195 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_stop" ]
-        %entry.5 = local;
-        symbol [ entry %entry.5 195 16 21 ];
-        symbol [ mHeadingHistory %tmp.10 195 24 39 ];
-        %tmp.10 = getv ? :mHeadingHistory;
-        %tmp.11 = lgetv %i.4;
-        symbol [ i %tmp.11 195 40 41 ];
-        %tmp.12 = agetv %tmp.10 %tmp.11;
-        lputv %entry.5 %tmp.12;
-        symbol [ entry %entry.5 195 16 21 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 198 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_12_200_12_if_stmt:
-        %tmp.13 = lgetv %entry.5;
-        symbol [ entry %tmp.13 198 17 22 ];
-        %tmp.14 = "valid";
-        %tmp.15 = agetv %tmp.13 %tmp.14;
-        %tmp.16 = not %tmp.15;
-        bf %tmp.16 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_12_200_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_12_200_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_33_200_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 199 16 ]
-        goto break @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_incr;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_33_200_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_12_200_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_12_200_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 192 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %debugHeadings.4 = local;
+        symbol [ debugHeadings %debugHeadings.4 192 12 25 ];
+        %tmp.4 = newa 0;
+        lputv %debugHeadings.4 %tmp.4;
+        symbol [ debugHeadings %debugHeadings.4 192 12 25 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 193 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %debugTimestamps.5 = local;
+        symbol [ debugTimestamps %debugTimestamps.5 193 12 27 ];
+        %tmp.5 = newa 0;
+        lputv %debugTimestamps.5 %tmp.5;
+        symbol [ debugTimestamps %debugTimestamps.5 193 12 27 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 195 8 ]
+        %tmp.6 = self;
+        symbol [ log %tmp.7 195 8 11 ];
+        %tmp.7 = getv function %tmp.6 :log;
+        %tmp.8 = "Calc heading period: ";
+        %tmp.9 = lgetv %startTime;
+        symbol [ startTime %tmp.9 195 39 48 ];
+        %tmp.10 = 1000;
+        %tmp.11 = div %tmp.9 %tmp.10;
+        %tmp.12 = add %tmp.8 %tmp.11;
+        %tmp.13 = "s to ";
+        %tmp.14 = add %tmp.12 %tmp.13;
+        %tmp.15 = lgetv %endTime;
+        symbol [ endTime %tmp.15 195 68 75 ];
+        %tmp.16 = 1000;
+        %tmp.17 = div %tmp.15 %tmp.16;
+        %tmp.18 = add %tmp.14 %tmp.17;
+        %tmp.19 = "s";
+        %tmp.20 = add %tmp.18 %tmp.19;
+        invoke %tmp.6 %tmp.7(%tmp.20);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 198 8 ]
+        for @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_incr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_init:
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_begin" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_end" ]
+        %i.6 = local;
+        symbol [ i %i.6 198 17 18 ];
+        %tmp.21 = 0;
+        lputv %i.6 %tmp.21;
+        symbol [ i %i.6 198 17 18 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_test:
+        %tmp.22 = lgetv %i.6;
+        symbol [ i %tmp.22 198 24 25 ];
+        symbol [ HEADING_HISTORY_SIZE %tmp.24 198 28 48 ];
+        %tmp.24 = getv ? :HEADING_HISTORY_SIZE;
+        %tmp.25 = lt %tmp.22 %tmp.24;
+        bf %tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 199 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_stop" ]
+        %entry.7 = local;
+        symbol [ entry %entry.7 199 16 21 ];
+        symbol [ mHeadingHistory %tmp.27 199 24 39 ];
+        %tmp.27 = getv ? :mHeadingHistory;
+        %tmp.28 = lgetv %i.6;
+        symbol [ i %tmp.28 199 40 41 ];
+        %tmp.29 = agetv %tmp.27 %tmp.28;
+        lputv %entry.7 %tmp.29;
+        symbol [ entry %entry.7 199 16 21 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 202 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_stop" ]
-        %timestamp.6 = local;
-        symbol [ timestamp %timestamp.6 202 16 25 ];
-        %tmp.17 = lgetv %entry.5;
-        symbol [ entry %tmp.17 202 28 33 ];
-        %tmp.18 = "timestamp";
-        %tmp.19 = agetv %tmp.17 %tmp.18;
-        lputv %timestamp.6 %tmp.19;
-        symbol [ timestamp %timestamp.6 202 16 25 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 203 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_stop" ]
-        %heading.7 = local;
-        symbol [ heading %heading.7 203 16 23 ];
-        %tmp.20 = lgetv %entry.5;
-        symbol [ entry %tmp.20 203 26 31 ];
-        %tmp.21 = "heading";
-        %tmp.22 = agetv %tmp.20 %tmp.21;
-        lputv %heading.7 %tmp.22;
-        symbol [ heading %heading.7 203 16 23 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_12_204_12_if_stmt:
+        %tmp.30 = lgetv %entry.7;
+        symbol [ entry %tmp.30 202 17 22 ];
+        %tmp.31 = "valid";
+        %tmp.32 = agetv %tmp.30 %tmp.31;
+        %tmp.33 = not %tmp.32;
+        bf %tmp.33 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_12_204_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_12_204_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_33_204_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 203 16 ]
+        goto break @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_incr;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_33_204_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_12_204_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_202_12_204_12_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 206 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_16_206_55_begin:
-        %tmp.23 = lgetv %timestamp.6;
-        symbol [ timestamp %tmp.23 206 16 25 ];
-        %tmp.24 = lgetv %startTime;
-        symbol [ startTime %tmp.24 206 29 38 ];
-        %tmp.25 = gte %tmp.23 %tmp.24;
-        bf %tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_42_206_55_true:
-        %tmp.26 = lgetv %timestamp.6;
-        symbol [ timestamp %tmp.26 206 42 51 ];
-        %tmp.27 = lgetv %endTime;
-        symbol [ endTime %tmp.27 206 55 62 ];
-        %tmp.28 = lte %tmp.26 %tmp.27;
-        push %tmp.28;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_42_206_55_end:
-        %tmp.29 = phi [%tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_16_206_55_begin] [%tmp.28 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_42_206_55_true] [%tmp.29 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_42_206_55_end];
-        bf %tmp.29 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_64_214_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 208 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_64_214_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_64_214_12_stop" ]
-        %rad.8 = local;
-        symbol [ rad %rad.8 208 20 23 ];
-        symbol [ Math %tmp.30 208 26 30 ];
-        %tmp.30 = getm $.Toybox.Math;
-        symbol [ toRadians %tmp.31 208 31 40 ];
-        %tmp.31 = getv function %tmp.30 :toRadians;
-        %tmp.32 = lgetv %heading.7;
-        symbol [ heading %tmp.32 208 41 48 ];
-        %tmp.33 = invoke %tmp.30 %tmp.31(%tmp.32);
-        lputv %rad.8 %tmp.33;
-        symbol [ rad %rad.8 208 20 23 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 211 16 ]
-        %tmp.34 = lgetv %sumX.1;
-        symbol [ sumX %tmp.34 211 16 20 ];
-        symbol [ Math %tmp.35 211 24 28 ];
-        %tmp.35 = getm $.Toybox.Math;
-        symbol [ cos %tmp.36 211 29 32 ];
-        %tmp.36 = getv function %tmp.35 :cos;
-        %tmp.37 = lgetv %rad.8;
-        symbol [ rad %tmp.37 211 33 36 ];
-        %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
-        %tmp.39 = add %tmp.34 %tmp.38;
-        lputv %sumX.1 %tmp.39;
-        symbol [ sumX %sumX.1 211 16 20 ];
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_stop" ]
+        %timestamp.8 = local;
+        symbol [ timestamp %timestamp.8 206 16 25 ];
+        %tmp.34 = lgetv %entry.7;
+        symbol [ entry %tmp.34 206 28 33 ];
+        %tmp.35 = "timestamp";
+        %tmp.36 = agetv %tmp.34 %tmp.35;
+        lputv %timestamp.8 %tmp.36;
+        symbol [ timestamp %timestamp.8 206 16 25 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 207 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_stop" ]
+        %heading.9 = local;
+        symbol [ heading %heading.9 207 16 23 ];
+        %tmp.37 = lgetv %entry.7;
+        symbol [ entry %tmp.37 207 26 31 ];
+        %tmp.38 = "heading";
+        %tmp.39 = agetv %tmp.37 %tmp.38;
+        lputv %heading.9 %tmp.39;
+        symbol [ heading %heading.9 207 16 23 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 210 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_16_210_55_begin:
+        %tmp.40 = lgetv %timestamp.8;
+        symbol [ timestamp %tmp.40 210 16 25 ];
+        %tmp.41 = lgetv %startTime;
+        symbol [ startTime %tmp.41 210 29 38 ];
+        %tmp.42 = gte %tmp.40 %tmp.41;
+        bf %tmp.42 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_42_210_55_true:
+        %tmp.43 = lgetv %timestamp.8;
+        symbol [ timestamp %tmp.43 210 42 51 ];
+        %tmp.44 = lgetv %endTime;
+        symbol [ endTime %tmp.44 210 55 62 ];
+        %tmp.45 = lte %tmp.43 %tmp.44;
+        push %tmp.45;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_42_210_55_end:
+        %tmp.46 = phi [%tmp.42 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_16_210_55_begin] [%tmp.45 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_42_210_55_true] [%tmp.46 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_42_210_55_end];
+        bf %tmp.46 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_64_224_12_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 212 16 ]
-        %tmp.40 = lgetv %sumY.2;
-        symbol [ sumY %tmp.40 212 16 20 ];
-        symbol [ Math %tmp.41 212 24 28 ];
-        %tmp.41 = getm $.Toybox.Math;
-        symbol [ sin %tmp.42 212 29 32 ];
-        %tmp.42 = getv function %tmp.41 :sin;
-        %tmp.43 = lgetv %rad.8;
-        symbol [ rad %tmp.43 212 33 36 ];
-        %tmp.44 = invoke %tmp.41 %tmp.42(%tmp.43);
-        %tmp.45 = add %tmp.40 %tmp.44;
-        lputv %sumY.2 %tmp.45;
-        symbol [ sumY %sumY.2 212 16 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 213 16 ]
-        %tmp.48 = lgetv %count.3;
-        symbol [ count %tmp.48 213 16 21 ];
-        %tmp.49 = add %tmp.48 1;
-        lputv %count.3 %tmp.49;
-        symbol [ count %count.3 213 16 21 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_64_214_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_206_12_214_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_55_215_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_incr:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 194 ]
-        %tmp.52 = lgetv %i.4;
-        symbol [ i %tmp.52 194 50 51 ];
-        %tmp.53 = add %tmp.52 1;
-        lputv %i.4 %tmp.53;
-        symbol [ i %i.4 194 50 51 ];
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_test;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_194_8_215_8_for_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 218 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_8_222_8_if_stmt:
-        %tmp.54 = lgetv %count.3;
-        symbol [ count %tmp.54 218 12 17 ];
-        %tmp.55 = 0;
-        %tmp.56 = eq %tmp.54 %tmp.55;
-        bf %tmp.56 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_8_222_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_8_222_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_24_222_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 219 12 ]
-        %tmp.57 = self;
-        symbol [ log %tmp.58 219 12 15 ];
-        %tmp.58 = getv function %tmp.57 :log;
-        %tmp.59 = "No valid heading entries found for time period: ";
-        %tmp.60 = lgetv %startTime;
-        symbol [ startTime %tmp.60 220 17 26 ];
-        %tmp.61 = 1000;
-        %tmp.62 = div %tmp.60 %tmp.61;
-        %tmp.63 = add %tmp.59 %tmp.62;
-        %tmp.64 = "s to ";
-        %tmp.65 = add %tmp.63 %tmp.64;
-        %tmp.66 = lgetv %endTime;
-        symbol [ endTime %tmp.66 220 46 53 ];
-        %tmp.67 = 1000;
-        %tmp.68 = div %tmp.66 %tmp.67;
-        %tmp.69 = add %tmp.65 %tmp.68;
-        %tmp.70 = "s";
-        %tmp.71 = add %tmp.69 %tmp.70;
-        invoke %tmp.57 %tmp.58(%tmp.71);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 221 12 ]
-        %tmp.72 = null;
-        ret %tmp.72;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_24_222_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_8_222_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_218_8_222_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 225 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
-        %avgX.9 = local;
-        symbol [ avgX %avgX.9 225 12 16 ];
-        %tmp.73 = lgetv %sumX.1;
-        symbol [ sumX %tmp.73 225 19 23 ];
-        %tmp.74 = lgetv %count.3;
-        symbol [ count %tmp.74 225 26 31 ];
-        %tmp.75 = div %tmp.73 %tmp.74;
-        lputv %avgX.9 %tmp.75;
-        symbol [ avgX %avgX.9 225 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 226 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
-        %avgY.10 = local;
-        symbol [ avgY %avgY.10 226 12 16 ];
-        %tmp.76 = lgetv %sumY.2;
-        symbol [ sumY %tmp.76 226 19 23 ];
-        %tmp.77 = lgetv %count.3;
-        symbol [ count %tmp.77 226 26 31 ];
-        %tmp.78 = div %tmp.76 %tmp.77;
-        lputv %avgY.10 %tmp.78;
-        symbol [ avgY %avgY.10 226 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 229 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop" ]
-        %avgHeading.11 = local;
-        symbol [ avgHeading %avgHeading.11 229 12 22 ];
-        symbol [ Math %tmp.79 229 25 29 ];
-        %tmp.79 = getm $.Toybox.Math;
-        symbol [ toDegrees %tmp.80 229 30 39 ];
-        %tmp.80 = getv function %tmp.79 :toDegrees;
-        symbol [ Math %tmp.81 229 40 44 ];
-        %tmp.81 = getm $.Toybox.Math;
-        symbol [ atan2 %tmp.82 229 45 50 ];
-        %tmp.82 = getv function %tmp.81 :atan2;
-        %tmp.83 = lgetv %avgY.10;
-        symbol [ avgY %tmp.83 229 51 55 ];
-        %tmp.84 = lgetv %avgX.9;
-        symbol [ avgX %tmp.84 229 57 61 ];
-        %tmp.85 = invoke %tmp.81 %tmp.82(%tmp.83, %tmp.84);
-        %tmp.86 = invoke %tmp.79 %tmp.80(%tmp.85);
-        lputv %avgHeading.11 %tmp.86;
-        symbol [ avgHeading %avgHeading.11 229 12 22 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 232 8 ]
-        %tmp.87 = self;
-        symbol [ normalizeAngle %tmp.88 232 15 29 ];
-        %tmp.88 = getv function %tmp.87 :normalizeAngle;
-        %tmp.89 = lgetv %avgHeading.11;
-        symbol [ avgHeading %tmp.89 232 30 40 ];
-        %tmp.90 = invoke %tmp.87 %tmp.88(%tmp.89);
-        ret %tmp.90;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_233_4_stop:
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_64_224_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_64_224_12_stop" ]
+        %rad.10 = local;
+        symbol [ rad %rad.10 212 20 23 ];
+        symbol [ Math %tmp.47 212 26 30 ];
+        %tmp.47 = getm $.Toybox.Math;
+        symbol [ toRadians %tmp.48 212 31 40 ];
+        %tmp.48 = getv function %tmp.47 :toRadians;
+        %tmp.49 = lgetv %heading.9;
+        symbol [ heading %tmp.49 212 41 48 ];
+        %tmp.50 = invoke %tmp.47 %tmp.48(%tmp.49);
+        lputv %rad.10 %tmp.50;
+        symbol [ rad %rad.10 212 20 23 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 215 16 ]
+        %tmp.51 = lgetv %sumX.1;
+        symbol [ sumX %tmp.51 215 16 20 ];
+        symbol [ Math %tmp.52 215 24 28 ];
+        %tmp.52 = getm $.Toybox.Math;
+        symbol [ cos %tmp.53 215 29 32 ];
+        %tmp.53 = getv function %tmp.52 :cos;
+        %tmp.54 = lgetv %rad.10;
+        symbol [ rad %tmp.54 215 33 36 ];
+        %tmp.55 = invoke %tmp.52 %tmp.53(%tmp.54);
+        %tmp.56 = add %tmp.51 %tmp.55;
+        lputv %sumX.1 %tmp.56;
+        symbol [ sumX %sumX.1 215 16 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 216 16 ]
+        %tmp.57 = lgetv %sumY.2;
+        symbol [ sumY %tmp.57 216 16 20 ];
+        symbol [ Math %tmp.58 216 24 28 ];
+        %tmp.58 = getm $.Toybox.Math;
+        symbol [ sin %tmp.59 216 29 32 ];
+        %tmp.59 = getv function %tmp.58 :sin;
+        %tmp.60 = lgetv %rad.10;
+        symbol [ rad %tmp.60 216 33 36 ];
+        %tmp.61 = invoke %tmp.58 %tmp.59(%tmp.60);
+        %tmp.62 = add %tmp.57 %tmp.61;
+        lputv %sumY.2 %tmp.62;
+        symbol [ sumY %sumY.2 216 16 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 217 16 ]
+        %tmp.65 = lgetv %count.3;
+        symbol [ count %tmp.65 217 16 21 ];
+        %tmp.66 = add %tmp.65 1;
+        lputv %count.3 %tmp.66;
+        symbol [ count %count.3 217 16 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 220 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_16_223_16_if_stmt:
+        %tmp.67 = lgetv %debugHeadings.4;
+        symbol [ debugHeadings %tmp.67 220 20 33 ];
+        symbol [ size %tmp.68 220 34 38 ];
+        %tmp.68 = getv function %tmp.67 :size;
+        %tmp.69 = invoke %tmp.67 %tmp.68();
+        %tmp.70 = 5;
+        %tmp.71 = lt %tmp.69 %tmp.70;
+        bf %tmp.71 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_16_223_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_16_223_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_46_223_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 221 20 ]
+        %tmp.72 = lgetv %debugHeadings.4;
+        symbol [ debugHeadings %tmp.72 221 20 33 ];
+        symbol [ add %tmp.73 221 34 37 ];
+        %tmp.73 = getv function %tmp.72 :add;
+        %tmp.74 = lgetv %heading.9;
+        symbol [ heading %tmp.74 221 38 45 ];
+        invoke %tmp.72 %tmp.73(%tmp.74);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 222 20 ]
+        %tmp.75 = lgetv %debugTimestamps.5;
+        symbol [ debugTimestamps %tmp.75 222 20 35 ];
+        symbol [ add %tmp.76 222 36 39 ];
+        %tmp.76 = getv function %tmp.75 :add;
+        %tmp.77 = lgetv %timestamp.8;
+        symbol [ timestamp %tmp.77 222 41 50 ];
+        %tmp.78 = lgetv %startTime;
+        symbol [ startTime %tmp.78 222 53 62 ];
+        %tmp.79 = sub %tmp.77 %tmp.78;
+        %tmp.80 = 1000;
+        %tmp.81 = div %tmp.79 %tmp.80;
+        invoke %tmp.75 %tmp.76(%tmp.81);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_46_223_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_16_223_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_220_16_223_16_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_64_224_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_210_12_224_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_55_225_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_incr:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 198 ]
+        %tmp.84 = lgetv %i.6;
+        symbol [ i %tmp.84 198 50 51 ];
+        %tmp.85 = add %tmp.84 1;
+        lputv %i.6 %tmp.85;
+        symbol [ i %i.6 198 50 51 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_test;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_198_8_225_8_for_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 228 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_8_231_8_if_stmt:
+        %tmp.86 = lgetv %count.3;
+        symbol [ count %tmp.86 228 12 17 ];
+        %tmp.87 = 0;
+        %tmp.88 = eq %tmp.86 %tmp.87;
+        bf %tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_8_231_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_8_231_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_24_231_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 229 12 ]
+        %tmp.89 = self;
+        symbol [ log %tmp.90 229 12 15 ];
+        %tmp.90 = getv function %tmp.89 :log;
+        %tmp.91 = "No valid heading entries found in period";
+        invoke %tmp.89 %tmp.90(%tmp.91);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 230 12 ]
+        %tmp.92 = null;
+        ret %tmp.92;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_24_231_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_8_231_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_228_8_231_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 234 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %avgX.11 = local;
+        symbol [ avgX %avgX.11 234 12 16 ];
+        %tmp.93 = lgetv %sumX.1;
+        symbol [ sumX %tmp.93 234 19 23 ];
+        %tmp.94 = lgetv %count.3;
+        symbol [ count %tmp.94 234 26 31 ];
+        %tmp.95 = div %tmp.93 %tmp.94;
+        lputv %avgX.11 %tmp.95;
+        symbol [ avgX %avgX.11 234 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 235 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %avgY.12 = local;
+        symbol [ avgY %avgY.12 235 12 16 ];
+        %tmp.96 = lgetv %sumY.2;
+        symbol [ sumY %tmp.96 235 19 23 ];
+        %tmp.97 = lgetv %count.3;
+        symbol [ count %tmp.97 235 26 31 ];
+        %tmp.98 = div %tmp.96 %tmp.97;
+        lputv %avgY.12 %tmp.98;
+        symbol [ avgY %avgY.12 235 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 238 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %avgHeading.13 = local;
+        symbol [ avgHeading %avgHeading.13 238 12 22 ];
+        symbol [ Math %tmp.99 238 25 29 ];
+        %tmp.99 = getm $.Toybox.Math;
+        symbol [ toDegrees %tmp.100 238 30 39 ];
+        %tmp.100 = getv function %tmp.99 :toDegrees;
+        symbol [ Math %tmp.101 238 40 44 ];
+        %tmp.101 = getm $.Toybox.Math;
+        symbol [ atan2 %tmp.102 238 45 50 ];
+        %tmp.102 = getv function %tmp.101 :atan2;
+        %tmp.103 = lgetv %avgY.12;
+        symbol [ avgY %tmp.103 238 51 55 ];
+        %tmp.104 = lgetv %avgX.11;
+        symbol [ avgX %tmp.104 238 57 61 ];
+        %tmp.105 = invoke %tmp.101 %tmp.102(%tmp.103, %tmp.104);
+        %tmp.106 = invoke %tmp.99 %tmp.100(%tmp.105);
+        lputv %avgHeading.13 %tmp.106;
+        symbol [ avgHeading %avgHeading.13 238 12 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 241 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop" ]
+        %normalizedHeading.14 = local;
+        symbol [ normalizedHeading %normalizedHeading.14 241 12 29 ];
+        %tmp.107 = self;
+        symbol [ normalizeAngle %tmp.108 241 32 46 ];
+        %tmp.108 = getv function %tmp.107 :normalizeAngle;
+        %tmp.109 = lgetv %avgHeading.13;
+        symbol [ avgHeading %tmp.109 241 47 57 ];
+        %tmp.110 = invoke %tmp.107 %tmp.108(%tmp.109);
+        lputv %normalizedHeading.14 %tmp.110;
+        symbol [ normalizedHeading %normalizedHeading.14 241 12 29 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 244 8 ]
+        %tmp.111 = self;
+        symbol [ log %tmp.112 244 8 11 ];
+        %tmp.112 = getv function %tmp.111 :log;
+        %tmp.113 = "Heading calc: ";
+        %tmp.114 = lgetv %count.3;
+        symbol [ count %tmp.114 244 31 36 ];
+        %tmp.115 = add %tmp.113 %tmp.114;
+        %tmp.116 = " points, sample: ";
+        %tmp.117 = add %tmp.115 %tmp.116;
+        %tmp.118 = lgetv %debugHeadings.4;
+        symbol [ debugHeadings %tmp.118 244 61 74 ];
+        %tmp.119 = add %tmp.117 %tmp.118;
+        %tmp.120 = " (at ";
+        %tmp.121 = add %tmp.119 %tmp.120;
+        %tmp.122 = lgetv %debugTimestamps.5;
+        symbol [ debugTimestamps %tmp.122 245 22 37 ];
+        %tmp.123 = add %tmp.121 %tmp.122;
+        %tmp.124 = "s), avg: ";
+        %tmp.125 = add %tmp.123 %tmp.124;
+        %tmp.126 = lgetv %normalizedHeading.14;
+        symbol [ normalizedHeading %tmp.126 245 54 71 ];
+        %tmp.127 = add %tmp.125 %tmp.126;
+        %tmp.128 = "°";
+        %tmp.129 = add %tmp.127 %tmp.128;
+        invoke %tmp.111 %tmp.112(%tmp.129);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 247 8 ]
+        %tmp.130 = lgetv %normalizedHeading.14;
+        symbol [ normalizedHeading %tmp.130 247 15 32 ];
+        ret %tmp.130;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_188_57_248_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 236; @symbol_functiondef = [normalizeAngle,236,13,27]; @symbol_param<0> = [angle,236,28,33]; ]
-    function normalizeAngle(angle) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_236_35_244_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 237 8 ]
-        while @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_test:
-        %tmp.1 = lgetv %angle;
-        symbol [ angle %tmp.1 237 15 20 ];
-        %tmp.2 = 0;
-        %tmp.3 = lt %tmp.1 %tmp.2;
-        bf %tmp.3 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_26_239_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 238 12 ]
-        %tmp.4 = lgetv %angle;
-        symbol [ angle %tmp.4 238 12 17 ];
-        %tmp.5 = 360;
-        %tmp.6 = add %tmp.4 %tmp.5;
-        lputv %angle %tmp.6;
-        symbol [ angle %angle 238 12 17 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_26_239_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_test;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_237_8_239_8_while_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 240 8 ]
-        while @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_test:
-        %tmp.7 = lgetv %angle;
-        symbol [ angle %tmp.7 240 15 20 ];
-        %tmp.8 = 360;
-        %tmp.9 = gte %tmp.7 %tmp.8;
-        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_29_242_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 241 12 ]
-        %tmp.10 = lgetv %angle;
-        symbol [ angle %tmp.10 241 12 17 ];
-        %tmp.11 = 360;
-        %tmp.12 = sub %tmp.10 %tmp.11;
-        lputv %angle %tmp.12;
-        symbol [ angle %angle 241 12 17 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_29_242_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_test;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_240_8_242_8_while_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 243 8 ]
-        %tmp.13 = lgetv %angle;
-        symbol [ angle %tmp.13 243 15 20 ];
-        ret %tmp.13;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_236_35_244_4_stop:
-    }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 246; @symbol_functiondef = [angleAbsDifference,246,13,31]; @symbol_param<0> = [angle1,246,32,38]; @symbol_param<1> = [angle2,246,40,46]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 251; @symbol_functiondef = [angleAbsDifference,251,13,31]; @symbol_param<0> = [angle1,251,32,38]; @symbol_param<1> = [angle2,251,40,46]; ]
     function angleAbsDifference(angle1, angle2) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_246_48_263_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 248 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_251_48_268_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 253 8 ]
         %tmp.1 = self;
-        symbol [ normalizeAngle %tmp.2 248 17 31 ];
+        symbol [ normalizeAngle %tmp.2 253 17 31 ];
         %tmp.2 = getv function %tmp.1 :normalizeAngle;
         %tmp.3 = lgetv %angle1;
-        symbol [ angle1 %tmp.3 248 32 38 ];
+        symbol [ angle1 %tmp.3 253 32 38 ];
         %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
         lputv %angle1 %tmp.4;
-        symbol [ angle1 %angle1 248 8 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 249 8 ]
+        symbol [ angle1 %angle1 253 8 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 254 8 ]
         %tmp.5 = self;
-        symbol [ normalizeAngle %tmp.6 249 17 31 ];
+        symbol [ normalizeAngle %tmp.6 254 17 31 ];
         %tmp.6 = getv function %tmp.5 :normalizeAngle;
         %tmp.7 = lgetv %angle2;
-        symbol [ angle2 %tmp.7 249 32 38 ];
+        symbol [ angle2 %tmp.7 254 32 38 ];
         %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
         lputv %angle2 %tmp.8;
-        symbol [ angle2 %angle2 249 8 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 252 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_246_48_263_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_246_48_263_4_stop" ]
+        symbol [ angle2 %angle2 254 8 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 257 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_251_48_268_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_251_48_268_4_stop" ]
         %diff.1 = local;
-        symbol [ diff %diff.1 252 12 16 ];
+        symbol [ diff %diff.1 257 12 16 ];
         %tmp.9 = lgetv %angle1;
-        symbol [ angle1 %tmp.9 252 19 25 ];
+        symbol [ angle1 %tmp.9 257 19 25 ];
         %tmp.10 = lgetv %angle2;
-        symbol [ angle2 %tmp.10 252 28 34 ];
+        symbol [ angle2 %tmp.10 257 28 34 ];
         %tmp.11 = sub %tmp.9 %tmp.10;
         lputv %diff.1 %tmp.11;
-        symbol [ diff %diff.1 252 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 253 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_8_255_8_if_stmt:
+        symbol [ diff %diff.1 257 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 260 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_stmt:
         %tmp.12 = lgetv %diff.1;
-        symbol [ diff %tmp.12 253 12 16 ];
-        %tmp.13 = 0;
-        %tmp.14 = lt %tmp.12 %tmp.13;
-        bf %tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_8_255_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_8_255_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_22_255_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 254 12 ]
+        symbol [ diff %tmp.12 260 12 16 ];
+        %tmp.13 = 180;
+        %tmp.14 = gt %tmp.12 %tmp.13;
+        bf %tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_24_262_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 261 12 ]
         %tmp.15 = lgetv %diff.1;
-        symbol [ diff %tmp.15 254 20 24 ];
-        %tmp.16 = sub 0 %tmp.15;
-        lputv %diff.1 %tmp.16;
-        symbol [ diff %diff.1 254 12 16 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_22_255_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_8_255_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_253_8_255_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 258 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_8_260_8_if_stmt:
-        %tmp.17 = lgetv %diff.1;
-        symbol [ diff %tmp.17 258 12 16 ];
-        %tmp.18 = 180;
-        %tmp.19 = gt %tmp.17 %tmp.18;
-        bf %tmp.19 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_8_260_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_8_260_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_24_260_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 259 12 ]
-        %tmp.20 = 360;
+        symbol [ diff %tmp.15 261 12 16 ];
+        %tmp.16 = 360;
+        %tmp.17 = sub %tmp.15 %tmp.16;
+        lputv %diff.1 %tmp.17;
+        symbol [ diff %diff.1 261 12 16 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_24_262_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 262 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_15_264_8_if_stmt:
+        %tmp.18 = lgetv %diff.1;
+        symbol [ diff %tmp.18 262 19 23 ];
+        %tmp.19 = -180;
+        %tmp.20 = lte %tmp.18 %tmp.19;
+        bf %tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_15_264_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_15_264_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_33_264_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 263 12 ]
         %tmp.21 = lgetv %diff.1;
-        symbol [ diff %tmp.21 259 25 29 ];
-        %tmp.22 = sub %tmp.20 %tmp.21;
-        lputv %diff.1 %tmp.22;
-        symbol [ diff %diff.1 259 12 16 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_24_260_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_8_260_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_258_8_260_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 262 8 ]
-        %tmp.23 = lgetv %diff.1;
-        symbol [ diff %tmp.23 262 15 19 ];
-        ret %tmp.23;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_246_48_263_4_stop:
-    }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 265; @symbol_functiondef = [calculateBisectorAngle,265,13,35]; @symbol_param<0> = [angle1,265,36,42]; @symbol_param<1> = [angle2,265,44,50]; ]
-    function calculateBisectorAngle(angle1, angle2) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start:
+        symbol [ diff %tmp.21 263 12 16 ];
+        %tmp.22 = 360;
+        %tmp.23 = add %tmp.21 %tmp.22;
+        lputv %diff.1 %tmp.23;
+        symbol [ diff %diff.1 263 12 16 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_33_264_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_15_264_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_262_15_264_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_260_8_264_8_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 267 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_begin:
+        %tmp.24 = lgetv %diff.1;
+        symbol [ diff %tmp.24 267 16 20 ];
+        %tmp.25 = 0;
+        %tmp.26 = lt %tmp.24 %tmp.25;
+        bf %tmp.26 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_true:
+        %tmp.27 = lgetv %diff.1;
+        symbol [ diff %tmp.27 267 29 33 ];
+        %tmp.28 = sub 0 %tmp.27;
+        push %tmp.28;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_false:
+        %tmp.29 = lgetv %diff.1;
+        symbol [ diff %tmp.29 267 36 40 ];
+        push %tmp.29;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_end:
+        %tmp.30 = phi [%tmp.26 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_begin] [%tmp.28 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_true] [%tmp.29 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_false] [%tmp.30 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_267_15_267_36_end];
+        ret %tmp.30;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_251_48_268_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 270; @symbol_functiondef = [calculateBisectorAngle,270,13,35]; @symbol_param<0> = [angle1,270,36,42]; @symbol_param<1> = [angle2,270,44,50]; ]
+    function calculateBisectorAngle(angle1, angle2) {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 272 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %rad1.1 = local;
-        symbol [ rad1 %rad1.1 267 12 16 ];
-        symbol [ Math %tmp.1 267 19 23 ];
+        symbol [ rad1 %rad1.1 272 12 16 ];
+        symbol [ Math %tmp.1 272 19 23 ];
         %tmp.1 = getm $.Toybox.Math;
-        symbol [ toRadians %tmp.2 267 24 33 ];
+        symbol [ toRadians %tmp.2 272 24 33 ];
         %tmp.2 = getv function %tmp.1 :toRadians;
         %tmp.3 = lgetv %angle1;
-        symbol [ angle1 %tmp.3 267 34 40 ];
+        symbol [ angle1 %tmp.3 272 34 40 ];
         %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
         lputv %rad1.1 %tmp.4;
-        symbol [ rad1 %rad1.1 267 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 268 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ rad1 %rad1.1 272 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 273 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %rad2.2 = local;
-        symbol [ rad2 %rad2.2 268 12 16 ];
-        symbol [ Math %tmp.5 268 19 23 ];
+        symbol [ rad2 %rad2.2 273 12 16 ];
+        symbol [ Math %tmp.5 273 19 23 ];
         %tmp.5 = getm $.Toybox.Math;
-        symbol [ toRadians %tmp.6 268 24 33 ];
+        symbol [ toRadians %tmp.6 273 24 33 ];
         %tmp.6 = getv function %tmp.5 :toRadians;
         %tmp.7 = lgetv %angle2;
-        symbol [ angle2 %tmp.7 268 34 40 ];
+        symbol [ angle2 %tmp.7 273 34 40 ];
         %tmp.8 = invoke %tmp.5 %tmp.6(%tmp.7);
         lputv %rad2.2 %tmp.8;
-        symbol [ rad2 %rad2.2 268 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 271 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ rad2 %rad2.2 273 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 276 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %x1.3 = local;
-        symbol [ x1 %x1.3 271 12 14 ];
-        symbol [ Math %tmp.9 271 17 21 ];
+        symbol [ x1 %x1.3 276 12 14 ];
+        symbol [ Math %tmp.9 276 17 21 ];
         %tmp.9 = getm $.Toybox.Math;
-        symbol [ cos %tmp.10 271 22 25 ];
+        symbol [ cos %tmp.10 276 22 25 ];
         %tmp.10 = getv function %tmp.9 :cos;
         %tmp.11 = lgetv %rad1.1;
-        symbol [ rad1 %tmp.11 271 26 30 ];
+        symbol [ rad1 %tmp.11 276 26 30 ];
         %tmp.12 = invoke %tmp.9 %tmp.10(%tmp.11);
         lputv %x1.3 %tmp.12;
-        symbol [ x1 %x1.3 271 12 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 272 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ x1 %x1.3 276 12 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 277 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %y1.4 = local;
-        symbol [ y1 %y1.4 272 12 14 ];
-        symbol [ Math %tmp.13 272 17 21 ];
+        symbol [ y1 %y1.4 277 12 14 ];
+        symbol [ Math %tmp.13 277 17 21 ];
         %tmp.13 = getm $.Toybox.Math;
-        symbol [ sin %tmp.14 272 22 25 ];
+        symbol [ sin %tmp.14 277 22 25 ];
         %tmp.14 = getv function %tmp.13 :sin;
         %tmp.15 = lgetv %rad1.1;
-        symbol [ rad1 %tmp.15 272 26 30 ];
+        symbol [ rad1 %tmp.15 277 26 30 ];
         %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
         lputv %y1.4 %tmp.16;
-        symbol [ y1 %y1.4 272 12 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 273 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ y1 %y1.4 277 12 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 278 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %x2.5 = local;
-        symbol [ x2 %x2.5 273 12 14 ];
-        symbol [ Math %tmp.17 273 17 21 ];
+        symbol [ x2 %x2.5 278 12 14 ];
+        symbol [ Math %tmp.17 278 17 21 ];
         %tmp.17 = getm $.Toybox.Math;
-        symbol [ cos %tmp.18 273 22 25 ];
+        symbol [ cos %tmp.18 278 22 25 ];
         %tmp.18 = getv function %tmp.17 :cos;
         %tmp.19 = lgetv %rad2.2;
-        symbol [ rad2 %tmp.19 273 26 30 ];
+        symbol [ rad2 %tmp.19 278 26 30 ];
         %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
         lputv %x2.5 %tmp.20;
-        symbol [ x2 %x2.5 273 12 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 274 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ x2 %x2.5 278 12 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 279 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %y2.6 = local;
-        symbol [ y2 %y2.6 274 12 14 ];
-        symbol [ Math %tmp.21 274 17 21 ];
+        symbol [ y2 %y2.6 279 12 14 ];
+        symbol [ Math %tmp.21 279 17 21 ];
         %tmp.21 = getm $.Toybox.Math;
-        symbol [ sin %tmp.22 274 22 25 ];
+        symbol [ sin %tmp.22 279 22 25 ];
         %tmp.22 = getv function %tmp.21 :sin;
         %tmp.23 = lgetv %rad2.2;
-        symbol [ rad2 %tmp.23 274 26 30 ];
+        symbol [ rad2 %tmp.23 279 26 30 ];
         %tmp.24 = invoke %tmp.21 %tmp.22(%tmp.23);
         lputv %y2.6 %tmp.24;
-        symbol [ y2 %y2.6 274 12 14 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 277 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ y2 %y2.6 279 12 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 282 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %avgX.7 = local;
-        symbol [ avgX %avgX.7 277 12 16 ];
+        symbol [ avgX %avgX.7 282 12 16 ];
         %tmp.25 = lgetv %x1.3;
-        symbol [ x1 %tmp.25 277 20 22 ];
+        symbol [ x1 %tmp.25 282 20 22 ];
         %tmp.26 = lgetv %x2.5;
-        symbol [ x2 %tmp.26 277 25 27 ];
+        symbol [ x2 %tmp.26 282 25 27 ];
         %tmp.27 = add %tmp.25 %tmp.26;
         %tmp.28 = 2;
         %tmp.29 = div %tmp.27 %tmp.28;
         lputv %avgX.7 %tmp.29;
-        symbol [ avgX %avgX.7 277 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 278 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+        symbol [ avgX %avgX.7 282 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 283 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %avgY.8 = local;
-        symbol [ avgY %avgY.8 278 12 16 ];
+        symbol [ avgY %avgY.8 283 12 16 ];
         %tmp.30 = lgetv %y1.4;
-        symbol [ y1 %tmp.30 278 20 22 ];
+        symbol [ y1 %tmp.30 283 20 22 ];
         %tmp.31 = lgetv %y2.6;
-        symbol [ y2 %tmp.31 278 25 27 ];
+        symbol [ y2 %tmp.31 283 25 27 ];
         %tmp.32 = add %tmp.30 %tmp.31;
         %tmp.33 = 2;
         %tmp.34 = div %tmp.32 %tmp.33;
         lputv %avgY.8 %tmp.34;
-        symbol [ avgY %avgY.8 278 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 281 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_12_281_85_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_13_281_39_begin:
+        symbol [ avgY %avgY.8 283 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 286 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_12_286_85_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_13_286_39_begin:
         %tmp.35 = lgetv %avgX.7;
-        symbol [ avgX %tmp.35 281 13 17 ];
+        symbol [ avgX %tmp.35 286 13 17 ];
         %tmp.36 = 0.00001;
         %tmp.37 = lt %tmp.35 %tmp.36;
-        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_31_281_39_true:
+        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_31_286_39_true:
         %tmp.38 = lgetv %avgX.7;
-        symbol [ avgX %tmp.38 281 31 35 ];
+        symbol [ avgX %tmp.38 286 31 35 ];
         %tmp.39 = -0.00001;
         %tmp.40 = gt %tmp.38 %tmp.39;
         push %tmp.40;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_31_281_39_end:
-        %tmp.41 = phi [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_13_281_39_begin] [%tmp.40 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_31_281_39_true] [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_31_281_39_end];
-        bf %tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_51_281_85_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_52_281_78_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_31_286_39_end:
+        %tmp.41 = phi [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_13_286_39_begin] [%tmp.40 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_31_286_39_true] [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_31_286_39_end];
+        bf %tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_51_286_85_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_52_286_78_begin:
         %tmp.42 = lgetv %avgY.8;
-        symbol [ avgY %tmp.42 281 52 56 ];
+        symbol [ avgY %tmp.42 286 52 56 ];
         %tmp.43 = 0.00001;
         %tmp.44 = lt %tmp.42 %tmp.43;
-        bf %tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_70_281_78_true:
+        bf %tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_70_286_78_true:
         %tmp.45 = lgetv %avgY.8;
-        symbol [ avgY %tmp.45 281 70 74 ];
+        symbol [ avgY %tmp.45 286 70 74 ];
         %tmp.46 = -0.00001;
         %tmp.47 = gt %tmp.45 %tmp.46;
         push %tmp.47;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_70_281_78_end:
-        %tmp.48 = phi [%tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_52_281_78_begin] [%tmp.47 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_70_281_78_true] [%tmp.48 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_70_281_78_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_70_286_78_end:
+        %tmp.48 = phi [%tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_52_286_78_begin] [%tmp.47 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_70_286_78_true] [%tmp.48 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_70_286_78_end];
         push %tmp.48;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_51_281_85_end:
-        %tmp.49 = phi [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_12_281_85_begin] [%tmp.48 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_51_281_85_true] [%tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_51_281_85_end];
-        bf %tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_88_283_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 282 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_51_286_85_end:
+        %tmp.49 = phi [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_12_286_85_begin] [%tmp.48 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_51_286_85_true] [%tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_51_286_85_end];
+        bf %tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_88_288_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 287 12 ]
         %tmp.50 = 0;
         ret %tmp.50;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_88_283_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_281_8_283_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 286 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_88_288_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_286_8_288_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 291 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop" ]
         %avgAngle.9 = local;
-        symbol [ avgAngle %avgAngle.9 286 12 20 ];
+        symbol [ avgAngle %avgAngle.9 291 12 20 ];
         %tmp.51 = 0;
         lputv %avgAngle.9 %tmp.51;
-        symbol [ avgAngle %avgAngle.9 286 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 287 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_stmt:
+        symbol [ avgAngle %avgAngle.9 291 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 292 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_stmt:
         %tmp.52 = lgetv %avgX.7;
-        symbol [ avgX %tmp.52 287 12 16 ];
+        symbol [ avgX %tmp.52 292 12 16 ];
         %tmp.53 = 0;
         %tmp.54 = gt %tmp.52 %tmp.53;
-        bf %tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_22_289_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 288 12 ]
-        symbol [ Math %tmp.55 288 23 27 ];
+        bf %tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_22_294_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 293 12 ]
+        symbol [ Math %tmp.55 293 23 27 ];
         %tmp.55 = getm $.Toybox.Math;
-        symbol [ toDegrees %tmp.56 288 28 37 ];
+        symbol [ toDegrees %tmp.56 293 28 37 ];
         %tmp.56 = getv function %tmp.55 :toDegrees;
-        symbol [ Math %tmp.57 288 38 42 ];
+        symbol [ Math %tmp.57 293 38 42 ];
         %tmp.57 = getm $.Toybox.Math;
-        symbol [ atan %tmp.58 288 43 47 ];
+        symbol [ atan %tmp.58 293 43 47 ];
         %tmp.58 = getv function %tmp.57 :atan;
         %tmp.59 = lgetv %avgY.8;
-        symbol [ avgY %tmp.59 288 48 52 ];
+        symbol [ avgY %tmp.59 293 48 52 ];
         %tmp.60 = lgetv %avgX.7;
-        symbol [ avgX %tmp.60 288 55 59 ];
+        symbol [ avgX %tmp.60 293 55 59 ];
         %tmp.61 = div %tmp.59 %tmp.60;
         %tmp.62 = invoke %tmp.57 %tmp.58(%tmp.61);
         %tmp.63 = invoke %tmp.55 %tmp.56(%tmp.62);
         lputv %avgAngle.9 %tmp.63;
-        symbol [ avgAngle %avgAngle.9 288 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_22_289_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_false:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 289 15 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_19_289_39_begin:
+        symbol [ avgAngle %avgAngle.9 293 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_22_294_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 294 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_19_294_39_begin:
         %tmp.64 = lgetv %avgX.7;
-        symbol [ avgX %tmp.64 289 19 23 ];
+        symbol [ avgX %tmp.64 294 19 23 ];
         %tmp.65 = 0;
         %tmp.66 = lt %tmp.64 %tmp.65;
-        bf %tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_39_true:
+        bf %tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_31_294_39_true:
         %tmp.67 = lgetv %avgY.8;
-        symbol [ avgY %tmp.67 289 31 35 ];
+        symbol [ avgY %tmp.67 294 31 35 ];
         %tmp.68 = 0;
         %tmp.69 = gte %tmp.67 %tmp.68;
         push %tmp.69;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_39_end:
-        %tmp.70 = phi [%tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_19_289_39_begin] [%tmp.69 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_39_true] [%tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_31_289_39_end];
-        bf %tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_42_291_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 290 12 ]
-        symbol [ Math %tmp.71 290 23 27 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_31_294_39_end:
+        %tmp.70 = phi [%tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_19_294_39_begin] [%tmp.69 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_31_294_39_true] [%tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_31_294_39_end];
+        bf %tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_42_296_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 295 12 ]
+        symbol [ Math %tmp.71 295 23 27 ];
         %tmp.71 = getm $.Toybox.Math;
-        symbol [ toDegrees %tmp.72 290 28 37 ];
+        symbol [ toDegrees %tmp.72 295 28 37 ];
         %tmp.72 = getv function %tmp.71 :toDegrees;
-        symbol [ Math %tmp.73 290 38 42 ];
+        symbol [ Math %tmp.73 295 38 42 ];
         %tmp.73 = getm $.Toybox.Math;
-        symbol [ atan %tmp.74 290 43 47 ];
+        symbol [ atan %tmp.74 295 43 47 ];
         %tmp.74 = getv function %tmp.73 :atan;
         %tmp.75 = lgetv %avgY.8;
-        symbol [ avgY %tmp.75 290 48 52 ];
+        symbol [ avgY %tmp.75 295 48 52 ];
         %tmp.76 = lgetv %avgX.7;
-        symbol [ avgX %tmp.76 290 55 59 ];
+        symbol [ avgX %tmp.76 295 55 59 ];
         %tmp.77 = div %tmp.75 %tmp.76;
         %tmp.78 = invoke %tmp.73 %tmp.74(%tmp.77);
         %tmp.79 = invoke %tmp.71 %tmp.72(%tmp.78);
         %tmp.80 = 180;
         %tmp.81 = add %tmp.79 %tmp.80;
         lputv %avgAngle.9 %tmp.81;
-        symbol [ avgAngle %avgAngle.9 290 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_42_291_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_false:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 291 15 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_19_291_38_begin:
+        symbol [ avgAngle %avgAngle.9 295 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_42_296_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 296 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_19_296_38_begin:
         %tmp.82 = lgetv %avgX.7;
-        symbol [ avgX %tmp.82 291 19 23 ];
+        symbol [ avgX %tmp.82 296 19 23 ];
         %tmp.83 = 0;
         %tmp.84 = lt %tmp.82 %tmp.83;
-        bf %tmp.84 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_31_291_38_true:
+        bf %tmp.84 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_31_296_38_true:
         %tmp.85 = lgetv %avgY.8;
-        symbol [ avgY %tmp.85 291 31 35 ];
+        symbol [ avgY %tmp.85 296 31 35 ];
         %tmp.86 = 0;
         %tmp.87 = lt %tmp.85 %tmp.86;
         push %tmp.87;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_31_291_38_end:
-        %tmp.88 = phi [%tmp.84 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_19_291_38_begin] [%tmp.87 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_31_291_38_true] [%tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_31_291_38_end];
-        bf %tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_41_293_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 292 12 ]
-        symbol [ Math %tmp.89 292 23 27 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_31_296_38_end:
+        %tmp.88 = phi [%tmp.84 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_19_296_38_begin] [%tmp.87 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_31_296_38_true] [%tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_31_296_38_end];
+        bf %tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_41_298_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 297 12 ]
+        symbol [ Math %tmp.89 297 23 27 ];
         %tmp.89 = getm $.Toybox.Math;
-        symbol [ toDegrees %tmp.90 292 28 37 ];
+        symbol [ toDegrees %tmp.90 297 28 37 ];
         %tmp.90 = getv function %tmp.89 :toDegrees;
-        symbol [ Math %tmp.91 292 38 42 ];
+        symbol [ Math %tmp.91 297 38 42 ];
         %tmp.91 = getm $.Toybox.Math;
-        symbol [ atan %tmp.92 292 43 47 ];
+        symbol [ atan %tmp.92 297 43 47 ];
         %tmp.92 = getv function %tmp.91 :atan;
         %tmp.93 = lgetv %avgY.8;
-        symbol [ avgY %tmp.93 292 48 52 ];
+        symbol [ avgY %tmp.93 297 48 52 ];
         %tmp.94 = lgetv %avgX.7;
-        symbol [ avgX %tmp.94 292 55 59 ];
+        symbol [ avgX %tmp.94 297 55 59 ];
         %tmp.95 = div %tmp.93 %tmp.94;
         %tmp.96 = invoke %tmp.91 %tmp.92(%tmp.95);
         %tmp.97 = invoke %tmp.89 %tmp.90(%tmp.96);
         %tmp.98 = 180;
         %tmp.99 = sub %tmp.97 %tmp.98;
         lputv %avgAngle.9 %tmp.99;
-        symbol [ avgAngle %avgAngle.9 292 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_41_293_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_false:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 293 15 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_19_293_65_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_20_293_46_begin:
+        symbol [ avgAngle %avgAngle.9 297 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_41_298_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 298 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_19_298_65_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_20_298_46_begin:
         %tmp.100 = lgetv %avgX.7;
-        symbol [ avgX %tmp.100 293 20 24 ];
+        symbol [ avgX %tmp.100 298 20 24 ];
         %tmp.101 = 0.00001;
         %tmp.102 = lt %tmp.100 %tmp.101;
-        bf %tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_true:
+        bf %tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_38_298_46_true:
         %tmp.103 = lgetv %avgX.7;
-        symbol [ avgX %tmp.103 293 38 42 ];
+        symbol [ avgX %tmp.103 298 38 42 ];
         %tmp.104 = -0.00001;
         %tmp.105 = gt %tmp.103 %tmp.104;
         push %tmp.105;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_end:
-        %tmp.106 = phi [%tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_20_293_46_begin] [%tmp.105 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_true] [%tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_38_293_46_end];
-        bf %tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_38_298_46_end:
+        %tmp.106 = phi [%tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_20_298_46_begin] [%tmp.105 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_38_298_46_true] [%tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_38_298_46_end];
+        bf %tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_58_298_65_true:
         %tmp.107 = lgetv %avgY.8;
-        symbol [ avgY %tmp.107 293 58 62 ];
+        symbol [ avgY %tmp.107 298 58 62 ];
         %tmp.108 = 0;
         %tmp.109 = gt %tmp.107 %tmp.108;
         push %tmp.109;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_end:
-        %tmp.110 = phi [%tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_19_293_65_begin] [%tmp.109 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_true] [%tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_58_293_65_end];
-        bf %tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_68_295_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 294 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_58_298_65_end:
+        %tmp.110 = phi [%tmp.106 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_19_298_65_begin] [%tmp.109 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_58_298_65_true] [%tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_58_298_65_end];
+        bf %tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_68_300_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 299 12 ]
         %tmp.111 = 90;
         lputv %avgAngle.9 %tmp.111;
-        symbol [ avgAngle %avgAngle.9 294 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_68_295_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_false:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 295 15 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_19_295_65_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_20_295_46_begin:
+        symbol [ avgAngle %avgAngle.9 299 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_68_300_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 300 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_19_300_65_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_20_300_46_begin:
         %tmp.112 = lgetv %avgX.7;
-        symbol [ avgX %tmp.112 295 20 24 ];
+        symbol [ avgX %tmp.112 300 20 24 ];
         %tmp.113 = 0.00001;
         %tmp.114 = lt %tmp.112 %tmp.113;
-        bf %tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_38_295_46_true:
+        bf %tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_38_300_46_true:
         %tmp.115 = lgetv %avgX.7;
-        symbol [ avgX %tmp.115 295 38 42 ];
+        symbol [ avgX %tmp.115 300 38 42 ];
         %tmp.116 = -0.00001;
         %tmp.117 = gt %tmp.115 %tmp.116;
         push %tmp.117;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_38_295_46_end:
-        %tmp.118 = phi [%tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_20_295_46_begin] [%tmp.117 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_38_295_46_true] [%tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_38_295_46_end];
-        bf %tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_58_295_65_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_38_300_46_end:
+        %tmp.118 = phi [%tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_20_300_46_begin] [%tmp.117 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_38_300_46_true] [%tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_38_300_46_end];
+        bf %tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_58_300_65_true:
         %tmp.119 = lgetv %avgY.8;
-        symbol [ avgY %tmp.119 295 58 62 ];
+        symbol [ avgY %tmp.119 300 58 62 ];
         %tmp.120 = 0;
         %tmp.121 = lt %tmp.119 %tmp.120;
         push %tmp.121;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_58_295_65_end:
-        %tmp.122 = phi [%tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_19_295_65_begin] [%tmp.121 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_58_295_65_true] [%tmp.122 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_58_295_65_end];
-        bf %tmp.122 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_68_297_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 296 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_58_300_65_end:
+        %tmp.122 = phi [%tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_19_300_65_begin] [%tmp.121 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_58_300_65_true] [%tmp.122 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_58_300_65_end];
+        bf %tmp.122 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_68_302_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 301 12 ]
         %tmp.123 = -90;
         lputv %avgAngle.9 %tmp.123;
-        symbol [ avgAngle %avgAngle.9 296 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_68_297_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_295_15_297_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_293_15_297_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_291_15_297_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_289_15_297_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_287_8_297_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 300 8 ]
+        symbol [ avgAngle %avgAngle.9 301 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_68_302_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_300_15_302_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_298_15_302_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_296_15_302_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_294_15_302_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_292_8_302_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 305 8 ]
         %tmp.124 = self;
-        symbol [ normalizeAngle %tmp.125 300 15 29 ];
+        symbol [ normalizeAngle %tmp.125 305 15 29 ];
         %tmp.125 = getv function %tmp.124 :normalizeAngle;
         %tmp.126 = lgetv %avgAngle.9;
-        symbol [ avgAngle %tmp.126 300 30 38 ];
+        symbol [ avgAngle %tmp.126 305 30 38 ];
         %tmp.127 = invoke %tmp.124 %tmp.125(%tmp.126);
         ret %tmp.127;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_265_52_301_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_270_52_306_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 304; @symbol_functiondef = [recalculateWithNewWindDirection,304,13,44]; @symbol_param<0> = [windDirection,304,45,58]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 309; @symbol_functiondef = [normalizeAngle,309,13,27]; @symbol_param<0> = [angle,309,28,33]; ]
+    function normalizeAngle(angle) {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_309_35_317_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 310 8 ]
+        while @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_test:
+        %tmp.1 = lgetv %angle;
+        symbol [ angle %tmp.1 310 15 20 ];
+        %tmp.2 = 0;
+        %tmp.3 = lt %tmp.1 %tmp.2;
+        bf %tmp.3 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_26_312_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 311 12 ]
+        %tmp.4 = lgetv %angle;
+        symbol [ angle %tmp.4 311 12 17 ];
+        %tmp.5 = 360;
+        %tmp.6 = add %tmp.4 %tmp.5;
+        lputv %angle %tmp.6;
+        symbol [ angle %angle 311 12 17 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_26_312_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_test;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_310_8_312_8_while_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 313 8 ]
+        while @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_test:
+        %tmp.7 = lgetv %angle;
+        symbol [ angle %tmp.7 313 15 20 ];
+        %tmp.8 = 360;
+        %tmp.9 = gte %tmp.7 %tmp.8;
+        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_29_315_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 314 12 ]
+        %tmp.10 = lgetv %angle;
+        symbol [ angle %tmp.10 314 12 17 ];
+        %tmp.11 = 360;
+        %tmp.12 = sub %tmp.10 %tmp.11;
+        lputv %angle %tmp.12;
+        symbol [ angle %angle 314 12 17 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_29_315_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_test;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_8_315_8_while_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 316 8 ]
+        %tmp.13 = lgetv %angle;
+        symbol [ angle %tmp.13 316 15 20 ];
+        ret %tmp.13;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_309_35_317_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 320; @symbol_functiondef = [recalculateWithNewWindDirection,320,13,44]; @symbol_param<0> = [windDirection,320,45,58]; ]
     function recalculateWithNewWindDirection(windDirection) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_304_60_310_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 306 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_320_60_326_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 322 8 ]
         %tmp.1 = self;
-        symbol [ calculateWindAngleLessCOG %tmp.2 306 8 33 ];
+        symbol [ calculateWindAngleLessCOG %tmp.2 322 8 33 ];
         %tmp.2 = getv function %tmp.1 :calculateWindAngleLessCOG;
-        symbol [ mSmoothedCOG %tmp.4 306 34 46 ];
+        symbol [ mSmoothedCOG %tmp.4 322 34 46 ];
         %tmp.4 = getv ? :mSmoothedCOG;
         %tmp.5 = lgetv %windDirection;
-        symbol [ windDirection %tmp.5 306 48 61 ];
+        symbol [ windDirection %tmp.5 322 48 61 ];
         invoke %tmp.1 %tmp.2(%tmp.4, %tmp.5);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 309 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 325 8 ]
         %tmp.6 = self;
-        symbol [ determinePointOfSail %tmp.7 309 8 28 ];
+        symbol [ determinePointOfSail %tmp.7 325 8 28 ];
         %tmp.7 = getv function %tmp.6 :determinePointOfSail;
         invoke %tmp.6 %tmp.7();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_304_60_310_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_320_60_326_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 313; @symbol_functiondef = [getSmoothedCOG,313,13,27]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 329; @symbol_functiondef = [getSmoothedCOG,329,13,27]; ]
     function getSmoothedCOG() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_30_315_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 314 8 ]
-        symbol [ mSmoothedCOG %tmp.2 314 15 27 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_329_30_331_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 330 8 ]
+        symbol [ mSmoothedCOG %tmp.2 330 15 27 ];
         %tmp.2 = getv ? :mSmoothedCOG;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_313_30_315_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_329_30_331_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 317; @symbol_functiondef = [getWindAngleLessCOG,317,13,32]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 333; @symbol_functiondef = [getWindAngleLessCOG,333,13,32]; ]
     function getWindAngleLessCOG() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_317_35_319_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 318 8 ]
-        symbol [ mWindAngleLessCOG %tmp.2 318 15 32 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_333_35_335_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 334 8 ]
+        symbol [ mWindAngleLessCOG %tmp.2 334 15 32 ];
         %tmp.2 = getv ? :mWindAngleLessCOG;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_317_35_319_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_333_35_335_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 321; @symbol_functiondef = [getLastWindAngleLessCOG,321,13,36]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 337; @symbol_functiondef = [getLastWindAngleLessCOG,337,13,36]; ]
     function getLastWindAngleLessCOG() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_321_39_323_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 322 8 ]
-        symbol [ mLastWindAngleLessCOG %tmp.2 322 15 36 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_337_39_339_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 338 8 ]
+        symbol [ mLastWindAngleLessCOG %tmp.2 338 15 36 ];
         %tmp.2 = getv ? :mLastWindAngleLessCOG;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_321_39_323_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_337_39_339_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 325; @symbol_functiondef = [isStarboardTack,325,13,28]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 341; @symbol_functiondef = [isStarboardTack,341,13,28]; ]
     function isStarboardTack() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_325_31_327_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 326 8 ]
-        symbol [ mIsStbdTack %tmp.2 326 15 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_343_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 342 8 ]
+        symbol [ mIsStbdTack %tmp.2 342 15 26 ];
         %tmp.2 = getv ? :mIsStbdTack;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_325_31_327_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_343_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 329; @symbol_functiondef = [setStarboardTack,329,13,29]; @symbol_param<0> = [isStbd,329,30,36]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 345; @symbol_functiondef = [setStarboardTack,345,13,29]; @symbol_param<0> = [isStbd,345,30,36]; ]
     function setStarboardTack(isStbd) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_329_38_331_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 330 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_345_38_347_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 346 8 ]
         %tmp.1 = lgetv %isStbd;
-        symbol [ isStbd %tmp.1 330 22 28 ];
-        symbol [ mIsStbdTack ? 330 8 19 ];
+        symbol [ isStbd %tmp.1 346 22 28 ];
+        symbol [ mIsStbdTack ? 346 8 19 ];
         putv self :mIsStbdTack %tmp.1;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_329_38_331_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_345_38_347_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 333; @symbol_functiondef = [isUpwind,333,13,21]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 349; @symbol_functiondef = [isUpwind,349,13,21]; ]
     function isUpwind() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_333_24_335_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 334 8 ]
-        symbol [ mIsUpwind %tmp.2 334 15 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_349_24_351_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 350 8 ]
+        symbol [ mIsUpwind %tmp.2 350 15 24 ];
         %tmp.2 = getv ? :mIsUpwind;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_333_24_335_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_349_24_351_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 337; @symbol_functiondef = [hasPreviousData,337,13,28]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 353; @symbol_functiondef = [hasPreviousData,353,13,28]; ]
     function hasPreviousData() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_337_31_339_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 338 8 ]
-        symbol [ mHasPreviousData %tmp.2 338 15 31 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_31_355_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 354 8 ]
+        symbol [ mHasPreviousData %tmp.2 354 15 31 ];
         %tmp.2 = getv ? :mHasPreviousData;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_337_31_339_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_31_355_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 341; @symbol_functiondef = [getAbsWindAngle,341,13,28]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 357; @symbol_functiondef = [getAbsWindAngle,357,13,28]; ]
     function getAbsWindAngle() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_347_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 342 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_347_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_347_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_357_31_363_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 358 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_357_31_363_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_357_31_363_4_stop" ]
         %absAngle.1 = local;
-        symbol [ absAngle %absAngle.1 342 12 20 ];
-        symbol [ mWindAngleLessCOG %tmp.2 342 23 40 ];
+        symbol [ absAngle %absAngle.1 358 12 20 ];
+        symbol [ mWindAngleLessCOG %tmp.2 358 23 40 ];
         %tmp.2 = getv ? :mWindAngleLessCOG;
         lputv %absAngle.1 %tmp.2;
-        symbol [ absAngle %absAngle.1 342 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 343 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_8_345_8_if_stmt:
+        symbol [ absAngle %absAngle.1 358 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 359 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_8_361_8_if_stmt:
         %tmp.3 = lgetv %absAngle.1;
-        symbol [ absAngle %tmp.3 343 12 20 ];
+        symbol [ absAngle %tmp.3 359 12 20 ];
         %tmp.4 = 0;
         %tmp.5 = lt %tmp.3 %tmp.4;
-        bf %tmp.5 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_8_345_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_8_345_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_26_345_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 344 12 ]
+        bf %tmp.5 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_8_361_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_8_361_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_26_361_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 360 12 ]
         %tmp.6 = lgetv %absAngle.1;
-        symbol [ absAngle %tmp.6 344 24 32 ];
+        symbol [ absAngle %tmp.6 360 24 32 ];
         %tmp.7 = sub 0 %tmp.6;
         lputv %absAngle.1 %tmp.7;
-        symbol [ absAngle %absAngle.1 344 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_26_345_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_8_345_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_343_8_345_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 346 8 ]
+        symbol [ absAngle %absAngle.1 360 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_26_361_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_8_361_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_359_8_361_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 362 8 ]
         %tmp.8 = lgetv %absAngle.1;
-        symbol [ absAngle %tmp.8 346 15 23 ];
+        symbol [ absAngle %tmp.8 362 15 23 ];
         ret %tmp.8;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_341_31_347_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_357_31_363_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 350; @symbol_functiondef = [getData,350,13,20]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 366; @symbol_functiondef = [getData,366,13,20]; ]
     function getData() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 351 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 367 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_stop" ]
         %tackStr.1 = local;
-        symbol [ tackStr %tackStr.1 351 12 19 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_begin:
-        symbol [ mIsStbdTack %tmp.2 351 22 33 ];
+        symbol [ tackStr %tackStr.1 367 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_begin:
+        symbol [ mIsStbdTack %tmp.2 367 22 33 ];
         %tmp.2 = getv ? :mIsStbdTack;
-        bf %tmp.2 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_true:
+        bf %tmp.2 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_true:
         %tmp.3 = "Starboard";
         push %tmp.3;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_false:
         %tmp.4 = "Port";
         push %tmp.4;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_end:
-        %tmp.5 = phi [%tmp.2 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_begin] [%tmp.3 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_true] [%tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_false] [%tmp.5 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_351_22_351_50_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_end:
+        %tmp.5 = phi [%tmp.2 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_begin] [%tmp.3 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_true] [%tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_false] [%tmp.5 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_367_22_367_50_end];
         lputv %tackStr.1 %tmp.5;
-        symbol [ tackStr %tackStr.1 351 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 352 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_stop" ]
+        symbol [ tackStr %tackStr.1 367 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 368 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_stop" ]
         %pointOfSailStr.2 = local;
-        symbol [ pointOfSailStr %pointOfSailStr.2 352 12 26 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_begin:
-        symbol [ mIsUpwind %tmp.7 352 29 38 ];
+        symbol [ pointOfSailStr %pointOfSailStr.2 368 12 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_begin:
+        symbol [ mIsUpwind %tmp.7 368 29 38 ];
         %tmp.7 = getv ? :mIsUpwind;
-        bf %tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_true:
+        bf %tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_true:
         %tmp.8 = "Upwind";
         push %tmp.8;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_false:
         %tmp.9 = "Downwind";
         push %tmp.9;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_end:
-        %tmp.10 = phi [%tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_begin] [%tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_true] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_false] [%tmp.10 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_352_29_352_52_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_end:
+        %tmp.10 = phi [%tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_begin] [%tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_true] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_false] [%tmp.10 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_368_29_368_52_end];
         lputv %pointOfSailStr.2 %tmp.10;
-        symbol [ pointOfSailStr %pointOfSailStr.2 352 12 26 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 353 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_stop" ]
+        symbol [ pointOfSailStr %pointOfSailStr.2 368 12 26 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 369 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_stop" ]
         %tackDisplayStr.3 = local;
-        symbol [ tackDisplayStr %tackDisplayStr.3 353 12 26 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_begin:
-        symbol [ mIsStbdTack %tmp.12 353 29 40 ];
+        symbol [ tackDisplayStr %tackDisplayStr.3 369 12 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_begin:
+        symbol [ mIsStbdTack %tmp.12 369 29 40 ];
         %tmp.12 = getv ? :mIsStbdTack;
-        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_true:
+        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_true:
         %tmp.13 = "Stb";
         push %tmp.13;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_false:
         %tmp.14 = "Prt";
         push %tmp.14;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_end:
-        %tmp.15 = phi [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_begin] [%tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_true] [%tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_false] [%tmp.15 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_353_29_353_51_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_end:
+        %tmp.15 = phi [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_begin] [%tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_true] [%tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_false] [%tmp.15 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_369_29_369_51_end];
         lputv %tackDisplayStr.3 %tmp.15;
-        symbol [ tackDisplayStr %tackDisplayStr.3 353 12 26 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 354 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_stop" ]
+        symbol [ tackDisplayStr %tackDisplayStr.3 369 12 26 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 370 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_stop" ]
         %tackColorId.4 = local;
-        symbol [ tackColorId %tackColorId.4 354 12 23 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_begin:
-        symbol [ mIsStbdTack %tmp.17 354 26 37 ];
+        symbol [ tackColorId %tackColorId.4 370 12 23 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_begin:
+        symbol [ mIsStbdTack %tmp.17 370 26 37 ];
         %tmp.17 = getv ? :mIsStbdTack;
-        bf %tmp.17 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_true:
+        bf %tmp.17 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_true:
         %tmp.18 = 1;
         push %tmp.18;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_false:
         %tmp.19 = 2;
         push %tmp.19;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_end:
-        %tmp.20 = phi [%tmp.17 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_begin] [%tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_true] [%tmp.19 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_false] [%tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_354_26_354_44_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_end:
+        %tmp.20 = phi [%tmp.17 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_begin] [%tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_true] [%tmp.19 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_false] [%tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_370_26_370_44_end];
         lputv %tackColorId.4 %tmp.20;
-        symbol [ tackColorId %tackColorId.4 354 12 23 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 356 8 ]
+        symbol [ tackColorId %tackColorId.4 370 12 23 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc" 372 8 ]
         %tmp.21 = newd 5;
         %tmp.22 = "windAngleLessCOG";
-        symbol [ mWindAngleLessCOG %tmp.24 357 34 51 ];
+        symbol [ mWindAngleLessCOG %tmp.24 373 34 51 ];
         %tmp.24 = getv ? :mWindAngleLessCOG;
         %tmp.25 = dup %tmp.21;
         %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
         %tmp.27 = "currentTack";
         %tmp.28 = lgetv %tackStr.1;
-        symbol [ tackStr %tmp.28 358 29 36 ];
+        symbol [ tackStr %tmp.28 374 29 36 ];
         %tmp.29 = dup %tmp.26;
         %tmp.30 = aputv %tmp.29 %tmp.27 %tmp.28;
         %tmp.31 = "currentPointOfSail";
         %tmp.32 = lgetv %pointOfSailStr.2;
-        symbol [ pointOfSailStr %tmp.32 359 36 50 ];
+        symbol [ pointOfSailStr %tmp.32 375 36 50 ];
         %tmp.33 = dup %tmp.30;
         %tmp.34 = aputv %tmp.33 %tmp.31 %tmp.32;
         %tmp.35 = "tackDisplayText";
         %tmp.36 = lgetv %tackDisplayStr.3;
-        symbol [ tackDisplayStr %tmp.36 360 33 47 ];
+        symbol [ tackDisplayStr %tmp.36 376 33 47 ];
         %tmp.37 = dup %tmp.34;
         %tmp.38 = aputv %tmp.37 %tmp.35 %tmp.36;
         %tmp.39 = "tackColorId";
         %tmp.40 = lgetv %tackColorId.4;
-        symbol [ tackColorId %tmp.40 361 29 40 ];
+        symbol [ tackColorId %tmp.40 377 29 40 ];
         %tmp.41 = dup %tmp.38;
         %tmp.42 = aputv %tmp.41 %tmp.39 %tmp.40;
         ret %tmp.42;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_350_23_363_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_WindAngleCalculator_mc_366_23_379_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\WindAngleCalculator.mc"; @line = 2; ]

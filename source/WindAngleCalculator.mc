@@ -184,11 +184,15 @@ class WindAngleCalculator {
         }
     }
     
-    // Calculate average heading over a time period
+    // Calculate average heading over a time period - with improved logging
     function calculateAverageHeading(startTime, endTime) {
         var sumX = 0.0;
         var sumY = 0.0;
         var count = 0;
+        var debugHeadings = [];
+        var debugTimestamps = [];
+        
+        log("Calc heading period: " + (startTime/1000) + "s to " + (endTime/1000) + "s");
         
         // Loop through heading history
         for (var i = 0; i < HEADING_HISTORY_SIZE; i++) {
@@ -211,13 +215,18 @@ class WindAngleCalculator {
                 sumX += Math.cos(rad);
                 sumY += Math.sin(rad);
                 count++;
+                
+                // Store for debugging - max 5 entries to keep log concise
+                if (debugHeadings.size() < 5) {
+                    debugHeadings.add(heading);
+                    debugTimestamps.add((timestamp - startTime)/1000);
+                }
             }
         }
         
         // If no valid entries, return null
         if (count == 0) {
-            log("No valid heading entries found for time period: " + 
-                (startTime/1000) + "s to " + (endTime/1000) + "s");
+            log("No valid heading entries found in period");
             return null;
         }
         
@@ -229,37 +238,33 @@ class WindAngleCalculator {
         var avgHeading = Math.toDegrees(Math.atan2(avgY, avgX));
         
         // Normalize to 0-360
-        return normalizeAngle(avgHeading);
+        var normalizedHeading = normalizeAngle(avgHeading);
+        
+        // Log concise summary
+        log("Heading calc: " + count + " points, sample: " + debugHeadings + 
+            " (at " + debugTimestamps + "s), avg: " + normalizedHeading + "°");
+        
+        return normalizedHeading;
     }
     
-    // Helper functions
-    function normalizeAngle(angle) {
-        while (angle < 0) {
-            angle += 360;
-        }
-        while (angle >= 360) {
-            angle -= 360;
-        }
-        return angle;
-    }
-    
+    // Calculate absolute angle difference between two courses
     function angleAbsDifference(angle1, angle2) {
-        // Normalize angles
+        // Normalize angles to 0-360
         angle1 = normalizeAngle(angle1);
         angle2 = normalizeAngle(angle2);
         
         // Calculate difference
         var diff = angle1 - angle2;
-        if (diff < 0) {
-            diff = -diff;  // Absolute value
-        }
         
-        // Take the smaller angle
+        // Normalize difference to -180 to 180
         if (diff > 180) {
-            diff = 360 - diff;
+            diff -= 360;
+        } else if (diff <= -180) {
+            diff += 360;
         }
         
-        return diff;
+        // Return absolute value
+        return (diff < 0) ? -diff : diff;
     }
     
     function calculateBisectorAngle(angle1, angle2) {
@@ -298,6 +303,17 @@ class WindAngleCalculator {
         
         // Normalize to 0-360
         return normalizeAngle(avgAngle);
+    }
+    
+    // Helper functions
+    function normalizeAngle(angle) {
+        while (angle < 0) {
+            angle += 360;
+        }
+        while (angle >= 360) {
+            angle -= 360;
+        }
+        return angle;
     }
     
     // Recalculate with new wind direction

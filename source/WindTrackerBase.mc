@@ -26,6 +26,7 @@ class WindTracker {
     private var mAutoWindDetection;         // Whether auto wind direction is active
     private var mWindDirectionLocked;       // Whether wind direction is locked
     private var mLastSignificantHeading;    // Last significant heading
+    private var mLastLogTime = 0;           // Time of last debug log
     
     // Components
     private var mAngleCalculator;           // Angle calculation component
@@ -53,6 +54,7 @@ class WindTracker {
         mAutoWindDetection = false;
         mWindDirectionLocked = false;
         mLastSignificantHeading = 0;
+        mLastLogTime = 0;
         
         // Reset components if they exist
         if (mAngleCalculator != null) { mAngleCalculator.reset(); }
@@ -103,7 +105,7 @@ class WindTracker {
         log("Wind direction unlocked");
     }
     
-    // Main processing function for position data
+    // Main processing function for position data - with improved logging
     function processPositionData(info) {
         // Ensure we have valid data
         if (info == null || !(info has :heading) || !(info has :speed) || 
@@ -120,8 +122,12 @@ class WindTracker {
             heading = Math.toDegrees(heading);
         }
         
-        // Get current timestamp
+        // Store recent headings for debugging - log every 5 seconds
         var currentTime = System.getTimer();
+        if (currentTime - mLastLogTime > 5000) {
+            log("Raw heading: " + heading.format("%.1f") + "°, speed: " + speed.format("%.1f") + " kt");
+            mLastLogTime = currentTime;
+        }
         
         // Process with angle calculator
         heading = mAngleCalculator.processHeading(heading, currentTime);
@@ -179,7 +185,6 @@ class WindTracker {
         }
     }
     
-    // Lap marker notification
     // Lap marker notification
     function onLapMarked(position) {
         // Tell the LapTracker about the lap

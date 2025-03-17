@@ -143,6 +143,7 @@ class ManeuverDetector {
                 "isTack" => isTack,
                 "timestamp" => currentTime,
                 "lastWindAngle" => lastWindAngleLessCOG,
+                "currentWindAngle" => windAngleLessCOG,
                 "oldTack" => oldTack,
                 "newTack" => !oldTack
             };
@@ -181,17 +182,22 @@ class ManeuverDetector {
         mPendingManeuver = null;
     }
     
-    // Calculate maneuver angle based on heading history
-    // Calculate maneuver angle based on heading history
+    // Calculate maneuver angle based on heading history - with improved logging
     function calculateManeuverAngle(pendingManeuver) {
         var maneuverTimestamp = pendingManeuver["timestamp"];
         var isTack = pendingManeuver["isTack"];
+        
+        log("Calculating " + (isTack ? "tack" : "gybe") + " angle at timestamp " + (maneuverTimestamp/1000) + "s");
         
         // Calculate time periods for measurement
         var beforeStart = maneuverTimestamp - (MAN_ANGLE_TIME_MEASURE + MAN_ANGLE_TIME_IGNORE) * 1000;
         var beforeEnd = maneuverTimestamp - MAN_ANGLE_TIME_IGNORE * 1000;
         var afterStart = maneuverTimestamp + MAN_ANGLE_TIME_IGNORE * 1000;
         var afterEnd = maneuverTimestamp + (MAN_ANGLE_TIME_MEASURE + MAN_ANGLE_TIME_IGNORE) * 1000;
+        
+        log("Time windows: before [" + (beforeStart/1000) + "-" + (beforeEnd/1000) + 
+            "], ignore [" + (beforeEnd/1000) + "-" + (afterStart/1000) + 
+            "], after [" + (afterStart/1000) + "-" + (afterEnd/1000) + "]");
         
         // Calculate headings before and after maneuver
         var beforeHeading = mParent.getAngleCalculator().calculateAverageHeading(beforeStart, beforeEnd);
@@ -204,13 +210,11 @@ class ManeuverDetector {
             return;
         }
         
-        // Calculate maneuver angle
+        // Calculate maneuver angle - simple COG-based approach for both tacks and gybes
         var maneuverAngle = mParent.getAngleCalculator().angleAbsDifference(beforeHeading, afterHeading);
         
-        log("Maneuver Angle Calculation:");
-        log("- Before heading: " + beforeHeading);
-        log("- After heading: " + afterHeading);
-        log("- Calculated " + (isTack ? "Tack" : "Gybe") + " angle: " + maneuverAngle);
+        log("Maneuver Angle: before=" + beforeHeading + "°, after=" + afterHeading + 
+            "°, diff=" + maneuverAngle + "°, type=" + (isTack ? "Tack" : "Gybe"));
         
         // Get current lap before processing the maneuver
         var currentLap = mParent.getLapTracker().getCurrentLap();
@@ -240,7 +244,7 @@ class ManeuverDetector {
                 "lapNumber" => currentLap
             });
             
-            log("Tack recorded: #" + mTackCount + ", angle: " + maneuverAngle + "°, lap: " + currentLap);
+            log("Tack #" + mTackCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
         } else {
             // Increment gybe counter
             mGybeCount += 1;
@@ -265,18 +269,18 @@ class ManeuverDetector {
                 "lapNumber" => currentLap
             });
             
-            log("Gybe recorded: #" + mGybeCount + ", angle: " + maneuverAngle + "°, lap: " + currentLap);
+            log("Gybe #" + mGybeCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
         }
     }
 
     function resetTackGybeCountsForLap() {
-    log("Resetting tack/gybe counts for new lap");
-    
-    // We don't reset mTackCount and mGybeCount because they're used 
-    // for wind direction calculation and overall session statistics
-    
-    // Instead, we rely on lap-specific tracking in LapTracker
-    // which initializes new counts for each lap in its onLapMarked method
+        log("Resetting tack/gybe counts for new lap");
+        
+        // We don't reset mTackCount and mGybeCount because they're used 
+        // for wind direction calculation and overall session statistics
+        
+        // Instead, we rely on lap-specific tracking in LapTracker
+        // which initializes new counts for each lap in its onLapMarked method
     }
     
     // Record maneuver in history

@@ -166,9 +166,9 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
     }
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 62; @symbol_functiondef = [detectManeuver,62,13,27]; @symbol_param<0> = [heading,62,28,35]; @symbol_param<1> = [speed,62,37,42]; @symbol_param<2> = [currentTime,62,44,55]; @symbol_param<3> = [isStbdTack,62,57,67]; @symbol_param<4> = [isUpwind,62,69,77]; @symbol_param<5> = [windAngleLessCOG,62,79,95]; ]
     function detectManeuver(heading, speed, currentTime, isStbdTack, isUpwind, windAngleLessCOG) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 64 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop" ]
         %speedThreshold.1 = local;
         symbol [ speedThreshold %speedThreshold.1 64 12 26 ];
         %tmp.1 = 2.0;
@@ -364,21 +364,21 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_end;
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_83_8_85_8_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 87 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop" ]
         %maneuverDetected.6 = local;
         symbol [ maneuverDetected %maneuverDetected.6 87 12 28 ];
         %tmp.65 = false;
         lputv %maneuverDetected.6 %tmp.65;
         symbol [ maneuverDetected %maneuverDetected.6 87 12 28 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 88 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop" ]
         %isTack.7 = local;
         symbol [ isTack %isTack.7 88 12 18 ];
         %tmp.66 = false;
         lputv %isTack.7 %tmp.66;
         symbol [ isTack %isTack.7 88 12 18 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 89 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop" ]
         %oldTack.8 = local;
         symbol [ oldTack %oldTack.8 89 12 19 ];
         %tmp.67 = lgetv %isStbdTack;
@@ -386,7 +386,7 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         lputv %oldTack.8 %tmp.67;
         symbol [ oldTack %oldTack.8 89 12 19 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 92 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop" ]
         %lastWindAngleLessCOG.9 = local;
         symbol [ lastWindAngleLessCOG %lastWindAngleLessCOG.9 92 12 32 ];
         symbol [ mParent %tmp.69 92 35 42 ];
@@ -614,14 +614,14 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_111_15_127_8_stop:
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_95_8_127_8_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 130 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_158_8_if_stmt:
         %tmp.166 = lgetv %maneuverDetected.6;
         symbol [ maneuverDetected %tmp.166 130 12 28 ];
-        bf %tmp.166 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_start:
+        bf %tmp.166 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_158_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_158_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_158_8_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 132 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_158_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_158_8_stop" ]
         %lastUpwind.10 = local;
         symbol [ lastUpwind %lastUpwind.10 132 16 26 ];
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_132_30_132_83_begin:
@@ -691,7 +691,7 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         %tmp.197 = add %tmp.195 %tmp.196;
         invoke %tmp.177 %tmp.178(%tmp.197);
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 142 12 ]
-        %tmp.198 = newd 5;
+        %tmp.198 = newd 6;
         %tmp.199 = "isTack";
         %tmp.200 = lgetv %isTack.7;
         symbol [ isTack %tmp.200 143 28 34 ];
@@ -707,136 +707,141 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         symbol [ lastWindAngleLessCOG %tmp.208 145 35 55 ];
         %tmp.209 = dup %tmp.206;
         %tmp.210 = aputv %tmp.209 %tmp.207 %tmp.208;
-        %tmp.211 = "oldTack";
-        %tmp.212 = lgetv %oldTack.8;
-        symbol [ oldTack %tmp.212 146 29 36 ];
+        %tmp.211 = "currentWindAngle";
+        %tmp.212 = lgetv %windAngleLessCOG;
+        symbol [ windAngleLessCOG %tmp.212 146 38 54 ];
         %tmp.213 = dup %tmp.210;
         %tmp.214 = aputv %tmp.213 %tmp.211 %tmp.212;
-        %tmp.215 = "newTack";
+        %tmp.215 = "oldTack";
         %tmp.216 = lgetv %oldTack.8;
-        symbol [ oldTack %tmp.216 147 30 37 ];
-        %tmp.217 = not %tmp.216;
-        %tmp.218 = dup %tmp.214;
-        %tmp.219 = aputv %tmp.218 %tmp.215 %tmp.217;
+        symbol [ oldTack %tmp.216 147 29 36 ];
+        %tmp.217 = dup %tmp.214;
+        %tmp.218 = aputv %tmp.217 %tmp.215 %tmp.216;
+        %tmp.219 = "newTack";
+        %tmp.220 = lgetv %oldTack.8;
+        symbol [ oldTack %tmp.220 148 30 37 ];
+        %tmp.221 = not %tmp.220;
+        %tmp.222 = dup %tmp.218;
+        %tmp.223 = aputv %tmp.222 %tmp.219 %tmp.221;
         symbol [ mPendingManeuver ? 142 12 28 ];
-        putv self :mPendingManeuver %tmp.219;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 151 12 ]
-        %tmp.220 = lgetv %currentTime;
-        symbol [ currentTime %tmp.220 151 33 44 ];
-        symbol [ mManeuverTimestamp ? 151 12 30 ];
-        putv self :mManeuverTimestamp %tmp.220;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 153 12 ]
-        %tmp.221 = self;
-        symbol [ log %tmp.222 153 12 15 ];
-        %tmp.222 = getv function %tmp.221 :log;
-        %tmp.223 = "Maneuver detected! Type: ";
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_begin:
-        %tmp.224 = lgetv %isTack.7;
-        symbol [ isTack %tmp.224 153 47 53 ];
-        bf %tmp.224 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_true:
-        %tmp.225 = "Tack";
-        push %tmp.225;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false:
-        %tmp.226 = "Gybe";
-        push %tmp.226;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end:
-        %tmp.227 = phi [%tmp.224 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_begin] [%tmp.225 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_true] [%tmp.226 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_false] [%tmp.227 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_153_47_153_65_end];
-        %tmp.228 = add %tmp.223 %tmp.227;
-        %tmp.229 = ", Timestamp: ";
-        %tmp.230 = add %tmp.228 %tmp.229;
-        %tmp.231 = lgetv %currentTime;
-        symbol [ currentTime %tmp.231 154 34 45 ];
-        %tmp.232 = add %tmp.230 %tmp.231;
-        invoke %tmp.221 %tmp.222(%tmp.232);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 156 12 ]
-        %tmp.233 = true;
-        ret %tmp.233;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_157_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_157_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 159 8 ]
-        %tmp.234 = false;
-        ret %tmp.234;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_160_4_stop:
+        putv self :mPendingManeuver %tmp.223;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 152 12 ]
+        %tmp.224 = lgetv %currentTime;
+        symbol [ currentTime %tmp.224 152 33 44 ];
+        symbol [ mManeuverTimestamp ? 152 12 30 ];
+        putv self :mManeuverTimestamp %tmp.224;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 154 12 ]
+        %tmp.225 = self;
+        symbol [ log %tmp.226 154 12 15 ];
+        %tmp.226 = getv function %tmp.225 :log;
+        %tmp.227 = "Maneuver detected! Type: ";
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_begin:
+        %tmp.228 = lgetv %isTack.7;
+        symbol [ isTack %tmp.228 154 47 53 ];
+        bf %tmp.228 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_true:
+        %tmp.229 = "Tack";
+        push %tmp.229;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_false:
+        %tmp.230 = "Gybe";
+        push %tmp.230;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_end:
+        %tmp.231 = phi [%tmp.228 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_begin] [%tmp.229 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_true] [%tmp.230 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_false] [%tmp.231 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_154_47_154_65_end];
+        %tmp.232 = add %tmp.227 %tmp.231;
+        %tmp.233 = ", Timestamp: ";
+        %tmp.234 = add %tmp.232 %tmp.233;
+        %tmp.235 = lgetv %currentTime;
+        symbol [ currentTime %tmp.235 155 34 45 ];
+        %tmp.236 = add %tmp.234 %tmp.235;
+        invoke %tmp.225 %tmp.226(%tmp.236);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 157 12 ]
+        %tmp.237 = true;
+        ret %tmp.237;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_30_158_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_158_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_130_8_158_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 160 8 ]
+        %tmp.238 = false;
+        ret %tmp.238;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_62_97_161_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 163; @symbol_functiondef = [checkPendingManeuvers,163,13,34]; @symbol_param<0> = [currentTime,163,35,46]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 164; @symbol_functiondef = [checkPendingManeuvers,164,13,34]; @symbol_param<0> = [currentTime,164,35,46]; ]
     function checkPendingManeuvers(currentTime) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 165 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_12_165_62_begin:
-        symbol [ mPendingManeuver %tmp.2 165 12 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_164_48_183_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 166 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_12_166_62_begin:
+        symbol [ mPendingManeuver %tmp.2 166 12 28 ];
         %tmp.2 = getv ? :mPendingManeuver;
         %tmp.3 = null;
         %tmp.4 = eq %tmp.2 %tmp.3;
-        bt %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_true;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_false:
-        symbol [ mManeuverTimestamp %tmp.6 165 40 58 ];
+        bt %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_true;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_40_166_62_false:
+        symbol [ mManeuverTimestamp %tmp.6 166 40 58 ];
         %tmp.6 = getv ? :mManeuverTimestamp;
         %tmp.7 = 0;
         %tmp.8 = eq %tmp.6 %tmp.7;
         push %tmp.8;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_end:
-        %tmp.9 = phi [%tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_12_165_62_begin] [%tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_false] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_40_165_62_end];
-        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_65_167_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 166 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_40_166_62_end:
+        %tmp.9 = phi [%tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_12_166_62_begin] [%tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_40_166_62_false] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_40_166_62_end];
+        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_65_168_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 167 12 ]
         ret ?;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_65_167_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_165_8_167_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 170 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_65_168_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_166_8_168_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 171 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_164_48_183_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_164_48_183_4_stop" ]
         %timeSinceManeuver.1 = local;
-        symbol [ timeSinceManeuver %timeSinceManeuver.1 170 12 29 ];
+        symbol [ timeSinceManeuver %timeSinceManeuver.1 171 12 29 ];
         %tmp.10 = lgetv %currentTime;
-        symbol [ currentTime %tmp.10 170 32 43 ];
-        symbol [ mManeuverTimestamp %tmp.12 170 46 64 ];
+        symbol [ currentTime %tmp.10 171 32 43 ];
+        symbol [ mManeuverTimestamp %tmp.12 171 46 64 ];
         %tmp.12 = getv ? :mManeuverTimestamp;
         %tmp.13 = sub %tmp.10 %tmp.12;
         lputv %timeSinceManeuver.1 %tmp.13;
-        symbol [ timeSinceManeuver %timeSinceManeuver.1 170 12 29 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 173 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_stmt:
+        symbol [ timeSinceManeuver %timeSinceManeuver.1 171 12 29 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 174 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_8_176_8_if_stmt:
         %tmp.14 = lgetv %timeSinceManeuver.1;
-        symbol [ timeSinceManeuver %tmp.14 173 12 29 ];
-        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.16 173 33 55 ];
+        symbol [ timeSinceManeuver %tmp.14 174 12 29 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.16 174 33 55 ];
         %tmp.16 = getv ? :MAN_ANGLE_TIME_MEASURE;
-        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.18 173 58 79 ];
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.18 174 58 79 ];
         %tmp.18 = getv ? :MAN_ANGLE_TIME_IGNORE;
         %tmp.19 = add %tmp.16 %tmp.18;
         %tmp.20 = 1000;
         %tmp.21 = mul %tmp.19 %tmp.20;
         %tmp.22 = lt %tmp.14 %tmp.21;
-        bf %tmp.22 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_89_175_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 174 12 ]
+        bf %tmp.22 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_8_176_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_8_176_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_89_176_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 175 12 ]
         ret ?;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_89_175_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_173_8_175_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 178 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_89_176_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_8_176_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_174_8_176_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 179 8 ]
         %tmp.23 = self;
-        symbol [ calculateManeuverAngle %tmp.24 178 8 30 ];
+        symbol [ calculateManeuverAngle %tmp.24 179 8 30 ];
         %tmp.24 = getv function %tmp.23 :calculateManeuverAngle;
-        symbol [ mPendingManeuver %tmp.26 178 31 47 ];
+        symbol [ mPendingManeuver %tmp.26 179 31 47 ];
         %tmp.26 = getv ? :mPendingManeuver;
         invoke %tmp.23 %tmp.24(%tmp.26);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 181 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 182 8 ]
         %tmp.27 = null;
-        symbol [ mPendingManeuver ? 181 8 24 ];
+        symbol [ mPendingManeuver ? 182 8 24 ];
         putv self :mPendingManeuver %tmp.27;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_163_48_182_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_164_48_183_4_stop:
     }
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 186; @symbol_functiondef = [calculateManeuverAngle,186,13,35]; @symbol_param<0> = [pendingManeuver,186,36,51]; ]
     function calculateManeuverAngle(pendingManeuver) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 187 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
         %maneuverTimestamp.1 = local;
         symbol [ maneuverTimestamp %maneuverTimestamp.1 187 12 29 ];
         %tmp.1 = lgetv %pendingManeuver;
@@ -846,7 +851,7 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         lputv %maneuverTimestamp.1 %tmp.3;
         symbol [ maneuverTimestamp %maneuverTimestamp.1 187 12 29 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 188 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
         %isTack.2 = local;
         symbol [ isTack %isTack.2 188 12 18 ];
         %tmp.4 = lgetv %pendingManeuver;
@@ -855,1350 +860,1413 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         %tmp.6 = agetv %tmp.4 %tmp.5;
         lputv %isTack.2 %tmp.6;
         symbol [ isTack %isTack.2 188 12 18 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 191 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %beforeStart.3 = local;
-        symbol [ beforeStart %beforeStart.3 191 12 23 ];
-        %tmp.7 = lgetv %maneuverTimestamp.1;
-        symbol [ maneuverTimestamp %tmp.7 191 26 43 ];
-        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.9 191 47 69 ];
-        %tmp.9 = getv ? :MAN_ANGLE_TIME_MEASURE;
-        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.11 191 72 93 ];
-        %tmp.11 = getv ? :MAN_ANGLE_TIME_IGNORE;
-        %tmp.12 = add %tmp.9 %tmp.11;
-        %tmp.13 = 1000;
-        %tmp.14 = mul %tmp.12 %tmp.13;
-        %tmp.15 = sub %tmp.7 %tmp.14;
-        lputv %beforeStart.3 %tmp.15;
-        symbol [ beforeStart %beforeStart.3 191 12 23 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 192 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %beforeEnd.4 = local;
-        symbol [ beforeEnd %beforeEnd.4 192 12 21 ];
-        %tmp.16 = lgetv %maneuverTimestamp.1;
-        symbol [ maneuverTimestamp %tmp.16 192 24 41 ];
-        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.18 192 44 65 ];
-        %tmp.18 = getv ? :MAN_ANGLE_TIME_IGNORE;
-        %tmp.19 = 1000;
-        %tmp.20 = mul %tmp.18 %tmp.19;
-        %tmp.21 = sub %tmp.16 %tmp.20;
-        lputv %beforeEnd.4 %tmp.21;
-        symbol [ beforeEnd %beforeEnd.4 192 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 190 8 ]
+        %tmp.7 = self;
+        symbol [ log %tmp.8 190 8 11 ];
+        %tmp.8 = getv function %tmp.7 :log;
+        %tmp.9 = "Calculating ";
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_begin:
+        %tmp.10 = lgetv %isTack.2;
+        symbol [ isTack %tmp.10 190 30 36 ];
+        bf %tmp.10 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_true:
+        %tmp.11 = "tack";
+        push %tmp.11;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_false:
+        %tmp.12 = "gybe";
+        push %tmp.12;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_end:
+        %tmp.13 = phi [%tmp.10 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_begin] [%tmp.11 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_true] [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_false] [%tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_190_30_190_48_end];
+        %tmp.14 = add %tmp.9 %tmp.13;
+        %tmp.15 = " angle at timestamp ";
+        %tmp.16 = add %tmp.14 %tmp.15;
+        %tmp.17 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.17 190 84 101 ];
+        %tmp.18 = 1000;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        %tmp.20 = add %tmp.16 %tmp.19;
+        %tmp.21 = "s";
+        %tmp.22 = add %tmp.20 %tmp.21;
+        invoke %tmp.7 %tmp.8(%tmp.22);
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 193 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %afterStart.5 = local;
-        symbol [ afterStart %afterStart.5 193 12 22 ];
-        %tmp.22 = lgetv %maneuverTimestamp.1;
-        symbol [ maneuverTimestamp %tmp.22 193 25 42 ];
-        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.24 193 45 66 ];
-        %tmp.24 = getv ? :MAN_ANGLE_TIME_IGNORE;
-        %tmp.25 = 1000;
-        %tmp.26 = mul %tmp.24 %tmp.25;
-        %tmp.27 = add %tmp.22 %tmp.26;
-        lputv %afterStart.5 %tmp.27;
-        symbol [ afterStart %afterStart.5 193 12 22 ];
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %beforeStart.3 = local;
+        symbol [ beforeStart %beforeStart.3 193 12 23 ];
+        %tmp.23 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.23 193 26 43 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.25 193 47 69 ];
+        %tmp.25 = getv ? :MAN_ANGLE_TIME_MEASURE;
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.27 193 72 93 ];
+        %tmp.27 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.28 = add %tmp.25 %tmp.27;
+        %tmp.29 = 1000;
+        %tmp.30 = mul %tmp.28 %tmp.29;
+        %tmp.31 = sub %tmp.23 %tmp.30;
+        lputv %beforeStart.3 %tmp.31;
+        symbol [ beforeStart %beforeStart.3 193 12 23 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 194 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %beforeEnd.4 = local;
+        symbol [ beforeEnd %beforeEnd.4 194 12 21 ];
+        %tmp.32 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.32 194 24 41 ];
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.34 194 44 65 ];
+        %tmp.34 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.35 = 1000;
+        %tmp.36 = mul %tmp.34 %tmp.35;
+        %tmp.37 = sub %tmp.32 %tmp.36;
+        lputv %beforeEnd.4 %tmp.37;
+        symbol [ beforeEnd %beforeEnd.4 194 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 195 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %afterStart.5 = local;
+        symbol [ afterStart %afterStart.5 195 12 22 ];
+        %tmp.38 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.38 195 25 42 ];
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.40 195 45 66 ];
+        %tmp.40 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.41 = 1000;
+        %tmp.42 = mul %tmp.40 %tmp.41;
+        %tmp.43 = add %tmp.38 %tmp.42;
+        lputv %afterStart.5 %tmp.43;
+        symbol [ afterStart %afterStart.5 195 12 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 196 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
         %afterEnd.6 = local;
-        symbol [ afterEnd %afterEnd.6 194 12 20 ];
-        %tmp.28 = lgetv %maneuverTimestamp.1;
-        symbol [ maneuverTimestamp %tmp.28 194 23 40 ];
-        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.30 194 44 66 ];
-        %tmp.30 = getv ? :MAN_ANGLE_TIME_MEASURE;
-        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.32 194 69 90 ];
-        %tmp.32 = getv ? :MAN_ANGLE_TIME_IGNORE;
-        %tmp.33 = add %tmp.30 %tmp.32;
-        %tmp.34 = 1000;
-        %tmp.35 = mul %tmp.33 %tmp.34;
-        %tmp.36 = add %tmp.28 %tmp.35;
-        lputv %afterEnd.6 %tmp.36;
-        symbol [ afterEnd %afterEnd.6 194 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 197 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %beforeHeading.7 = local;
-        symbol [ beforeHeading %beforeHeading.7 197 12 25 ];
-        symbol [ mParent %tmp.38 197 28 35 ];
-        %tmp.38 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.39 197 36 54 ];
-        %tmp.39 = getv function %tmp.38 :getAngleCalculator;
-        %tmp.40 = invoke %tmp.38 %tmp.39();
-        symbol [ calculateAverageHeading %tmp.41 197 57 80 ];
-        %tmp.41 = getv function %tmp.40 :calculateAverageHeading;
-        %tmp.42 = lgetv %beforeStart.3;
-        symbol [ beforeStart %tmp.42 197 81 92 ];
-        %tmp.43 = lgetv %beforeEnd.4;
-        symbol [ beforeEnd %tmp.43 197 94 103 ];
-        %tmp.44 = invoke %tmp.40 %tmp.41(%tmp.42, %tmp.43);
-        lputv %beforeHeading.7 %tmp.44;
-        symbol [ beforeHeading %beforeHeading.7 197 12 25 ];
+        symbol [ afterEnd %afterEnd.6 196 12 20 ];
+        %tmp.44 = lgetv %maneuverTimestamp.1;
+        symbol [ maneuverTimestamp %tmp.44 196 23 40 ];
+        symbol [ MAN_ANGLE_TIME_MEASURE %tmp.46 196 44 66 ];
+        %tmp.46 = getv ? :MAN_ANGLE_TIME_MEASURE;
+        symbol [ MAN_ANGLE_TIME_IGNORE %tmp.48 196 69 90 ];
+        %tmp.48 = getv ? :MAN_ANGLE_TIME_IGNORE;
+        %tmp.49 = add %tmp.46 %tmp.48;
+        %tmp.50 = 1000;
+        %tmp.51 = mul %tmp.49 %tmp.50;
+        %tmp.52 = add %tmp.44 %tmp.51;
+        lputv %afterEnd.6 %tmp.52;
+        symbol [ afterEnd %afterEnd.6 196 12 20 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 198 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %afterHeading.8 = local;
-        symbol [ afterHeading %afterHeading.8 198 12 24 ];
-        symbol [ mParent %tmp.46 198 27 34 ];
-        %tmp.46 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.47 198 35 53 ];
-        %tmp.47 = getv function %tmp.46 :getAngleCalculator;
-        %tmp.48 = invoke %tmp.46 %tmp.47();
-        symbol [ calculateAverageHeading %tmp.49 198 56 79 ];
-        %tmp.49 = getv function %tmp.48 :calculateAverageHeading;
-        %tmp.50 = lgetv %afterStart.5;
-        symbol [ afterStart %tmp.50 198 80 90 ];
-        %tmp.51 = lgetv %afterEnd.6;
-        symbol [ afterEnd %tmp.51 198 92 100 ];
-        %tmp.52 = invoke %tmp.48 %tmp.49(%tmp.50, %tmp.51);
-        lputv %afterHeading.8 %tmp.52;
-        symbol [ afterHeading %afterHeading.8 198 12 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 201 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_12_201_53_begin:
-        %tmp.53 = lgetv %beforeHeading.7;
-        symbol [ beforeHeading %tmp.53 201 12 25 ];
-        %tmp.54 = null;
-        %tmp.55 = eq %tmp.53 %tmp.54;
-        bt %tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_true;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_37_201_53_false:
-        %tmp.56 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.56 201 37 49 ];
-        %tmp.57 = null;
-        %tmp.58 = eq %tmp.56 %tmp.57;
-        push %tmp.58;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_37_201_53_end:
-        %tmp.59 = phi [%tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_12_201_53_begin] [%tmp.58 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_37_201_53_false] [%tmp.59 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_37_201_53_end];
-        bf %tmp.59 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_59_205_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 202 12 ]
-        %tmp.60 = self;
-        symbol [ log %tmp.61 202 12 15 ];
-        %tmp.61 = getv function %tmp.60 :log;
-        %tmp.62 = "Cannot calculate ";
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_begin:
-        %tmp.63 = lgetv %isTack.2;
-        symbol [ isTack %tmp.63 202 39 45 ];
-        bf %tmp.63 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_true:
-        %tmp.64 = "tack";
-        push %tmp.64;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_false:
-        %tmp.65 = "gybe";
-        push %tmp.65;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_end:
-        %tmp.66 = phi [%tmp.63 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_begin] [%tmp.64 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_true] [%tmp.65 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_false] [%tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_202_39_202_57_end];
-        %tmp.67 = add %tmp.62 %tmp.66;
-        %tmp.68 = " angle - insufficient heading history data";
-        %tmp.69 = add %tmp.67 %tmp.68;
-        invoke %tmp.60 %tmp.61(%tmp.69);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 204 12 ]
-        ret ?;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_59_205_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_201_8_205_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 208 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
-        %maneuverAngle.9 = local;
-        symbol [ maneuverAngle %maneuverAngle.9 208 12 25 ];
-        symbol [ mParent %tmp.71 208 28 35 ];
-        %tmp.71 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.72 208 36 54 ];
-        %tmp.72 = getv function %tmp.71 :getAngleCalculator;
-        %tmp.73 = invoke %tmp.71 %tmp.72();
-        symbol [ angleAbsDifference %tmp.74 208 57 75 ];
-        %tmp.74 = getv function %tmp.73 :angleAbsDifference;
-        %tmp.75 = lgetv %beforeHeading.7;
-        symbol [ beforeHeading %tmp.75 208 76 89 ];
-        %tmp.76 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.76 208 91 103 ];
-        %tmp.77 = invoke %tmp.73 %tmp.74(%tmp.75, %tmp.76);
-        lputv %maneuverAngle.9 %tmp.77;
-        symbol [ maneuverAngle %maneuverAngle.9 208 12 25 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 210 8 ]
-        %tmp.78 = self;
-        symbol [ log %tmp.79 210 8 11 ];
-        %tmp.79 = getv function %tmp.78 :log;
-        %tmp.80 = "Maneuver Angle Calculation:";
-        invoke %tmp.78 %tmp.79(%tmp.80);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 211 8 ]
-        %tmp.81 = self;
-        symbol [ log %tmp.82 211 8 11 ];
-        %tmp.82 = getv function %tmp.81 :log;
-        %tmp.83 = "- Before heading: ";
-        %tmp.84 = lgetv %beforeHeading.7;
-        symbol [ beforeHeading %tmp.84 211 35 48 ];
+        %tmp.53 = self;
+        symbol [ log %tmp.54 198 8 11 ];
+        %tmp.54 = getv function %tmp.53 :log;
+        %tmp.55 = "Time windows: before [";
+        %tmp.56 = lgetv %beforeStart.3;
+        symbol [ beforeStart %tmp.56 198 40 51 ];
+        %tmp.57 = 1000;
+        %tmp.58 = div %tmp.56 %tmp.57;
+        %tmp.59 = add %tmp.55 %tmp.58;
+        %tmp.60 = "-";
+        %tmp.61 = add %tmp.59 %tmp.60;
+        %tmp.62 = lgetv %beforeEnd.4;
+        symbol [ beforeEnd %tmp.62 198 67 76 ];
+        %tmp.63 = 1000;
+        %tmp.64 = div %tmp.62 %tmp.63;
+        %tmp.65 = add %tmp.61 %tmp.64;
+        %tmp.66 = "], ignore [";
+        %tmp.67 = add %tmp.65 %tmp.66;
+        %tmp.68 = lgetv %beforeEnd.4;
+        symbol [ beforeEnd %tmp.68 199 29 38 ];
+        %tmp.69 = 1000;
+        %tmp.70 = div %tmp.68 %tmp.69;
+        %tmp.71 = add %tmp.67 %tmp.70;
+        %tmp.72 = "-";
+        %tmp.73 = add %tmp.71 %tmp.72;
+        %tmp.74 = lgetv %afterStart.5;
+        symbol [ afterStart %tmp.74 199 54 64 ];
+        %tmp.75 = 1000;
+        %tmp.76 = div %tmp.74 %tmp.75;
+        %tmp.77 = add %tmp.73 %tmp.76;
+        %tmp.78 = "], after [";
+        %tmp.79 = add %tmp.77 %tmp.78;
+        %tmp.80 = lgetv %afterStart.5;
+        symbol [ afterStart %tmp.80 200 28 38 ];
+        %tmp.81 = 1000;
+        %tmp.82 = div %tmp.80 %tmp.81;
+        %tmp.83 = add %tmp.79 %tmp.82;
+        %tmp.84 = "-";
         %tmp.85 = add %tmp.83 %tmp.84;
-        invoke %tmp.81 %tmp.82(%tmp.85);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 212 8 ]
-        %tmp.86 = self;
-        symbol [ log %tmp.87 212 8 11 ];
-        %tmp.87 = getv function %tmp.86 :log;
-        %tmp.88 = "- After heading: ";
-        %tmp.89 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.89 212 34 46 ];
-        %tmp.90 = add %tmp.88 %tmp.89;
-        invoke %tmp.86 %tmp.87(%tmp.90);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 213 8 ]
-        %tmp.91 = self;
-        symbol [ log %tmp.92 213 8 11 ];
-        %tmp.92 = getv function %tmp.91 :log;
-        %tmp.93 = "- Calculated ";
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_begin:
-        %tmp.94 = lgetv %isTack.2;
-        symbol [ isTack %tmp.94 213 31 37 ];
-        bf %tmp.94 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_true:
-        %tmp.95 = "Tack";
-        push %tmp.95;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_false:
-        %tmp.96 = "Gybe";
-        push %tmp.96;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_end:
-        %tmp.97 = phi [%tmp.94 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_begin] [%tmp.95 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_true] [%tmp.96 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_false] [%tmp.97 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_213_31_213_49_end];
-        %tmp.98 = add %tmp.93 %tmp.97;
-        %tmp.99 = " angle: ";
-        %tmp.100 = add %tmp.98 %tmp.99;
-        %tmp.101 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.101 213 72 85 ];
-        %tmp.102 = add %tmp.100 %tmp.101;
-        invoke %tmp.91 %tmp.92(%tmp.102);
+        %tmp.86 = lgetv %afterEnd.6;
+        symbol [ afterEnd %tmp.86 200 54 62 ];
+        %tmp.87 = 1000;
+        %tmp.88 = div %tmp.86 %tmp.87;
+        %tmp.89 = add %tmp.85 %tmp.88;
+        %tmp.90 = "]";
+        %tmp.91 = add %tmp.89 %tmp.90;
+        invoke %tmp.53 %tmp.54(%tmp.91);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 203 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %beforeHeading.7 = local;
+        symbol [ beforeHeading %beforeHeading.7 203 12 25 ];
+        symbol [ mParent %tmp.93 203 28 35 ];
+        %tmp.93 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.94 203 36 54 ];
+        %tmp.94 = getv function %tmp.93 :getAngleCalculator;
+        %tmp.95 = invoke %tmp.93 %tmp.94();
+        symbol [ calculateAverageHeading %tmp.96 203 57 80 ];
+        %tmp.96 = getv function %tmp.95 :calculateAverageHeading;
+        %tmp.97 = lgetv %beforeStart.3;
+        symbol [ beforeStart %tmp.97 203 81 92 ];
+        %tmp.98 = lgetv %beforeEnd.4;
+        symbol [ beforeEnd %tmp.98 203 94 103 ];
+        %tmp.99 = invoke %tmp.95 %tmp.96(%tmp.97, %tmp.98);
+        lputv %beforeHeading.7 %tmp.99;
+        symbol [ beforeHeading %beforeHeading.7 203 12 25 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 204 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %afterHeading.8 = local;
+        symbol [ afterHeading %afterHeading.8 204 12 24 ];
+        symbol [ mParent %tmp.101 204 27 34 ];
+        %tmp.101 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.102 204 35 53 ];
+        %tmp.102 = getv function %tmp.101 :getAngleCalculator;
+        %tmp.103 = invoke %tmp.101 %tmp.102();
+        symbol [ calculateAverageHeading %tmp.104 204 56 79 ];
+        %tmp.104 = getv function %tmp.103 :calculateAverageHeading;
+        %tmp.105 = lgetv %afterStart.5;
+        symbol [ afterStart %tmp.105 204 80 90 ];
+        %tmp.106 = lgetv %afterEnd.6;
+        symbol [ afterEnd %tmp.106 204 92 100 ];
+        %tmp.107 = invoke %tmp.103 %tmp.104(%tmp.105, %tmp.106);
+        lputv %afterHeading.8 %tmp.107;
+        symbol [ afterHeading %afterHeading.8 204 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 207 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_12_207_53_begin:
+        %tmp.108 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.108 207 12 25 ];
+        %tmp.109 = null;
+        %tmp.110 = eq %tmp.108 %tmp.109;
+        bt %tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_true;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_37_207_53_false:
+        %tmp.111 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.111 207 37 49 ];
+        %tmp.112 = null;
+        %tmp.113 = eq %tmp.111 %tmp.112;
+        push %tmp.113;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_37_207_53_end:
+        %tmp.114 = phi [%tmp.110 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_12_207_53_begin] [%tmp.113 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_37_207_53_false] [%tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_37_207_53_end];
+        bf %tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_59_211_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 208 12 ]
+        %tmp.115 = self;
+        symbol [ log %tmp.116 208 12 15 ];
+        %tmp.116 = getv function %tmp.115 :log;
+        %tmp.117 = "Cannot calculate ";
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_begin:
+        %tmp.118 = lgetv %isTack.2;
+        symbol [ isTack %tmp.118 208 39 45 ];
+        bf %tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_true:
+        %tmp.119 = "tack";
+        push %tmp.119;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_false:
+        %tmp.120 = "gybe";
+        push %tmp.120;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_end:
+        %tmp.121 = phi [%tmp.118 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_begin] [%tmp.119 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_true] [%tmp.120 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_false] [%tmp.121 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_208_39_208_57_end];
+        %tmp.122 = add %tmp.117 %tmp.121;
+        %tmp.123 = " angle - insufficient heading history data";
+        %tmp.124 = add %tmp.122 %tmp.123;
+        invoke %tmp.115 %tmp.116(%tmp.124);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 210 12 ]
+        ret ?;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_59_211_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_207_8_211_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 214 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
+        %maneuverAngle.9 = local;
+        symbol [ maneuverAngle %maneuverAngle.9 214 12 25 ];
+        symbol [ mParent %tmp.126 214 28 35 ];
+        %tmp.126 = getv ? :mParent;
+        symbol [ getAngleCalculator %tmp.127 214 36 54 ];
+        %tmp.127 = getv function %tmp.126 :getAngleCalculator;
+        %tmp.128 = invoke %tmp.126 %tmp.127();
+        symbol [ angleAbsDifference %tmp.129 214 57 75 ];
+        %tmp.129 = getv function %tmp.128 :angleAbsDifference;
+        %tmp.130 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.130 214 76 89 ];
+        %tmp.131 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.131 214 91 103 ];
+        %tmp.132 = invoke %tmp.128 %tmp.129(%tmp.130, %tmp.131);
+        lputv %maneuverAngle.9 %tmp.132;
+        symbol [ maneuverAngle %maneuverAngle.9 214 12 25 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 216 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop" ]
+        %tmp.133 = self;
+        symbol [ log %tmp.134 216 8 11 ];
+        %tmp.134 = getv function %tmp.133 :log;
+        %tmp.135 = "Maneuver Angle: before=";
+        %tmp.136 = lgetv %beforeHeading.7;
+        symbol [ beforeHeading %tmp.136 216 40 53 ];
+        %tmp.137 = add %tmp.135 %tmp.136;
+        %tmp.138 = "°, after=";
+        %tmp.139 = add %tmp.137 %tmp.138;
+        %tmp.140 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.140 216 70 82 ];
+        %tmp.141 = add %tmp.139 %tmp.140;
+        %tmp.142 = "°, diff=";
+        %tmp.143 = add %tmp.141 %tmp.142;
+        %tmp.144 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.144 217 25 38 ];
+        %tmp.145 = add %tmp.143 %tmp.144;
+        %tmp.146 = "°, type=";
+        %tmp.147 = add %tmp.145 %tmp.146;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_begin:
+        %tmp.148 = lgetv %isTack.2;
+        symbol [ isTack %tmp.148 217 55 61 ];
+        bf %tmp.148 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_true:
+        %tmp.149 = "Tack";
+        push %tmp.149;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_false:
+        %tmp.150 = "Gybe";
+        push %tmp.150;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_end:
+        %tmp.151 = phi [%tmp.148 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_begin] [%tmp.149 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_true] [%tmp.150 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_false] [%tmp.151 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_217_55_217_73_end];
+        %tmp.152 = add %tmp.147 %tmp.151;
+        invoke %tmp.133 %tmp.134(%tmp.152);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 220 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop" ]
         %currentLap.10 = local;
-        symbol [ currentLap %currentLap.10 216 12 22 ];
-        symbol [ mParent %tmp.104 216 25 32 ];
-        %tmp.104 = getv ? :mParent;
-        symbol [ getLapTracker %tmp.105 216 33 46 ];
-        %tmp.105 = getv function %tmp.104 :getLapTracker;
-        %tmp.106 = invoke %tmp.104 %tmp.105();
-        symbol [ getCurrentLap %tmp.107 216 49 62 ];
-        %tmp.107 = getv function %tmp.106 :getCurrentLap;
-        %tmp.108 = invoke %tmp.106 %tmp.107();
-        lputv %currentLap.10 %tmp.108;
-        symbol [ currentLap %currentLap.10 216 12 22 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 219 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_stmt:
-        %tmp.109 = lgetv %isTack.2;
-        symbol [ isTack %tmp.109 219 12 18 ];
-        bf %tmp.109 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_20_244_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 221 12 ]
-        symbol [ mTackCount %tmp.110 221 12 22 ];
-        %tmp.110 = getv self :mTackCount;
-        %tmp.111 = 1;
-        %tmp.112 = add %tmp.110 %tmp.111;
-        symbol [ mTackCount ? 221 12 22 ];
-        putv self :mTackCount dup %tmp.112;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 224 12 ]
-        %tmp.113 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.113 224 29 42 ];
-        symbol [ mLastTackAngle ? 224 12 26 ];
-        putv self :mLastTackAngle %tmp.113;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 227 12 ]
-        symbol [ mLastTackHeadings %tmp.114 227 12 29 ];
-        %tmp.114 = getv self :mLastTackHeadings;
-        symbol [ mLastTackHeadings %tmp.116 227 35 52 ];
-        %tmp.116 = getv ? :mLastTackHeadings;
-        %tmp.117 = 1;
-        %tmp.118 = agetv %tmp.116 %tmp.117;
-        %tmp.119 = 0;
-        aputv %tmp.114 %tmp.119 %tmp.118;
+        symbol [ currentLap %currentLap.10 220 12 22 ];
+        symbol [ mParent %tmp.154 220 25 32 ];
+        %tmp.154 = getv ? :mParent;
+        symbol [ getLapTracker %tmp.155 220 33 46 ];
+        %tmp.155 = getv function %tmp.154 :getLapTracker;
+        %tmp.156 = invoke %tmp.154 %tmp.155();
+        symbol [ getCurrentLap %tmp.157 220 49 62 ];
+        %tmp.157 = getv function %tmp.156 :getCurrentLap;
+        %tmp.158 = invoke %tmp.156 %tmp.157();
+        lputv %currentLap.10 %tmp.158;
+        symbol [ currentLap %currentLap.10 220 12 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 223 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_stmt:
+        %tmp.159 = lgetv %isTack.2;
+        symbol [ isTack %tmp.159 223 12 18 ];
+        bf %tmp.159 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_20_248_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 225 12 ]
+        symbol [ mTackCount %tmp.160 225 12 22 ];
+        %tmp.160 = getv self :mTackCount;
+        %tmp.161 = 1;
+        %tmp.162 = add %tmp.160 %tmp.161;
+        symbol [ mTackCount ? 225 12 22 ];
+        putv self :mTackCount dup %tmp.162;
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 228 12 ]
-        symbol [ mLastTackHeadings %tmp.120 228 12 29 ];
-        %tmp.120 = getv self :mLastTackHeadings;
-        %tmp.121 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.121 228 35 47 ];
-        %tmp.122 = 1;
-        aputv %tmp.120 %tmp.122 %tmp.121;
+        %tmp.163 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.163 228 29 42 ];
+        symbol [ mLastTackAngle ? 228 12 26 ];
+        putv self :mLastTackAngle %tmp.163;
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 231 12 ]
-        %tmp.123 = self;
-        symbol [ recordManeuver %tmp.124 231 12 26 ];
-        %tmp.124 = getv function %tmp.123 :recordManeuver;
-        %tmp.125 = true;
-        %tmp.126 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.126 231 33 45 ];
-        %tmp.127 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.127 231 47 60 ];
-        invoke %tmp.123 %tmp.124(%tmp.125, %tmp.126, %tmp.127);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 234 12 ]
-        symbol [ mParent %tmp.129 234 12 19 ];
-        %tmp.129 = getv ? :mParent;
-        symbol [ getLapTracker %tmp.130 234 20 33 ];
-        %tmp.130 = getv function %tmp.129 :getLapTracker;
-        %tmp.131 = invoke %tmp.129 %tmp.130();
-        symbol [ recordManeuverInLap %tmp.132 234 36 55 ];
-        %tmp.132 = getv function %tmp.131 :recordManeuverInLap;
-        %tmp.133 = newd 6;
-        %tmp.134 = "isTack";
-        %tmp.135 = true;
-        %tmp.136 = dup %tmp.133;
-        %tmp.137 = aputv %tmp.136 %tmp.134 %tmp.135;
-        %tmp.138 = "heading";
-        %tmp.139 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.139 236 29 41 ];
-        %tmp.140 = dup %tmp.137;
-        %tmp.141 = aputv %tmp.140 %tmp.138 %tmp.139;
-        %tmp.142 = "angle";
-        %tmp.143 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.143 237 27 40 ];
-        %tmp.144 = dup %tmp.141;
-        %tmp.145 = aputv %tmp.144 %tmp.142 %tmp.143;
-        %tmp.146 = "time";
-        symbol [ Time %tmp.147 238 26 30 ];
-        %tmp.147 = getm $.Toybox.Time;
-        symbol [ now %tmp.148 238 31 34 ];
-        %tmp.148 = getv function %tmp.147 :now;
-        %tmp.149 = invoke %tmp.147 %tmp.148();
-        symbol [ value %tmp.150 238 37 42 ];
-        %tmp.150 = getv function %tmp.149 :value;
-        %tmp.151 = invoke %tmp.149 %tmp.150();
-        %tmp.152 = dup %tmp.145;
-        %tmp.153 = aputv %tmp.152 %tmp.146 %tmp.151;
-        %tmp.154 = "timestamp";
-        symbol [ System %tmp.155 239 31 37 ];
-        %tmp.155 = getm $.Toybox.System;
-        symbol [ getTimer %tmp.156 239 38 46 ];
-        %tmp.156 = getv function %tmp.155 :getTimer;
-        %tmp.157 = invoke %tmp.155 %tmp.156();
-        %tmp.158 = dup %tmp.153;
-        %tmp.159 = aputv %tmp.158 %tmp.154 %tmp.157;
-        %tmp.160 = "lapNumber";
-        %tmp.161 = lgetv %currentLap.10;
-        symbol [ currentLap %tmp.161 240 31 41 ];
-        %tmp.162 = dup %tmp.159;
-        %tmp.163 = aputv %tmp.162 %tmp.160 %tmp.161;
-        invoke %tmp.131 %tmp.132(%tmp.163);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 243 12 ]
-        %tmp.164 = self;
-        symbol [ log %tmp.165 243 12 15 ];
-        %tmp.165 = getv function %tmp.164 :log;
-        %tmp.166 = "Tack recorded: #";
-        symbol [ mTackCount %tmp.168 243 37 47 ];
-        %tmp.168 = getv ? :mTackCount;
-        %tmp.169 = add %tmp.166 %tmp.168;
-        %tmp.170 = ", angle: ";
-        %tmp.171 = add %tmp.169 %tmp.170;
-        %tmp.172 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.172 243 64 77 ];
-        %tmp.173 = add %tmp.171 %tmp.172;
-        %tmp.174 = "°, lap: ";
-        %tmp.175 = add %tmp.173 %tmp.174;
-        %tmp.176 = lgetv %currentLap.10;
-        symbol [ currentLap %tmp.176 243 93 103 ];
-        %tmp.177 = add %tmp.175 %tmp.176;
-        invoke %tmp.164 %tmp.165(%tmp.177);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_20_244_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_244_15_269_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 246 12 ]
-        symbol [ mGybeCount %tmp.178 246 12 22 ];
-        %tmp.178 = getv self :mGybeCount;
-        %tmp.179 = 1;
-        %tmp.180 = add %tmp.178 %tmp.179;
-        symbol [ mGybeCount ? 246 12 22 ];
-        putv self :mGybeCount dup %tmp.180;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 249 12 ]
-        %tmp.181 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.181 249 29 42 ];
-        symbol [ mLastGybeAngle ? 249 12 26 ];
-        putv self :mLastGybeAngle %tmp.181;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 252 12 ]
-        symbol [ mLastGybeHeadings %tmp.182 252 12 29 ];
-        %tmp.182 = getv self :mLastGybeHeadings;
-        symbol [ mLastGybeHeadings %tmp.184 252 35 52 ];
-        %tmp.184 = getv ? :mLastGybeHeadings;
-        %tmp.185 = 1;
-        %tmp.186 = agetv %tmp.184 %tmp.185;
-        %tmp.187 = 0;
-        aputv %tmp.182 %tmp.187 %tmp.186;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 253 12 ]
-        symbol [ mLastGybeHeadings %tmp.188 253 12 29 ];
-        %tmp.188 = getv self :mLastGybeHeadings;
+        symbol [ mLastTackHeadings %tmp.164 231 12 29 ];
+        %tmp.164 = getv self :mLastTackHeadings;
+        symbol [ mLastTackHeadings %tmp.166 231 35 52 ];
+        %tmp.166 = getv ? :mLastTackHeadings;
+        %tmp.167 = 1;
+        %tmp.168 = agetv %tmp.166 %tmp.167;
+        %tmp.169 = 0;
+        aputv %tmp.164 %tmp.169 %tmp.168;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 232 12 ]
+        symbol [ mLastTackHeadings %tmp.170 232 12 29 ];
+        %tmp.170 = getv self :mLastTackHeadings;
+        %tmp.171 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.171 232 35 47 ];
+        %tmp.172 = 1;
+        aputv %tmp.170 %tmp.172 %tmp.171;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 235 12 ]
+        %tmp.173 = self;
+        symbol [ recordManeuver %tmp.174 235 12 26 ];
+        %tmp.174 = getv function %tmp.173 :recordManeuver;
+        %tmp.175 = true;
+        %tmp.176 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.176 235 33 45 ];
+        %tmp.177 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.177 235 47 60 ];
+        invoke %tmp.173 %tmp.174(%tmp.175, %tmp.176, %tmp.177);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 238 12 ]
+        symbol [ mParent %tmp.179 238 12 19 ];
+        %tmp.179 = getv ? :mParent;
+        symbol [ getLapTracker %tmp.180 238 20 33 ];
+        %tmp.180 = getv function %tmp.179 :getLapTracker;
+        %tmp.181 = invoke %tmp.179 %tmp.180();
+        symbol [ recordManeuverInLap %tmp.182 238 36 55 ];
+        %tmp.182 = getv function %tmp.181 :recordManeuverInLap;
+        %tmp.183 = newd 6;
+        %tmp.184 = "isTack";
+        %tmp.185 = true;
+        %tmp.186 = dup %tmp.183;
+        %tmp.187 = aputv %tmp.186 %tmp.184 %tmp.185;
+        %tmp.188 = "heading";
         %tmp.189 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.189 253 35 47 ];
-        %tmp.190 = 1;
-        aputv %tmp.188 %tmp.190 %tmp.189;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 256 12 ]
-        %tmp.191 = self;
-        symbol [ recordManeuver %tmp.192 256 12 26 ];
-        %tmp.192 = getv function %tmp.191 :recordManeuver;
-        %tmp.193 = false;
-        %tmp.194 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.194 256 34 46 ];
-        %tmp.195 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.195 256 48 61 ];
-        invoke %tmp.191 %tmp.192(%tmp.193, %tmp.194, %tmp.195);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 259 12 ]
-        symbol [ mParent %tmp.197 259 12 19 ];
-        %tmp.197 = getv ? :mParent;
-        symbol [ getLapTracker %tmp.198 259 20 33 ];
-        %tmp.198 = getv function %tmp.197 :getLapTracker;
+        symbol [ afterHeading %tmp.189 240 29 41 ];
+        %tmp.190 = dup %tmp.187;
+        %tmp.191 = aputv %tmp.190 %tmp.188 %tmp.189;
+        %tmp.192 = "angle";
+        %tmp.193 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.193 241 27 40 ];
+        %tmp.194 = dup %tmp.191;
+        %tmp.195 = aputv %tmp.194 %tmp.192 %tmp.193;
+        %tmp.196 = "time";
+        symbol [ Time %tmp.197 242 26 30 ];
+        %tmp.197 = getm $.Toybox.Time;
+        symbol [ now %tmp.198 242 31 34 ];
+        %tmp.198 = getv function %tmp.197 :now;
         %tmp.199 = invoke %tmp.197 %tmp.198();
-        symbol [ recordManeuverInLap %tmp.200 259 36 55 ];
-        %tmp.200 = getv function %tmp.199 :recordManeuverInLap;
-        %tmp.201 = newd 6;
-        %tmp.202 = "isTack";
-        %tmp.203 = false;
-        %tmp.204 = dup %tmp.201;
-        %tmp.205 = aputv %tmp.204 %tmp.202 %tmp.203;
-        %tmp.206 = "heading";
-        %tmp.207 = lgetv %afterHeading.8;
-        symbol [ afterHeading %tmp.207 261 29 41 ];
-        %tmp.208 = dup %tmp.205;
-        %tmp.209 = aputv %tmp.208 %tmp.206 %tmp.207;
-        %tmp.210 = "angle";
-        %tmp.211 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.211 262 27 40 ];
+        symbol [ value %tmp.200 242 37 42 ];
+        %tmp.200 = getv function %tmp.199 :value;
+        %tmp.201 = invoke %tmp.199 %tmp.200();
+        %tmp.202 = dup %tmp.195;
+        %tmp.203 = aputv %tmp.202 %tmp.196 %tmp.201;
+        %tmp.204 = "timestamp";
+        symbol [ System %tmp.205 243 31 37 ];
+        %tmp.205 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.206 243 38 46 ];
+        %tmp.206 = getv function %tmp.205 :getTimer;
+        %tmp.207 = invoke %tmp.205 %tmp.206();
+        %tmp.208 = dup %tmp.203;
+        %tmp.209 = aputv %tmp.208 %tmp.204 %tmp.207;
+        %tmp.210 = "lapNumber";
+        %tmp.211 = lgetv %currentLap.10;
+        symbol [ currentLap %tmp.211 244 31 41 ];
         %tmp.212 = dup %tmp.209;
         %tmp.213 = aputv %tmp.212 %tmp.210 %tmp.211;
-        %tmp.214 = "time";
-        symbol [ Time %tmp.215 263 26 30 ];
-        %tmp.215 = getm $.Toybox.Time;
-        symbol [ now %tmp.216 263 31 34 ];
-        %tmp.216 = getv function %tmp.215 :now;
-        %tmp.217 = invoke %tmp.215 %tmp.216();
-        symbol [ value %tmp.218 263 37 42 ];
-        %tmp.218 = getv function %tmp.217 :value;
-        %tmp.219 = invoke %tmp.217 %tmp.218();
-        %tmp.220 = dup %tmp.213;
-        %tmp.221 = aputv %tmp.220 %tmp.214 %tmp.219;
-        %tmp.222 = "timestamp";
-        symbol [ System %tmp.223 264 31 37 ];
-        %tmp.223 = getm $.Toybox.System;
-        symbol [ getTimer %tmp.224 264 38 46 ];
-        %tmp.224 = getv function %tmp.223 :getTimer;
-        %tmp.225 = invoke %tmp.223 %tmp.224();
-        %tmp.226 = dup %tmp.221;
-        %tmp.227 = aputv %tmp.226 %tmp.222 %tmp.225;
-        %tmp.228 = "lapNumber";
-        %tmp.229 = lgetv %currentLap.10;
-        symbol [ currentLap %tmp.229 265 31 41 ];
-        %tmp.230 = dup %tmp.227;
-        %tmp.231 = aputv %tmp.230 %tmp.228 %tmp.229;
-        invoke %tmp.199 %tmp.200(%tmp.231);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 268 12 ]
-        %tmp.232 = self;
-        symbol [ log %tmp.233 268 12 15 ];
-        %tmp.233 = getv function %tmp.232 :log;
-        %tmp.234 = "Gybe recorded: #";
-        symbol [ mGybeCount %tmp.236 268 37 47 ];
-        %tmp.236 = getv ? :mGybeCount;
-        %tmp.237 = add %tmp.234 %tmp.236;
-        %tmp.238 = ", angle: ";
-        %tmp.239 = add %tmp.237 %tmp.238;
-        %tmp.240 = lgetv %maneuverAngle.9;
-        symbol [ maneuverAngle %tmp.240 268 64 77 ];
-        %tmp.241 = add %tmp.239 %tmp.240;
-        %tmp.242 = "°, lap: ";
-        %tmp.243 = add %tmp.241 %tmp.242;
-        %tmp.244 = lgetv %currentLap.10;
-        symbol [ currentLap %tmp.244 268 93 103 ];
-        %tmp.245 = add %tmp.243 %tmp.244;
-        invoke %tmp.232 %tmp.233(%tmp.245);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_244_15_269_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_219_8_269_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_270_4_stop:
+        invoke %tmp.181 %tmp.182(%tmp.213);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 247 12 ]
+        %tmp.214 = self;
+        symbol [ log %tmp.215 247 12 15 ];
+        %tmp.215 = getv function %tmp.214 :log;
+        %tmp.216 = "Tack #";
+        symbol [ mTackCount %tmp.218 247 27 37 ];
+        %tmp.218 = getv ? :mTackCount;
+        %tmp.219 = add %tmp.216 %tmp.218;
+        %tmp.220 = " recorded: angle=";
+        %tmp.221 = add %tmp.219 %tmp.220;
+        %tmp.222 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.222 247 62 75 ];
+        %tmp.223 = add %tmp.221 %tmp.222;
+        %tmp.224 = "°, lap=";
+        %tmp.225 = add %tmp.223 %tmp.224;
+        %tmp.226 = lgetv %currentLap.10;
+        symbol [ currentLap %tmp.226 247 90 100 ];
+        %tmp.227 = add %tmp.225 %tmp.226;
+        invoke %tmp.214 %tmp.215(%tmp.227);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_20_248_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_248_15_273_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 250 12 ]
+        symbol [ mGybeCount %tmp.228 250 12 22 ];
+        %tmp.228 = getv self :mGybeCount;
+        %tmp.229 = 1;
+        %tmp.230 = add %tmp.228 %tmp.229;
+        symbol [ mGybeCount ? 250 12 22 ];
+        putv self :mGybeCount dup %tmp.230;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 253 12 ]
+        %tmp.231 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.231 253 29 42 ];
+        symbol [ mLastGybeAngle ? 253 12 26 ];
+        putv self :mLastGybeAngle %tmp.231;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 256 12 ]
+        symbol [ mLastGybeHeadings %tmp.232 256 12 29 ];
+        %tmp.232 = getv self :mLastGybeHeadings;
+        symbol [ mLastGybeHeadings %tmp.234 256 35 52 ];
+        %tmp.234 = getv ? :mLastGybeHeadings;
+        %tmp.235 = 1;
+        %tmp.236 = agetv %tmp.234 %tmp.235;
+        %tmp.237 = 0;
+        aputv %tmp.232 %tmp.237 %tmp.236;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 257 12 ]
+        symbol [ mLastGybeHeadings %tmp.238 257 12 29 ];
+        %tmp.238 = getv self :mLastGybeHeadings;
+        %tmp.239 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.239 257 35 47 ];
+        %tmp.240 = 1;
+        aputv %tmp.238 %tmp.240 %tmp.239;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 260 12 ]
+        %tmp.241 = self;
+        symbol [ recordManeuver %tmp.242 260 12 26 ];
+        %tmp.242 = getv function %tmp.241 :recordManeuver;
+        %tmp.243 = false;
+        %tmp.244 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.244 260 34 46 ];
+        %tmp.245 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.245 260 48 61 ];
+        invoke %tmp.241 %tmp.242(%tmp.243, %tmp.244, %tmp.245);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 263 12 ]
+        symbol [ mParent %tmp.247 263 12 19 ];
+        %tmp.247 = getv ? :mParent;
+        symbol [ getLapTracker %tmp.248 263 20 33 ];
+        %tmp.248 = getv function %tmp.247 :getLapTracker;
+        %tmp.249 = invoke %tmp.247 %tmp.248();
+        symbol [ recordManeuverInLap %tmp.250 263 36 55 ];
+        %tmp.250 = getv function %tmp.249 :recordManeuverInLap;
+        %tmp.251 = newd 6;
+        %tmp.252 = "isTack";
+        %tmp.253 = false;
+        %tmp.254 = dup %tmp.251;
+        %tmp.255 = aputv %tmp.254 %tmp.252 %tmp.253;
+        %tmp.256 = "heading";
+        %tmp.257 = lgetv %afterHeading.8;
+        symbol [ afterHeading %tmp.257 265 29 41 ];
+        %tmp.258 = dup %tmp.255;
+        %tmp.259 = aputv %tmp.258 %tmp.256 %tmp.257;
+        %tmp.260 = "angle";
+        %tmp.261 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.261 266 27 40 ];
+        %tmp.262 = dup %tmp.259;
+        %tmp.263 = aputv %tmp.262 %tmp.260 %tmp.261;
+        %tmp.264 = "time";
+        symbol [ Time %tmp.265 267 26 30 ];
+        %tmp.265 = getm $.Toybox.Time;
+        symbol [ now %tmp.266 267 31 34 ];
+        %tmp.266 = getv function %tmp.265 :now;
+        %tmp.267 = invoke %tmp.265 %tmp.266();
+        symbol [ value %tmp.268 267 37 42 ];
+        %tmp.268 = getv function %tmp.267 :value;
+        %tmp.269 = invoke %tmp.267 %tmp.268();
+        %tmp.270 = dup %tmp.263;
+        %tmp.271 = aputv %tmp.270 %tmp.264 %tmp.269;
+        %tmp.272 = "timestamp";
+        symbol [ System %tmp.273 268 31 37 ];
+        %tmp.273 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.274 268 38 46 ];
+        %tmp.274 = getv function %tmp.273 :getTimer;
+        %tmp.275 = invoke %tmp.273 %tmp.274();
+        %tmp.276 = dup %tmp.271;
+        %tmp.277 = aputv %tmp.276 %tmp.272 %tmp.275;
+        %tmp.278 = "lapNumber";
+        %tmp.279 = lgetv %currentLap.10;
+        symbol [ currentLap %tmp.279 269 31 41 ];
+        %tmp.280 = dup %tmp.277;
+        %tmp.281 = aputv %tmp.280 %tmp.278 %tmp.279;
+        invoke %tmp.249 %tmp.250(%tmp.281);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 272 12 ]
+        %tmp.282 = self;
+        symbol [ log %tmp.283 272 12 15 ];
+        %tmp.283 = getv function %tmp.282 :log;
+        %tmp.284 = "Gybe #";
+        symbol [ mGybeCount %tmp.286 272 27 37 ];
+        %tmp.286 = getv ? :mGybeCount;
+        %tmp.287 = add %tmp.284 %tmp.286;
+        %tmp.288 = " recorded: angle=";
+        %tmp.289 = add %tmp.287 %tmp.288;
+        %tmp.290 = lgetv %maneuverAngle.9;
+        symbol [ maneuverAngle %tmp.290 272 62 75 ];
+        %tmp.291 = add %tmp.289 %tmp.290;
+        %tmp.292 = "°, lap=";
+        %tmp.293 = add %tmp.291 %tmp.292;
+        %tmp.294 = lgetv %currentLap.10;
+        symbol [ currentLap %tmp.294 272 90 100 ];
+        %tmp.295 = add %tmp.293 %tmp.294;
+        invoke %tmp.282 %tmp.283(%tmp.295);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_248_15_273_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_223_8_273_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_186_53_274_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 272; @symbol_functiondef = [resetTackGybeCountsForLap,272,13,38]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 276; @symbol_functiondef = [resetTackGybeCountsForLap,276,13,38]; ]
     function resetTackGybeCountsForLap() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_272_41_280_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 273 4 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_276_41_284_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 277 8 ]
         %tmp.1 = self;
-        symbol [ log %tmp.2 273 4 7 ];
+        symbol [ log %tmp.2 277 8 11 ];
         %tmp.2 = getv function %tmp.1 :log;
         %tmp.3 = "Resetting tack/gybe counts for new lap";
         invoke %tmp.1 %tmp.2(%tmp.3);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_272_41_280_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_276_41_284_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 283; @symbol_functiondef = [recordManeuver,283,13,27]; @symbol_param<0> = [isTack,283,28,34]; @symbol_param<1> = [heading,283,36,43]; @symbol_param<2> = [angle,283,45,50]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 287; @symbol_functiondef = [recordManeuver,287,13,27]; @symbol_param<0> = [isTack,287,28,34]; @symbol_param<1> = [heading,287,36,43]; @symbol_param<2> = [angle,287,45,50]; ]
     function recordManeuver(isTack, heading, angle) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 285 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 289 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_stop" ]
         %maneuver.1 = local;
-        symbol [ maneuver %maneuver.1 285 12 20 ];
+        symbol [ maneuver %maneuver.1 289 12 20 ];
         %tmp.1 = newd 6;
         %tmp.2 = "isTack";
         %tmp.3 = lgetv %isTack;
-        symbol [ isTack %tmp.3 286 24 30 ];
+        symbol [ isTack %tmp.3 290 24 30 ];
         %tmp.4 = dup %tmp.1;
         %tmp.5 = aputv %tmp.4 %tmp.2 %tmp.3;
         %tmp.6 = "heading";
         %tmp.7 = lgetv %heading;
-        symbol [ heading %tmp.7 287 25 32 ];
+        symbol [ heading %tmp.7 291 25 32 ];
         %tmp.8 = dup %tmp.5;
         %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
         %tmp.10 = "angle";
         %tmp.11 = lgetv %angle;
-        symbol [ angle %tmp.11 288 23 28 ];
+        symbol [ angle %tmp.11 292 23 28 ];
         %tmp.12 = dup %tmp.9;
         %tmp.13 = aputv %tmp.12 %tmp.10 %tmp.11;
         %tmp.14 = "time";
-        symbol [ Time %tmp.15 289 22 26 ];
+        symbol [ Time %tmp.15 293 22 26 ];
         %tmp.15 = getm $.Toybox.Time;
-        symbol [ now %tmp.16 289 27 30 ];
+        symbol [ now %tmp.16 293 27 30 ];
         %tmp.16 = getv function %tmp.15 :now;
         %tmp.17 = invoke %tmp.15 %tmp.16();
-        symbol [ value %tmp.18 289 33 38 ];
+        symbol [ value %tmp.18 293 33 38 ];
         %tmp.18 = getv function %tmp.17 :value;
         %tmp.19 = invoke %tmp.17 %tmp.18();
         %tmp.20 = dup %tmp.13;
         %tmp.21 = aputv %tmp.20 %tmp.14 %tmp.19;
         %tmp.22 = "timestamp";
-        symbol [ System %tmp.23 290 27 33 ];
+        symbol [ System %tmp.23 294 27 33 ];
         %tmp.23 = getm $.Toybox.System;
-        symbol [ getTimer %tmp.24 290 34 42 ];
+        symbol [ getTimer %tmp.24 294 34 42 ];
         %tmp.24 = getv function %tmp.23 :getTimer;
         %tmp.25 = invoke %tmp.23 %tmp.24();
         %tmp.26 = dup %tmp.21;
         %tmp.27 = aputv %tmp.26 %tmp.22 %tmp.25;
         %tmp.28 = "lapNumber";
-        symbol [ mParent %tmp.30 291 27 34 ];
+        symbol [ mParent %tmp.30 295 27 34 ];
         %tmp.30 = getv ? :mParent;
-        symbol [ getLapTracker %tmp.31 291 35 48 ];
+        symbol [ getLapTracker %tmp.31 295 35 48 ];
         %tmp.31 = getv function %tmp.30 :getLapTracker;
         %tmp.32 = invoke %tmp.30 %tmp.31();
-        symbol [ getCurrentLap %tmp.33 291 51 64 ];
+        symbol [ getCurrentLap %tmp.33 295 51 64 ];
         %tmp.33 = getv function %tmp.32 :getCurrentLap;
         %tmp.34 = invoke %tmp.32 %tmp.33();
         %tmp.35 = dup %tmp.27;
         %tmp.36 = aputv %tmp.35 %tmp.28 %tmp.34;
         lputv %maneuver.1 %tmp.36;
-        symbol [ maneuver %maneuver.1 285 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 295 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_stop" ]
+        symbol [ maneuver %maneuver.1 289 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 299 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_stop" ]
         %index.2 = local;
-        symbol [ index %index.2 295 12 17 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_begin:
+        symbol [ index %index.2 299 12 17 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_begin:
         %tmp.37 = lgetv %isTack;
-        symbol [ isTack %tmp.37 295 20 26 ];
-        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_true:
-        symbol [ mTackCount %tmp.39 295 30 40 ];
+        symbol [ isTack %tmp.37 299 20 26 ];
+        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_true:
+        symbol [ mTackCount %tmp.39 299 30 40 ];
         %tmp.39 = getv ? :mTackCount;
         %tmp.40 = 1;
         %tmp.41 = sub %tmp.39 %tmp.40;
         push %tmp.41;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_false:
-        symbol [ mGybeCount %tmp.43 295 49 59 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_false:
+        symbol [ mGybeCount %tmp.43 299 49 59 ];
         %tmp.43 = getv ? :mGybeCount;
         %tmp.44 = 1;
         %tmp.45 = sub %tmp.43 %tmp.44;
         push %tmp.45;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_end:
-        %tmp.46 = phi [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_begin] [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_true] [%tmp.45 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_false] [%tmp.46 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_295_20_295_63_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_end:
+        %tmp.46 = phi [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_begin] [%tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_true] [%tmp.45 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_false] [%tmp.46 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_299_20_299_63_end];
         lputv %index.2 %tmp.46;
-        symbol [ index %index.2 295 12 17 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 298 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_12_298_42_begin:
+        symbol [ index %index.2 299 12 17 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 302 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_12_302_42_begin:
         %tmp.47 = lgetv %index.2;
-        symbol [ index %tmp.47 298 12 17 ];
+        symbol [ index %tmp.47 302 12 17 ];
         %tmp.48 = 0;
         %tmp.49 = gte %tmp.47 %tmp.48;
-        bf %tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_26_298_42_true:
+        bf %tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_26_302_42_true:
         %tmp.50 = lgetv %index.2;
-        symbol [ index %tmp.50 298 26 31 ];
-        symbol [ mParent %tmp.52 298 34 41 ];
+        symbol [ index %tmp.50 302 26 31 ];
+        symbol [ mParent %tmp.52 302 34 41 ];
         %tmp.52 = getv ? :mParent;
-        symbol [ MAX_MANEUVERS %tmp.53 298 42 55 ];
+        symbol [ MAX_MANEUVERS %tmp.53 302 42 55 ];
         %tmp.53 = getv %tmp.52 :MAX_MANEUVERS;
         %tmp.54 = lt %tmp.50 %tmp.53;
         push %tmp.54;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_26_298_42_end:
-        %tmp.55 = phi [%tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_12_298_42_begin] [%tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_26_298_42_true] [%tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_26_298_42_end];
-        bf %tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_57_306_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 299 12 ]
-        symbol [ mManeuverHistory %tmp.56 299 12 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_26_302_42_end:
+        %tmp.55 = phi [%tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_12_302_42_begin] [%tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_26_302_42_true] [%tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_26_302_42_end];
+        bf %tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_57_310_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 303 12 ]
+        symbol [ mManeuverHistory %tmp.56 303 12 28 ];
         %tmp.56 = getv self :mManeuverHistory;
         %tmp.57 = lgetv %maneuver.1;
-        symbol [ maneuver %tmp.57 299 38 46 ];
+        symbol [ maneuver %tmp.57 303 38 46 ];
         %tmp.58 = lgetv %index.2;
-        symbol [ index %tmp.58 299 29 34 ];
+        symbol [ index %tmp.58 303 29 34 ];
         aputv %tmp.56 %tmp.58 %tmp.57;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 302 12 ]
-        symbol [ mParent %tmp.60 302 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 306 12 ]
+        symbol [ mParent %tmp.60 306 12 19 ];
         %tmp.60 = getv ? :mParent;
-        symbol [ getLapTracker %tmp.61 302 20 33 ];
+        symbol [ getLapTracker %tmp.61 306 20 33 ];
         %tmp.61 = getv function %tmp.60 :getLapTracker;
         %tmp.62 = invoke %tmp.60 %tmp.61();
-        symbol [ recordManeuverInLap %tmp.63 302 36 55 ];
+        symbol [ recordManeuverInLap %tmp.63 306 36 55 ];
         %tmp.63 = getv function %tmp.62 :recordManeuverInLap;
         %tmp.64 = lgetv %maneuver.1;
-        symbol [ maneuver %tmp.64 302 56 64 ];
+        symbol [ maneuver %tmp.64 306 56 64 ];
         invoke %tmp.62 %tmp.63(%tmp.64);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 305 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 309 12 ]
         %tmp.65 = self;
-        symbol [ updateManeuverStats %tmp.66 305 12 31 ];
+        symbol [ updateManeuverStats %tmp.66 309 12 31 ];
         %tmp.66 = getv function %tmp.65 :updateManeuverStats;
         invoke %tmp.65 %tmp.66();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_57_306_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_298_8_306_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_283_52_307_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_57_310_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_302_8_310_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_287_52_311_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 310; @symbol_functiondef = [updateManeuverStats,310,13,32]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 314; @symbol_functiondef = [updateManeuverStats,314,13,32]; ]
     function updateManeuverStats() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 311 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 315 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %tackCount.1 = local;
-        symbol [ tackCount %tackCount.1 311 12 21 ];
+        symbol [ tackCount %tackCount.1 315 12 21 ];
         %tmp.1 = 0;
         lputv %tackCount.1 %tmp.1;
-        symbol [ tackCount %tackCount.1 311 12 21 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 312 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ tackCount %tackCount.1 315 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 316 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %gybeCount.2 = local;
-        symbol [ gybeCount %gybeCount.2 312 12 21 ];
+        symbol [ gybeCount %gybeCount.2 316 12 21 ];
         %tmp.2 = 0;
         lputv %gybeCount.2 %tmp.2;
-        symbol [ gybeCount %gybeCount.2 312 12 21 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 313 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ gybeCount %gybeCount.2 316 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 317 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %tackSum.3 = local;
-        symbol [ tackSum %tackSum.3 313 12 19 ];
+        symbol [ tackSum %tackSum.3 317 12 19 ];
         %tmp.3 = 0;
         lputv %tackSum.3 %tmp.3;
-        symbol [ tackSum %tackSum.3 313 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 314 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ tackSum %tackSum.3 317 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 318 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %gybeSum.4 = local;
-        symbol [ gybeSum %gybeSum.4 314 12 19 ];
+        symbol [ gybeSum %gybeSum.4 318 12 19 ];
         %tmp.4 = 0;
         lputv %gybeSum.4 %tmp.4;
-        symbol [ gybeSum %gybeSum.4 314 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 315 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ gybeSum %gybeSum.4 318 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 319 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %maxTack.5 = local;
-        symbol [ maxTack %maxTack.5 315 12 19 ];
+        symbol [ maxTack %maxTack.5 319 12 19 ];
         %tmp.5 = 0;
         lputv %maxTack.5 %tmp.5;
-        symbol [ maxTack %maxTack.5 315 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 316 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ maxTack %maxTack.5 319 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 320 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %maxGybe.6 = local;
-        symbol [ maxGybe %maxGybe.6 316 12 19 ];
+        symbol [ maxGybe %maxGybe.6 320 12 19 ];
         %tmp.6 = 0;
         lputv %maxGybe.6 %tmp.6;
-        symbol [ maxGybe %maxGybe.6 316 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 319 8 ]
-        for @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_incr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_init:
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_begin" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_end" ]
+        symbol [ maxGybe %maxGybe.6 320 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 323 8 ]
+        for @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_incr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_init:
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_begin" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_end" ]
         %i.7 = local;
-        symbol [ i %i.7 319 17 18 ];
+        symbol [ i %i.7 323 17 18 ];
         %tmp.7 = 0;
         lputv %i.7 %tmp.7;
-        symbol [ i %i.7 319 17 18 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_test:
+        symbol [ i %i.7 323 17 18 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_test:
         %tmp.8 = lgetv %i.7;
-        symbol [ i %tmp.8 319 24 25 ];
-        symbol [ mParent %tmp.10 319 28 35 ];
+        symbol [ i %tmp.8 323 24 25 ];
+        symbol [ mParent %tmp.10 323 28 35 ];
         %tmp.10 = getv ? :mParent;
-        symbol [ MAX_MANEUVERS %tmp.11 319 36 49 ];
+        symbol [ MAX_MANEUVERS %tmp.11 323 36 49 ];
         %tmp.11 = getv %tmp.10 :MAX_MANEUVERS;
         %tmp.12 = lt %tmp.8 %tmp.11;
-        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_56_337_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 320 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_12_336_12_if_stmt:
-        symbol [ mManeuverHistory %tmp.14 320 16 32 ];
+        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_56_341_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 324 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_12_340_12_if_stmt:
+        symbol [ mManeuverHistory %tmp.14 324 16 32 ];
         %tmp.14 = getv ? :mManeuverHistory;
         %tmp.15 = lgetv %i.7;
-        symbol [ i %tmp.15 320 33 34 ];
+        symbol [ i %tmp.15 324 33 34 ];
         %tmp.16 = agetv %tmp.14 %tmp.15;
         %tmp.17 = null;
         %tmp.18 = ne %tmp.16 %tmp.17;
-        bf %tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_12_336_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_12_336_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_45_336_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 321 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_45_336_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_45_336_12_stop" ]
+        bf %tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_12_340_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_12_340_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_45_340_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 325 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_45_340_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_45_340_12_stop" ]
         %maneuver.8 = local;
-        symbol [ maneuver %maneuver.8 321 20 28 ];
-        symbol [ mManeuverHistory %tmp.20 321 31 47 ];
+        symbol [ maneuver %maneuver.8 325 20 28 ];
+        symbol [ mManeuverHistory %tmp.20 325 31 47 ];
         %tmp.20 = getv ? :mManeuverHistory;
         %tmp.21 = lgetv %i.7;
-        symbol [ i %tmp.21 321 48 49 ];
+        symbol [ i %tmp.21 325 48 49 ];
         %tmp.22 = agetv %tmp.20 %tmp.21;
         lputv %maneuver.8 %tmp.22;
-        symbol [ maneuver %maneuver.8 321 20 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 323 16 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_stmt:
+        symbol [ maneuver %maneuver.8 325 20 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 327 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_stmt:
         %tmp.23 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.23 323 20 28 ];
+        symbol [ maneuver %tmp.23 327 20 28 ];
         %tmp.24 = "isTack";
         %tmp.25 = agetv %tmp.23 %tmp.24;
-        bf %tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_40_329_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 324 20 ]
+        bf %tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_40_333_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 328 20 ]
         %tmp.28 = lgetv %tackCount.1;
-        symbol [ tackCount %tmp.28 324 20 29 ];
+        symbol [ tackCount %tmp.28 328 20 29 ];
         %tmp.29 = add %tmp.28 1;
         lputv %tackCount.1 %tmp.29;
-        symbol [ tackCount %tackCount.1 324 20 29 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 325 20 ]
+        symbol [ tackCount %tackCount.1 328 20 29 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 329 20 ]
         %tmp.30 = lgetv %tackSum.3;
-        symbol [ tackSum %tmp.30 325 20 27 ];
+        symbol [ tackSum %tmp.30 329 20 27 ];
         %tmp.31 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.31 325 31 39 ];
+        symbol [ maneuver %tmp.31 329 31 39 ];
         %tmp.32 = "angle";
         %tmp.33 = agetv %tmp.31 %tmp.32;
         %tmp.34 = add %tmp.30 %tmp.33;
         lputv %tackSum.3 %tmp.34;
-        symbol [ tackSum %tackSum.3 325 20 27 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 326 20 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_20_328_20_if_stmt:
+        symbol [ tackSum %tackSum.3 329 20 27 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 330 20 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_20_332_20_if_stmt:
         %tmp.35 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.35 326 24 32 ];
+        symbol [ maneuver %tmp.35 330 24 32 ];
         %tmp.36 = "angle";
         %tmp.37 = agetv %tmp.35 %tmp.36;
         %tmp.38 = lgetv %maxTack.5;
-        symbol [ maxTack %tmp.38 326 44 51 ];
+        symbol [ maxTack %tmp.38 330 44 51 ];
         %tmp.39 = gt %tmp.37 %tmp.38;
-        bf %tmp.39 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_20_328_20_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_20_328_20_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_53_328_20_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 327 24 ]
+        bf %tmp.39 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_20_332_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_20_332_20_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_53_332_20_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 331 24 ]
         %tmp.40 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.40 327 34 42 ];
+        symbol [ maneuver %tmp.40 331 34 42 ];
         %tmp.41 = "angle";
         %tmp.42 = agetv %tmp.40 %tmp.41;
         lputv %maxTack.5 %tmp.42;
-        symbol [ maxTack %maxTack.5 327 24 31 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_53_328_20_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_20_328_20_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_326_20_328_20_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_40_329_16_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_329_23_335_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 330 20 ]
+        symbol [ maxTack %maxTack.5 331 24 31 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_53_332_20_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_20_332_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_330_20_332_20_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_40_333_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_333_23_339_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 334 20 ]
         %tmp.45 = lgetv %gybeCount.2;
-        symbol [ gybeCount %tmp.45 330 20 29 ];
+        symbol [ gybeCount %tmp.45 334 20 29 ];
         %tmp.46 = add %tmp.45 1;
         lputv %gybeCount.2 %tmp.46;
-        symbol [ gybeCount %gybeCount.2 330 20 29 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 331 20 ]
+        symbol [ gybeCount %gybeCount.2 334 20 29 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 335 20 ]
         %tmp.47 = lgetv %gybeSum.4;
-        symbol [ gybeSum %tmp.47 331 20 27 ];
+        symbol [ gybeSum %tmp.47 335 20 27 ];
         %tmp.48 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.48 331 31 39 ];
+        symbol [ maneuver %tmp.48 335 31 39 ];
         %tmp.49 = "angle";
         %tmp.50 = agetv %tmp.48 %tmp.49;
         %tmp.51 = add %tmp.47 %tmp.50;
         lputv %gybeSum.4 %tmp.51;
-        symbol [ gybeSum %gybeSum.4 331 20 27 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 332 20 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_20_334_20_if_stmt:
+        symbol [ gybeSum %gybeSum.4 335 20 27 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 336 20 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_20_338_20_if_stmt:
         %tmp.52 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.52 332 24 32 ];
+        symbol [ maneuver %tmp.52 336 24 32 ];
         %tmp.53 = "angle";
         %tmp.54 = agetv %tmp.52 %tmp.53;
         %tmp.55 = lgetv %maxGybe.6;
-        symbol [ maxGybe %tmp.55 332 44 51 ];
+        symbol [ maxGybe %tmp.55 336 44 51 ];
         %tmp.56 = gt %tmp.54 %tmp.55;
-        bf %tmp.56 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_20_334_20_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_20_334_20_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_53_334_20_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 333 24 ]
+        bf %tmp.56 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_20_338_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_20_338_20_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_53_338_20_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 337 24 ]
         %tmp.57 = lgetv %maneuver.8;
-        symbol [ maneuver %tmp.57 333 34 42 ];
+        symbol [ maneuver %tmp.57 337 34 42 ];
         %tmp.58 = "angle";
         %tmp.59 = agetv %tmp.57 %tmp.58;
         lputv %maxGybe.6 %tmp.59;
-        symbol [ maxGybe %maxGybe.6 333 24 31 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_53_334_20_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_20_334_20_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_332_20_334_20_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_329_23_335_16_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_16_335_16_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_45_336_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_12_336_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_320_12_336_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_56_337_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_incr:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 319 ]
+        symbol [ maxGybe %maxGybe.6 337 24 31 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_53_338_20_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_20_338_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_336_20_338_20_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_333_23_339_16_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_327_16_339_16_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_45_340_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_12_340_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_324_12_340_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_56_341_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_incr:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 323 ]
         %tmp.62 = lgetv %i.7;
-        symbol [ i %tmp.62 319 51 52 ];
+        symbol [ i %tmp.62 323 51 52 ];
         %tmp.63 = add %tmp.62 1;
         lputv %i.7 %tmp.63;
-        symbol [ i %i.7 319 51 52 ];
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_test;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_319_8_337_8_for_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 340 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ i %i.7 323 51 52 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_test;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_323_8_341_8_for_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 344 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %avgTack.9 = local;
-        symbol [ avgTack %avgTack.9 340 12 19 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_begin:
+        symbol [ avgTack %avgTack.9 344 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_begin:
         %tmp.64 = lgetv %tackCount.1;
-        symbol [ tackCount %tmp.64 340 23 32 ];
+        symbol [ tackCount %tmp.64 344 23 32 ];
         %tmp.65 = 0;
         %tmp.66 = gt %tmp.64 %tmp.65;
-        bf %tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_true:
+        bf %tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_true:
         %tmp.67 = lgetv %tackSum.3;
-        symbol [ tackSum %tmp.67 340 40 47 ];
+        symbol [ tackSum %tmp.67 344 40 47 ];
         %tmp.68 = lgetv %tackCount.1;
-        symbol [ tackCount %tmp.68 340 50 59 ];
+        symbol [ tackCount %tmp.68 344 50 59 ];
         %tmp.69 = div %tmp.67 %tmp.68;
         push %tmp.69;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_false:
         %tmp.70 = 0;
         push %tmp.70;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_end:
-        %tmp.71 = phi [%tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_begin] [%tmp.69 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_true] [%tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_false] [%tmp.71 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_340_22_340_62_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_end:
+        %tmp.71 = phi [%tmp.66 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_begin] [%tmp.69 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_true] [%tmp.70 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_false] [%tmp.71 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_344_22_344_62_end];
         lputv %avgTack.9 %tmp.71;
-        symbol [ avgTack %avgTack.9 340 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 341 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop" ]
+        symbol [ avgTack %avgTack.9 344 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 345 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop" ]
         %avgGybe.10 = local;
-        symbol [ avgGybe %avgGybe.10 341 12 19 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_begin:
+        symbol [ avgGybe %avgGybe.10 345 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_begin:
         %tmp.72 = lgetv %gybeCount.2;
-        symbol [ gybeCount %tmp.72 341 23 32 ];
+        symbol [ gybeCount %tmp.72 345 23 32 ];
         %tmp.73 = 0;
         %tmp.74 = gt %tmp.72 %tmp.73;
-        bf %tmp.74 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_true:
+        bf %tmp.74 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_true:
         %tmp.75 = lgetv %gybeSum.4;
-        symbol [ gybeSum %tmp.75 341 40 47 ];
+        symbol [ gybeSum %tmp.75 345 40 47 ];
         %tmp.76 = lgetv %gybeCount.2;
-        symbol [ gybeCount %tmp.76 341 50 59 ];
+        symbol [ gybeCount %tmp.76 345 50 59 ];
         %tmp.77 = div %tmp.75 %tmp.76;
         push %tmp.77;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_false:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_false:
         %tmp.78 = 0;
         push %tmp.78;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_end:
-        %tmp.79 = phi [%tmp.74 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_begin] [%tmp.77 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_true] [%tmp.78 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_false] [%tmp.79 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_341_22_341_62_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_end:
+        %tmp.79 = phi [%tmp.74 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_begin] [%tmp.77 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_true] [%tmp.78 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_false] [%tmp.79 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_345_22_345_62_end];
         lputv %avgGybe.10 %tmp.79;
-        symbol [ avgGybe %avgGybe.10 341 12 19 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 344 8 ]
+        symbol [ avgGybe %avgGybe.10 345 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 348 8 ]
         %tmp.80 = newd 4;
         %tmp.81 = "avgTackAngle";
         %tmp.82 = lgetv %avgTack.9;
-        symbol [ avgTack %tmp.82 345 30 37 ];
+        symbol [ avgTack %tmp.82 349 30 37 ];
         %tmp.83 = dup %tmp.80;
         %tmp.84 = aputv %tmp.83 %tmp.81 %tmp.82;
         %tmp.85 = "avgGybeAngle";
         %tmp.86 = lgetv %avgGybe.10;
-        symbol [ avgGybe %tmp.86 346 30 37 ];
+        symbol [ avgGybe %tmp.86 350 30 37 ];
         %tmp.87 = dup %tmp.84;
         %tmp.88 = aputv %tmp.87 %tmp.85 %tmp.86;
         %tmp.89 = "maxTackAngle";
         %tmp.90 = lgetv %maxTack.5;
-        symbol [ maxTack %tmp.90 347 30 37 ];
+        symbol [ maxTack %tmp.90 351 30 37 ];
         %tmp.91 = dup %tmp.88;
         %tmp.92 = aputv %tmp.91 %tmp.89 %tmp.90;
         %tmp.93 = "maxGybeAngle";
         %tmp.94 = lgetv %maxGybe.6;
-        symbol [ maxGybe %tmp.94 348 30 37 ];
+        symbol [ maxGybe %tmp.94 352 30 37 ];
         %tmp.95 = dup %tmp.92;
         %tmp.96 = aputv %tmp.95 %tmp.93 %tmp.94;
-        symbol [ mManeuverStats ? 344 8 22 ];
+        symbol [ mManeuverStats ? 348 8 22 ];
         putv self :mManeuverStats %tmp.96;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_310_35_350_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_314_35_354_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 353; @symbol_functiondef = [getRecommendedWindDirection,353,13,40]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 357; @symbol_functiondef = [getRecommendedWindDirection,357,13,40]; ]
     function getRecommendedWindDirection() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 354 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 358 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_stop" ]
         %shouldUpdate.1 = local;
-        symbol [ shouldUpdate %shouldUpdate.1 354 12 24 ];
+        symbol [ shouldUpdate %shouldUpdate.1 358 12 24 ];
         %tmp.1 = false;
         lputv %shouldUpdate.1 %tmp.1;
-        symbol [ shouldUpdate %shouldUpdate.1 354 12 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 355 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_stop" ]
+        symbol [ shouldUpdate %shouldUpdate.1 358 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 359 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_stop" ]
         %newWindDirection.2 = local;
-        symbol [ newWindDirection %newWindDirection.2 355 12 28 ];
-        symbol [ mParent %tmp.3 355 31 38 ];
+        symbol [ newWindDirection %newWindDirection.2 359 12 28 ];
+        symbol [ mParent %tmp.3 359 31 38 ];
         %tmp.3 = getv ? :mParent;
-        symbol [ getWindDirection %tmp.4 355 39 55 ];
+        symbol [ getWindDirection %tmp.4 359 39 55 ];
         %tmp.4 = getv function %tmp.3 :getWindDirection;
         %tmp.5 = invoke %tmp.3 %tmp.4();
         lputv %newWindDirection.2 %tmp.5;
-        symbol [ newWindDirection %newWindDirection.2 355 12 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 358 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_stmt:
-        symbol [ mTackCount %tmp.7 358 12 22 ];
+        symbol [ newWindDirection %newWindDirection.2 359 12 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 362 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_stmt:
+        symbol [ mTackCount %tmp.7 362 12 22 ];
         %tmp.7 = getv ? :mTackCount;
         %tmp.8 = 2;
         %tmp.9 = gte %tmp.7 %tmp.8;
-        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 359 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_stop" ]
+        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 363 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_stop" ]
         %heading1.3 = local;
-        symbol [ heading1 %heading1.3 359 16 24 ];
-        symbol [ mLastTackHeadings %tmp.11 359 27 44 ];
+        symbol [ heading1 %heading1.3 363 16 24 ];
+        symbol [ mLastTackHeadings %tmp.11 363 27 44 ];
         %tmp.11 = getv ? :mLastTackHeadings;
         %tmp.12 = 0;
         %tmp.13 = agetv %tmp.11 %tmp.12;
         lputv %heading1.3 %tmp.13;
-        symbol [ heading1 %heading1.3 359 16 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 360 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_stop" ]
+        symbol [ heading1 %heading1.3 363 16 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 364 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_stop" ]
         %heading2.4 = local;
-        symbol [ heading2 %heading2.4 360 16 24 ];
-        symbol [ mLastTackHeadings %tmp.15 360 27 44 ];
+        symbol [ heading2 %heading2.4 364 16 24 ];
+        symbol [ mLastTackHeadings %tmp.15 364 27 44 ];
         %tmp.15 = getv ? :mLastTackHeadings;
         %tmp.16 = 1;
         %tmp.17 = agetv %tmp.15 %tmp.16;
         lputv %heading2.4 %tmp.17;
-        symbol [ heading2 %heading2.4 360 16 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 362 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_16_362_45_begin:
+        symbol [ heading2 %heading2.4 364 16 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 366 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_16_366_45_begin:
         %tmp.18 = lgetv %heading1.3;
-        symbol [ heading1 %tmp.18 362 16 24 ];
+        symbol [ heading1 %tmp.18 366 16 24 ];
         %tmp.19 = 0;
         %tmp.20 = ne %tmp.18 %tmp.19;
-        bf %tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_33_362_45_true:
+        bf %tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_33_366_45_true:
         %tmp.21 = lgetv %heading2.4;
-        symbol [ heading2 %tmp.21 362 33 41 ];
+        symbol [ heading2 %tmp.21 366 33 41 ];
         %tmp.22 = 0;
         %tmp.23 = ne %tmp.21 %tmp.22;
         push %tmp.23;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_33_362_45_end:
-        %tmp.24 = phi [%tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_16_362_45_begin] [%tmp.23 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_33_362_45_true] [%tmp.24 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_33_362_45_end];
-        bf %tmp.24 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 364 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_33_366_45_end:
+        %tmp.24 = phi [%tmp.20 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_16_366_45_begin] [%tmp.23 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_33_366_45_true] [%tmp.24 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_33_366_45_end];
+        bf %tmp.24 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 368 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_stop" ]
         %bisector.5 = local;
-        symbol [ bisector %bisector.5 364 20 28 ];
-        symbol [ mParent %tmp.26 364 31 38 ];
+        symbol [ bisector %bisector.5 368 20 28 ];
+        symbol [ mParent %tmp.26 368 31 38 ];
         %tmp.26 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.27 364 39 57 ];
+        symbol [ getAngleCalculator %tmp.27 368 39 57 ];
         %tmp.27 = getv function %tmp.26 :getAngleCalculator;
         %tmp.28 = invoke %tmp.26 %tmp.27();
-        symbol [ calculateBisectorAngle %tmp.29 364 60 82 ];
+        symbol [ calculateBisectorAngle %tmp.29 368 60 82 ];
         %tmp.29 = getv function %tmp.28 :calculateBisectorAngle;
         %tmp.30 = lgetv %heading1.3;
-        symbol [ heading1 %tmp.30 364 83 91 ];
+        symbol [ heading1 %tmp.30 368 83 91 ];
         %tmp.31 = lgetv %heading2.4;
-        symbol [ heading2 %tmp.31 364 93 101 ];
+        symbol [ heading2 %tmp.31 368 93 101 ];
         %tmp.32 = invoke %tmp.28 %tmp.29(%tmp.30, %tmp.31);
         lputv %bisector.5 %tmp.32;
-        symbol [ bisector %bisector.5 364 20 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 365 16 ]
+        symbol [ bisector %bisector.5 368 20 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 369 16 ]
         %tmp.33 = lgetv %bisector.5;
-        symbol [ bisector %tmp.33 365 35 43 ];
+        symbol [ bisector %tmp.33 369 35 43 ];
         lputv %newWindDirection.2 %tmp.33;
-        symbol [ newWindDirection %newWindDirection.2 365 16 32 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 367 16 ]
+        symbol [ newWindDirection %newWindDirection.2 369 16 32 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 371 16 ]
         %tmp.34 = self;
-        symbol [ log %tmp.35 367 16 19 ];
+        symbol [ log %tmp.35 371 16 19 ];
         %tmp.35 = getv function %tmp.34 :log;
         %tmp.36 = "Auto wind calculation from tacks:";
         invoke %tmp.34 %tmp.35(%tmp.36);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 368 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 372 16 ]
         %tmp.37 = self;
-        symbol [ log %tmp.38 368 16 19 ];
+        symbol [ log %tmp.38 372 16 19 ];
         %tmp.38 = getv function %tmp.37 :log;
         %tmp.39 = "- Heading 1: ";
         %tmp.40 = lgetv %heading1.3;
-        symbol [ heading1 %tmp.40 368 38 46 ];
+        symbol [ heading1 %tmp.40 372 38 46 ];
         %tmp.41 = add %tmp.39 %tmp.40;
         %tmp.42 = "°";
         %tmp.43 = add %tmp.41 %tmp.42;
         invoke %tmp.37 %tmp.38(%tmp.43);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 369 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 373 16 ]
         %tmp.44 = self;
-        symbol [ log %tmp.45 369 16 19 ];
+        symbol [ log %tmp.45 373 16 19 ];
         %tmp.45 = getv function %tmp.44 :log;
         %tmp.46 = "- Heading 2: ";
         %tmp.47 = lgetv %heading2.4;
-        symbol [ heading2 %tmp.47 369 38 46 ];
+        symbol [ heading2 %tmp.47 373 38 46 ];
         %tmp.48 = add %tmp.46 %tmp.47;
         %tmp.49 = "°";
         %tmp.50 = add %tmp.48 %tmp.49;
         invoke %tmp.44 %tmp.45(%tmp.50);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 370 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 374 16 ]
         %tmp.51 = self;
-        symbol [ log %tmp.52 370 16 19 ];
+        symbol [ log %tmp.52 374 16 19 ];
         %tmp.52 = getv function %tmp.51 :log;
         %tmp.53 = "- Calculated bisector: ";
         %tmp.54 = lgetv %bisector.5;
-        symbol [ bisector %tmp.54 370 48 56 ];
+        symbol [ bisector %tmp.54 374 48 56 ];
         %tmp.55 = add %tmp.53 %tmp.54;
         %tmp.56 = "°";
         %tmp.57 = add %tmp.55 %tmp.56;
         invoke %tmp.51 %tmp.52(%tmp.57);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 373 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 377 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_stop" ]
         %windDiff.6 = local;
-        symbol [ windDiff %windDiff.6 373 20 28 ];
-        symbol [ mParent %tmp.59 373 31 38 ];
+        symbol [ windDiff %windDiff.6 377 20 28 ];
+        symbol [ mParent %tmp.59 377 31 38 ];
         %tmp.59 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.60 373 39 57 ];
+        symbol [ getAngleCalculator %tmp.60 377 39 57 ];
         %tmp.60 = getv function %tmp.59 :getAngleCalculator;
         %tmp.61 = invoke %tmp.59 %tmp.60();
-        symbol [ angleAbsDifference %tmp.62 373 60 78 ];
+        symbol [ angleAbsDifference %tmp.62 377 60 78 ];
         %tmp.62 = getv function %tmp.61 :angleAbsDifference;
         %tmp.63 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.63 373 79 95 ];
-        symbol [ mParent %tmp.65 373 97 104 ];
+        symbol [ newWindDirection %tmp.63 377 79 95 ];
+        symbol [ mParent %tmp.65 377 97 104 ];
         %tmp.65 = getv ? :mParent;
-        symbol [ getWindDirection %tmp.66 373 105 121 ];
+        symbol [ getWindDirection %tmp.66 377 105 121 ];
         %tmp.66 = getv function %tmp.65 :getWindDirection;
         %tmp.67 = invoke %tmp.65 %tmp.66();
         %tmp.68 = invoke %tmp.61 %tmp.62(%tmp.63, %tmp.67);
         lputv %windDiff.6 %tmp.68;
-        symbol [ windDiff %windDiff.6 373 20 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 374 16 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_16_378_16_if_stmt:
+        symbol [ windDiff %windDiff.6 377 20 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 378 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_16_382_16_if_stmt:
         %tmp.69 = lgetv %windDiff.6;
-        symbol [ windDiff %tmp.69 374 20 28 ];
+        symbol [ windDiff %tmp.69 378 20 28 ];
         %tmp.70 = 120;
         %tmp.71 = gt %tmp.69 %tmp.70;
-        bf %tmp.71 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_16_378_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_16_378_16_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_36_378_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 376 20 ]
-        symbol [ mParent %tmp.73 376 39 46 ];
+        bf %tmp.71 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_16_382_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_16_382_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_36_382_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 380 20 ]
+        symbol [ mParent %tmp.73 380 39 46 ];
         %tmp.73 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.74 376 47 65 ];
+        symbol [ getAngleCalculator %tmp.74 380 47 65 ];
         %tmp.74 = getv function %tmp.73 :getAngleCalculator;
         %tmp.75 = invoke %tmp.73 %tmp.74();
-        symbol [ normalizeAngle %tmp.76 376 68 82 ];
+        symbol [ normalizeAngle %tmp.76 380 68 82 ];
         %tmp.76 = getv function %tmp.75 :normalizeAngle;
         %tmp.77 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.77 376 83 99 ];
+        symbol [ newWindDirection %tmp.77 380 83 99 ];
         %tmp.78 = 180;
         %tmp.79 = add %tmp.77 %tmp.78;
         %tmp.80 = invoke %tmp.75 %tmp.76(%tmp.79);
         lputv %newWindDirection.2 %tmp.80;
-        symbol [ newWindDirection %newWindDirection.2 376 20 36 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 377 20 ]
+        symbol [ newWindDirection %newWindDirection.2 380 20 36 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 381 20 ]
         %tmp.81 = self;
-        symbol [ log %tmp.82 377 20 23 ];
+        symbol [ log %tmp.82 381 20 23 ];
         %tmp.82 = getv function %tmp.81 :log;
         %tmp.83 = "- Wind direction adjusted by 180° due to large difference";
         invoke %tmp.81 %tmp.82(%tmp.83);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_36_378_16_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_16_378_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_374_16_378_16_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 380 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_36_382_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_16_382_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_378_16_382_16_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 384 16 ]
         %tmp.84 = true;
         lputv %shouldUpdate.1 %tmp.84;
-        symbol [ shouldUpdate %shouldUpdate.1 380 16 28 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_48_381_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_12_381_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_29_382_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_false:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 384 13 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_13_409_8_if_stmt:
-        symbol [ mGybeCount %tmp.86 384 17 27 ];
+        symbol [ shouldUpdate %shouldUpdate.1 384 16 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_48_385_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_366_12_385_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_29_386_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 388 13 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_13_413_8_if_stmt:
+        symbol [ mGybeCount %tmp.86 388 17 27 ];
         %tmp.86 = getv ? :mGybeCount;
         %tmp.87 = 2;
         %tmp.88 = gte %tmp.86 %tmp.87;
-        bf %tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_13_409_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_13_409_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 385 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_stop" ]
+        bf %tmp.88 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_13_413_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_13_413_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 389 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_stop" ]
         %heading1.7 = local;
-        symbol [ heading1 %heading1.7 385 16 24 ];
-        symbol [ mLastGybeHeadings %tmp.90 385 27 44 ];
+        symbol [ heading1 %heading1.7 389 16 24 ];
+        symbol [ mLastGybeHeadings %tmp.90 389 27 44 ];
         %tmp.90 = getv ? :mLastGybeHeadings;
         %tmp.91 = 0;
         %tmp.92 = agetv %tmp.90 %tmp.91;
         lputv %heading1.7 %tmp.92;
-        symbol [ heading1 %heading1.7 385 16 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 386 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_stop" ]
+        symbol [ heading1 %heading1.7 389 16 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 390 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_stop" ]
         %heading2.8 = local;
-        symbol [ heading2 %heading2.8 386 16 24 ];
-        symbol [ mLastGybeHeadings %tmp.94 386 27 44 ];
+        symbol [ heading2 %heading2.8 390 16 24 ];
+        symbol [ mLastGybeHeadings %tmp.94 390 27 44 ];
         %tmp.94 = getv ? :mLastGybeHeadings;
         %tmp.95 = 1;
         %tmp.96 = agetv %tmp.94 %tmp.95;
         lputv %heading2.8 %tmp.96;
-        symbol [ heading2 %heading2.8 386 16 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 388 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_16_388_45_begin:
+        symbol [ heading2 %heading2.8 390 16 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 392 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_16_392_45_begin:
         %tmp.97 = lgetv %heading1.7;
-        symbol [ heading1 %tmp.97 388 16 24 ];
+        symbol [ heading1 %tmp.97 392 16 24 ];
         %tmp.98 = 0;
         %tmp.99 = ne %tmp.97 %tmp.98;
-        bf %tmp.99 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_33_388_45_true:
+        bf %tmp.99 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_33_392_45_true:
         %tmp.100 = lgetv %heading2.8;
-        symbol [ heading2 %tmp.100 388 33 41 ];
+        symbol [ heading2 %tmp.100 392 33 41 ];
         %tmp.101 = 0;
         %tmp.102 = ne %tmp.100 %tmp.101;
         push %tmp.102;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_33_388_45_end:
-        %tmp.103 = phi [%tmp.99 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_16_388_45_begin] [%tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_33_388_45_true] [%tmp.103 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_33_388_45_end];
-        bf %tmp.103 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 390 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_33_392_45_end:
+        %tmp.103 = phi [%tmp.99 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_16_392_45_begin] [%tmp.102 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_33_392_45_true] [%tmp.103 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_33_392_45_end];
+        bf %tmp.103 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 394 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_stop" ]
         %bisector.9 = local;
-        symbol [ bisector %bisector.9 390 20 28 ];
-        symbol [ mParent %tmp.105 390 31 38 ];
+        symbol [ bisector %bisector.9 394 20 28 ];
+        symbol [ mParent %tmp.105 394 31 38 ];
         %tmp.105 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.106 390 39 57 ];
+        symbol [ getAngleCalculator %tmp.106 394 39 57 ];
         %tmp.106 = getv function %tmp.105 :getAngleCalculator;
         %tmp.107 = invoke %tmp.105 %tmp.106();
-        symbol [ calculateBisectorAngle %tmp.108 390 60 82 ];
+        symbol [ calculateBisectorAngle %tmp.108 394 60 82 ];
         %tmp.108 = getv function %tmp.107 :calculateBisectorAngle;
         %tmp.109 = lgetv %heading1.7;
-        symbol [ heading1 %tmp.109 390 83 91 ];
+        symbol [ heading1 %tmp.109 394 83 91 ];
         %tmp.110 = lgetv %heading2.8;
-        symbol [ heading2 %tmp.110 390 93 101 ];
+        symbol [ heading2 %tmp.110 394 93 101 ];
         %tmp.111 = invoke %tmp.107 %tmp.108(%tmp.109, %tmp.110);
         lputv %bisector.9 %tmp.111;
-        symbol [ bisector %bisector.9 390 20 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 391 16 ]
-        symbol [ mParent %tmp.113 391 35 42 ];
+        symbol [ bisector %bisector.9 394 20 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 395 16 ]
+        symbol [ mParent %tmp.113 395 35 42 ];
         %tmp.113 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.114 391 43 61 ];
+        symbol [ getAngleCalculator %tmp.114 395 43 61 ];
         %tmp.114 = getv function %tmp.113 :getAngleCalculator;
         %tmp.115 = invoke %tmp.113 %tmp.114();
-        symbol [ normalizeAngle %tmp.116 391 64 78 ];
+        symbol [ normalizeAngle %tmp.116 395 64 78 ];
         %tmp.116 = getv function %tmp.115 :normalizeAngle;
         %tmp.117 = lgetv %bisector.9;
-        symbol [ bisector %tmp.117 391 79 87 ];
+        symbol [ bisector %tmp.117 395 79 87 ];
         %tmp.118 = 180;
         %tmp.119 = add %tmp.117 %tmp.118;
         %tmp.120 = invoke %tmp.115 %tmp.116(%tmp.119);
         lputv %newWindDirection.2 %tmp.120;
-        symbol [ newWindDirection %newWindDirection.2 391 16 32 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 393 16 ]
+        symbol [ newWindDirection %newWindDirection.2 395 16 32 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 397 16 ]
         %tmp.121 = self;
-        symbol [ log %tmp.122 393 16 19 ];
+        symbol [ log %tmp.122 397 16 19 ];
         %tmp.122 = getv function %tmp.121 :log;
         %tmp.123 = "Auto wind calculation from gybes:";
         invoke %tmp.121 %tmp.122(%tmp.123);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 394 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 398 16 ]
         %tmp.124 = self;
-        symbol [ log %tmp.125 394 16 19 ];
+        symbol [ log %tmp.125 398 16 19 ];
         %tmp.125 = getv function %tmp.124 :log;
         %tmp.126 = "- Heading 1: ";
         %tmp.127 = lgetv %heading1.7;
-        symbol [ heading1 %tmp.127 394 38 46 ];
+        symbol [ heading1 %tmp.127 398 38 46 ];
         %tmp.128 = add %tmp.126 %tmp.127;
         %tmp.129 = "°";
         %tmp.130 = add %tmp.128 %tmp.129;
         invoke %tmp.124 %tmp.125(%tmp.130);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 395 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 399 16 ]
         %tmp.131 = self;
-        symbol [ log %tmp.132 395 16 19 ];
+        symbol [ log %tmp.132 399 16 19 ];
         %tmp.132 = getv function %tmp.131 :log;
         %tmp.133 = "- Heading 2: ";
         %tmp.134 = lgetv %heading2.8;
-        symbol [ heading2 %tmp.134 395 38 46 ];
+        symbol [ heading2 %tmp.134 399 38 46 ];
         %tmp.135 = add %tmp.133 %tmp.134;
         %tmp.136 = "°";
         %tmp.137 = add %tmp.135 %tmp.136;
         invoke %tmp.131 %tmp.132(%tmp.137);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 396 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 400 16 ]
         %tmp.138 = self;
-        symbol [ log %tmp.139 396 16 19 ];
+        symbol [ log %tmp.139 400 16 19 ];
         %tmp.139 = getv function %tmp.138 :log;
         %tmp.140 = "- Calculated bisector: ";
         %tmp.141 = lgetv %bisector.9;
-        symbol [ bisector %tmp.141 396 48 56 ];
+        symbol [ bisector %tmp.141 400 48 56 ];
         %tmp.142 = add %tmp.140 %tmp.141;
         %tmp.143 = "°";
         %tmp.144 = add %tmp.142 %tmp.143;
         invoke %tmp.138 %tmp.139(%tmp.144);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 397 16 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 401 16 ]
         %tmp.145 = self;
-        symbol [ log %tmp.146 397 16 19 ];
+        symbol [ log %tmp.146 401 16 19 ];
         %tmp.146 = getv function %tmp.145 :log;
         %tmp.147 = "- Wind direction (bisector + 180°): ";
         %tmp.148 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.148 397 61 77 ];
+        symbol [ newWindDirection %tmp.148 401 61 77 ];
         %tmp.149 = add %tmp.147 %tmp.148;
         %tmp.150 = "°";
         %tmp.151 = add %tmp.149 %tmp.150;
         invoke %tmp.145 %tmp.146(%tmp.151);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 400 16 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 404 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_stop" ]
         %windDiff.10 = local;
-        symbol [ windDiff %windDiff.10 400 20 28 ];
-        symbol [ mParent %tmp.153 400 31 38 ];
+        symbol [ windDiff %windDiff.10 404 20 28 ];
+        symbol [ mParent %tmp.153 404 31 38 ];
         %tmp.153 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.154 400 39 57 ];
+        symbol [ getAngleCalculator %tmp.154 404 39 57 ];
         %tmp.154 = getv function %tmp.153 :getAngleCalculator;
         %tmp.155 = invoke %tmp.153 %tmp.154();
-        symbol [ angleAbsDifference %tmp.156 400 60 78 ];
+        symbol [ angleAbsDifference %tmp.156 404 60 78 ];
         %tmp.156 = getv function %tmp.155 :angleAbsDifference;
         %tmp.157 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.157 400 79 95 ];
-        symbol [ mParent %tmp.159 400 97 104 ];
+        symbol [ newWindDirection %tmp.157 404 79 95 ];
+        symbol [ mParent %tmp.159 404 97 104 ];
         %tmp.159 = getv ? :mParent;
-        symbol [ getWindDirection %tmp.160 400 105 121 ];
+        symbol [ getWindDirection %tmp.160 404 105 121 ];
         %tmp.160 = getv function %tmp.159 :getWindDirection;
         %tmp.161 = invoke %tmp.159 %tmp.160();
         %tmp.162 = invoke %tmp.155 %tmp.156(%tmp.157, %tmp.161);
         lputv %windDiff.10 %tmp.162;
-        symbol [ windDiff %windDiff.10 400 20 28 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 401 16 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_16_405_16_if_stmt:
+        symbol [ windDiff %windDiff.10 404 20 28 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 405 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_16_409_16_if_stmt:
         %tmp.163 = lgetv %windDiff.10;
-        symbol [ windDiff %tmp.163 401 20 28 ];
+        symbol [ windDiff %tmp.163 405 20 28 ];
         %tmp.164 = 120;
         %tmp.165 = gt %tmp.163 %tmp.164;
-        bf %tmp.165 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_16_405_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_16_405_16_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_36_405_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 403 20 ]
-        symbol [ mParent %tmp.167 403 39 46 ];
+        bf %tmp.165 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_16_409_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_16_409_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_36_409_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 407 20 ]
+        symbol [ mParent %tmp.167 407 39 46 ];
         %tmp.167 = getv ? :mParent;
-        symbol [ getAngleCalculator %tmp.168 403 47 65 ];
+        symbol [ getAngleCalculator %tmp.168 407 47 65 ];
         %tmp.168 = getv function %tmp.167 :getAngleCalculator;
         %tmp.169 = invoke %tmp.167 %tmp.168();
-        symbol [ normalizeAngle %tmp.170 403 68 82 ];
+        symbol [ normalizeAngle %tmp.170 407 68 82 ];
         %tmp.170 = getv function %tmp.169 :normalizeAngle;
         %tmp.171 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.171 403 83 99 ];
+        symbol [ newWindDirection %tmp.171 407 83 99 ];
         %tmp.172 = 180;
         %tmp.173 = add %tmp.171 %tmp.172;
         %tmp.174 = invoke %tmp.169 %tmp.170(%tmp.173);
         lputv %newWindDirection.2 %tmp.174;
-        symbol [ newWindDirection %newWindDirection.2 403 20 36 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 404 20 ]
+        symbol [ newWindDirection %newWindDirection.2 407 20 36 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 408 20 ]
         %tmp.175 = self;
-        symbol [ log %tmp.176 404 20 23 ];
+        symbol [ log %tmp.176 408 20 23 ];
         %tmp.176 = getv function %tmp.175 :log;
         %tmp.177 = "- Wind direction adjusted by 180° due to large difference";
         invoke %tmp.175 %tmp.176(%tmp.177);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_36_405_16_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_16_405_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_401_16_405_16_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 407 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_36_409_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_16_409_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_405_16_409_16_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 411 16 ]
         %tmp.178 = true;
         lputv %shouldUpdate.1 %tmp.178;
-        symbol [ shouldUpdate %shouldUpdate.1 407 16 28 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_48_408_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_12_408_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_34_409_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_13_409_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_384_13_409_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_358_8_409_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 411 8 ]
+        symbol [ shouldUpdate %shouldUpdate.1 411 16 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_48_412_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_392_12_412_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_34_413_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_13_413_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_388_13_413_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_362_8_413_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 415 8 ]
         %tmp.179 = newd 2;
         %tmp.180 = "updateNeeded";
         %tmp.181 = lgetv %shouldUpdate.1;
-        symbol [ shouldUpdate %tmp.181 412 30 42 ];
+        symbol [ shouldUpdate %tmp.181 416 30 42 ];
         %tmp.182 = dup %tmp.179;
         %tmp.183 = aputv %tmp.182 %tmp.180 %tmp.181;
         %tmp.184 = "direction";
         %tmp.185 = lgetv %newWindDirection.2;
-        symbol [ newWindDirection %tmp.185 413 27 43 ];
+        symbol [ newWindDirection %tmp.185 417 27 43 ];
         %tmp.186 = dup %tmp.183;
         %tmp.187 = aputv %tmp.186 %tmp.184 %tmp.185;
         ret %tmp.187;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_353_43_415_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_357_43_419_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 418; @symbol_functiondef = [getTackCount,418,13,25]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 422; @symbol_functiondef = [getTackCount,422,13,25]; ]
     function getTackCount() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_418_28_420_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 419 8 ]
-        symbol [ mTackCount %tmp.2 419 15 25 ];
-        %tmp.2 = getv ? :mTackCount;
-        ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_418_28_420_4_stop:
-    }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 422; @symbol_functiondef = [getGybeCount,422,13,25]; ]
-    function getGybeCount() {
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_422_28_424_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 423 8 ]
-        symbol [ mGybeCount %tmp.2 423 15 25 ];
-        %tmp.2 = getv ? :mGybeCount;
+        symbol [ mTackCount %tmp.2 423 15 25 ];
+        %tmp.2 = getv ? :mTackCount;
         ret %tmp.2;
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_422_28_424_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 426; @symbol_functiondef = [getLastTackAngle,426,13,29]; ]
-    function getLastTackAngle() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_426_32_428_4_start:
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 426; @symbol_functiondef = [getGybeCount,426,13,25]; ]
+    function getGybeCount() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_426_28_428_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 427 8 ]
-        symbol [ mLastTackAngle %tmp.2 427 15 29 ];
-        %tmp.2 = getv ? :mLastTackAngle;
+        symbol [ mGybeCount %tmp.2 427 15 25 ];
+        %tmp.2 = getv ? :mGybeCount;
         ret %tmp.2;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_426_32_428_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_426_28_428_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 430; @symbol_functiondef = [getLastGybeAngle,430,13,29]; ]
-    function getLastGybeAngle() {
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 430; @symbol_functiondef = [getLastTackAngle,430,13,29]; ]
+    function getLastTackAngle() {
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_430_32_432_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 431 8 ]
-        symbol [ mLastGybeAngle %tmp.2 431 15 29 ];
-        %tmp.2 = getv ? :mLastGybeAngle;
+        symbol [ mLastTackAngle %tmp.2 431 15 29 ];
+        %tmp.2 = getv ? :mLastTackAngle;
         ret %tmp.2;
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_430_32_432_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 434; @symbol_functiondef = [getManeuverStats,434,13,29]; ]
-    function getManeuverStats() {
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 434; @symbol_functiondef = [getLastGybeAngle,434,13,29]; ]
+    function getLastGybeAngle() {
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_434_32_436_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 435 8 ]
-        symbol [ mManeuverStats %tmp.2 435 15 29 ];
-        %tmp.2 = getv ? :mManeuverStats;
+        symbol [ mLastGybeAngle %tmp.2 435 15 29 ];
+        %tmp.2 = getv ? :mLastGybeAngle;
         ret %tmp.2;
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_434_32_436_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 439; @symbol_functiondef = [getData,439,13,20]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 438; @symbol_functiondef = [getManeuverStats,438,13,29]; ]
+    function getManeuverStats() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_438_32_440_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 439 8 ]
+        symbol [ mManeuverStats %tmp.2 439 15 29 ];
+        %tmp.2 = getv ? :mManeuverStats;
+        ret %tmp.2;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_438_32_440_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 443; @symbol_functiondef = [getData,443,13,20]; ]
     function getData() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_439_23_448_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 440 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_443_23_452_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc" 444 8 ]
         %tmp.1 = newd 6;
         %tmp.2 = "tackCount";
-        symbol [ mTackCount %tmp.4 441 27 37 ];
+        symbol [ mTackCount %tmp.4 445 27 37 ];
         %tmp.4 = getv ? :mTackCount;
         %tmp.5 = dup %tmp.1;
         %tmp.6 = aputv %tmp.5 %tmp.2 %tmp.4;
         %tmp.7 = "gybeCount";
-        symbol [ mGybeCount %tmp.9 442 27 37 ];
+        symbol [ mGybeCount %tmp.9 446 27 37 ];
         %tmp.9 = getv ? :mGybeCount;
         %tmp.10 = dup %tmp.6;
         %tmp.11 = aputv %tmp.10 %tmp.7 %tmp.9;
         %tmp.12 = "lastTackAngle";
-        symbol [ mLastTackAngle %tmp.14 443 31 45 ];
+        symbol [ mLastTackAngle %tmp.14 447 31 45 ];
         %tmp.14 = getv ? :mLastTackAngle;
         %tmp.15 = dup %tmp.11;
         %tmp.16 = aputv %tmp.15 %tmp.12 %tmp.14;
         %tmp.17 = "lastGybeAngle";
-        symbol [ mLastGybeAngle %tmp.19 444 31 45 ];
+        symbol [ mLastGybeAngle %tmp.19 448 31 45 ];
         %tmp.19 = getv ? :mLastGybeAngle;
         %tmp.20 = dup %tmp.16;
         %tmp.21 = aputv %tmp.20 %tmp.17 %tmp.19;
         %tmp.22 = "maneuverStats";
-        symbol [ mManeuverStats %tmp.24 445 31 45 ];
+        symbol [ mManeuverStats %tmp.24 449 31 45 ];
         %tmp.24 = getv ? :mManeuverStats;
         %tmp.25 = dup %tmp.21;
         %tmp.26 = aputv %tmp.25 %tmp.22 %tmp.24;
         %tmp.27 = "maneuverHistory";
-        symbol [ mManeuverHistory %tmp.29 446 33 49 ];
+        symbol [ mManeuverHistory %tmp.29 450 33 49 ];
         %tmp.29 = getv ? :mManeuverHistory;
         %tmp.30 = dup %tmp.26;
         %tmp.31 = aputv %tmp.30 %tmp.27 %tmp.29;
         ret %tmp.31;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_439_23_448_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ManeuverDetector_mc_443_23_452_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ManeuverDetector.mc"; @line = 2; ]
