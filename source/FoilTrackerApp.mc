@@ -22,7 +22,9 @@ class FoilTrackerApp extends Application.AppBase {
     private var mSessionFields; // Dictionary to hold session fields
     private var mLapFields;     // Dictionary to hold lap fields
 
-    // Constructor with initialization
+    private var mLastLapEndTime;      // Tracks the end time of the previous lap
+
+    // In the initialize function of FoilTrackerApp.mc
     function initialize() {
         AppBase.initialize();
         
@@ -33,6 +35,7 @@ class FoilTrackerApp extends Application.AppBase {
         mSession = null;
         mTimer = null;
         mWindTracker = new WindTracker();
+        mLastLapEndTime = null;  // Initialize to null
         
         // Initialize field collections
         mSessionFields = {};
@@ -924,7 +927,6 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
 
-    // Add lap marker efficiently
     function addLapMarker() {
         if (mSession == null || !mSession.isRecording()) {
             System.println("Cannot add lap marker - session not recording");
@@ -934,23 +936,42 @@ class FoilTrackerApp extends Application.AppBase {
         try {
             System.println("Adding lap marker");
             
-            // Get lap data
-            var lapData = getLapData();
-            
-            // Update field values from lap data
-            updateLapFieldsFromLapData(lapData);
-            
-            // Add the lap marker
-            mSession.addLap();
-            
-            // Notify the wind tracker
-            if (mWindTracker != null) {
-                mWindTracker.onLapMarked(null);
+            // Get current position safely
+            var currentPosition = null;
+            try {
+                currentPosition = Position.getInfo();
+            } catch (e) {
+                System.println("Warning: Could not get position info: " + e.getErrorMessage());
+                // Continue without position data
             }
             
-            System.println("Lap marker added");
+            // Add the lap marker to session
+            mSession.addLap();
+            System.println("Lap marker added to session");
+            
+            // Get and update lap fields
+            try {
+                var lapData = getLapData();
+                updateLapFieldsFromLapData(lapData);
+                System.println("Lap fields updated");
+            } catch (e) {
+                System.println("Warning: Error updating lap fields: " + e.getErrorMessage());
+                // Continue even if field update fails
+            }
+            
+            // Notify the wind tracker - with defensive programming
+            try {
+                if (mWindTracker != null) {
+                    var result = mWindTracker.onLapMarked(currentPosition);
+                    System.println("LapTracker notified, returned lap #" + result);
+                }
+            } catch (e) {
+                System.println("Error in wind tracker notification: " + e.getErrorMessage());
+                // Continue even if wind tracker notification fails
+            }
+            
         } catch (e) {
-            System.println("ERROR in addLapMarker: " + e.getErrorMessage());
+            System.println("CRITICAL ERROR in addLapMarker: " + e.getErrorMessage());
         }
     }
     

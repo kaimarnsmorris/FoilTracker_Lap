@@ -99,109 +99,94 @@ class WindAngleCalculator {
         mBufferIndex = (mBufferIndex + 1) % mParent.HEADING_BUFFER_SIZE;
     }
 
-    // Calculate weighted average heading over a time period with dynamic weighting
-    function calculateWeightedAverageHeading(startTime, endTime, isBeforeTack) {
-        var sumX = 0.0;
-        var sumY = 0.0;
-        var totalWeight = 0.0;
-        var debugHeadings = [];
-        var debugWeights = [];
-        var debugTimestamps = [];
-        var count = 0;
+// Calculate weighted average heading over a time period with dynamic weighting
+function calculateWeightedAverageHeading(startTime, endTime, isBeforeTack) {
+    var sumX = 0.0;
+    var sumY = 0.0;
+    var totalWeight = 0.0;
+    var count = 0;
+    
+    // Calculate total time window
+    var windowDuration = endTime - startTime;
+    
+    log("Calc weighted heading period: " + (startTime/1000) + "s to " + (endTime/1000) + "s, " + 
+        (isBeforeTack ? "before tack" : "after tack"));
+    
+    // Collect all valid headings and timestamps within the time window
+    var headings = [];
+    var timestamps = [];
+    
+    for (var i = 0; i < HEADING_HISTORY_SIZE; i++) {
+        var entry = mHeadingHistory[i];
         
-        // Calculate total time window
-        var windowDuration = endTime - startTime;
-        
-        log("Calc weighted heading period: " + (startTime/1000) + "s to " + (endTime/1000) + "s, " + 
-            (isBeforeTack ? "before tack" : "after tack"));
-        
-        // Collect all valid headings and timestamps within the time window
-        var headings = [];
-        var timestamps = [];
-        
-        for (var i = 0; i < HEADING_HISTORY_SIZE; i++) {
-            var entry = mHeadingHistory[i];
-            
-            // Skip invalid entries
-            if (!entry["valid"]) {
-                continue;
-            }
-            
-            var timestamp = entry["timestamp"];
-            
-            // Check if entry is within time period
-            if (timestamp >= startTime && timestamp <= endTime) {
-                headings.add(entry["heading"]);
-                timestamps.add(timestamp);
-                count++;
-            }
+        // Skip invalid entries
+        if (!entry["valid"]) {
+            continue;
         }
         
-        // If no valid entries, return null
-        if (count == 0) {
-            log("No valid heading entries found in period");
-            return null;
+        var timestamp = entry["timestamp"];
+        
+        // Check if entry is within time period
+        if (timestamp >= startTime && timestamp <= endTime) {
+            headings.add(entry["heading"]);
+            timestamps.add(timestamp);
+            count++;
         }
-        
-        // Weight range will be 1 to N (where N is the number of points)
-        var maxWeight = count;
-        
-        // Calculate weights and weighted sum
-        for (var i = 0; i < headings.size(); i++) {
-            var heading = headings[i];
-            var timestamp = timestamps[i];
-            
-            // Calculate relative position in time window (0.0 to 1.0)
-            var relativePosition = (timestamp - startTime) / (1.0 * windowDuration);
-            
-            // Assign weight based on position and whether it's before or after tack
-            var weight;
-            if (isBeforeTack) {
-                // For before tack: earlier timestamps (smaller relativePosition) get higher weight
-                weight = 1.0 + (maxWeight - 1.0) * (1.0 - relativePosition);  // Weight range: 1.0 to maxWeight
-            } else {
-                // For after tack: later timestamps (larger relativePosition) get higher weight
-                weight = 1.0 + (maxWeight - 1.0) * relativePosition;  // Weight range: 1.0 to maxWeight
-            }
-            
-            // Convert heading to radians for vector calculation
-            var rad = Math.toRadians(heading);
-            
-            // Add weighted vector components
-            sumX += Math.cos(rad) * weight;
-            sumY += Math.sin(rad) * weight;
-            totalWeight += weight;
-            
-            // Store for debugging (max 5 entries)
-            if (debugHeadings.size() < 5) {
-                debugHeadings.add(heading);
-                debugWeights.add(weight.format("%.1f"));
-                debugTimestamps.add(((timestamp - startTime)/1000).format("%.0f"));
-            }
-        }
-        
-        // Calculate weighted average heading
-        var avgX = sumX / totalWeight;
-        var avgY = sumY / totalWeight;
-        
-        // Calculate average heading in degrees
-        var avgHeading = Math.toDegrees(Math.atan2(avgY, avgX));
-        
-        // Normalize to 0-360
-        var normalizedHeading = normalizeAngle(avgHeading);
-        
-        // Log debug information
-        log("Weighted heading calc: " + count + " points, sample: " + debugHeadings + 
-            " (at " + debugTimestamps + "s, weights: " + debugWeights + "), avg: " + 
-            normalizedHeading.format("%.6f") + "°");
-        
-        // Return both the calculated average and the raw data
-        return {
-            "average" => normalizedHeading,
-            "headings" => headings,
-            "timestamps" => timestamps
-        };
     }
+    
+    // If no valid entries, return null
+    if (count == 0) {
+        log("No valid heading entries found in period");
+        return null;
+    }
+    
+    // Calculate weights and weighted sum
+    for (var i = 0; i < headings.size(); i++) {
+        var heading = headings[i];
+        var timestamp = timestamps[i];
+        
+        // Calculate relative position in time window (0.0 to 1.0)
+        var relativePosition = (timestamp - startTime) / (1.0 * windowDuration);
+        
+        // Assign weight based on position and whether it's before or after tack
+        var weight = 1.0;
+        if (isBeforeTack) {
+            // For before tack: earlier timestamps get higher weight
+            weight = 1.0 + count * (1.0 - relativePosition);
+        } else {
+            // For after tack: later timestamps get higher weight
+            weight = 1.0 + count * relativePosition;
+        }
+        
+        // Convert heading to radians for vector calculation
+        var rad = Math.toRadians(heading);
+        
+        // Add weighted vector components
+        sumX += Math.cos(rad) * weight;
+        sumY += Math.sin(rad) * weight;
+        totalWeight += weight;
+    }
+    
+    // Calculate weighted average heading
+    var avgX = sumX / totalWeight;
+    var avgY = sumY / totalWeight;
+    
+    // Calculate average heading in degrees
+    var avgHeading = Math.toDegrees(Math.atan2(avgY, avgX));
+    
+    // Normalize to 0-360
+    var avgNormalized = normalizeAngle(avgHeading);
+    
+    // Simple debugging with minimal array access
+    log("Weighted heading calc: " + count + " points, avg: " + avgNormalized.format("%.1f") + "°");
+    
+    // Return the result
+    return {
+        "average" => avgNormalized,
+        "headings" => headings,
+        "timestamps" => timestamps
+    };
+}
 
     // Store heading in history with timestamp
     function storeHeadingHistory(heading, timestamp) {

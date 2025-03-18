@@ -25,13 +25,12 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    // Handle select button press - Records lap (same as in main view)
     function onSelect() {
         var data = mModel.getData();
         
         // Check if the activity is recording and not paused
         var isActive = false;
-        if (data.hasKey("isRecording") && data["isRecording"]) {
+        if (data != null && data.hasKey("isRecording") && data["isRecording"]) {
             if (!(data.hasKey("sessionPaused") && data["sessionPaused"])) {
                 isActive = true;
             }
@@ -40,15 +39,23 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         if (isActive) {
             System.println("SELECT BUTTON PRESSED - ADDING LAP FROM VMG VIEW");
             
-            // Add a lap marker with all custom fields
-            mApp.addLapMarker();
-            
-            // Show lap feedback in the view if available
-            if (mView has :showLapFeedback) {
-                mView.showLapFeedback();
+            try {
+                // Add a lap marker with no arguments
+                if (mApp != null) {
+                    mApp.addLapMarker();
+                    System.println("App.addLapMarker() called successfully");
+                } else {
+                    System.println("Error: mApp is null");
+                }
+                
+                // Show lap feedback in the view if available
+                if (mView != null && mView has :showLapFeedback) {
+                    mView.showLapFeedback();
+                    System.println("View feedback shown");
+                }
+            } catch (e) {
+                System.println("ERROR in VMGDelegate.onSelect: " + e.getErrorMessage());
             }
-            
-            System.println("Lap marker added from VMG view");
         } else {
             System.println("Cannot add lap marker - not recording or paused");
         }

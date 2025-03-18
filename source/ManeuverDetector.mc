@@ -19,14 +19,19 @@ class ManeuverDetector {
     private var mManeuverStats;           // Statistics on maneuvers
     private var mManeuverTimestamp;       // Timestamp of last maneuver detection
     private var mPendingManeuver;         // Information about pending maneuver
-    
+
+    // Add these member variables to ManeuverDetector class
+    private var mDisplayTackCount;       // Count of tacks for display (including unreliable ones)
+    private var mDisplayGybeCount;       // Count of gybes for display (including unreliable ones)
+    private var mCurrentLapDisplayTackCount;  // Lap-specific display tack count
+    private var mCurrentLapDisplayGybeCount;  // Lap-specific display gybe count   
     // Initialize
     function initialize(parent) {
         mParent = parent;
         reset();
     }
     
-    // Reset detector
+    // Update the reset function to initialize the new counters
     function reset() {
         resetManeuverCounts();
         
@@ -43,10 +48,16 @@ class ManeuverDetector {
         mManeuverTimestamp = 0;
         mPendingManeuver = null;
         
+        // Reset display counters
+        mDisplayTackCount = 0;
+        mDisplayGybeCount = 0;
+        mCurrentLapDisplayTackCount = 0;
+        mCurrentLapDisplayGybeCount = 0;
+        
         log("ManeuverDetector reset");
     }
     
-    // Reset just the counters (used when wind direction changes)
+    // Update resetManeuverCounts to reset display counters too
     function resetManeuverCounts() {
         mTackCount = 0;
         mGybeCount = 0;
@@ -55,10 +66,16 @@ class ManeuverDetector {
         mLastTackHeadings = [0, 0];
         mLastGybeHeadings = [0, 0];
         
+        // Reset display counters
+        mDisplayTackCount = 0;
+        mDisplayGybeCount = 0;
+        mCurrentLapDisplayTackCount = 0;
+        mCurrentLapDisplayGybeCount = 0;
+        
         log("ManeuverDetector counters reset");
     }
     
-    // Detect maneuvers based on angle changes
+    // Update detectManeuver to increment display counters immediately
     function detectManeuver(heading, speed, currentTime, isStbdTack, isUpwind, windAngleLessCOG) {
         // Use a lower speed threshold for maneuver detection
         var speedThreshold = 2.0;
@@ -134,6 +151,19 @@ class ManeuverDetector {
             // Better classification based on point of sail
             isTack = lastUpwind;  // If upwind, it's a tack; if downwind, it's a gybe
             
+            // Increment display counter immediately
+            if (isTack) {
+                mDisplayTackCount++;
+                mCurrentLapDisplayTackCount++;
+                log("Display tack counter incremented to " + mDisplayTackCount + 
+                    " (lap: " + mCurrentLapDisplayTackCount + ")");
+            } else {
+                mDisplayGybeCount++;
+                mCurrentLapDisplayGybeCount++;
+                log("Display gybe counter incremented to " + mDisplayGybeCount + 
+                    " (lap: " + mCurrentLapDisplayGybeCount + ")");
+            }
+            
             log("Maneuver classified as " + (isTack ? "Tack" : "Gybe") + 
                 " (was " + (lastUpwind ? "upwind" : "downwind") + 
                 ", angle: " + lastWindAngleLessCOG + ")");
@@ -171,7 +201,7 @@ class ManeuverDetector {
         var afterVariation = calculateMaxVariation(afterHeadings);
         
         // Define max acceptable variation (e.g., 25 degrees)
-        var MAX_ACCEPTABLE_VARIATION = 15.0;
+        var MAX_ACCEPTABLE_VARIATION = 25.0;
         
         // Log the variations for debugging
         log("Heading variations - before: " + beforeVariation.format("%.1f") + 
@@ -237,7 +267,29 @@ class ManeuverDetector {
         mPendingManeuver = null;
     }
     
-    // Calculate maneuver angle based on heading history - with weighted averages
+    // New function to record unreliable maneuvers
+    function recordUnreliableManeuver(isTack, lapNumber) {
+        // Create a special maneuver record for unreliable maneuvers
+        var maneuver = {
+            "isTack" => isTack,
+            "heading" => 0,
+            "angle" => 0,
+            "time" => Time.now().value(),
+            "timestamp" => System.getTimer(),
+            "lapNumber" => lapNumber,
+            "isReliable" => false  // Mark as unreliable
+        };
+        
+        // Do NOT increment reliable counters here
+        // We only want to count reliable maneuvers for angle calculations
+        
+        // Record this unreliable maneuver in lap-specific tracking
+        mParent.getLapTracker().recordManeuverInLap(maneuver);
+        
+        log("Unreliable " + (isTack ? "tack" : "gybe") + " recorded - no angle, lap=" + lapNumber);
+    }
+
+    // Modified calculateManeuverAngle function to handle unreliable maneuvers
     function calculateManeuverAngle(pendingManeuver) {
         var maneuverTimestamp = pendingManeuver["timestamp"];
         var isTack = pendingManeuver["isTack"];
@@ -260,10 +312,16 @@ class ManeuverDetector {
         var beforeHeadingData = mParent.getAngleCalculator().calculateWeightedAverageHeading(beforeStart, beforeEnd, true);
         var afterHeadingData = mParent.getAngleCalculator().calculateWeightedAverageHeading(afterStart, afterEnd, false);
         
-        // If we don't have enough data, bail out
+        // Get current lap before processing the maneuver
+        var currentLap = mParent.getLapTracker().getCurrentLap();
+        
+        // If we don't have enough data, record as unreliable maneuver
         if (beforeHeadingData == null || afterHeadingData == null) {
             log("Cannot calculate " + (isTack ? "tack" : "gybe") + 
                 " angle - insufficient heading history data");
+                
+            // Record an unreliable maneuver with no angle
+            recordUnreliableManeuver(isTack, currentLap);
             return;
         }
         
@@ -272,9 +330,13 @@ class ManeuverDetector {
         var afterHeading = afterHeadingData["average"];
         
         // Check if the maneuver is reliable based on heading variations
-        if (!isReliableManeuver(beforeHeadingData, afterHeadingData)) {
+        var isReliable = isReliableManeuver(beforeHeadingData, afterHeadingData);
+        if (!isReliable) {
             log("Rejecting unreliable " + (isTack ? "tack" : "gybe") + 
                 " - excessive heading variation");
+                
+            // Record an unreliable maneuver with no angle
+            recordUnreliableManeuver(isTack, currentLap);
             return;
         }
         
@@ -291,9 +353,6 @@ class ManeuverDetector {
         log("Maneuver Angle: before=" + beforeHeading + "°, after=" + afterHeading + 
             "°, diff=" + maneuverAngle + "°, type=" + (isTack ? "Tack" : "Gybe") +
             ", reaching=" + (beforeReaching && afterReaching));
-        
-        // Get current lap before processing the maneuver
-        var currentLap = mParent.getLapTracker().getCurrentLap();
         
         // Process based on maneuver type
         if (isTack) {
@@ -323,7 +382,8 @@ class ManeuverDetector {
                 "angle" => maneuverAngle,
                 "time" => Time.now().value(),
                 "timestamp" => System.getTimer(),
-                "lapNumber" => currentLap
+                "lapNumber" => currentLap,
+                "isReliable" => true
             });
             
             log("Tack #" + mTackCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
@@ -354,11 +414,19 @@ class ManeuverDetector {
                 "angle" => maneuverAngle,
                 "time" => Time.now().value(),
                 "timestamp" => System.getTimer(),
-                "lapNumber" => currentLap
+                "lapNumber" => currentLap,
+                "isReliable" => true
             });
             
             log("Gybe #" + mGybeCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
         }
+    }
+
+    // Add reset method for lap-specific display counters
+    function resetLapDisplayCounters() {
+        mCurrentLapDisplayTackCount = 0;
+        mCurrentLapDisplayGybeCount = 0;
+        log("Lap-specific display counters reset");
     }
 
     function resetTackGybeCountsForLap() {
@@ -527,11 +595,15 @@ class ManeuverDetector {
         return mManeuverStats;
     }
     
-    // Get data for parent
+    // Update the getData method to include display counters
     function getData() {
         return {
             "tackCount" => mTackCount,
             "gybeCount" => mGybeCount,
+            "displayTackCount" => mDisplayTackCount,        // Display counter for all tacks
+            "displayGybeCount" => mDisplayGybeCount,        // Display counter for all gybes
+            "lapDisplayTackCount" => mCurrentLapDisplayTackCount,  // Lap-specific display tack count
+            "lapDisplayGybeCount" => mCurrentLapDisplayGybeCount,  // Lap-specific display gybe count
             "lastTackAngle" => mLastTackAngle,
             "lastGybeAngle" => mLastGybeAngle,
             "maneuverStats" => mManeuverStats,

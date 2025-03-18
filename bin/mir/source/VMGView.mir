@@ -871,733 +871,820 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc"; @line = 186; @symbol_functiondef = [onLayout,186,13,21]; @symbol_param<0> = [dc,186,22,24]; ]
     function onLayout(dc) {
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc"; @line = 192; @symbol_functiondef = [onUpdate,192,13,21]; @symbol_param<0> = [dc,192,22,24]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc"; @line = 191; @symbol_functiondef = [onUpdate,191,13,21]; @symbol_param<0> = [dc,191,22,24]; ]
     function onUpdate(dc) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 194 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 193 8 ]
         %tmp.1 = self;
-        symbol [ updateFromWindTracker %tmp.2 194 8 29 ];
+        symbol [ updateFromWindTracker %tmp.2 193 8 29 ];
         %tmp.2 = getv function %tmp.1 :updateFromWindTracker;
         invoke %tmp.1 %tmp.2();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 197 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 196 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %absWindAngle.1 = local;
-        symbol [ absWindAngle %absWindAngle.1 197 12 24 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_begin:
-        symbol [ mWindAngle %tmp.4 197 28 38 ];
+        symbol [ absWindAngle %absWindAngle.1 196 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_begin:
+        symbol [ mWindAngle %tmp.4 196 28 38 ];
         %tmp.4 = getv ? :mWindAngle;
         %tmp.5 = 0;
         %tmp.6 = lt %tmp.4 %tmp.5;
-        bf %tmp.6 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_true:
-        symbol [ mWindAngle %tmp.8 197 47 57 ];
+        bf %tmp.6 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_true:
+        symbol [ mWindAngle %tmp.8 196 47 57 ];
         %tmp.8 = getv ? :mWindAngle;
         %tmp.9 = sub 0 %tmp.8;
         push %tmp.9;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_false:
-        symbol [ mWindAngle %tmp.11 197 60 70 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_false:
+        symbol [ mWindAngle %tmp.11 196 60 70 ];
         %tmp.11 = getv ? :mWindAngle;
         push %tmp.11;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_end:
-        %tmp.12 = phi [%tmp.6 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_begin] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_true] [%tmp.11 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_false] [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_197_27_197_60_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_end:
+        %tmp.12 = phi [%tmp.6 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_begin] [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_true] [%tmp.11 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_false] [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_196_27_196_60_end];
         lputv %absWindAngle.1 %tmp.12;
-        symbol [ absWindAngle %absWindAngle.1 197 12 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 200 8 ]
+        symbol [ absWindAngle %absWindAngle.1 196 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 199 8 ]
         %tmp.13 = lgetv %dc;
-        symbol [ dc %tmp.13 200 8 10 ];
-        symbol [ setColor %tmp.14 200 11 19 ];
+        symbol [ dc %tmp.13 199 8 10 ];
+        symbol [ setColor %tmp.14 199 11 19 ];
         %tmp.14 = getv function %tmp.13 :setColor;
-        symbol [ Graphics %tmp.15 200 20 28 ];
+        symbol [ Graphics %tmp.15 199 20 28 ];
         %tmp.15 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.16 200 29 40 ];
+        symbol [ COLOR_BLACK %tmp.16 199 29 40 ];
         %tmp.16 = getv %tmp.15 :COLOR_BLACK;
-        symbol [ Graphics %tmp.17 200 42 50 ];
+        symbol [ Graphics %tmp.17 199 42 50 ];
         %tmp.17 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.18 200 51 62 ];
+        symbol [ COLOR_BLACK %tmp.18 199 51 62 ];
         %tmp.18 = getv %tmp.17 :COLOR_BLACK;
         invoke %tmp.13 %tmp.14(%tmp.16, %tmp.18);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 201 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 200 8 ]
         %tmp.19 = lgetv %dc;
-        symbol [ dc %tmp.19 201 8 10 ];
-        symbol [ clear %tmp.20 201 11 16 ];
+        symbol [ dc %tmp.19 200 8 10 ];
+        symbol [ clear %tmp.20 200 11 16 ];
         %tmp.20 = getv function %tmp.19 :clear;
         invoke %tmp.19 %tmp.20();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 204 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 203 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %width.2 = local;
-        symbol [ width %width.2 204 12 17 ];
+        symbol [ width %width.2 203 12 17 ];
         %tmp.21 = lgetv %dc;
-        symbol [ dc %tmp.21 204 20 22 ];
-        symbol [ getWidth %tmp.22 204 23 31 ];
+        symbol [ dc %tmp.21 203 20 22 ];
+        symbol [ getWidth %tmp.22 203 23 31 ];
         %tmp.22 = getv function %tmp.21 :getWidth;
         %tmp.23 = invoke %tmp.21 %tmp.22();
         lputv %width.2 %tmp.23;
-        symbol [ width %width.2 204 12 17 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 205 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+        symbol [ width %width.2 203 12 17 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 204 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %height.3 = local;
-        symbol [ height %height.3 205 12 18 ];
+        symbol [ height %height.3 204 12 18 ];
         %tmp.24 = lgetv %dc;
-        symbol [ dc %tmp.24 205 21 23 ];
-        symbol [ getHeight %tmp.25 205 24 33 ];
+        symbol [ dc %tmp.24 204 21 23 ];
+        symbol [ getHeight %tmp.25 204 24 33 ];
         %tmp.25 = getv function %tmp.24 :getHeight;
         %tmp.26 = invoke %tmp.24 %tmp.25();
         lputv %height.3 %tmp.26;
-        symbol [ height %height.3 205 12 18 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 208 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+        symbol [ height %height.3 204 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 207 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %vmgStr.4 = local;
-        symbol [ vmgStr %vmgStr.4 208 12 18 ];
-        symbol [ mVmg %tmp.28 208 21 25 ];
+        symbol [ vmgStr %vmgStr.4 207 12 18 ];
+        symbol [ mVmg %tmp.28 207 21 25 ];
         %tmp.28 = getv ? :mVmg;
-        symbol [ format %tmp.29 208 26 32 ];
+        symbol [ format %tmp.29 207 26 32 ];
         %tmp.29 = getv function %tmp.28 :format;
         %tmp.30 = "%.1f";
         %tmp.31 = invoke %tmp.28 %tmp.29(%tmp.30);
         lputv %vmgStr.4 %tmp.31;
-        symbol [ vmgStr %vmgStr.4 208 12 18 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 210 8 ]
+        symbol [ vmgStr %vmgStr.4 207 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 209 8 ]
         %tmp.32 = lgetv %dc;
-        symbol [ dc %tmp.32 210 8 10 ];
-        symbol [ setColor %tmp.33 210 11 19 ];
+        symbol [ dc %tmp.32 209 8 10 ];
+        symbol [ setColor %tmp.33 209 11 19 ];
         %tmp.33 = getv function %tmp.32 :setColor;
-        symbol [ Graphics %tmp.34 210 20 28 ];
+        symbol [ Graphics %tmp.34 209 20 28 ];
         %tmp.34 = getm $.Toybox.Graphics;
-        symbol [ COLOR_WHITE %tmp.35 210 29 40 ];
+        symbol [ COLOR_WHITE %tmp.35 209 29 40 ];
         %tmp.35 = getv %tmp.34 :COLOR_WHITE;
-        symbol [ Graphics %tmp.36 210 42 50 ];
+        symbol [ Graphics %tmp.36 209 42 50 ];
         %tmp.36 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.37 210 51 68 ];
+        symbol [ COLOR_TRANSPARENT %tmp.37 209 51 68 ];
         %tmp.37 = getv %tmp.36 :COLOR_TRANSPARENT;
         invoke %tmp.32 %tmp.33(%tmp.35, %tmp.37);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 212 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 211 8 ]
         %tmp.38 = lgetv %dc;
-        symbol [ dc %tmp.38 212 8 10 ];
-        symbol [ drawText %tmp.39 212 11 19 ];
+        symbol [ dc %tmp.38 211 8 10 ];
+        symbol [ drawText %tmp.39 211 11 19 ];
         %tmp.39 = getv function %tmp.38 :drawText;
         %tmp.40 = lgetv %width.2;
-        symbol [ width %tmp.40 212 20 25 ];
+        symbol [ width %tmp.40 211 20 25 ];
         %tmp.41 = 2;
         %tmp.42 = div %tmp.40 %tmp.41;
         %tmp.43 = 10;
-        symbol [ Graphics %tmp.44 212 33 41 ];
+        symbol [ Graphics %tmp.44 211 33 41 ];
         %tmp.44 = getm $.Toybox.Graphics;
-        symbol [ FONT_NUMBER_THAI_HOT %tmp.45 212 42 62 ];
+        symbol [ FONT_NUMBER_THAI_HOT %tmp.45 211 42 62 ];
         %tmp.45 = getv %tmp.44 :FONT_NUMBER_THAI_HOT;
         %tmp.46 = lgetv %vmgStr.4;
-        symbol [ vmgStr %tmp.46 212 64 70 ];
-        symbol [ Graphics %tmp.47 212 72 80 ];
+        symbol [ vmgStr %tmp.46 211 64 70 ];
+        symbol [ Graphics %tmp.47 211 72 80 ];
         %tmp.47 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.48 212 81 100 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.48 211 81 100 ];
         %tmp.48 = getv %tmp.47 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.38 %tmp.39(%tmp.42, %tmp.43, %tmp.45, %tmp.46, %tmp.48);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 215 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 214 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %textColor.5 = local;
-        symbol [ textColor %textColor.5 215 12 21 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_begin:
-        symbol [ mTackColorId %tmp.50 215 25 37 ];
+        symbol [ textColor %textColor.5 214 12 21 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_begin:
+        symbol [ mTackColorId %tmp.50 214 25 37 ];
         %tmp.50 = getv ? :mTackColorId;
         %tmp.51 = 1;
         %tmp.52 = eq %tmp.50 %tmp.51;
-        bf %tmp.52 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_true:
-        symbol [ Graphics %tmp.53 215 46 54 ];
+        bf %tmp.52 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_true:
+        symbol [ Graphics %tmp.53 214 46 54 ];
         %tmp.53 = getm $.Toybox.Graphics;
-        symbol [ COLOR_GREEN %tmp.54 215 55 66 ];
+        symbol [ COLOR_GREEN %tmp.54 214 55 66 ];
         %tmp.54 = getv %tmp.53 :COLOR_GREEN;
         push %tmp.54;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_false:
-        symbol [ Graphics %tmp.55 215 69 77 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_false:
+        symbol [ Graphics %tmp.55 214 69 77 ];
         %tmp.55 = getm $.Toybox.Graphics;
-        symbol [ COLOR_RED %tmp.56 215 78 87 ];
+        symbol [ COLOR_RED %tmp.56 214 78 87 ];
         %tmp.56 = getv %tmp.55 :COLOR_RED;
         push %tmp.56;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_end:
-        %tmp.57 = phi [%tmp.52 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_begin] [%tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_true] [%tmp.56 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_false] [%tmp.57 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_215_24_215_78_end];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_end:
+        %tmp.57 = phi [%tmp.52 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_begin] [%tmp.54 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_true] [%tmp.56 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_false] [%tmp.57 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_214_24_214_78_end];
         lputv %textColor.5 %tmp.57;
-        symbol [ textColor %textColor.5 215 12 21 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 218 8 ]
+        symbol [ textColor %textColor.5 214 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 217 8 ]
         %tmp.58 = lgetv %dc;
-        symbol [ dc %tmp.58 218 8 10 ];
-        symbol [ setColor %tmp.59 218 11 19 ];
+        symbol [ dc %tmp.58 217 8 10 ];
+        symbol [ setColor %tmp.59 217 11 19 ];
         %tmp.59 = getv function %tmp.58 :setColor;
         %tmp.60 = lgetv %textColor.5;
-        symbol [ textColor %tmp.60 218 20 29 ];
-        symbol [ Graphics %tmp.61 218 31 39 ];
+        symbol [ textColor %tmp.60 217 20 29 ];
+        symbol [ Graphics %tmp.61 217 31 39 ];
         %tmp.61 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.62 218 40 57 ];
+        symbol [ COLOR_TRANSPARENT %tmp.62 217 40 57 ];
         %tmp.62 = getv %tmp.61 :COLOR_TRANSPARENT;
         invoke %tmp.58 %tmp.59(%tmp.60, %tmp.62);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 219 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 218 8 ]
         %tmp.63 = lgetv %dc;
-        symbol [ dc %tmp.63 219 8 10 ];
-        symbol [ drawText %tmp.64 219 11 19 ];
+        symbol [ dc %tmp.63 218 8 10 ];
+        symbol [ drawText %tmp.64 218 11 19 ];
         %tmp.64 = getv function %tmp.63 :drawText;
         %tmp.65 = 90;
         %tmp.66 = 105;
-        symbol [ Graphics %tmp.67 219 29 37 ];
+        symbol [ Graphics %tmp.67 218 29 37 ];
         %tmp.67 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.68 219 38 48 ];
+        symbol [ FONT_SMALL %tmp.68 218 38 48 ];
         %tmp.68 = getv %tmp.67 :FONT_SMALL;
-        symbol [ mTackDisplayText %tmp.70 219 50 66 ];
+        symbol [ mTackDisplayText %tmp.70 218 50 66 ];
         %tmp.70 = getv ? :mTackDisplayText;
-        symbol [ Graphics %tmp.71 219 68 76 ];
+        symbol [ Graphics %tmp.71 218 68 76 ];
         %tmp.71 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.72 219 77 96 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.72 218 77 96 ];
         %tmp.72 = getv %tmp.71 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.63 %tmp.64(%tmp.65, %tmp.66, %tmp.68, %tmp.70, %tmp.72);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 220 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 219 8 ]
         %tmp.73 = lgetv %dc;
-        symbol [ dc %tmp.73 220 8 10 ];
-        symbol [ drawText %tmp.74 220 11 19 ];
+        symbol [ dc %tmp.73 219 8 10 ];
+        symbol [ drawText %tmp.74 219 11 19 ];
         %tmp.74 = getv function %tmp.73 :drawText;
         %tmp.75 = 130;
         %tmp.76 = 90;
-        symbol [ Graphics %tmp.77 220 29 37 ];
+        symbol [ Graphics %tmp.77 219 29 37 ];
         %tmp.77 = getm $.Toybox.Graphics;
-        symbol [ FONT_NUMBER_MEDIUM %tmp.78 220 38 56 ];
+        symbol [ FONT_NUMBER_MEDIUM %tmp.78 219 38 56 ];
         %tmp.78 = getv %tmp.77 :FONT_NUMBER_MEDIUM;
         %tmp.79 = lgetv %absWindAngle.1;
-        symbol [ absWindAngle %tmp.79 220 58 70 ];
-        symbol [ format %tmp.80 220 71 77 ];
+        symbol [ absWindAngle %tmp.79 219 58 70 ];
+        symbol [ format %tmp.80 219 71 77 ];
         %tmp.80 = getv function %tmp.79 :format;
         %tmp.81 = "%d";
         %tmp.82 = invoke %tmp.79 %tmp.80(%tmp.81);
         %tmp.83 = "°";
         %tmp.84 = add %tmp.82 %tmp.83;
-        symbol [ Graphics %tmp.85 220 91 99 ];
+        symbol [ Graphics %tmp.85 219 91 99 ];
         %tmp.85 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_LEFT %tmp.86 220 100 117 ];
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.86 219 100 117 ];
         %tmp.86 = getv %tmp.85 :TEXT_JUSTIFY_LEFT;
         invoke %tmp.73 %tmp.74(%tmp.75, %tmp.76, %tmp.78, %tmp.84, %tmp.86);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 223 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 222 8 ]
         %tmp.87 = lgetv %dc;
-        symbol [ dc %tmp.87 223 8 10 ];
-        symbol [ setColor %tmp.88 223 11 19 ];
+        symbol [ dc %tmp.87 222 8 10 ];
+        symbol [ setColor %tmp.88 222 11 19 ];
         %tmp.88 = getv function %tmp.87 :setColor;
-        symbol [ Graphics %tmp.89 223 20 28 ];
+        symbol [ Graphics %tmp.89 222 20 28 ];
         %tmp.89 = getm $.Toybox.Graphics;
-        symbol [ COLOR_LT_GRAY %tmp.90 223 29 42 ];
+        symbol [ COLOR_LT_GRAY %tmp.90 222 29 42 ];
         %tmp.90 = getv %tmp.89 :COLOR_LT_GRAY;
-        symbol [ Graphics %tmp.91 223 44 52 ];
+        symbol [ Graphics %tmp.91 222 44 52 ];
         %tmp.91 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.92 223 53 70 ];
+        symbol [ COLOR_TRANSPARENT %tmp.92 222 53 70 ];
         %tmp.92 = getv %tmp.91 :COLOR_TRANSPARENT;
         invoke %tmp.87 %tmp.88(%tmp.90, %tmp.92);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 226 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 225 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %totalTackCount.6 = local;
-        symbol [ totalTackCount %totalTackCount.6 226 12 26 ];
+        symbol [ totalTackCount %totalTackCount.6 225 12 26 ];
         %tmp.93 = 0;
         lputv %totalTackCount.6 %tmp.93;
-        symbol [ totalTackCount %totalTackCount.6 226 12 26 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 227 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
+        symbol [ totalTackCount %totalTackCount.6 225 12 26 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 226 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
         %totalGybeCount.7 = local;
-        symbol [ totalGybeCount %totalGybeCount.7 227 12 26 ];
+        symbol [ totalGybeCount %totalGybeCount.7 226 12 26 ];
         %tmp.94 = 0;
         lputv %totalGybeCount.7 %tmp.94;
-        symbol [ totalGybeCount %totalGybeCount.7 227 12 26 ];
+        symbol [ totalGybeCount %totalGybeCount.7 226 12 26 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 227 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %lapTackCount.8 = local;
+        symbol [ lapTackCount %lapTackCount.8 227 12 24 ];
+        %tmp.95 = 0;
+        lputv %lapTackCount.8 %tmp.95;
+        symbol [ lapTackCount %lapTackCount.8 227 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 228 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %lapGybeCount.9 = local;
+        symbol [ lapGybeCount %lapGybeCount.9 228 12 24 ];
+        %tmp.96 = 0;
+        lputv %lapGybeCount.9 %tmp.96;
+        symbol [ lapGybeCount %lapGybeCount.9 228 12 24 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 230 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
-        %app.8 = local;
-        symbol [ app %app.8 230 12 15 ];
-        symbol [ Application %tmp.96 230 18 29 ];
-        %tmp.96 = getv ? :Application;
-        symbol [ getApp %tmp.97 230 30 36 ];
-        %tmp.97 = getv function %tmp.96 :getApp;
-        %tmp.98 = invoke %tmp.96 %tmp.97();
-        lputv %app.8 %tmp.98;
-        symbol [ app %app.8 230 12 15 ];
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %windData.10 = local;
+        symbol [ windData %windData.10 230 12 20 ];
+        %tmp.97 = null;
+        lputv %windData.10 %tmp.97;
+        symbol [ windData %windData.10 230 12 20 ];
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 231 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_246_8_if_stmt:
-        %tmp.99 = lgetv %app.8;
-        symbol [ app %tmp.99 231 12 15 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_233_8_if_stmt:
+        symbol [ mWindTracker %tmp.99 231 12 24 ];
+        %tmp.99 = getv ? :mWindTracker;
         %tmp.100 = null;
         %tmp.101 = ne %tmp.99 %tmp.100;
-        bf %tmp.101 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_246_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_246_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_25_246_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 233 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_25_246_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_25_246_8_stop" ]
-        %data.9 = local;
-        symbol [ data %data.9 233 16 20 ];
-        %tmp.102 = null;
-        lputv %data.9 %tmp.102;
-        symbol [ data %data.9 233 16 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 234 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_12_236_12_if_stmt:
-        %tmp.103 = lgetv %app.8;
-        symbol [ app %tmp.103 234 16 19 ];
+        bf %tmp.101 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_233_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_233_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_34_233_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 232 12 ]
+        symbol [ mWindTracker %tmp.103 232 23 35 ];
+        %tmp.103 = getv ? :mWindTracker;
         %tmp.104 = as %tmp.103 { (!Null) };
-        %tmp.106 = const :getModelData;
-        symbol [ getModelData %tmp.106 234 25 37 const ];
-        %tmp.107 = canhazplz %tmp.104 %tmp.106;
-        bf %tmp.107 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_12_236_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_12_236_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_39_236_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 235 16 ]
-        %tmp.108 = lgetv %app.8;
-        symbol [ app %tmp.108 235 23 26 ];
-        %tmp.109 = as %tmp.108 { (interface { var getModelData; }) && (!Null) };
-        symbol [ getModelData %tmp.110 235 27 39 ];
-        %tmp.110 = getv function %tmp.109 :getModelData;
-        %tmp.111 = invoke %tmp.109 %tmp.110();
-        lputv %data.9 %tmp.111;
-        symbol [ data %data.9 235 16 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_39_236_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_12_236_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_234_12_236_12_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 238 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_12_245_12_if_stmt:
-        %tmp.112 = lgetv %data.9;
-        symbol [ data %tmp.112 238 16 20 ];
-        %tmp.113 = null;
-        %tmp.114 = ne %tmp.112 %tmp.113;
-        bf %tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_12_245_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_12_245_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_30_245_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 239 16 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_16_241_16_if_stmt:
-        %tmp.115 = lgetv %data.9;
-        symbol [ data %tmp.115 239 20 24 ];
-        %tmp.116 = as %tmp.115 { (!Null) };
-        symbol [ hasKey %tmp.117 239 25 31 ];
-        %tmp.117 = getv function %tmp.116 :hasKey;
-        %tmp.118 = "totalTackCount";
-        %tmp.119 = invoke %tmp.116 %tmp.117(%tmp.118);
-        bf %tmp.119 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_16_241_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_16_241_16_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_51_241_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 240 20 ]
-        %tmp.120 = lgetv %data.9;
-        symbol [ data %tmp.120 240 37 41 ];
-        %tmp.121 = as %tmp.120 { (!Null) };
-        %tmp.122 = "totalTackCount";
-        %tmp.123 = agetv %tmp.121 %tmp.122;
-        lputv %totalTackCount.6 %tmp.123;
-        symbol [ totalTackCount %totalTackCount.6 240 20 34 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_51_241_16_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_16_241_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_239_16_241_16_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 242 16 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_16_244_16_if_stmt:
-        %tmp.124 = lgetv %data.9;
-        symbol [ data %tmp.124 242 20 24 ];
-        %tmp.125 = as %tmp.124 { (!Null) };
-        symbol [ hasKey %tmp.126 242 25 31 ];
-        %tmp.126 = getv function %tmp.125 :hasKey;
-        %tmp.127 = "totalGybeCount";
-        %tmp.128 = invoke %tmp.125 %tmp.126(%tmp.127);
-        bf %tmp.128 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_16_244_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_16_244_16_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_51_244_16_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 243 20 ]
-        %tmp.129 = lgetv %data.9;
-        symbol [ data %tmp.129 243 37 41 ];
-        %tmp.130 = as %tmp.129 { (!Null) };
-        %tmp.131 = "totalGybeCount";
-        %tmp.132 = agetv %tmp.130 %tmp.131;
-        lputv %totalGybeCount.7 %tmp.132;
-        symbol [ totalGybeCount %totalGybeCount.7 243 20 34 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_51_244_16_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_16_244_16_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_242_16_244_16_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_30_245_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_12_245_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_238_12_245_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_25_246_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_246_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_246_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 249 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_8_251_8_if_stmt:
-        %tmp.133 = lgetv %totalTackCount.6;
-        symbol [ totalTackCount %tmp.133 249 12 26 ];
-        %tmp.134 = 0;
-        %tmp.135 = eq %tmp.133 %tmp.134;
-        bf %tmp.135 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_8_251_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_8_251_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_33_251_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 250 12 ]
-        symbol [ mTackCount %tmp.137 250 29 39 ];
-        %tmp.137 = getv ? :mTackCount;
-        lputv %totalTackCount.6 %tmp.137;
-        symbol [ totalTackCount %totalTackCount.6 250 12 26 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_33_251_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_8_251_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_249_8_251_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 252 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_8_254_8_if_stmt:
-        %tmp.138 = lgetv %totalGybeCount.7;
-        symbol [ totalGybeCount %tmp.138 252 12 26 ];
-        %tmp.139 = 0;
-        %tmp.140 = eq %tmp.138 %tmp.139;
-        bf %tmp.140 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_8_254_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_8_254_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_33_254_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 253 12 ]
-        symbol [ mGybeCount %tmp.142 253 29 39 ];
-        %tmp.142 = getv ? :mGybeCount;
-        lputv %totalGybeCount.7 %tmp.142;
-        symbol [ totalGybeCount %totalGybeCount.7 253 12 26 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_33_254_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_8_254_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_252_8_254_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 257 8 ]
-        %tmp.143 = lgetv %dc;
-        symbol [ dc %tmp.143 257 8 10 ];
-        symbol [ drawText %tmp.144 257 11 19 ];
-        %tmp.144 = getv function %tmp.143 :drawText;
-        %tmp.145 = 25;
-        %tmp.146 = 140;
-        symbol [ Graphics %tmp.147 257 29 37 ];
-        %tmp.147 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.148 257 38 47 ];
-        %tmp.148 = getv %tmp.147 :FONT_TINY;
-        %tmp.149 = "Tacks: ";
-        %tmp.150 = lgetv %totalTackCount.6;
-        symbol [ totalTackCount %tmp.150 257 61 75 ];
-        %tmp.151 = add %tmp.149 %tmp.150;
-        symbol [ Graphics %tmp.152 257 77 85 ];
-        %tmp.152 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_LEFT %tmp.153 257 86 103 ];
-        %tmp.153 = getv %tmp.152 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.143 %tmp.144(%tmp.145, %tmp.146, %tmp.148, %tmp.151, %tmp.153);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 260 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
-        %tackText.10 = local;
-        symbol [ tackText %tackText.10 260 12 20 ];
-        %tmp.154 = "Last: ";
-        lputv %tackText.10 %tmp.154;
-        symbol [ tackText %tackText.10 260 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 261 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_stmt:
-        symbol [ mLastTackAngle %tmp.156 261 12 26 ];
-        %tmp.156 = getv ? :mLastTackAngle;
-        %tmp.157 = 0;
-        %tmp.158 = gt %tmp.156 %tmp.157;
-        bf %tmp.158 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_32_263_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 262 12 ]
-        %tmp.159 = lgetv %tackText.10;
-        symbol [ tackText %tmp.159 262 12 20 ];
-        symbol [ mLastTackAngle %tmp.161 262 24 38 ];
-        %tmp.161 = getv ? :mLastTackAngle;
-        symbol [ format %tmp.162 262 39 45 ];
-        %tmp.162 = getv function %tmp.161 :format;
-        %tmp.163 = "%d";
-        %tmp.164 = invoke %tmp.161 %tmp.162(%tmp.163);
-        %tmp.165 = "°";
+        symbol [ getWindData %tmp.105 232 36 47 ];
+        %tmp.105 = getv function %tmp.104 :getWindData;
+        %tmp.106 = invoke %tmp.104 %tmp.105();
+        lputv %windData.10 %tmp.106;
+        symbol [ windData %windData.10 232 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_34_233_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_233_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_231_8_233_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 235 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_12_235_76_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_12_235_55_begin:
+        %tmp.107 = lgetv %windData.10;
+        symbol [ windData %tmp.107 235 12 20 ];
+        %tmp.108 = null;
+        %tmp.109 = ne %tmp.107 %tmp.108;
+        bf %tmp.109 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_32_235_55_true:
+        %tmp.110 = lgetv %windData.10;
+        symbol [ windData %tmp.110 235 32 40 ];
+        %tmp.111 = as %tmp.110 { (!Null) };
+        symbol [ hasKey %tmp.112 235 41 47 ];
+        %tmp.112 = getv function %tmp.111 :hasKey;
+        %tmp.113 = "valid";
+        %tmp.114 = invoke %tmp.111 %tmp.112(%tmp.113);
+        push %tmp.114;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_32_235_55_end:
+        %tmp.115 = phi [%tmp.109 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_12_235_55_begin] [%tmp.114 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_32_235_55_true] [%tmp.115 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_32_235_55_end];
+        bf %tmp.115 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_60_235_76_true:
+        %tmp.116 = lgetv %windData.10;
+        symbol [ windData %tmp.116 235 60 68 ];
+        %tmp.117 = as %tmp.116 { (!Null) };
+        %tmp.118 = "valid";
+        %tmp.119 = agetv %tmp.117 %tmp.118;
+        push %tmp.119;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_60_235_76_end:
+        %tmp.120 = phi [%tmp.115 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_12_235_76_begin] [%tmp.119 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_60_235_76_true] [%tmp.120 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_60_235_76_end];
+        bf %tmp.120 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_79_251_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 237 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_12_239_12_if_stmt:
+        %tmp.121 = lgetv %windData.10;
+        symbol [ windData %tmp.121 237 16 24 ];
+        %tmp.122 = as %tmp.121 { (!Null) };
+        symbol [ hasKey %tmp.123 237 25 31 ];
+        %tmp.123 = getv function %tmp.122 :hasKey;
+        %tmp.124 = "displayTackCount";
+        %tmp.125 = invoke %tmp.122 %tmp.123(%tmp.124);
+        bf %tmp.125 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_12_239_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_12_239_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_53_239_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 238 16 ]
+        %tmp.126 = lgetv %windData.10;
+        symbol [ windData %tmp.126 238 33 41 ];
+        %tmp.127 = as %tmp.126 { (!Null) };
+        %tmp.128 = "displayTackCount";
+        %tmp.129 = agetv %tmp.127 %tmp.128;
+        lputv %totalTackCount.6 %tmp.129;
+        symbol [ totalTackCount %totalTackCount.6 238 16 30 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_53_239_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_12_239_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_237_12_239_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 240 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_12_242_12_if_stmt:
+        %tmp.130 = lgetv %windData.10;
+        symbol [ windData %tmp.130 240 16 24 ];
+        %tmp.131 = as %tmp.130 { (!Null) };
+        symbol [ hasKey %tmp.132 240 25 31 ];
+        %tmp.132 = getv function %tmp.131 :hasKey;
+        %tmp.133 = "displayGybeCount";
+        %tmp.134 = invoke %tmp.131 %tmp.132(%tmp.133);
+        bf %tmp.134 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_12_242_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_12_242_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_53_242_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 241 16 ]
+        %tmp.135 = lgetv %windData.10;
+        symbol [ windData %tmp.135 241 33 41 ];
+        %tmp.136 = as %tmp.135 { (!Null) };
+        %tmp.137 = "displayGybeCount";
+        %tmp.138 = agetv %tmp.136 %tmp.137;
+        lputv %totalGybeCount.7 %tmp.138;
+        symbol [ totalGybeCount %totalGybeCount.7 241 16 30 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_53_242_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_12_242_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_240_12_242_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 245 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_12_247_12_if_stmt:
+        %tmp.139 = lgetv %windData.10;
+        symbol [ windData %tmp.139 245 16 24 ];
+        %tmp.140 = as %tmp.139 { (!Null) };
+        symbol [ hasKey %tmp.141 245 25 31 ];
+        %tmp.141 = getv function %tmp.140 :hasKey;
+        %tmp.142 = "lapDisplayTackCount";
+        %tmp.143 = invoke %tmp.140 %tmp.141(%tmp.142);
+        bf %tmp.143 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_12_247_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_12_247_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_56_247_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 246 16 ]
+        %tmp.144 = lgetv %windData.10;
+        symbol [ windData %tmp.144 246 31 39 ];
+        %tmp.145 = as %tmp.144 { (!Null) };
+        %tmp.146 = "lapDisplayTackCount";
+        %tmp.147 = agetv %tmp.145 %tmp.146;
+        lputv %lapTackCount.8 %tmp.147;
+        symbol [ lapTackCount %lapTackCount.8 246 16 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_56_247_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_12_247_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_245_12_247_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 248 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_12_250_12_if_stmt:
+        %tmp.148 = lgetv %windData.10;
+        symbol [ windData %tmp.148 248 16 24 ];
+        %tmp.149 = as %tmp.148 { (!Null) };
+        symbol [ hasKey %tmp.150 248 25 31 ];
+        %tmp.150 = getv function %tmp.149 :hasKey;
+        %tmp.151 = "lapDisplayGybeCount";
+        %tmp.152 = invoke %tmp.149 %tmp.150(%tmp.151);
+        bf %tmp.152 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_12_250_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_12_250_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_56_250_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 249 16 ]
+        %tmp.153 = lgetv %windData.10;
+        symbol [ windData %tmp.153 249 31 39 ];
+        %tmp.154 = as %tmp.153 { (!Null) };
+        %tmp.155 = "lapDisplayGybeCount";
+        %tmp.156 = agetv %tmp.154 %tmp.155;
+        lputv %lapGybeCount.9 %tmp.156;
+        symbol [ lapGybeCount %lapGybeCount.9 249 16 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_56_250_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_12_250_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_248_12_250_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_79_251_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_235_8_251_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 254 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %tackText.11 = local;
+        symbol [ tackText %tackText.11 254 12 20 ];
+        %tmp.157 = "Tacks: ";
+        %tmp.158 = lgetv %lapTackCount.8;
+        symbol [ lapTackCount %tmp.158 254 35 47 ];
+        %tmp.159 = add %tmp.157 %tmp.158;
+        lputv %tackText.11 %tmp.159;
+        symbol [ tackText %tackText.11 254 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 255 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_8_257_8_if_stmt:
+        %tmp.160 = lgetv %totalTackCount.6;
+        symbol [ totalTackCount %tmp.160 255 12 26 ];
+        %tmp.161 = lgetv %lapTackCount.8;
+        symbol [ lapTackCount %tmp.161 255 29 41 ];
+        %tmp.162 = gt %tmp.160 %tmp.161;
+        bf %tmp.162 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_8_257_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_8_257_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_43_257_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 256 12 ]
+        %tmp.163 = lgetv %tackText.11;
+        symbol [ tackText %tmp.163 256 12 20 ];
+        %tmp.164 = "/";
+        %tmp.165 = lgetv %totalTackCount.6;
+        symbol [ totalTackCount %tmp.165 256 30 44 ];
         %tmp.166 = add %tmp.164 %tmp.165;
-        %tmp.167 = add %tmp.159 %tmp.166;
-        lputv %tackText.10 %tmp.167;
-        symbol [ tackText %tackText.10 262 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_32_263_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_263_15_265_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 264 12 ]
-        %tmp.168 = lgetv %tackText.10;
-        symbol [ tackText %tmp.168 264 12 20 ];
-        %tmp.169 = "--";
-        %tmp.170 = add %tmp.168 %tmp.169;
-        lputv %tackText.10 %tmp.170;
-        symbol [ tackText %tackText.10 264 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_263_15_265_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_261_8_265_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 266 8 ]
-        %tmp.171 = lgetv %dc;
-        symbol [ dc %tmp.171 266 8 10 ];
-        symbol [ drawText %tmp.172 266 11 19 ];
-        %tmp.172 = getv function %tmp.171 :drawText;
-        %tmp.173 = 25;
-        %tmp.174 = 160;
-        symbol [ Graphics %tmp.175 266 29 37 ];
+        %tmp.167 = add %tmp.163 %tmp.166;
+        lputv %tackText.11 %tmp.167;
+        symbol [ tackText %tackText.11 256 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_43_257_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_8_257_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_255_8_257_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 258 8 ]
+        %tmp.168 = lgetv %dc;
+        symbol [ dc %tmp.168 258 8 10 ];
+        symbol [ drawText %tmp.169 258 11 19 ];
+        %tmp.169 = getv function %tmp.168 :drawText;
+        %tmp.170 = 25;
+        %tmp.171 = 140;
+        symbol [ Graphics %tmp.172 258 29 37 ];
+        %tmp.172 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.173 258 38 47 ];
+        %tmp.173 = getv %tmp.172 :FONT_TINY;
+        %tmp.174 = lgetv %tackText.11;
+        symbol [ tackText %tmp.174 258 49 57 ];
+        symbol [ Graphics %tmp.175 258 59 67 ];
         %tmp.175 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.176 266 38 47 ];
-        %tmp.176 = getv %tmp.175 :FONT_TINY;
-        %tmp.177 = lgetv %tackText.10;
-        symbol [ tackText %tmp.177 266 49 57 ];
-        symbol [ Graphics %tmp.178 266 59 67 ];
-        %tmp.178 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_LEFT %tmp.179 266 68 85 ];
-        %tmp.179 = getv %tmp.178 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.171 %tmp.172(%tmp.173, %tmp.174, %tmp.176, %tmp.177, %tmp.179);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 269 8 ]
-        %tmp.180 = lgetv %dc;
-        symbol [ dc %tmp.180 269 8 10 ];
-        symbol [ drawText %tmp.181 269 11 19 ];
-        %tmp.181 = getv function %tmp.180 :drawText;
-        %tmp.182 = 140;
-        %tmp.183 = 140;
-        symbol [ Graphics %tmp.184 269 30 38 ];
-        %tmp.184 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.185 269 39 48 ];
-        %tmp.185 = getv %tmp.184 :FONT_TINY;
-        %tmp.186 = "Gybes: ";
-        %tmp.187 = lgetv %totalGybeCount.7;
-        symbol [ totalGybeCount %tmp.187 269 62 76 ];
-        %tmp.188 = add %tmp.186 %tmp.187;
-        symbol [ Graphics %tmp.189 269 78 86 ];
-        %tmp.189 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_LEFT %tmp.190 269 87 104 ];
-        %tmp.190 = getv %tmp.189 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.180 %tmp.181(%tmp.182, %tmp.183, %tmp.185, %tmp.188, %tmp.190);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 272 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop" ]
-        %gybeText.11 = local;
-        symbol [ gybeText %gybeText.11 272 12 20 ];
-        %tmp.191 = "Last: ";
-        lputv %gybeText.11 %tmp.191;
-        symbol [ gybeText %gybeText.11 272 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 273 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_stmt:
-        symbol [ mLastGybeAngle %tmp.193 273 12 26 ];
-        %tmp.193 = getv ? :mLastGybeAngle;
-        %tmp.194 = 0;
-        %tmp.195 = gt %tmp.193 %tmp.194;
-        bf %tmp.195 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_32_275_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 274 12 ]
-        %tmp.196 = lgetv %gybeText.11;
-        symbol [ gybeText %tmp.196 274 12 20 ];
-        symbol [ mLastGybeAngle %tmp.198 274 24 38 ];
-        %tmp.198 = getv ? :mLastGybeAngle;
-        symbol [ format %tmp.199 274 39 45 ];
-        %tmp.199 = getv function %tmp.198 :format;
-        %tmp.200 = "%d";
-        %tmp.201 = invoke %tmp.198 %tmp.199(%tmp.200);
-        %tmp.202 = "°";
-        %tmp.203 = add %tmp.201 %tmp.202;
-        %tmp.204 = add %tmp.196 %tmp.203;
-        lputv %gybeText.11 %tmp.204;
-        symbol [ gybeText %gybeText.11 274 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_32_275_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_275_15_277_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 276 12 ]
-        %tmp.205 = lgetv %gybeText.11;
-        symbol [ gybeText %tmp.205 276 12 20 ];
-        %tmp.206 = "--";
-        %tmp.207 = add %tmp.205 %tmp.206;
-        lputv %gybeText.11 %tmp.207;
-        symbol [ gybeText %gybeText.11 276 12 20 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_275_15_277_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_273_8_277_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 278 8 ]
-        %tmp.208 = lgetv %dc;
-        symbol [ dc %tmp.208 278 8 10 ];
-        symbol [ drawText %tmp.209 278 11 19 ];
-        %tmp.209 = getv function %tmp.208 :drawText;
-        %tmp.210 = 140;
-        %tmp.211 = 160;
-        symbol [ Graphics %tmp.212 278 30 38 ];
-        %tmp.212 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.213 278 39 48 ];
-        %tmp.213 = getv %tmp.212 :FONT_TINY;
-        %tmp.214 = lgetv %gybeText.11;
-        symbol [ gybeText %tmp.214 278 50 58 ];
-        symbol [ Graphics %tmp.215 278 60 68 ];
-        %tmp.215 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_LEFT %tmp.216 278 69 86 ];
-        %tmp.216 = getv %tmp.215 :TEXT_JUSTIFY_LEFT;
-        invoke %tmp.208 %tmp.209(%tmp.210, %tmp.211, %tmp.213, %tmp.214, %tmp.216);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 281 8 ]
-        %tmp.217 = lgetv %dc;
-        symbol [ dc %tmp.217 281 8 10 ];
-        symbol [ setColor %tmp.218 281 11 19 ];
-        %tmp.218 = getv function %tmp.217 :setColor;
-        symbol [ Graphics %tmp.219 281 20 28 ];
-        %tmp.219 = getm $.Toybox.Graphics;
-        symbol [ COLOR_YELLOW %tmp.220 281 29 41 ];
-        %tmp.220 = getv %tmp.219 :COLOR_YELLOW;
-        symbol [ Graphics %tmp.221 281 43 51 ];
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.176 258 68 85 ];
+        %tmp.176 = getv %tmp.175 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.168 %tmp.169(%tmp.170, %tmp.171, %tmp.173, %tmp.174, %tmp.176);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 261 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %lastTackText.12 = local;
+        symbol [ lastTackText %lastTackText.12 261 12 24 ];
+        %tmp.177 = "Last: ";
+        lputv %lastTackText.12 %tmp.177;
+        symbol [ lastTackText %lastTackText.12 261 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 262 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_stmt:
+        symbol [ mLastTackAngle %tmp.179 262 12 26 ];
+        %tmp.179 = getv ? :mLastTackAngle;
+        %tmp.180 = 0;
+        %tmp.181 = gt %tmp.179 %tmp.180;
+        bf %tmp.181 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_32_264_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 263 12 ]
+        %tmp.182 = lgetv %lastTackText.12;
+        symbol [ lastTackText %tmp.182 263 12 24 ];
+        symbol [ mLastTackAngle %tmp.184 263 28 42 ];
+        %tmp.184 = getv ? :mLastTackAngle;
+        symbol [ format %tmp.185 263 43 49 ];
+        %tmp.185 = getv function %tmp.184 :format;
+        %tmp.186 = "%d";
+        %tmp.187 = invoke %tmp.184 %tmp.185(%tmp.186);
+        %tmp.188 = "°";
+        %tmp.189 = add %tmp.187 %tmp.188;
+        %tmp.190 = add %tmp.182 %tmp.189;
+        lputv %lastTackText.12 %tmp.190;
+        symbol [ lastTackText %lastTackText.12 263 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_32_264_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_264_15_266_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 265 12 ]
+        %tmp.191 = lgetv %lastTackText.12;
+        symbol [ lastTackText %tmp.191 265 12 24 ];
+        %tmp.192 = "--";
+        %tmp.193 = add %tmp.191 %tmp.192;
+        lputv %lastTackText.12 %tmp.193;
+        symbol [ lastTackText %lastTackText.12 265 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_264_15_266_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_262_8_266_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 267 8 ]
+        %tmp.194 = lgetv %dc;
+        symbol [ dc %tmp.194 267 8 10 ];
+        symbol [ drawText %tmp.195 267 11 19 ];
+        %tmp.195 = getv function %tmp.194 :drawText;
+        %tmp.196 = 25;
+        %tmp.197 = 160;
+        symbol [ Graphics %tmp.198 267 29 37 ];
+        %tmp.198 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.199 267 38 47 ];
+        %tmp.199 = getv %tmp.198 :FONT_TINY;
+        %tmp.200 = lgetv %lastTackText.12;
+        symbol [ lastTackText %tmp.200 267 49 61 ];
+        symbol [ Graphics %tmp.201 267 63 71 ];
+        %tmp.201 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.202 267 72 89 ];
+        %tmp.202 = getv %tmp.201 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.194 %tmp.195(%tmp.196, %tmp.197, %tmp.199, %tmp.200, %tmp.202);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 270 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %gybeText.13 = local;
+        symbol [ gybeText %gybeText.13 270 12 20 ];
+        %tmp.203 = "Gybes: ";
+        %tmp.204 = lgetv %lapGybeCount.9;
+        symbol [ lapGybeCount %tmp.204 270 35 47 ];
+        %tmp.205 = add %tmp.203 %tmp.204;
+        lputv %gybeText.13 %tmp.205;
+        symbol [ gybeText %gybeText.13 270 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 271 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_8_273_8_if_stmt:
+        %tmp.206 = lgetv %totalGybeCount.7;
+        symbol [ totalGybeCount %tmp.206 271 12 26 ];
+        %tmp.207 = lgetv %lapGybeCount.9;
+        symbol [ lapGybeCount %tmp.207 271 29 41 ];
+        %tmp.208 = gt %tmp.206 %tmp.207;
+        bf %tmp.208 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_8_273_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_8_273_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_43_273_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 272 12 ]
+        %tmp.209 = lgetv %gybeText.13;
+        symbol [ gybeText %tmp.209 272 12 20 ];
+        %tmp.210 = "/";
+        %tmp.211 = lgetv %totalGybeCount.7;
+        symbol [ totalGybeCount %tmp.211 272 30 44 ];
+        %tmp.212 = add %tmp.210 %tmp.211;
+        %tmp.213 = add %tmp.209 %tmp.212;
+        lputv %gybeText.13 %tmp.213;
+        symbol [ gybeText %gybeText.13 272 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_43_273_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_8_273_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_271_8_273_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 274 8 ]
+        %tmp.214 = lgetv %dc;
+        symbol [ dc %tmp.214 274 8 10 ];
+        symbol [ drawText %tmp.215 274 11 19 ];
+        %tmp.215 = getv function %tmp.214 :drawText;
+        %tmp.216 = 140;
+        %tmp.217 = 140;
+        symbol [ Graphics %tmp.218 274 30 38 ];
+        %tmp.218 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.219 274 39 48 ];
+        %tmp.219 = getv %tmp.218 :FONT_TINY;
+        %tmp.220 = lgetv %gybeText.13;
+        symbol [ gybeText %tmp.220 274 50 58 ];
+        symbol [ Graphics %tmp.221 274 60 68 ];
         %tmp.221 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.222 281 52 69 ];
-        %tmp.222 = getv %tmp.221 :COLOR_TRANSPARENT;
-        invoke %tmp.217 %tmp.218(%tmp.220, %tmp.222);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 282 8 ]
-        %tmp.223 = lgetv %dc;
-        symbol [ dc %tmp.223 282 8 10 ];
-        symbol [ drawText %tmp.224 282 11 19 ];
-        %tmp.224 = getv function %tmp.223 :drawText;
-        %tmp.225 = lgetv %width.2;
-        symbol [ width %tmp.225 282 20 25 ];
-        %tmp.226 = 2;
-        %tmp.227 = div %tmp.225 %tmp.226;
-        %tmp.228 = lgetv %height.3;
-        symbol [ height %tmp.228 282 29 35 ];
-        %tmp.229 = 40;
-        %tmp.230 = sub %tmp.228 %tmp.229;
-        symbol [ Graphics %tmp.231 282 42 50 ];
-        %tmp.231 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.232 282 51 60 ];
-        %tmp.232 = getv %tmp.231 :FONT_TINY;
-        %tmp.233 = "Wind: ";
-        symbol [ mWindDirection %tmp.235 282 73 87 ];
-        %tmp.235 = getv ? :mWindDirection;
-        symbol [ format %tmp.236 282 88 94 ];
-        %tmp.236 = getv function %tmp.235 :format;
-        %tmp.237 = "%d";
-        %tmp.238 = invoke %tmp.235 %tmp.236(%tmp.237);
-        %tmp.239 = add %tmp.233 %tmp.238;
-        %tmp.240 = "°";
-        %tmp.241 = add %tmp.239 %tmp.240;
-        symbol [ Graphics %tmp.242 282 108 116 ];
-        %tmp.242 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.243 282 117 136 ];
-        %tmp.243 = getv %tmp.242 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.223 %tmp.224(%tmp.227, %tmp.230, %tmp.232, %tmp.241, %tmp.243);
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.222 274 69 86 ];
+        %tmp.222 = getv %tmp.221 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.214 %tmp.215(%tmp.216, %tmp.217, %tmp.219, %tmp.220, %tmp.222);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 277 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop" ]
+        %lastGybeText.14 = local;
+        symbol [ lastGybeText %lastGybeText.14 277 12 24 ];
+        %tmp.223 = "Last: ";
+        lputv %lastGybeText.14 %tmp.223;
+        symbol [ lastGybeText %lastGybeText.14 277 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 278 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_stmt:
+        symbol [ mLastGybeAngle %tmp.225 278 12 26 ];
+        %tmp.225 = getv ? :mLastGybeAngle;
+        %tmp.226 = 0;
+        %tmp.227 = gt %tmp.225 %tmp.226;
+        bf %tmp.227 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_32_280_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 279 12 ]
+        %tmp.228 = lgetv %lastGybeText.14;
+        symbol [ lastGybeText %tmp.228 279 12 24 ];
+        symbol [ mLastGybeAngle %tmp.230 279 28 42 ];
+        %tmp.230 = getv ? :mLastGybeAngle;
+        symbol [ format %tmp.231 279 43 49 ];
+        %tmp.231 = getv function %tmp.230 :format;
+        %tmp.232 = "%d";
+        %tmp.233 = invoke %tmp.230 %tmp.231(%tmp.232);
+        %tmp.234 = "°";
+        %tmp.235 = add %tmp.233 %tmp.234;
+        %tmp.236 = add %tmp.228 %tmp.235;
+        lputv %lastGybeText.14 %tmp.236;
+        symbol [ lastGybeText %lastGybeText.14 279 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_32_280_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_280_15_282_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 281 12 ]
+        %tmp.237 = lgetv %lastGybeText.14;
+        symbol [ lastGybeText %tmp.237 281 12 24 ];
+        %tmp.238 = "--";
+        %tmp.239 = add %tmp.237 %tmp.238;
+        lputv %lastGybeText.14 %tmp.239;
+        symbol [ lastGybeText %lastGybeText.14 281 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_280_15_282_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_278_8_282_8_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 283 8 ]
-        %tmp.244 = lgetv %dc;
-        symbol [ dc %tmp.244 283 8 10 ];
-        symbol [ drawText %tmp.245 283 11 19 ];
-        %tmp.245 = getv function %tmp.244 :drawText;
-        %tmp.246 = lgetv %width.2;
-        symbol [ width %tmp.246 283 20 25 ];
-        %tmp.247 = 2;
-        %tmp.248 = div %tmp.246 %tmp.247;
-        %tmp.249 = lgetv %height.3;
-        symbol [ height %tmp.249 283 29 35 ];
-        %tmp.250 = 60;
-        %tmp.251 = sub %tmp.249 %tmp.250;
-        symbol [ Graphics %tmp.252 283 42 50 ];
-        %tmp.252 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.253 283 51 60 ];
-        %tmp.253 = getv %tmp.252 :FONT_TINY;
-        symbol [ mWindMode %tmp.255 283 62 71 ];
-        %tmp.255 = getv ? :mWindMode;
-        %tmp.256 = " wind mode";
-        %tmp.257 = add %tmp.255 %tmp.256;
-        symbol [ Graphics %tmp.258 283 88 96 ];
-        %tmp.258 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.259 283 97 116 ];
-        %tmp.259 = getv %tmp.258 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.244 %tmp.245(%tmp.248, %tmp.251, %tmp.253, %tmp.257, %tmp.259);
+        %tmp.240 = lgetv %dc;
+        symbol [ dc %tmp.240 283 8 10 ];
+        symbol [ drawText %tmp.241 283 11 19 ];
+        %tmp.241 = getv function %tmp.240 :drawText;
+        %tmp.242 = 140;
+        %tmp.243 = 160;
+        symbol [ Graphics %tmp.244 283 30 38 ];
+        %tmp.244 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.245 283 39 48 ];
+        %tmp.245 = getv %tmp.244 :FONT_TINY;
+        %tmp.246 = lgetv %lastGybeText.14;
+        symbol [ lastGybeText %tmp.246 283 50 62 ];
+        symbol [ Graphics %tmp.247 283 64 72 ];
+        %tmp.247 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.248 283 73 90 ];
+        %tmp.248 = getv %tmp.247 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.240 %tmp.241(%tmp.242, %tmp.243, %tmp.245, %tmp.246, %tmp.248);
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 286 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_8_292_8_if_stmt:
-        symbol [ mShowLapFeedback %tmp.261 286 12 28 ];
-        %tmp.261 = getv ? :mShowLapFeedback;
-        bf %tmp.261 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_8_292_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_8_292_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_30_292_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 288 12 ]
-        %tmp.262 = lgetv %dc;
-        symbol [ dc %tmp.262 288 12 14 ];
-        symbol [ setColor %tmp.263 288 15 23 ];
-        %tmp.263 = getv function %tmp.262 :setColor;
-        symbol [ Graphics %tmp.264 288 24 32 ];
-        %tmp.264 = getm $.Toybox.Graphics;
-        symbol [ COLOR_YELLOW %tmp.265 288 33 45 ];
-        %tmp.265 = getv %tmp.264 :COLOR_YELLOW;
-        symbol [ Graphics %tmp.266 288 47 55 ];
-        %tmp.266 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.267 288 56 67 ];
-        %tmp.267 = getv %tmp.266 :COLOR_BLACK;
-        invoke %tmp.262 %tmp.263(%tmp.265, %tmp.267);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 289 12 ]
-        %tmp.268 = lgetv %dc;
-        symbol [ dc %tmp.268 289 12 14 ];
-        symbol [ fillRectangle %tmp.269 289 15 28 ];
-        %tmp.269 = getv function %tmp.268 :fillRectangle;
-        %tmp.270 = 0;
-        %tmp.271 = 0;
-        %tmp.272 = lgetv %width.2;
-        symbol [ width %tmp.272 289 35 40 ];
-        %tmp.273 = 25;
-        invoke %tmp.268 %tmp.269(%tmp.270, %tmp.271, %tmp.272, %tmp.273);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 290 12 ]
-        %tmp.274 = lgetv %dc;
-        symbol [ dc %tmp.274 290 12 14 ];
-        symbol [ setColor %tmp.275 290 15 23 ];
-        %tmp.275 = getv function %tmp.274 :setColor;
-        symbol [ Graphics %tmp.276 290 24 32 ];
-        %tmp.276 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.277 290 33 44 ];
-        %tmp.277 = getv %tmp.276 :COLOR_BLACK;
-        symbol [ Graphics %tmp.278 290 46 54 ];
-        %tmp.278 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.279 290 55 72 ];
-        %tmp.279 = getv %tmp.278 :COLOR_TRANSPARENT;
-        invoke %tmp.274 %tmp.275(%tmp.277, %tmp.279);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 291 12 ]
-        %tmp.280 = lgetv %dc;
-        symbol [ dc %tmp.280 291 12 14 ];
-        symbol [ drawText %tmp.281 291 15 23 ];
-        %tmp.281 = getv function %tmp.280 :drawText;
-        %tmp.282 = lgetv %width.2;
-        symbol [ width %tmp.282 291 24 29 ];
-        %tmp.283 = 2;
-        %tmp.284 = div %tmp.282 %tmp.283;
-        %tmp.285 = 2;
-        symbol [ Graphics %tmp.286 291 36 44 ];
-        %tmp.286 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.287 291 45 55 ];
-        %tmp.287 = getv %tmp.286 :FONT_SMALL;
-        %tmp.288 = "LAP MARKED";
-        symbol [ Graphics %tmp.289 291 71 79 ];
-        %tmp.289 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.290 291 80 99 ];
-        %tmp.290 = getv %tmp.289 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.280 %tmp.281(%tmp.284, %tmp.285, %tmp.287, %tmp.288, %tmp.290);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_30_292_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_8_292_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_286_8_292_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 295 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_8_298_8_if_stmt:
-        symbol [ mShowLapFeedback %tmp.292 295 13 29 ];
-        %tmp.292 = getv ? :mShowLapFeedback;
-        %tmp.293 = not %tmp.292;
-        bf %tmp.293 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_8_298_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_8_298_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_31_298_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 296 12 ]
+        %tmp.249 = lgetv %dc;
+        symbol [ dc %tmp.249 286 8 10 ];
+        symbol [ setColor %tmp.250 286 11 19 ];
+        %tmp.250 = getv function %tmp.249 :setColor;
+        symbol [ Graphics %tmp.251 286 20 28 ];
+        %tmp.251 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.252 286 29 41 ];
+        %tmp.252 = getv %tmp.251 :COLOR_YELLOW;
+        symbol [ Graphics %tmp.253 286 43 51 ];
+        %tmp.253 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.254 286 52 69 ];
+        %tmp.254 = getv %tmp.253 :COLOR_TRANSPARENT;
+        invoke %tmp.249 %tmp.250(%tmp.252, %tmp.254);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 287 8 ]
+        %tmp.255 = lgetv %dc;
+        symbol [ dc %tmp.255 287 8 10 ];
+        symbol [ drawText %tmp.256 287 11 19 ];
+        %tmp.256 = getv function %tmp.255 :drawText;
+        %tmp.257 = lgetv %width.2;
+        symbol [ width %tmp.257 287 20 25 ];
+        %tmp.258 = 2;
+        %tmp.259 = div %tmp.257 %tmp.258;
+        %tmp.260 = lgetv %height.3;
+        symbol [ height %tmp.260 287 29 35 ];
+        %tmp.261 = 40;
+        %tmp.262 = sub %tmp.260 %tmp.261;
+        symbol [ Graphics %tmp.263 287 42 50 ];
+        %tmp.263 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.264 287 51 60 ];
+        %tmp.264 = getv %tmp.263 :FONT_TINY;
+        %tmp.265 = "Wind: ";
+        symbol [ mWindDirection %tmp.267 287 73 87 ];
+        %tmp.267 = getv ? :mWindDirection;
+        symbol [ format %tmp.268 287 88 94 ];
+        %tmp.268 = getv function %tmp.267 :format;
+        %tmp.269 = "%d";
+        %tmp.270 = invoke %tmp.267 %tmp.268(%tmp.269);
+        %tmp.271 = add %tmp.265 %tmp.270;
+        %tmp.272 = "°";
+        %tmp.273 = add %tmp.271 %tmp.272;
+        symbol [ Graphics %tmp.274 287 108 116 ];
+        %tmp.274 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.275 287 117 136 ];
+        %tmp.275 = getv %tmp.274 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.255 %tmp.256(%tmp.259, %tmp.262, %tmp.264, %tmp.273, %tmp.275);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 288 8 ]
+        %tmp.276 = lgetv %dc;
+        symbol [ dc %tmp.276 288 8 10 ];
+        symbol [ drawText %tmp.277 288 11 19 ];
+        %tmp.277 = getv function %tmp.276 :drawText;
+        %tmp.278 = lgetv %width.2;
+        symbol [ width %tmp.278 288 20 25 ];
+        %tmp.279 = 2;
+        %tmp.280 = div %tmp.278 %tmp.279;
+        %tmp.281 = lgetv %height.3;
+        symbol [ height %tmp.281 288 29 35 ];
+        %tmp.282 = 60;
+        %tmp.283 = sub %tmp.281 %tmp.282;
+        symbol [ Graphics %tmp.284 288 42 50 ];
+        %tmp.284 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.285 288 51 60 ];
+        %tmp.285 = getv %tmp.284 :FONT_TINY;
+        symbol [ mWindMode %tmp.287 288 62 71 ];
+        %tmp.287 = getv ? :mWindMode;
+        %tmp.288 = " wind mode";
+        %tmp.289 = add %tmp.287 %tmp.288;
+        symbol [ Graphics %tmp.290 288 88 96 ];
+        %tmp.290 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.291 288 97 116 ];
+        %tmp.291 = getv %tmp.290 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.276 %tmp.277(%tmp.280, %tmp.283, %tmp.285, %tmp.289, %tmp.291);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 291 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_8_297_8_if_stmt:
+        symbol [ mShowLapFeedback %tmp.293 291 12 28 ];
+        %tmp.293 = getv ? :mShowLapFeedback;
+        bf %tmp.293 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_8_297_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_8_297_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_30_297_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 293 12 ]
         %tmp.294 = lgetv %dc;
-        symbol [ dc %tmp.294 296 12 14 ];
-        symbol [ setColor %tmp.295 296 15 23 ];
+        symbol [ dc %tmp.294 293 12 14 ];
+        symbol [ setColor %tmp.295 293 15 23 ];
         %tmp.295 = getv function %tmp.294 :setColor;
-        symbol [ Graphics %tmp.296 296 24 32 ];
+        symbol [ Graphics %tmp.296 293 24 32 ];
         %tmp.296 = getm $.Toybox.Graphics;
-        symbol [ COLOR_DK_GRAY %tmp.297 296 33 46 ];
-        %tmp.297 = getv %tmp.296 :COLOR_DK_GRAY;
-        symbol [ Graphics %tmp.298 296 48 56 ];
+        symbol [ COLOR_YELLOW %tmp.297 293 33 45 ];
+        %tmp.297 = getv %tmp.296 :COLOR_YELLOW;
+        symbol [ Graphics %tmp.298 293 47 55 ];
         %tmp.298 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.299 296 57 74 ];
-        %tmp.299 = getv %tmp.298 :COLOR_TRANSPARENT;
+        symbol [ COLOR_BLACK %tmp.299 293 56 67 ];
+        %tmp.299 = getv %tmp.298 :COLOR_BLACK;
         invoke %tmp.294 %tmp.295(%tmp.297, %tmp.299);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 297 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 294 12 ]
         %tmp.300 = lgetv %dc;
-        symbol [ dc %tmp.300 297 12 14 ];
-        symbol [ drawText %tmp.301 297 15 23 ];
-        %tmp.301 = getv function %tmp.300 :drawText;
-        %tmp.302 = lgetv %width.2;
-        symbol [ width %tmp.302 297 24 29 ];
-        %tmp.303 = 2;
-        %tmp.304 = div %tmp.302 %tmp.303;
-        %tmp.305 = lgetv %height.3;
-        symbol [ height %tmp.305 297 33 39 ];
-        %tmp.306 = 20;
-        %tmp.307 = sub %tmp.305 %tmp.306;
-        symbol [ Graphics %tmp.308 297 46 54 ];
+        symbol [ dc %tmp.300 294 12 14 ];
+        symbol [ fillRectangle %tmp.301 294 15 28 ];
+        %tmp.301 = getv function %tmp.300 :fillRectangle;
+        %tmp.302 = 0;
+        %tmp.303 = 0;
+        %tmp.304 = lgetv %width.2;
+        symbol [ width %tmp.304 294 35 40 ];
+        %tmp.305 = 25;
+        invoke %tmp.300 %tmp.301(%tmp.302, %tmp.303, %tmp.304, %tmp.305);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 295 12 ]
+        %tmp.306 = lgetv %dc;
+        symbol [ dc %tmp.306 295 12 14 ];
+        symbol [ setColor %tmp.307 295 15 23 ];
+        %tmp.307 = getv function %tmp.306 :setColor;
+        symbol [ Graphics %tmp.308 295 24 32 ];
         %tmp.308 = getm $.Toybox.Graphics;
-        symbol [ FONT_TINY %tmp.309 297 55 64 ];
-        %tmp.309 = getv %tmp.308 :FONT_TINY;
-        %tmp.310 = "Light=Lap";
-        symbol [ Graphics %tmp.311 297 79 87 ];
-        %tmp.311 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.312 297 88 107 ];
-        %tmp.312 = getv %tmp.311 :TEXT_JUSTIFY_CENTER;
-        invoke %tmp.300 %tmp.301(%tmp.304, %tmp.307, %tmp.309, %tmp.310, %tmp.312);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_31_298_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_8_298_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_295_8_298_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_192_26_299_4_stop:
+        symbol [ COLOR_BLACK %tmp.309 295 33 44 ];
+        %tmp.309 = getv %tmp.308 :COLOR_BLACK;
+        symbol [ Graphics %tmp.310 295 46 54 ];
+        %tmp.310 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.311 295 55 72 ];
+        %tmp.311 = getv %tmp.310 :COLOR_TRANSPARENT;
+        invoke %tmp.306 %tmp.307(%tmp.309, %tmp.311);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 296 12 ]
+        %tmp.312 = lgetv %dc;
+        symbol [ dc %tmp.312 296 12 14 ];
+        symbol [ drawText %tmp.313 296 15 23 ];
+        %tmp.313 = getv function %tmp.312 :drawText;
+        %tmp.314 = lgetv %width.2;
+        symbol [ width %tmp.314 296 24 29 ];
+        %tmp.315 = 2;
+        %tmp.316 = div %tmp.314 %tmp.315;
+        %tmp.317 = 2;
+        symbol [ Graphics %tmp.318 296 36 44 ];
+        %tmp.318 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.319 296 45 55 ];
+        %tmp.319 = getv %tmp.318 :FONT_SMALL;
+        %tmp.320 = "LAP MARKED";
+        symbol [ Graphics %tmp.321 296 71 79 ];
+        %tmp.321 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.322 296 80 99 ];
+        %tmp.322 = getv %tmp.321 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.312 %tmp.313(%tmp.316, %tmp.317, %tmp.319, %tmp.320, %tmp.322);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_30_297_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_8_297_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_291_8_297_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 300 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_8_303_8_if_stmt:
+        symbol [ mShowLapFeedback %tmp.324 300 13 29 ];
+        %tmp.324 = getv ? :mShowLapFeedback;
+        %tmp.325 = not %tmp.324;
+        bf %tmp.325 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_8_303_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_8_303_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_31_303_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 301 12 ]
+        %tmp.326 = lgetv %dc;
+        symbol [ dc %tmp.326 301 12 14 ];
+        symbol [ setColor %tmp.327 301 15 23 ];
+        %tmp.327 = getv function %tmp.326 :setColor;
+        symbol [ Graphics %tmp.328 301 24 32 ];
+        %tmp.328 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.329 301 33 46 ];
+        %tmp.329 = getv %tmp.328 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.330 301 48 56 ];
+        %tmp.330 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.331 301 57 74 ];
+        %tmp.331 = getv %tmp.330 :COLOR_TRANSPARENT;
+        invoke %tmp.326 %tmp.327(%tmp.329, %tmp.331);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc" 302 12 ]
+        %tmp.332 = lgetv %dc;
+        symbol [ dc %tmp.332 302 12 14 ];
+        symbol [ drawText %tmp.333 302 15 23 ];
+        %tmp.333 = getv function %tmp.332 :drawText;
+        %tmp.334 = lgetv %width.2;
+        symbol [ width %tmp.334 302 24 29 ];
+        %tmp.335 = 2;
+        %tmp.336 = div %tmp.334 %tmp.335;
+        %tmp.337 = lgetv %height.3;
+        symbol [ height %tmp.337 302 33 39 ];
+        %tmp.338 = 20;
+        %tmp.339 = sub %tmp.337 %tmp.338;
+        symbol [ Graphics %tmp.340 302 46 54 ];
+        %tmp.340 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.341 302 55 64 ];
+        %tmp.341 = getv %tmp.340 :FONT_TINY;
+        %tmp.342 = "Light=Lap";
+        symbol [ Graphics %tmp.343 302 79 87 ];
+        %tmp.343 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.344 302 88 107 ];
+        %tmp.344 = getv %tmp.343 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.332 %tmp.333(%tmp.336, %tmp.339, %tmp.341, %tmp.342, %tmp.344);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_31_303_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_8_303_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_300_8_303_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGView_mc_191_26_304_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGView.mc"; @line = 1; ]

@@ -198,7 +198,7 @@ class WindTracker {
         return lapResult;
     }
     
-    // Get wind data for display and recording
+    // In the getWindData function, add display counters
     function getWindData() {
         // Get data from components
         var angleData = mAngleCalculator.getData();
@@ -232,6 +232,10 @@ class WindTracker {
             if (maneuverData != null) {
                 windData.put("tackCount", maneuverData["tackCount"]);
                 windData.put("gybeCount", maneuverData["gybeCount"]);
+                windData.put("displayTackCount", maneuverData["displayTackCount"]);
+                windData.put("displayGybeCount", maneuverData["displayGybeCount"]);
+                windData.put("lapDisplayTackCount", maneuverData["lapDisplayTackCount"]);
+                windData.put("lapDisplayGybeCount", maneuverData["lapDisplayGybeCount"]);
                 windData.put("lastTackAngle", maneuverData["lastTackAngle"]);
                 windData.put("lastGybeAngle", maneuverData["lastGybeAngle"]);
                 windData.put("maneuverStats", maneuverData["maneuverStats"]);

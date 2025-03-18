@@ -188,7 +188,6 @@ class VMGView extends WatchUi.View {
     }
     
     // Update the view
-    // VMGView.mc - Complete onUpdate method
     function onUpdate(dc) {
         // Always update from wind tracker
         updateFromWindTracker();
@@ -222,60 +221,66 @@ class VMGView extends WatchUi.View {
         // Statistics section - Tacks/Gybes
         dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
         
-        // Get total counts
+        // Get both total and lap-specific counts from wind data
         var totalTackCount = 0;
         var totalGybeCount = 0;
+        var lapTackCount = 0;
+        var lapGybeCount = 0;
         
-        // Get session model to retrieve total counts
-        var app = Application.getApp();
-        if (app != null) {
-            // We can't directly access app.mModel, so we need an accessor method
-            var data = null;
-            if (app has :getModelData) {
-                data = app.getModelData();
+        var windData = null;
+        if (mWindTracker != null) {
+            windData = mWindTracker.getWindData();
+        }
+        
+        if (windData != null && windData.hasKey("valid") && windData["valid"]) {
+            // Get total display counts
+            if (windData.hasKey("displayTackCount")) {
+                totalTackCount = windData["displayTackCount"];
+            }
+            if (windData.hasKey("displayGybeCount")) {
+                totalGybeCount = windData["displayGybeCount"];
             }
             
-            if (data != null) {
-                if (data.hasKey("totalTackCount")) {
-                    totalTackCount = data["totalTackCount"];
-                }
-                if (data.hasKey("totalGybeCount")) {
-                    totalGybeCount = data["totalGybeCount"];
-                }
+            // Get lap-specific display counts
+            if (windData.hasKey("lapDisplayTackCount")) {
+                lapTackCount = windData["lapDisplayTackCount"];
+            }
+            if (windData.hasKey("lapDisplayGybeCount")) {
+                lapGybeCount = windData["lapDisplayGybeCount"];
             }
         }
         
-        // If no totals found in model, try to use current counts
-        if (totalTackCount == 0) {
-            totalTackCount = mTackCount;
+        // Tacks section - Show lap/total counts
+        var tackText = "Tacks: " + lapTackCount;
+        if (totalTackCount > lapTackCount) {
+            tackText += "/" + totalTackCount;  // Show both if different
         }
-        if (totalGybeCount == 0) {
-            totalGybeCount = mGybeCount;
-        }
-        
-        // Tacks section - Use total tack count for display
-        dc.drawText(25, 140, Graphics.FONT_TINY, "Tacks: " + totalTackCount, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(25, 140, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last tack angle directly underneath
-        var tackText = "Last: ";
+        var lastTackText = "Last: ";
         if (mLastTackAngle > 0) {
-            tackText += mLastTackAngle.format("%d") + "°";
+            lastTackText += mLastTackAngle.format("%d") + "°";
         } else {
-            tackText += "--";
+            lastTackText += "--";
         }
-        dc.drawText(25, 160, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(25, 160, Graphics.FONT_TINY, lastTackText, Graphics.TEXT_JUSTIFY_LEFT);
         
-        // Gybes section - Use total gybe count for display
-        dc.drawText(140, 140, Graphics.FONT_TINY, "Gybes: " + totalGybeCount, Graphics.TEXT_JUSTIFY_LEFT);
+        // Gybes section - Show lap/total counts
+        var gybeText = "Gybes: " + lapGybeCount;
+        if (totalGybeCount > lapGybeCount) {
+            gybeText += "/" + totalGybeCount;  // Show both if different
+        }
+        dc.drawText(140, 140, Graphics.FONT_TINY, gybeText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last gybe angle directly underneath
-        var gybeText = "Last: ";
+        var lastGybeText = "Last: ";
         if (mLastGybeAngle > 0) {
-            gybeText += mLastGybeAngle.format("%d") + "°";
+            lastGybeText += mLastGybeAngle.format("%d") + "°";
         } else {
-            gybeText += "--";
+            lastGybeText += "--";
         }
-        dc.drawText(140, 160, Graphics.FONT_TINY, gybeText, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(140, 160, Graphics.FONT_TINY, lastGybeText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Draw wind direction and mode at bottom
         dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);

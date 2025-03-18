@@ -2,6 +2,7 @@ using Toybox.WatchUi;
 using Toybox.Graphics;
 using Toybox.System;
 using Toybox.Application;
+using Toybox.Timer;
 
 // Custom save/discard dialog view
 class SaveDialogView extends WatchUi.View {
@@ -127,18 +128,41 @@ class SaveDialogDelegate extends WatchUi.BehaviorDelegate {
             data["sessionDiscarded"] = true;
         }
         
+        // Create flag to check if discard completed
+        var discardComplete = false;
+        
         // Discard the activity recording session
         if (mApp != null && mApp has :mSession && mApp.mSession != null && mApp.mSession.isRecording()) {
             try {
                 mApp.mSession.stop();
                 mApp.mSession.discard();
+                discardComplete = true;
                 System.println("Activity recording discarded");
             } catch (e) {
                 System.println("Error discarding activity: " + e.getErrorMessage());
+                // Still mark as complete even if there was an error
+                discardComplete = true;
             }
+        } else {
+            // No session to discard
+            discardComplete = true;
         }
         
-        // Exit the app
+        // Only exit if discard completed
+        if (discardComplete) {
+            // Give a moment for operations to complete
+            System.println("Exiting app in 500ms...");
+            
+            // Create a timer to exit after a short delay
+            var exitTimer = new Timer.Timer();
+            exitTimer.start(method(:delayedExit), 500, false);
+        }
+    }
+    
+    // Helper function to exit after delay
+    // Helper function to exit after delay
+    function delayedExit() as Void {
+        System.println("Delayed exit executing now");
         System.exit();
     }
 }

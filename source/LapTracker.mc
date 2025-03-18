@@ -18,6 +18,7 @@ class LapTracker {
     private var mLapPositionData;
     private var mLapPointsData;  // Combined tracking data to reduce container count
     private var mLapDirectionData; // Combined direction data
+    private var mLapDisplayManeuvers;  // Track display-only maneuver counts
     
     // Initialize with minimal setup
     function initialize(parent) {
@@ -36,6 +37,7 @@ class LapTracker {
         mLapPositionData = {}; // Contains positions, timestamps, distances
         mLapPointsData = {};   // Contains all point counting data
         mLapDirectionData = {}; // Contains all direction/angle data
+        mLapDisplayManeuvers = {};  // Contains display-only maneuver counts
         
         log("LapTracker reset - using optimized containers");
     }
@@ -94,6 +96,17 @@ class LapTracker {
             "gybes" => []
         };
         
+        // Initialize display maneuver counts for this lap
+        mLapDisplayManeuvers[lapNum] = {
+            "displayTackCount" => 0,
+            "displayGybeCount" => 0
+        };
+        
+        // Reset maneuver detector's lap-specific display counters
+        if (mParent != null && mParent.getManeuverDetector() != null) {
+            mParent.getManeuverDetector().resetLapDisplayCounters();
+        }
+        
         log("New lap marked: " + lapNum);
         return lapNum;
     }
@@ -103,6 +116,45 @@ class LapTracker {
         if (mCurrentLapNumber <= 0) { return; }
         
         var lapNum = mCurrentLapNumber;
+        
+        // Ensure all data containers exist for the current lap
+        if (!mLapPointsData.hasKey(lapNum)) {
+            mLapPointsData[lapNum] = {
+                "totalPoints" => 0,
+                "foilingPoints" => 0,
+                "upwindPoints" => 0,
+                "downwindPoints" => 0,
+                "reachingPoints" => 0,
+                "vmgUpPoints" => 0,
+                "vmgDownPoints" => 0
+            };
+        }
+        
+        if (!mLapDirectionData.hasKey(lapNum)) {
+            mLapDirectionData[lapNum] = {
+                "windAngleSum" => 0,
+                "windDirectionSum" => 0,
+                "windDirectionPoints" => 0
+            };
+        }
+        
+        if (!mLapStats.hasKey(lapNum)) {
+            mLapStats[lapNum] = {
+                "tackCount" => 0,
+                "gybeCount" => 0,
+                "avgTackAngle" => 0,
+                "avgGybeAngle" => 0,
+                "maxTackAngle" => 0,
+                "maxGybeAngle" => 0,
+                "lapVMG" => 0.0,
+                "pctOnFoil" => 0.0,
+                "avgVMGUp" => 0.0,
+                "avgVMGDown" => 0.0,
+                "vmgUpTotal" => 0.0,
+                "vmgDownTotal" => 0.0
+            };
+        }
+        
         var pointsData = mLapPointsData[lapNum]; // Local reference
         var directionData = mLapDirectionData[lapNum]; // Local reference
         var stats = mLapStats[lapNum]; // Local reference
@@ -140,11 +192,12 @@ class LapTracker {
         if (isOnFoil) { pointsData["foilingPoints"]++; }
         
         // Get absolute wind angle once
-        var windAngleLessCOG = mParent.getAngleCalculator().getWindAngleLessCOG();
+        var windAngleLessCOG = (mParent != null && mParent.getAngleCalculator() != null) 
+            ? mParent.getAngleCalculator().getWindAngleLessCOG() : 0;
         var absWindAngle = (windAngleLessCOG < 0) ? -windAngleLessCOG : windAngleLessCOG;
         
         // Update wind direction tracking
-        var windDirection = mParent.getWindDirection();
+        var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
         directionData["windDirectionSum"] += windDirection;
         directionData["windDirectionPoints"]++;
         directionData["windAngleSum"] += absWindAngle;
@@ -162,13 +215,20 @@ class LapTracker {
         updateVMG(info, speed, isUpwind, lapNum);
         
         // Calculate percent on foil
-        stats["pctOnFoil"] = (pointsData["foilingPoints"] * 100.0) / pointsData["totalPoints"];
+        if (pointsData["totalPoints"] > 0) {
+            stats["pctOnFoil"] = (pointsData["foilingPoints"] * 100.0) / pointsData["totalPoints"];
+        }
     }
     
     // Simplified VMG handling
     function updateVMG(info, speed, isUpwind, lapNum) {
+        if (!mLapStats.hasKey(lapNum) || !mLapPointsData.hasKey(lapNum)) {
+            return;
+        }
+        
         // Get all needed data up front
-        var absWindAngle = mParent.getAngleCalculator().getAbsWindAngle();
+        var absWindAngle = (mParent != null && mParent.getAngleCalculator() != null) 
+            ? mParent.getAngleCalculator().getAbsWindAngle() : 0;
         var stats = mLapStats[lapNum];
         var pointsData = mLapPointsData[lapNum];
         
@@ -208,24 +268,10 @@ class LapTracker {
         updatePositionData(info);
     }
     
-    // In LapTracker.mc
- // In LapTracker.mc
-    // Updated updatePositionData method with proper error handling for Garmin devices
     function updatePositionData(info) {
-        var lat1 = null;
-        var lon1 = null;
-        var lat2 = null;
-        var lon2 = null;
         var lapNum = mCurrentLapNumber;
-        if (lapNum <= 0 || info == null) { return; }
-        
-        // Safety check - make sure we have the lapNum key in the dictionary
-        if (!mLapPositionData.hasKey(lapNum)) {
-            mLapPositionData[lapNum] = {
-                "startPosition" => null,
-                "startTime" => System.getTimer(),
-                "distance" => 0.0
-            };
+        if (lapNum <= 0 || info == null || !mLapPositionData.hasKey(lapNum)) { 
+            return; 
         }
         
         var posData = mLapPositionData[lapNum];
@@ -236,28 +282,21 @@ class LapTracker {
             return;
         }
         
-        // Make sure both positions have the required data before calculating
-        var startPos = posData["startPosition"];
-        
-        // Safety check before position calculations - with safe property access
         try {
-            // Check if position property exists and is not null
-            if (info has :position && startPos has :position && 
-                info.position != null && startPos.position != null) {
+            // Get the position information
+            var startPos = posData["startPosition"];
+            var lat1 = null;
+            var lon1 = null;
+            var lat2 = null;
+            var lon2 = null;
+            
+            // Try to extract latitude and longitude
+            if (startPos has :position && info has :position && 
+                startPos.position != null && info.position != null) {
                 
-                // Extract latitude and longitude directly from the position objects
-                // According to Garmin docs, position is accessed with individual lat/lon properties               
-                // Try direct array access first (some devices provide position as array)
+                // Try different methods to get the position data
                 try {
-                    if (startPos.position[0] != null && startPos.position[1] != null &&
-                        info.position[0] != null && info.position[1] != null) {
-                        lat1 = startPos.position[0];
-                        lon1 = startPos.position[1];
-                        lat2 = info.position[0];
-                        lon2 = info.position[1];
-                    }
-                } catch (e) {
-                    // If array access fails, try accessing as lat/lon properties
+                    // First, try to access position as properties
                     if (startPos.position has :latitude && startPos.position has :longitude &&
                         info.position has :latitude && info.position has :longitude) {
                         lat1 = startPos.position.latitude;
@@ -265,45 +304,58 @@ class LapTracker {
                         lat2 = info.position.latitude;
                         lon2 = info.position.longitude;
                     }
-                }
-                
-                // Calculate distance only if we have valid coordinates
-                if (lat1 != null && lon1 != null && lat2 != null && lon2 != null) {
-                    // Approximate distance using Pythagorean theorem
-                    var latDiff = lat2 - lat1;
-                    var lonDiff = lon2 - lon1;
-                    
-                    // Converting to approximate meters
-                    var latMeters = latDiff * 111320; // 1 degree lat is ~111.32 km
-                    var lonMeters = lonDiff * 111320 * Math.cos(Math.toRadians((lat1 + lat2) / 2));
-                    
-                    posData["distance"] = Math.sqrt(latMeters * latMeters + lonMeters * lonMeters);
-                    
-                    // Calculate lap VMG safely
-                    calculateLapVMG(info);
+                    // If that fails, try array access - but only if we have an array
+                    else if (startPos.position has :size && info.position has :size) {
+                        // Only access arrays if they have a size method and sufficient elements
+                        if (startPos.position.size() >= 2 && info.position.size() >= 2) {
+                            lat1 = startPos.position[0];
+                            lon1 = startPos.position[1];
+                            lat2 = info.position[0];
+                            lon2 = info.position[1];
+                        }
+                    }
+                    // Last resort - try direct array access without checking size
+                    else if (startPos.position instanceof Array && info.position instanceof Array) {
+                        // Just try direct access and let error handling catch any issues
+                        lat1 = startPos.position[0];
+                        lon1 = startPos.position[1];
+                        lat2 = info.position[0];
+                        lon2 = info.position[1];
+                    }
+                } catch (e) {
+                    log("Position data extraction error: " + e.getErrorMessage());
+                    // Continue without position data
                 }
             }
+            
+            // If we have valid coordinates, calculate distance
+            if (lat1 != null && lon1 != null && lat2 != null && lon2 != null) {
+                // Approximate distance using Pythagorean theorem
+                var latDiff = lat2 - lat1;
+                var lonDiff = lon2 - lon1;
+                
+                // Converting to approximate meters
+                var latMeters = latDiff * 111320; // 1 degree lat is ~111.32 km
+                var lonMeters = lonDiff * 111320 * Math.cos(Math.toRadians((lat1 + lat2) / 2));
+                
+                posData["distance"] = Math.sqrt(latMeters * latMeters + lonMeters * lonMeters);
+                
+                // Calculate lap VMG safely
+                calculateLapVMG(info);
+            }
         } catch (e) {
-            log("Error calculating position: " + e.getErrorMessage());
+            log("Error in updatePositionData: " + e.getErrorMessage());
         }
     }
 
     // Updated calculateLapVMG method with improved safety checks
     function calculateLapVMG(info) {
-        var lat1 = null;
-        var lon1 = null;
-        var lat2 = null;
-        var lon2 = null;
         var lapNum = mCurrentLapNumber;
-        if (lapNum <= 0 || info == null || !mLapPositionData.hasKey(lapNum)) {
+        if (lapNum <= 0 || info == null || !mLapPositionData.hasKey(lapNum) || !mLapStats.hasKey(lapNum)) {
             return;
         }
         
         var posData = mLapPositionData[lapNum];
-        if (!mLapStats.hasKey(lapNum)) {
-            return;
-        }
-        
         var stats = mLapStats[lapNum];
         
         // Skip if no valid distance
@@ -311,38 +363,41 @@ class LapTracker {
             return;
         }
         
-        // Calculate time elapsed
-        var startTime = posData.hasKey("startTime") ? posData["startTime"] : mLastLapStartTime;
-        var elapsedTimeHours = (System.getTimer() - startTime) / (1000.0 * 60.0 * 60.0);
-        
-        // Skip VMG calculation if elapsed time is too small
-        if (elapsedTimeHours < 0.001) {
-            return;
-        }
-        
-        // Try to get bearing
-        var bearing = 0.0;
-        
-        // Calculate bearing safely with comprehensive validation
         try {
+            // Calculate time elapsed
+            var startTime = posData.hasKey("startTime") ? posData["startTime"] : mLastLapStartTime;
+            var elapsedTimeHours = (System.getTimer() - startTime) / (1000.0 * 60.0 * 60.0);
+            
+            // Skip VMG calculation if elapsed time is too small
+            if (elapsedTimeHours < 0.001) {
+                return;
+            }
+            
+            // Calculate bearing
+            var bearing = 0.0;
             var startPos = posData["startPosition"];
             
-            // Check if position exists and has required data
-            if (info has :position && startPos has :position && 
-                info.position != null && startPos.position != null) {
-
+            // Try to calculate bearing if we have valid position data
+            if (startPos != null && info != null && 
+                startPos has :position && info has :position && 
+                startPos.position != null && info.position != null) {
                 
-                // Try direct array access first
+                var lat1 = null;
+                var lon1 = null;
+                var lat2 = null;
+                var lon2 = null;
+                
+                // Extract coordinates safely
                 try {
-                    if (startPos.position[0] != null && startPos.position[1] != null &&
-                        info.position[0] != null && info.position[1] != null) {
+                    // Try array access
+                    if (startPos.position.size() >= 2 && info.position.size() >= 2) {
                         lat1 = startPos.position[0];
                         lon1 = startPos.position[1];
                         lat2 = info.position[0];
                         lon2 = info.position[1];
                     }
                 } catch (e) {
-                    // If array access fails, try accessing as lat/lon properties
+                    // Try property access
                     if (startPos.position has :latitude && startPos.position has :longitude &&
                         info.position has :latitude && info.position has :longitude) {
                         lat1 = startPos.position.latitude;
@@ -352,9 +407,8 @@ class LapTracker {
                     }
                 }
                 
-                // Calculate bearing only if coordinates are valid
+                // Calculate bearing if coordinates are valid
                 if (lat1 != null && lon1 != null && lat2 != null && lon2 != null) {
-                    // Calculate bearing
                     var lonDiff = lon2 - lon1;
                     bearing = Math.toDegrees(Math.atan2(lonDiff, lat2 - lat1));
                     if (bearing < 0) {
@@ -362,100 +416,192 @@ class LapTracker {
                     }
                 }
             }
+            
+            // Calculate projection onto wind direction
+            if (mParent != null) {
+                var windDirRadians = Math.toRadians(mParent.getWindDirection());
+                var bearingRadians = Math.toRadians(bearing);
+                
+                // Component of travel in direction of wind
+                var distance = posData["distance"];
+                var distanceToWind = distance * Math.cos(bearingRadians - windDirRadians);
+                
+                // If going upwind, we want to go against the wind, so negate
+                if (mParent.getAngleCalculator() != null && mParent.getAngleCalculator().isUpwind()) {
+                    distanceToWind = -distanceToWind;
+                }
+                
+                // Convert from meters to nautical miles (1 nm = 1852 meters)
+                var distanceNM = distanceToWind / 1852.0;
+                
+                // Calculate VMG in knots (nautical miles per hour)
+                var lapVMG = distanceNM / elapsedTimeHours;
+                
+                // Update lap stats with this VMG
+                stats["lapVMG"] = lapVMG;
+            }
         } catch (e) {
-            log("Error calculating bearing: " + e.getErrorMessage());
-            bearing = 0.0;
+            log("Error in calculateLapVMG: " + e.getErrorMessage());
         }
-        
-        // Calculate projection onto wind direction
-        var windDirRadians = Math.toRadians(mParent.getWindDirection());
-        var bearingRadians = Math.toRadians(bearing);
-        
-        // Component of travel in direction of wind
-        var distance = posData["distance"];
-        var distanceToWind = distance * Math.cos(bearingRadians - windDirRadians);
-        
-        // If going upwind, we want to go against the wind, so negate
-        if (mParent.getAngleCalculator() != null && mParent.getAngleCalculator().isUpwind()) {
-            distanceToWind = -distanceToWind;
-        }
-        
-        // Convert from meters to nautical miles (1 nm = 1852 meters)
-        var distanceNM = distanceToWind / 1852.0;
-        
-        // Calculate VMG in knots (nautical miles per hour)
-        var lapVMG = distanceNM / elapsedTimeHours;
-        
-        // Update lap stats with this VMG
-        stats["lapVMG"] = lapVMG;
     }
     
-    // Efficiently get lap data
+    // Update getLapData to better handle type errors
     function getLapData() {
         var lapNum = mCurrentLapNumber;
+        
+        // Return default data if no laps yet
         if (lapNum <= 0) {
             return createDefaultLapData();
         }
         
-        // Get all needed data sources
-        var stats = mLapStats[lapNum];
-        var pointsData = mLapPointsData[lapNum];
-        var dirData = mLapDirectionData[lapNum];
-        var posData = mLapPositionData[lapNum];
+        // Create a safe return object with defaults
+        var lapData = createDefaultLapData();
         
-        // Create return object all at once
-        var lapData = {
-            "vmgUp" => stats.hasKey("avgVMGUp") ? stats["avgVMGUp"] : 0.0,
-            "vmgDown" => stats.hasKey("avgVMGDown") ? stats["avgVMGDown"] : 0.0,
-            "tackSec" => getTimeSinceLastTack(),
-            "tackMtr" => posData.hasKey("distance") ? posData["distance"] : 0.0,
-            "avgTackAngle" => stats.hasKey("avgTackAngle") ? stats["avgTackAngle"] : 0,
-            "avgGybeAngle" => stats.hasKey("avgGybeAngle") ? stats["avgGybeAngle"] : 0,
-            "lapVMG" => stats.hasKey("lapVMG") ? stats["lapVMG"] : 0.0,
-            "pctOnFoil" => stats.hasKey("pctOnFoil") ? stats["pctOnFoil"] : 0.0,
-            "tackCount" => stats.hasKey("tackCount") ? stats["tackCount"] : 0,
-            "gybeCount" => stats.hasKey("gybeCount") ? stats["gybeCount"] : 0,
-            "windDirection" => calculateAvgWindDirection(dirData),
-            "windStrength" => getWindStrength(),
-            "pctUpwind" => calculatePctUpwind(pointsData),
-            "pctDownwind" => calculatePctDownwind(pointsData),
-            "avgWindAngle" => calculateAvgWindAngle(dirData, pointsData)
-        };
+        try {
+            // Safely get all needed data sources with null checks
+            if (mLapStats.hasKey(lapNum)) {
+                var stats = mLapStats[lapNum];
+                if (stats != null) {
+                    // Safely copy stats values
+                    if (stats.hasKey("avgVMGUp")) { lapData["vmgUp"] = stats["avgVMGUp"]; }
+                    if (stats.hasKey("avgVMGDown")) { lapData["vmgDown"] = stats["avgVMGDown"]; }
+                    if (stats.hasKey("avgTackAngle")) { lapData["avgTackAngle"] = stats["avgTackAngle"]; }
+                    if (stats.hasKey("avgGybeAngle")) { lapData["avgGybeAngle"] = stats["avgGybeAngle"]; }
+                    if (stats.hasKey("lapVMG")) { lapData["lapVMG"] = stats["lapVMG"]; }
+                    if (stats.hasKey("pctOnFoil")) { lapData["pctOnFoil"] = stats["pctOnFoil"]; }
+                }
+            }
+            
+            // Add time since last tack
+            lapData["tackSec"] = getTimeSinceLastTack();
+            
+            // Get position data safely
+            if (mLapPositionData.hasKey(lapNum) && mLapPositionData[lapNum] != null) {
+                var posData = mLapPositionData[lapNum];
+                if (posData.hasKey("distance")) {
+                    lapData["tackMtr"] = posData["distance"];
+                }
+            }
+            
+            // Get point data safely
+            if (mLapPointsData.hasKey(lapNum) && mLapPointsData[lapNum] != null) {
+                var pointsData = mLapPointsData[lapNum];
+                lapData["pctUpwind"] = calculatePctUpwind(pointsData);
+                lapData["pctDownwind"] = calculatePctDownwind(pointsData);
+            }
+            
+            // Get direction data safely
+            if (mLapDirectionData.hasKey(lapNum) && mLapDirectionData[lapNum] != null) {
+                var dirData = mLapDirectionData[lapNum];
+                lapData["windDirection"] = calculateAvgWindDirection(dirData);
+                lapData["avgWindAngle"] = calculateAvgWindAngle(dirData, mLapPointsData[lapNum]);
+            }
+            
+            // Get wind strength safely
+            lapData["windStrength"] = getWindStrength();
+            
+            // Get tack/gybe counts safely
+            if (mLapDisplayManeuvers != null && mLapDisplayManeuvers.hasKey(lapNum)) {
+                lapData["tackCount"] = mLapDisplayManeuvers[lapNum]["displayTackCount"];
+                lapData["gybeCount"] = mLapDisplayManeuvers[lapNum]["displayGybeCount"];
+            }
+        } catch (e) {
+            System.println("Error in getLapData: " + e.getErrorMessage());
+            // Return default data when we hit an error
+            return createDefaultLapData();
+        }
         
         // Round all values once
         return roundLapData(lapData);
     }
     
-    // Helper functions for lap data - split for better maintainability
+    // Helper functions for lap data
+    
+    // Create default lap data with proper types
     function createDefaultLapData() {
         return {
-            "vmgUp" => 0.0, "vmgDown" => 0.0, "tackSec" => 0.0, "tackMtr" => 0.0,
-            "avgTackAngle" => 0, "avgGybeAngle" => 0, "lapVMG" => 0.0, "pctOnFoil" => 0.0,
-            "windDirection" => 0, "windStrength" => 0, "pctUpwind" => 0, "pctDownwind" => 0,
-            "avgWindAngle" => 0, "tackCount" => 0, "gybeCount" => 0
+            "vmgUp" => 0.0,
+            "vmgDown" => 0.0,
+            "tackSec" => 0.0,
+            "tackMtr" => 0.0,
+            "avgTackAngle" => 0,
+            "avgGybeAngle" => 0,
+            "lapVMG" => 0.0,
+            "pctOnFoil" => 0.0,
+            "windDirection" => 0,
+            "windStrength" => 0,
+            "pctUpwind" => 0,
+            "pctDownwind" => 0,
+            "avgWindAngle" => 0,
+            "tackCount" => 0,
+            "gybeCount" => 0
         };
     }
     
-    function calculateAvgWindDirection(dirData) {
-        if (dirData != null && dirData.hasKey("windDirectionPoints") && dirData["windDirectionPoints"] > 0) {
-            return Math.round(dirData["windDirectionSum"] / dirData["windDirectionPoints"]).toNumber();
-        }
-        return mParent.getWindDirection();
-    }
-    
+    // Safer calculation helpers
     function calculatePctUpwind(pointsData) {
-        if (pointsData == null || pointsData["totalPoints"] == 0) { return 0; }
-        return Math.round((pointsData["upwindPoints"] * 100.0) / pointsData["totalPoints"]).toNumber();
+        if (pointsData == null || !pointsData.hasKey("totalPoints") || pointsData["totalPoints"] == 0) { 
+            return 0; 
+        }
+        
+        var upwindPoints = pointsData.hasKey("upwindPoints") ? pointsData["upwindPoints"] : 0;
+        var totalPoints = pointsData["totalPoints"];
+        
+        return Math.round((upwindPoints * 100.0) / totalPoints).toNumber();
     }
     
     function calculatePctDownwind(pointsData) {
-        if (pointsData == null || pointsData["totalPoints"] == 0) { return 0; }
-        return Math.round((pointsData["downwindPoints"] * 100.0) / pointsData["totalPoints"]).toNumber();
+        if (pointsData == null || !pointsData.hasKey("totalPoints") || pointsData["totalPoints"] == 0) { 
+            return 0; 
+        }
+        
+        var downwindPoints = pointsData.hasKey("downwindPoints") ? pointsData["downwindPoints"] : 0;
+        var totalPoints = pointsData["totalPoints"];
+        
+        return Math.round((downwindPoints * 100.0) / totalPoints).toNumber();
+    }
+    
+    function calculateAvgWindDirection(dirData) {
+        if (dirData == null || !dirData.hasKey("windDirectionPoints") || dirData["windDirectionPoints"] <= 0) {
+            return mParent != null ? mParent.getWindDirection() : 0;
+        }
+        
+        var sum = dirData.hasKey("windDirectionSum") ? dirData["windDirectionSum"] : 0;
+        var count = dirData["windDirectionPoints"];
+        
+        return Math.round(sum / count).toNumber();
     }
     
     function calculateAvgWindAngle(dirData, pointsData) {
-        if (dirData == null || pointsData == null || pointsData["totalPoints"] == 0) { return 0; }
-        return Math.round(dirData["windAngleSum"] / pointsData["totalPoints"]).toNumber();
+        if (dirData == null || pointsData == null || 
+            !pointsData.hasKey("totalPoints") || pointsData["totalPoints"] == 0) { 
+            return 0; 
+        }
+        
+        var sum = dirData.hasKey("windAngleSum") ? dirData["windAngleSum"] : 0;
+        var count = pointsData["totalPoints"];
+        
+        return Math.round(sum / count).toNumber();
+    }
+    
+    // Efficiently round all values in one function
+    function roundLapData(lapData) {
+        try {
+            lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
+            lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
+            lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
+            lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
+            lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
+            lapData["pctOnFoil"] = Math.round(lapData["pctOnFoil"]);
+            lapData["avgWindAngle"] = Math.round(lapData["avgWindAngle"]);
+            lapData["windDirection"] = Math.round(lapData["windDirection"]);
+            lapData["pctUpwind"] = Math.round(lapData["pctUpwind"]);
+            lapData["pctDownwind"] = Math.round(lapData["pctDownwind"]);
+        } catch (e) {
+            log("Error rounding lap data: " + e.getErrorMessage());
+        }
+        
+        return lapData;
     }
     
     function getWindStrength() {
@@ -472,22 +618,6 @@ class LapTracker {
             log("Error getting wind strength: " + e.getErrorMessage());
         }
         return windStrength;
-    }
-    
-    // Efficiently round all values in one function
-    function roundLapData(lapData) {
-        lapData["vmgUp"] = Math.round(lapData["vmgUp"] * 10) / 10.0;
-        lapData["vmgDown"] = Math.round(lapData["vmgDown"] * 10) / 10.0;
-        lapData["tackSec"] = Math.round(lapData["tackSec"] * 10) / 10.0;
-        lapData["tackMtr"] = Math.round(lapData["tackMtr"] * 10) / 10.0;
-        lapData["lapVMG"] = Math.round(lapData["lapVMG"] * 10) / 10.0;
-        lapData["pctOnFoil"] = Math.round(lapData["pctOnFoil"]);
-        lapData["avgWindAngle"] = Math.round(lapData["avgWindAngle"]);
-        lapData["windDirection"] = Math.round(lapData["windDirection"]);
-        lapData["pctUpwind"] = Math.round(lapData["pctUpwind"]);
-        lapData["pctDownwind"] = Math.round(lapData["pctDownwind"]);
-        
-        return lapData;
     }
     
     // Simplified time since last tack calculation
@@ -510,6 +640,89 @@ class LapTracker {
         return (System.getTimer() - lastTackTimestamp) / 1000.0;
     }
     
+    // Record maneuvers in lap
+    function recordManeuverInLap(maneuver) {
+        var lapNumber = maneuver["lapNumber"];
+        if (lapNumber <= 0 || !mLapManeuvers.hasKey(lapNumber)) {
+            return;
+        }
+        
+        var isTack = maneuver["isTack"];
+        var isReliable = maneuver.hasKey("isReliable") ? maneuver["isReliable"] : true;
+        var collection = isTack ? "tacks" : "gybes";
+        
+        // Only add reliable maneuvers to collection for angle calculations
+        if (isReliable) {
+            // Add to collection
+            mLapManeuvers[lapNumber][collection].add(maneuver);
+            
+            // Update stats immediately
+            updateLapManeuverStats(lapNumber);
+        }
+        
+        // Always update display counts
+        if (!mLapDisplayManeuvers.hasKey(lapNumber)) {
+            mLapDisplayManeuvers[lapNumber] = {
+                "displayTackCount" => 0,
+                "displayGybeCount" => 0
+            };
+        }
+        
+        // Increment the appropriate display counter
+        if (isTack) {
+            mLapDisplayManeuvers[lapNumber]["displayTackCount"]++;
+        } else {
+            mLapDisplayManeuvers[lapNumber]["displayGybeCount"]++;
+        }
+    }
+    
+    // Update maneuver stats more efficiently
+    function updateLapManeuverStats(lapNumber) {
+        if (!mLapManeuvers.hasKey(lapNumber) || !mLapStats.hasKey(lapNumber)) {
+            return;
+        }
+        
+        try {
+            var stats = mLapStats[lapNumber];
+            var maneuvers = mLapManeuvers[lapNumber];
+            
+            var tackArray = maneuvers["tacks"];
+            var gybeArray = maneuvers["gybes"];
+            
+            // Update tack stats
+            var tackCount = tackArray.size();
+            var tackSum = 0;
+            var maxTack = 0;
+            
+            for (var i = 0; i < tackCount; i++) {
+                var angle = tackArray[i]["angle"];
+                tackSum += angle;
+                if (angle > maxTack) { maxTack = angle; }
+            }
+            
+            // Update gybe stats
+            var gybeCount = gybeArray.size();
+            var gybeSum = 0;
+            var maxGybe = 0;
+            
+            for (var i = 0; i < gybeCount; i++) {
+                var angle = gybeArray[i]["angle"];
+                gybeSum += angle;
+                if (angle > maxGybe) { maxGybe = angle; }
+            }
+            
+            // Update all stats at once
+            stats["tackCount"] = tackCount;
+            stats["gybeCount"] = gybeCount;
+            stats["avgTackAngle"] = tackCount > 0 ? tackSum / tackCount : 0;
+            stats["avgGybeAngle"] = gybeCount > 0 ? gybeSum / gybeCount : 0;
+            stats["maxTackAngle"] = maxTack;
+            stats["maxGybeAngle"] = maxGybe;
+        } catch (e) {
+            log("Error updating lap maneuver stats: " + e.getErrorMessage());
+        }
+    }
+    
     // Accessors
     function getCurrentLap() {
         return mCurrentLapNumber;
@@ -520,65 +733,5 @@ class LapTracker {
             return mLapStats[lapNumber];
         }
         return null;
-    }
-    
-    // Record maneuvers efficiently
-    function recordManeuverInLap(maneuver) {
-        var lapNumber = maneuver["lapNumber"];
-        if (lapNumber <= 0 || !mLapManeuvers.hasKey(lapNumber)) {
-            return;
-        }
-        
-        var isTack = maneuver["isTack"];
-        var collection = isTack ? "tacks" : "gybes";
-        
-        // Add to collection
-        mLapManeuvers[lapNumber][collection].add(maneuver);
-        
-        // Update stats immediately
-        updateLapManeuverStats(lapNumber);
-    }
-    
-    // Update maneuver stats more efficiently
-    function updateLapManeuverStats(lapNumber) {
-        if (!mLapManeuvers.hasKey(lapNumber) || !mLapStats.hasKey(lapNumber)) {
-            return;
-        }
-        
-        var stats = mLapStats[lapNumber];
-        var maneuvers = mLapManeuvers[lapNumber];
-        
-        var tackArray = maneuvers["tacks"];
-        var gybeArray = maneuvers["gybes"];
-        
-        // Update tack stats
-        var tackCount = tackArray.size();
-        var tackSum = 0;
-        var maxTack = 0;
-        
-        for (var i = 0; i < tackCount; i++) {
-            var angle = tackArray[i]["angle"];
-            tackSum += angle;
-            if (angle > maxTack) { maxTack = angle; }
-        }
-        
-        // Update gybe stats
-        var gybeCount = gybeArray.size();
-        var gybeSum = 0;
-        var maxGybe = 0;
-        
-        for (var i = 0; i < gybeCount; i++) {
-            var angle = gybeArray[i]["angle"];
-            gybeSum += angle;
-            if (angle > maxGybe) { maxGybe = angle; }
-        }
-        
-        // Update all stats at once
-        stats["tackCount"] = tackCount;
-        stats["gybeCount"] = gybeCount;
-        stats["avgTackAngle"] = tackCount > 0 ? tackSum / tackCount : 0;
-        stats["avgGybeAngle"] = gybeCount > 0 ? gybeSum / gybeCount : 0;
-        stats["maxTackAngle"] = maxTack;
-        stats["maxGybeAngle"] = maxGybe;
     }
 }

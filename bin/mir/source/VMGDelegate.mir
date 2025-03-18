@@ -85,354 +85,452 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         ret %tmp.15;
 C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_22_22_26_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 29; @symbol_functiondef = [onSelect,29,13,21]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 28; @symbol_functiondef = [onSelect,28,13,21]; ]
     function onSelect() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 30 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 29 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_stop" ]
         %data.1 = local;
-        symbol [ data %data.1 30 12 16 ];
-        symbol [ mModel %tmp.2 30 19 25 ];
+        symbol [ data %data.1 29 12 16 ];
+        symbol [ mModel %tmp.2 29 19 25 ];
         %tmp.2 = getv ? :mModel;
-        symbol [ getData %tmp.3 30 26 33 ];
+        symbol [ getData %tmp.3 29 26 33 ];
         %tmp.3 = getv function %tmp.2 :getData;
         %tmp.4 = invoke %tmp.2 %tmp.3();
         lputv %data.1 %tmp.4;
-        symbol [ data %data.1 30 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 33 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_stop" ]
+        symbol [ data %data.1 29 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 32 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_stop" ]
         %isActive.2 = local;
-        symbol [ isActive %isActive.2 33 12 20 ];
+        symbol [ isActive %isActive.2 32 12 20 ];
         %tmp.5 = false;
         lputv %isActive.2 %tmp.5;
-        symbol [ isActive %isActive.2 33 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 34 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_34_60_begin:
+        symbol [ isActive %isActive.2 32 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 33 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_12_33_76_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_12_33_53_begin:
         %tmp.6 = lgetv %data.1;
-        symbol [ data %tmp.6 34 12 16 ];
-        symbol [ hasKey %tmp.7 34 17 23 ];
-        %tmp.7 = getv function %tmp.6 :hasKey;
-        %tmp.8 = "isRecording";
-        %tmp.9 = invoke %tmp.6 %tmp.7(%tmp.8);
-        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_42_34_60_true:
-        %tmp.10 = lgetv %data.1;
-        symbol [ data %tmp.10 34 42 46 ];
-        %tmp.11 = "isRecording";
-        %tmp.12 = agetv %tmp.10 %tmp.11;
-        push %tmp.12;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_42_34_60_end:
-        %tmp.13 = phi [%tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_34_60_begin] [%tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_42_34_60_true] [%tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_42_34_60_end];
-        bf %tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_63_38_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 35 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_12_37_12_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_18_35_70_begin:
-        %tmp.14 = lgetv %data.1;
-        symbol [ data %tmp.14 35 18 22 ];
-        symbol [ hasKey %tmp.15 35 23 29 ];
-        %tmp.15 = getv function %tmp.14 :hasKey;
-        %tmp.16 = "sessionPaused";
-        %tmp.17 = invoke %tmp.14 %tmp.15(%tmp.16);
-        %tmp.18 = dup %tmp.17;
-        bf %tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_50_35_70_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_50_35_70_true:
-        %tmp.19 = lgetv %data.1;
-        symbol [ data %tmp.19 35 50 54 ];
-        %tmp.20 = "sessionPaused";
-        %tmp.21 = agetv %tmp.19 %tmp.20;
-        %tmp.22 = and %tmp.17 %tmp.21;
-        push %tmp.22;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_50_35_70_end:
-        %tmp.23 = phi [%tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_18_35_70_begin] [%tmp.22 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_50_35_70_true] [%tmp.23 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_50_35_70_end];
-        %tmp.24 = not %tmp.23;
-        bf %tmp.24 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_12_37_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_12_37_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_74_37_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 36 16 ]
-        %tmp.25 = true;
-        lputv %isActive.2 %tmp.25;
-        symbol [ isActive %isActive.2 36 16 24 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_74_37_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_12_37_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_35_12_37_12_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_63_38_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_8_38_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 40 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_stmt:
-        %tmp.26 = lgetv %isActive.2;
-        symbol [ isActive %tmp.26 40 12 20 ];
-        bf %tmp.26 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_22_52_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 41 12 ]
-        symbol [ System %tmp.27 41 12 18 ];
-        %tmp.27 = getm $.Toybox.System;
-        symbol [ println %tmp.28 41 19 26 ];
-        %tmp.28 = getv function %tmp.27 :println;
-        %tmp.29 = "SELECT BUTTON PRESSED - ADDING LAP FROM VMG VIEW";
-        invoke %tmp.27 %tmp.28(%tmp.29);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 44 12 ]
-        symbol [ mApp %tmp.31 44 12 16 ];
-        %tmp.31 = getv ? :mApp;
-        symbol [ addLapMarker %tmp.32 44 17 29 ];
-        %tmp.32 = getv function %tmp.31 :addLapMarker;
-        invoke %tmp.31 %tmp.32();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 47 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_12_49_12_if_stmt:
-        symbol [ mView %tmp.34 47 16 21 ];
-        %tmp.34 = getv ? :mView;
-        %tmp.36 = const :showLapFeedback;
-        symbol [ showLapFeedback %tmp.36 47 27 42 const ];
-        %tmp.37 = canhazplz %tmp.34 %tmp.36;
-        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_12_49_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_12_49_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_44_49_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 48 16 ]
-        symbol [ mView %tmp.39 48 16 21 ];
-        %tmp.39 = getv ? :mView;
-        %tmp.40 = as %tmp.39 { (interface { var showLapFeedback; }) };
-        symbol [ showLapFeedback %tmp.41 48 22 37 ];
-        %tmp.41 = getv function %tmp.40 :showLapFeedback;
-        invoke %tmp.40 %tmp.41();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_44_49_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_12_49_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_12_49_12_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 51 12 ]
-        symbol [ System %tmp.42 51 12 18 ];
-        %tmp.42 = getm $.Toybox.System;
-        symbol [ println %tmp.43 51 19 26 ];
-        %tmp.43 = getv function %tmp.42 :println;
-        %tmp.44 = "Lap marker added from VMG view";
-        invoke %tmp.42 %tmp.43(%tmp.44);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_22_52_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_15_54_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 53 12 ]
-        symbol [ System %tmp.45 53 12 18 ];
-        %tmp.45 = getm $.Toybox.System;
-        symbol [ println %tmp.46 53 19 26 ];
-        %tmp.46 = getv function %tmp.45 :println;
-        %tmp.47 = "Cannot add lap marker - not recording or paused";
-        invoke %tmp.45 %tmp.46(%tmp.47);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_15_54_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_40_8_54_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 56 8 ]
-        %tmp.48 = true;
-        ret %tmp.48;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_29_24_57_4_stop:
+        symbol [ data %tmp.6 33 12 16 ];
+        %tmp.7 = null;
+        %tmp.8 = ne %tmp.6 %tmp.7;
+        bf %tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_28_33_53_true:
+        %tmp.9 = lgetv %data.1;
+        symbol [ data %tmp.9 33 28 32 ];
+        %tmp.10 = as %tmp.9 { (!Null) };
+        symbol [ hasKey %tmp.11 33 33 39 ];
+        %tmp.11 = getv function %tmp.10 :hasKey;
+        %tmp.12 = "isRecording";
+        %tmp.13 = invoke %tmp.10 %tmp.11(%tmp.12);
+        push %tmp.13;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_28_33_53_end:
+        %tmp.14 = phi [%tmp.8 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_12_33_53_begin] [%tmp.13 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_28_33_53_true] [%tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_28_33_53_end];
+        bf %tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_58_33_76_true:
+        %tmp.15 = lgetv %data.1;
+        symbol [ data %tmp.15 33 58 62 ];
+        %tmp.16 = as %tmp.15 { (!Null) };
+        %tmp.17 = "isRecording";
+        %tmp.18 = agetv %tmp.16 %tmp.17;
+        push %tmp.18;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_58_33_76_end:
+        %tmp.19 = phi [%tmp.14 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_12_33_76_begin] [%tmp.18 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_58_33_76_true] [%tmp.19 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_58_33_76_end];
+        bf %tmp.19 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_79_37_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 34 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_36_12_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_18_34_70_begin:
+        %tmp.20 = lgetv %data.1;
+        symbol [ data %tmp.20 34 18 22 ];
+        %tmp.21 = as %tmp.20 { (!Null) };
+        symbol [ hasKey %tmp.22 34 23 29 ];
+        %tmp.22 = getv function %tmp.21 :hasKey;
+        %tmp.23 = "sessionPaused";
+        %tmp.24 = invoke %tmp.21 %tmp.22(%tmp.23);
+        %tmp.25 = dup %tmp.24;
+        bf %tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_50_34_70_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_50_34_70_true:
+        %tmp.26 = lgetv %data.1;
+        symbol [ data %tmp.26 34 50 54 ];
+        %tmp.27 = as %tmp.26 { (!Null) };
+        %tmp.28 = "sessionPaused";
+        %tmp.29 = agetv %tmp.27 %tmp.28;
+        %tmp.30 = and %tmp.24 %tmp.29;
+        push %tmp.30;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_50_34_70_end:
+        %tmp.31 = phi [%tmp.25 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_18_34_70_begin] [%tmp.30 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_50_34_70_true] [%tmp.31 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_50_34_70_end];
+        %tmp.32 = not %tmp.31;
+        bf %tmp.32 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_36_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_36_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_74_36_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 35 16 ]
+        %tmp.33 = true;
+        lputv %isActive.2 %tmp.33;
+        symbol [ isActive %isActive.2 35 16 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_74_36_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_36_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_34_12_36_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_79_37_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_33_8_37_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 39 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_stmt:
+        %tmp.34 = lgetv %isActive.2;
+        symbol [ isActive %tmp.34 39 12 20 ];
+        bf %tmp.34 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_22_59_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 40 12 ]
+        symbol [ System %tmp.35 40 12 18 ];
+        %tmp.35 = getm $.Toybox.System;
+        symbol [ println %tmp.36 40 19 26 ];
+        %tmp.36 = getv function %tmp.35 :println;
+        %tmp.37 = "SELECT BUTTON PRESSED - ADDING LAP FROM VMG VIEW";
+        invoke %tmp.35 %tmp.36(%tmp.37);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 42 12 ]
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_beginTry:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_16_56_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 44 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_stmt:
+        symbol [ mApp %tmp.39 44 20 24 ];
+        %tmp.39 = getv ? :mApp;
+        %tmp.40 = null;
+        %tmp.41 = ne %tmp.39 %tmp.40;
+        bf %tmp.41 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_34_47_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 45 20 ]
+        symbol [ mApp %tmp.43 45 20 24 ];
+        %tmp.43 = getv ? :mApp;
+        %tmp.44 = as %tmp.43 { (!Null) };
+        symbol [ addLapMarker %tmp.45 45 25 37 ];
+        %tmp.45 = getv function %tmp.44 :addLapMarker;
+        invoke %tmp.44 %tmp.45();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 46 20 ]
+        symbol [ System %tmp.46 46 20 26 ];
+        %tmp.46 = getm $.Toybox.System;
+        symbol [ println %tmp.47 46 27 34 ];
+        %tmp.47 = getv function %tmp.46 :println;
+        %tmp.48 = "App.addLapMarker() called successfully";
+        invoke %tmp.46 %tmp.47(%tmp.48);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_34_47_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_23_49_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 48 20 ]
+        symbol [ System %tmp.49 48 20 26 ];
+        %tmp.49 = getm $.Toybox.System;
+        symbol [ println %tmp.50 48 27 34 ];
+        %tmp.50 = getv function %tmp.49 :println;
+        %tmp.51 = "Error: mApp is null";
+        invoke %tmp.49 %tmp.50(%tmp.51);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_47_23_49_16_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_44_16_49_16_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 52 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_20_52_48_begin:
+        symbol [ mView %tmp.53 52 20 25 ];
+        %tmp.53 = getv ? :mView;
+        %tmp.54 = null;
+        %tmp.55 = ne %tmp.53 %tmp.54;
+        bf %tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_37_52_48_true:
+        symbol [ mView %tmp.57 52 37 42 ];
+        %tmp.57 = getv ? :mView;
+        %tmp.58 = as %tmp.57 { (!Null) };
+        %tmp.60 = const :showLapFeedback;
+        symbol [ showLapFeedback %tmp.60 52 48 63 const ];
+        %tmp.61 = canhazplz %tmp.58 %tmp.60;
+        push %tmp.61;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_37_52_48_end:
+        %tmp.62 = phi [%tmp.55 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_20_52_48_begin] [%tmp.61 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_37_52_48_true] [%tmp.62 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_37_52_48_end];
+        bf %tmp.62 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_65_55_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 53 20 ]
+        symbol [ mView %tmp.64 53 20 25 ];
+        %tmp.64 = getv ? :mView;
+        %tmp.65 = as %tmp.64 { (interface { var showLapFeedback; }) && (!Null) };
+        symbol [ showLapFeedback %tmp.66 53 26 41 ];
+        %tmp.66 = getv function %tmp.65 :showLapFeedback;
+        invoke %tmp.65 %tmp.66();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 54 20 ]
+        symbol [ System %tmp.67 54 20 26 ];
+        %tmp.67 = getm $.Toybox.System;
+        symbol [ println %tmp.68 54 27 34 ];
+        %tmp.68 = getv function %tmp.67 :println;
+        %tmp.69 = "View feedback shown";
+        invoke %tmp.67 %tmp.68(%tmp.69);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_65_55_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_52_16_55_16_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_16_56_12_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_endTry:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_catch:
+        %tmp.70 = exception;
+        push %tmp.70;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 56 14 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_14_58_12_end" ]
+        %e.3 = local;
+        symbol [ e %e.3 56 21 22 ];
+        %tmp.71 = dup %tmp.70;
+        lputv %e.3 %tmp.71;
+        symbol [ e %e.3 56 21 22 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_24_58_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 57 16 ]
+        symbol [ System %tmp.72 57 16 22 ];
+        %tmp.72 = getm $.Toybox.System;
+        symbol [ println %tmp.73 57 23 30 ];
+        %tmp.73 = getv function %tmp.72 :println;
+        %tmp.74 = "ERROR in VMGDelegate.onSelect: ";
+        %tmp.75 = lgetv %e.3;
+        symbol [ e %tmp.75 57 67 68 ];
+        symbol [ getErrorMessage %tmp.76 57 69 84 ];
+        %tmp.76 = getv function %tmp.75 :getErrorMessage;
+        %tmp.77 = invoke %tmp.75 %tmp.76();
+        %tmp.78 = add %tmp.74 %tmp.77;
+        invoke %tmp.72 %tmp.73(%tmp.78);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_24_58_12_stop:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally;
+        pop;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_14_58_12_end:
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_14_58_12_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_56_14_58_12_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally;
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally;
+        throw %tmp.70;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_finally:
+        jsrret;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_42_12_58_12_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_22_59_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_59_15_61_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 60 12 ]
+        symbol [ System %tmp.79 60 12 18 ];
+        %tmp.79 = getm $.Toybox.System;
+        symbol [ println %tmp.80 60 19 26 ];
+        %tmp.80 = getv function %tmp.79 :println;
+        %tmp.81 = "Cannot add lap marker - not recording or paused";
+        invoke %tmp.79 %tmp.80(%tmp.81);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_59_15_61_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_39_8_61_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 63 8 ]
+        %tmp.82 = true;
+        ret %tmp.82;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_28_24_64_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 60; @symbol_functiondef = [onBack,60,13,19]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 67; @symbol_functiondef = [onBack,67,13,19]; ]
     function onBack() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_60_22_75_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 61 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_8_73_8_if_stmt:
-        symbol [ mWindTracker %tmp.2 61 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_67_22_82_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 68 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_8_80_8_if_stmt:
+        symbol [ mWindTracker %tmp.2 68 12 24 ];
         %tmp.2 = getv ? :mWindTracker;
         %tmp.3 = null;
         %tmp.4 = ne %tmp.2 %tmp.3;
-        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_8_73_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_8_73_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_34_73_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 63 12 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_stmt:
-        symbol [ mWindTracker %tmp.6 63 16 28 ];
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_8_80_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_8_80_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_34_80_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 70 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_stmt:
+        symbol [ mWindTracker %tmp.6 70 16 28 ];
         %tmp.6 = getv ? :mWindTracker;
         %tmp.7 = as %tmp.6 { (!Null) };
-        symbol [ isWindDirectionLocked %tmp.8 63 29 50 ];
+        symbol [ isWindDirectionLocked %tmp.8 70 29 50 ];
         %tmp.8 = getv function %tmp.7 :isWindDirectionLocked;
         %tmp.9 = invoke %tmp.7 %tmp.8();
-        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_54_66_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 64 16 ]
-        symbol [ mWindTracker %tmp.11 64 16 28 ];
+        bf %tmp.9 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_54_73_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 71 16 ]
+        symbol [ mWindTracker %tmp.11 71 16 28 ];
         %tmp.11 = getv ? :mWindTracker;
-        symbol [ unlockWindDirection %tmp.12 64 29 48 ];
+        symbol [ unlockWindDirection %tmp.12 71 29 48 ];
         %tmp.12 = getv function %tmp.11 :unlockWindDirection;
         invoke %tmp.11 %tmp.12();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 65 16 ]
-        symbol [ System %tmp.13 65 16 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 72 16 ]
+        symbol [ System %tmp.13 72 16 22 ];
         %tmp.13 = getm $.Toybox.System;
-        symbol [ println %tmp.14 65 23 30 ];
+        symbol [ println %tmp.14 72 23 30 ];
         %tmp.14 = getv function %tmp.13 :println;
         %tmp.15 = "Wind direction unlocked";
         invoke %tmp.13 %tmp.14(%tmp.15);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_54_66_12_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_66_19_69_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 67 16 ]
-        symbol [ mWindTracker %tmp.17 67 16 28 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_54_73_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_73_19_76_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 74 16 ]
+        symbol [ mWindTracker %tmp.17 74 16 28 ];
         %tmp.17 = getv ? :mWindTracker;
         %tmp.18 = as %tmp.17 { (!Null) };
-        symbol [ lockWindDirection %tmp.19 67 29 46 ];
+        symbol [ lockWindDirection %tmp.19 74 29 46 ];
         %tmp.19 = getv function %tmp.18 :lockWindDirection;
         invoke %tmp.18 %tmp.19();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 68 16 ]
-        symbol [ System %tmp.20 68 16 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 75 16 ]
+        symbol [ System %tmp.20 75 16 22 ];
         %tmp.20 = getm $.Toybox.System;
-        symbol [ println %tmp.21 68 23 30 ];
+        symbol [ println %tmp.21 75 23 30 ];
         %tmp.21 = getv function %tmp.20 :println;
         %tmp.22 = "Wind direction locked at: ";
-        symbol [ mWindTracker %tmp.24 68 62 74 ];
+        symbol [ mWindTracker %tmp.24 75 62 74 ];
         %tmp.24 = getv ? :mWindTracker;
-        symbol [ getWindDirection %tmp.25 68 75 91 ];
+        symbol [ getWindDirection %tmp.25 75 75 91 ];
         %tmp.25 = getv function %tmp.24 :getWindDirection;
         %tmp.26 = invoke %tmp.24 %tmp.25();
         %tmp.27 = add %tmp.22 %tmp.26;
         invoke %tmp.20 %tmp.21(%tmp.27);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_66_19_69_12_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_63_12_69_12_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 72 12 ]
-        symbol [ WatchUi %tmp.28 72 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_73_19_76_12_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_70_12_76_12_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 79 12 ]
+        symbol [ WatchUi %tmp.28 79 12 19 ];
         %tmp.28 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.29 72 20 33 ];
+        symbol [ requestUpdate %tmp.29 79 20 33 ];
         %tmp.29 = getv function %tmp.28 :requestUpdate;
         invoke %tmp.28 %tmp.29();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_34_73_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_8_73_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_61_8_73_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 74 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_34_80_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_8_80_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_68_8_80_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 81 8 ]
         %tmp.30 = true;
         ret %tmp.30;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_60_22_75_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_67_22_82_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 78; @symbol_functiondef = [onPreviousPage,78,13,27]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 85; @symbol_functiondef = [onPreviousPage,85,13,27]; ]
     function onPreviousPage() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 80 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 87 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_stop" ]
         %view.1 = local;
-        symbol [ view %view.1 80 12 16 ];
-        symbol [ FoilTrackerView %tmp.4 80 23 38 ];
+        symbol [ view %view.1 87 12 16 ];
+        symbol [ FoilTrackerView %tmp.4 87 23 38 ];
         %tmp.4 = getv ? :FoilTrackerView;
-        symbol [ mModel %tmp.6 80 39 45 ];
+        symbol [ mModel %tmp.6 87 39 45 ];
         %tmp.6 = getv ? :mModel;
         %tmp.1 = newc %tmp.4 (%tmp.6);
         lputv %view.1 %tmp.1;
-        symbol [ view %view.1 80 12 16 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 81 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_stop" ]
+        symbol [ view %view.1 87 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 88 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_stop" ]
         %delegate.2 = local;
-        symbol [ delegate %delegate.2 81 12 20 ];
-        symbol [ FoilTrackerDelegate %tmp.10 81 27 46 ];
+        symbol [ delegate %delegate.2 88 12 20 ];
+        symbol [ FoilTrackerDelegate %tmp.10 88 27 46 ];
         %tmp.10 = getv ? :FoilTrackerDelegate;
         %tmp.11 = lgetv %view.1;
-        symbol [ view %tmp.11 81 47 51 ];
-        symbol [ mModel %tmp.13 81 53 59 ];
+        symbol [ view %tmp.11 88 47 51 ];
+        symbol [ mModel %tmp.13 88 53 59 ];
         %tmp.13 = getv ? :mModel;
-        symbol [ mApp %tmp.15 81 61 65 ];
+        symbol [ mApp %tmp.15 88 61 65 ];
         %tmp.15 = getv ? :mApp;
-        symbol [ getWindTracker %tmp.16 81 66 80 ];
+        symbol [ getWindTracker %tmp.16 88 66 80 ];
         %tmp.16 = getv function %tmp.15 :getWindTracker;
         %tmp.17 = invoke %tmp.15 %tmp.16();
         %tmp.7 = newc %tmp.10 (%tmp.11, %tmp.13, %tmp.17);
         lputv %delegate.2 %tmp.7;
-        symbol [ delegate %delegate.2 81 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 82 8 ]
-        symbol [ WatchUi %tmp.18 82 8 15 ];
+        symbol [ delegate %delegate.2 88 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 89 8 ]
+        symbol [ WatchUi %tmp.18 89 8 15 ];
         %tmp.18 = getm $.Toybox.WatchUi;
-        symbol [ switchToView %tmp.19 82 16 28 ];
+        symbol [ switchToView %tmp.19 89 16 28 ];
         %tmp.19 = getv function %tmp.18 :switchToView;
         %tmp.20 = lgetv %view.1;
-        symbol [ view %tmp.20 82 29 33 ];
+        symbol [ view %tmp.20 89 29 33 ];
         %tmp.21 = lgetv %delegate.2;
-        symbol [ delegate %tmp.21 82 35 43 ];
-        symbol [ WatchUi %tmp.22 82 45 52 ];
+        symbol [ delegate %tmp.21 89 35 43 ];
+        symbol [ WatchUi %tmp.22 89 45 52 ];
         %tmp.22 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_UP %tmp.23 82 53 61 ];
+        symbol [ SLIDE_UP %tmp.23 89 53 61 ];
         %tmp.23 = getv %tmp.22 :SLIDE_UP;
         invoke %tmp.18 %tmp.19(%tmp.20, %tmp.21, %tmp.23);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 83 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 90 8 ]
         %tmp.24 = true;
         ret %tmp.24;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_78_30_84_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_85_30_91_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 87; @symbol_functiondef = [onNextPage,87,13,23]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 94; @symbol_functiondef = [onNextPage,94,13,23]; ]
     function onNextPage() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_87_26_100_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 88 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_8_98_8_if_stmt:
-        symbol [ mWindTracker %tmp.2 88 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_94_26_107_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 95 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_8_105_8_if_stmt:
+        symbol [ mWindTracker %tmp.2 95 12 24 ];
         %tmp.2 = getv ? :mWindTracker;
         %tmp.3 = null;
         %tmp.4 = ne %tmp.2 %tmp.3;
-        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_8_98_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_8_98_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_34_98_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 90 12 ]
-        symbol [ mWindTracker %tmp.6 90 12 24 ];
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_8_105_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_8_105_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_34_105_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 97 12 ]
+        symbol [ mWindTracker %tmp.6 97 12 24 ];
         %tmp.6 = getv ? :mWindTracker;
         %tmp.7 = as %tmp.6 { (!Null) };
-        symbol [ unlockWindDirection %tmp.8 90 25 44 ];
+        symbol [ unlockWindDirection %tmp.8 97 25 44 ];
         %tmp.8 = getv function %tmp.7 :unlockWindDirection;
         invoke %tmp.7 %tmp.8();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 91 12 ]
-        symbol [ mWindTracker %tmp.10 91 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 98 12 ]
+        symbol [ mWindTracker %tmp.10 98 12 24 ];
         %tmp.10 = getv ? :mWindTracker;
-        symbol [ resetToManualDirection %tmp.11 91 25 47 ];
+        symbol [ resetToManualDirection %tmp.11 98 25 47 ];
         %tmp.11 = getv function %tmp.10 :resetToManualDirection;
         invoke %tmp.10 %tmp.11();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 94 12 ]
-        symbol [ System %tmp.12 94 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 101 12 ]
+        symbol [ System %tmp.12 101 12 18 ];
         %tmp.12 = getm $.Toybox.System;
-        symbol [ println %tmp.13 94 19 26 ];
+        symbol [ println %tmp.13 101 19 26 ];
         %tmp.13 = getv function %tmp.12 :println;
         %tmp.14 = "Wind direction reset to manual input";
         invoke %tmp.12 %tmp.13(%tmp.14);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 97 12 ]
-        symbol [ WatchUi %tmp.15 97 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 104 12 ]
+        symbol [ WatchUi %tmp.15 104 12 19 ];
         %tmp.15 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.16 97 20 33 ];
+        symbol [ requestUpdate %tmp.16 104 20 33 ];
         %tmp.16 = getv function %tmp.15 :requestUpdate;
         invoke %tmp.15 %tmp.16();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_34_98_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_8_98_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_88_8_98_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 99 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_34_105_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_8_105_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_95_8_105_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 106 8 ]
         %tmp.17 = true;
         ret %tmp.17;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_87_26_100_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_94_26_107_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 103; @symbol_functiondef = [onKey,103,13,18]; @symbol_param<0> = [keyEvent,103,19,27]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 110; @symbol_functiondef = [onKey,110,13,18]; @symbol_param<0> = [keyEvent,110,19,27]; ]
     function onKey(keyEvent) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_103_29_106_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 105 8 ]
-        symbol [ BehaviorDelegate %tmp.2 105 15 31 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_110_29_113_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 112 8 ]
+        symbol [ BehaviorDelegate %tmp.2 112 15 31 ];
         %tmp.2 = getv ? :BehaviorDelegate;
-        symbol [ onKey %tmp.3 105 32 37 ];
+        symbol [ onKey %tmp.3 112 32 37 ];
         %tmp.3 = getv function %tmp.2 :onKey;
         %tmp.4 = lgetv %keyEvent;
-        symbol [ keyEvent %tmp.4 105 38 46 ];
+        symbol [ keyEvent %tmp.4 112 38 46 ];
         %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
         ret %tmp.5;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_103_29_106_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_110_29_113_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 109; @symbol_functiondef = [onShow,109,13,19]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 116; @symbol_functiondef = [onShow,116,13,19]; ]
     function onShow() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_109_22_114_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 111 8 ]
-        symbol [ System %tmp.1 111 8 14 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_116_22_121_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 118 8 ]
+        symbol [ System %tmp.1 118 8 14 ];
         %tmp.1 = getm $.Toybox.System;
-        symbol [ println %tmp.2 111 15 22 ];
+        symbol [ println %tmp.2 118 15 22 ];
         %tmp.2 = getv function %tmp.1 :println;
         %tmp.3 = "VMGDelegate.onShow() - Forcing UI update";
         invoke %tmp.1 %tmp.2(%tmp.3);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 112 8 ]
-        symbol [ WatchUi %tmp.4 112 8 15 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 119 8 ]
+        symbol [ WatchUi %tmp.4 119 8 15 ];
         %tmp.4 = getm $.Toybox.WatchUi;
-        symbol [ requestUpdate %tmp.5 112 16 29 ];
+        symbol [ requestUpdate %tmp.5 119 16 29 ];
         %tmp.5 = getv function %tmp.4 :requestUpdate;
         invoke %tmp.4 %tmp.5();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 113 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc" 120 8 ]
         %tmp.6 = true;
         ret %tmp.6;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_109_22_114_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_VMGDelegate_mc_116_22_121_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\VMGDelegate.mc"; @line = 1; ]
