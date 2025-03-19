@@ -740,25 +740,25 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
     }
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc"; @line = 120; @symbol_functiondef = [discardActivity,120,13,28]; ]
     function discardActivity() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_160_4_start:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_178_4_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 121 8 ]
         symbol [ System %tmp.1 121 8 14 ];
         %tmp.1 = getm $.Toybox.System;
         symbol [ println %tmp.2 121 15 22 ];
         %tmp.2 = getv function %tmp.1 :println;
-        %tmp.3 = "Discarding activity";
+        %tmp.3 = "DEBUG-DISCARD: Starting discard process";
         invoke %tmp.1 %tmp.2(%tmp.3);
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 124 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_129_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_stmt:
         symbol [ mModel %tmp.5 124 12 18 ];
         %tmp.5 = getv ? :mModel;
         %tmp.6 = null;
         %tmp.7 = ne %tmp.5 %tmp.6;
-        bf %tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_129_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_129_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_129_8_start:
+        bf %tmp.7 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_130_8_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 125 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_129_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_129_8_stop" ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_130_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_130_8_stop" ]
         %data.1 = local;
         symbol [ data %data.1 125 16 20 ];
         symbol [ mModel %tmp.9 125 23 29 ];
@@ -781,209 +781,296 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
         %tmp.17 = true;
         %tmp.18 = "sessionDiscarded";
         aputv %tmp.16 %tmp.18 %tmp.17;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_129_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_129_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_129_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 132 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_160_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_160_4_stop" ]
-        %discardComplete.2 = local;
-        symbol [ discardComplete %discardComplete.2 132 12 27 ];
-        %tmp.19 = false;
-        lputv %discardComplete.2 %tmp.19;
-        symbol [ discardComplete %discardComplete.2 132 12 27 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 129 12 ]
+        symbol [ System %tmp.19 129 12 18 ];
+        %tmp.19 = getm $.Toybox.System;
+        symbol [ println %tmp.20 129 19 26 ];
+        %tmp.20 = getv function %tmp.19 :println;
+        %tmp.21 = "DEBUG-DISCARD: Set model flags: sessionComplete=true, sessionDiscarded=true";
+        invoke %tmp.19 %tmp.20(%tmp.21);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_28_130_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_130_15_132_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 131 12 ]
+        symbol [ System %tmp.22 131 12 18 ];
+        %tmp.22 = getm $.Toybox.System;
+        symbol [ println %tmp.23 131 19 26 ];
+        %tmp.23 = getv function %tmp.22 :println;
+        %tmp.24 = "DEBUG-DISCARD: ERROR - Model is null!";
+        invoke %tmp.22 %tmp.23(%tmp.24);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_130_15_132_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_124_8_132_8_if_end:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 135 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_stmt:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_101_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_67_begin:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_38_begin:
-        symbol [ mApp %tmp.21 135 12 16 ];
-        %tmp.21 = getv ? :mApp;
-        %tmp.22 = null;
-        %tmp.23 = ne %tmp.21 %tmp.22;
-        bf %tmp.23 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_28_135_38_true:
-        symbol [ mApp %tmp.25 135 28 32 ];
-        %tmp.25 = getv ? :mApp;
-        %tmp.26 = as %tmp.25 { (!Null) };
-        %tmp.28 = const :mSession;
-        symbol [ mSession %tmp.28 135 38 46 const ];
-        %tmp.29 = canhazplz %tmp.26 %tmp.28;
-        push %tmp.29;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_28_135_38_end:
-        %tmp.30 = phi [%tmp.23 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_38_begin] [%tmp.29 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_28_135_38_true] [%tmp.30 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_28_135_38_end];
-        bf %tmp.30 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_50_135_67_true:
-        symbol [ mApp %tmp.32 135 50 54 ];
-        %tmp.32 = getv ? :mApp;
-        %tmp.33 = as %tmp.32 { (interface { var mSession; }) && (!Null) };
-        symbol [ mSession %tmp.34 135 55 63 ];
-        %tmp.34 = getv %tmp.33 :mSession;
-        %tmp.35 = null;
-        %tmp.36 = ne %tmp.34 %tmp.35;
-        push %tmp.36;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_50_135_67_end:
-        %tmp.37 = phi [%tmp.30 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_67_begin] [%tmp.36 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_50_135_67_true] [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_50_135_67_end];
-        bf %tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_75_135_101_true:
-        symbol [ mApp %tmp.39 135 75 79 ];
-        %tmp.39 = getv ? :mApp;
-        %tmp.40 = as %tmp.39 { (interface { var mSession; }) && (!Null) };
-        symbol [ mSession %tmp.41 135 80 88 ];
-        %tmp.41 = getv %tmp.40 :mSession;
-        symbol [ isRecording %tmp.42 135 89 100 ];
-        %tmp.42 = getv function %tmp.41 :isRecording;
-        %tmp.43 = invoke %tmp.41 %tmp.42();
-        push %tmp.43;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_75_135_101_end:
-        %tmp.44 = phi [%tmp.37 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_12_135_101_begin] [%tmp.43 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_75_135_101_true] [%tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_75_135_101_end];
-        bf %tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_else_false;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_104_146_8_start:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_stmt:
+        symbol [ mApp %tmp.26 135 12 16 ];
+        %tmp.26 = getv ? :mApp;
+        %tmp.27 = null;
+        %tmp.28 = ne %tmp.26 %tmp.27;
+        bf %tmp.28 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_26_169_8_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 136 12 ]
-        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_beginTry:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_16_141_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 137 16 ]
-        symbol [ mApp %tmp.46 137 16 20 ];
-        %tmp.46 = getv ? :mApp;
-        symbol [ mSession %tmp.47 137 21 29 ];
-        %tmp.47 = getv %tmp.46 :mSession;
-        symbol [ stop %tmp.48 137 30 34 ];
-        %tmp.48 = getv function %tmp.47 :stop;
-        invoke %tmp.47 %tmp.48();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 138 16 ]
-        symbol [ mApp %tmp.50 138 16 20 ];
-        %tmp.50 = getv ? :mApp;
-        symbol [ mSession %tmp.51 138 21 29 ];
-        %tmp.51 = getv %tmp.50 :mSession;
-        symbol [ discard %tmp.52 138 30 37 ];
-        %tmp.52 = getv function %tmp.51 :discard;
-        invoke %tmp.51 %tmp.52();
+        symbol [ System %tmp.29 136 12 18 ];
+        %tmp.29 = getm $.Toybox.System;
+        symbol [ println %tmp.30 136 19 26 ];
+        %tmp.30 = getv function %tmp.29 :println;
+        %tmp.31 = "DEBUG-DISCARD: App reference exists";
+        invoke %tmp.29 %tmp.30(%tmp.31);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 138 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_stmt:
+        symbol [ mApp %tmp.33 138 16 20 ];
+        %tmp.33 = getv ? :mApp;
+        %tmp.35 = const :mSession;
+        symbol [ mSession %tmp.35 138 26 34 const ];
+        %tmp.36 = canhazplz %tmp.33 %tmp.35;
+        bf %tmp.36 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_36_166_12_start:
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 139 16 ]
-        %tmp.53 = true;
-        lputv %discardComplete.2 %tmp.53;
-        symbol [ discardComplete %discardComplete.2 139 16 31 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 140 16 ]
-        symbol [ System %tmp.54 140 16 22 ];
-        %tmp.54 = getm $.Toybox.System;
-        symbol [ println %tmp.55 140 23 30 ];
-        %tmp.55 = getv function %tmp.54 :println;
-        %tmp.56 = "Activity recording discarded";
-        invoke %tmp.54 %tmp.55(%tmp.56);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_16_141_12_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_endTry:
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_catch:
-        %tmp.57 = exception;
-        push %tmp.57;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 141 14 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_14_145_12_end" ]
-        %e.3 = local;
-        symbol [ e %e.3 141 21 22 ];
-        %tmp.58 = dup %tmp.57;
-        lputv %e.3 %tmp.58;
-        symbol [ e %e.3 141 21 22 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_24_145_12_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 142 16 ]
-        symbol [ System %tmp.59 142 16 22 ];
-        %tmp.59 = getm $.Toybox.System;
-        symbol [ println %tmp.60 142 23 30 ];
-        %tmp.60 = getv function %tmp.59 :println;
-        %tmp.61 = "Error discarding activity: ";
-        %tmp.62 = lgetv %e.3;
-        symbol [ e %tmp.62 142 63 64 ];
-        symbol [ getErrorMessage %tmp.63 142 65 80 ];
-        %tmp.63 = getv function %tmp.62 :getErrorMessage;
-        %tmp.64 = invoke %tmp.62 %tmp.63();
-        %tmp.65 = add %tmp.61 %tmp.64;
-        invoke %tmp.59 %tmp.60(%tmp.65);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 144 16 ]
-        %tmp.66 = true;
-        lputv %discardComplete.2 %tmp.66;
-        symbol [ discardComplete %discardComplete.2 144 16 31 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_24_145_12_stop:
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally;
+        symbol [ System %tmp.37 139 16 22 ];
+        %tmp.37 = getm $.Toybox.System;
+        symbol [ println %tmp.38 139 23 30 ];
+        %tmp.38 = getv function %tmp.37 :println;
+        %tmp.39 = "DEBUG-DISCARD: App has mSession property";
+        invoke %tmp.37 %tmp.38(%tmp.39);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 141 16 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_stmt:
+        symbol [ mApp %tmp.41 141 20 24 ];
+        %tmp.41 = getv ? :mApp;
+        symbol [ mSession %tmp.42 141 25 33 ];
+        %tmp.42 = getv %tmp.41 :mSession;
+        %tmp.43 = null;
+        %tmp.44 = ne %tmp.42 %tmp.43;
+        bf %tmp.44 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_43_163_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 142 20 ]
+        symbol [ System %tmp.45 142 20 26 ];
+        %tmp.45 = getm $.Toybox.System;
+        symbol [ println %tmp.46 142 27 34 ];
+        %tmp.46 = getv function %tmp.45 :println;
+        %tmp.47 = "DEBUG-DISCARD: Session reference exists";
+        invoke %tmp.45 %tmp.46(%tmp.47);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 144 20 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_stmt:
+        symbol [ mApp %tmp.49 144 24 28 ];
+        %tmp.49 = getv ? :mApp;
+        symbol [ mSession %tmp.50 144 29 37 ];
+        %tmp.50 = getv %tmp.49 :mSession;
+        symbol [ isRecording %tmp.51 144 38 49 ];
+        %tmp.51 = getv function %tmp.50 :isRecording;
+        %tmp.52 = invoke %tmp.50 %tmp.51();
+        bf %tmp.52 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_else_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_53_160_20_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 145 24 ]
+        symbol [ System %tmp.53 145 24 30 ];
+        %tmp.53 = getm $.Toybox.System;
+        symbol [ println %tmp.54 145 31 38 ];
+        %tmp.54 = getv function %tmp.53 :println;
+        %tmp.55 = "DEBUG-DISCARD: Session is recording, attempting to stop and discard";
+        invoke %tmp.53 %tmp.54(%tmp.55);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 147 24 ]
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_beginTry:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_28_157_24_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 148 28 ]
+        symbol [ mApp %tmp.57 148 28 32 ];
+        %tmp.57 = getv ? :mApp;
+        symbol [ mSession %tmp.58 148 33 41 ];
+        %tmp.58 = getv %tmp.57 :mSession;
+        symbol [ stop %tmp.59 148 42 46 ];
+        %tmp.59 = getv function %tmp.58 :stop;
+        invoke %tmp.58 %tmp.59();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 149 28 ]
+        symbol [ System %tmp.60 149 28 34 ];
+        %tmp.60 = getm $.Toybox.System;
+        symbol [ println %tmp.61 149 35 42 ];
+        %tmp.61 = getv function %tmp.60 :println;
+        %tmp.62 = "DEBUG-DISCARD: Session stopped successfully";
+        invoke %tmp.60 %tmp.61(%tmp.62);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 151 28 ]
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_beginTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_endTry @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_beginTry:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_32_154_28_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 152 32 ]
+        symbol [ mApp %tmp.64 152 32 36 ];
+        %tmp.64 = getv ? :mApp;
+        symbol [ mSession %tmp.65 152 37 45 ];
+        %tmp.65 = getv %tmp.64 :mSession;
+        symbol [ discard %tmp.66 152 46 53 ];
+        %tmp.66 = getv function %tmp.65 :discard;
+        invoke %tmp.65 %tmp.66();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 153 32 ]
+        symbol [ System %tmp.67 153 32 38 ];
+        %tmp.67 = getm $.Toybox.System;
+        symbol [ println %tmp.68 153 39 46 ];
+        %tmp.68 = getv function %tmp.67 :println;
+        %tmp.69 = "DEBUG-DISCARD: Session discarded successfully";
+        invoke %tmp.67 %tmp.68(%tmp.69);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_32_154_28_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_endTry:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_catch:
+        %tmp.70 = exception;
+        push %tmp.70;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 154 30 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_30_156_28_end" ]
+        %e.2 = local;
+        symbol [ e %e.2 154 37 38 ];
+        %tmp.71 = dup %tmp.70;
+        lputv %e.2 %tmp.71;
+        symbol [ e %e.2 154 37 38 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_40_156_28_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 155 32 ]
+        symbol [ System %tmp.72 155 32 38 ];
+        %tmp.72 = getm $.Toybox.System;
+        symbol [ println %tmp.73 155 39 46 ];
+        %tmp.73 = getv function %tmp.72 :println;
+        %tmp.74 = "DEBUG-DISCARD: ERROR discarding session: ";
+        %tmp.75 = lgetv %e.2;
+        symbol [ e %tmp.75 155 93 94 ];
+        symbol [ getErrorMessage %tmp.76 155 95 110 ];
+        %tmp.76 = getv function %tmp.75 :getErrorMessage;
+        %tmp.77 = invoke %tmp.75 %tmp.76();
+        %tmp.78 = add %tmp.74 %tmp.77;
+        invoke %tmp.72 %tmp.73(%tmp.78);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_40_156_28_stop:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally;
         pop;
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_14_145_12_end:
-        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_14_145_12_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_14_145_12_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally;
-        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally;
-        throw %tmp.57;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_finally:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_30_156_28_end:
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_30_156_28_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_154_30_156_28_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally;
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally;
+        throw %tmp.70;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_finally:
         jsrret;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_136_12_145_12_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_104_146_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_else_false:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_146_15_149_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 148 12 ]
-        %tmp.67 = true;
-        lputv %discardComplete.2 %tmp.67;
-        symbol [ discardComplete %discardComplete.2 148 12 27 ];
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_146_15_149_8_stop:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_149_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 152 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_8_159_8_if_stmt:
-        %tmp.68 = lgetv %discardComplete.2;
-        symbol [ discardComplete %tmp.68 152 12 27 ];
-        bf %tmp.68 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_8_159_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_8_159_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_29_159_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 154 12 ]
-        symbol [ System %tmp.69 154 12 18 ];
-        %tmp.69 = getm $.Toybox.System;
-        symbol [ println %tmp.70 154 19 26 ];
-        %tmp.70 = getv function %tmp.69 :println;
-        %tmp.71 = "Exiting app in 500ms...";
-        invoke %tmp.69 %tmp.70(%tmp.71);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 157 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_29_159_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_29_159_8_stop" ]
-        %exitTimer.4 = local;
-        symbol [ exitTimer %exitTimer.4 157 16 25 ];
-        symbol [ Timer %tmp.74 157 32 37 ];
-        %tmp.74 = getm $.Toybox.Timer;
-        symbol [ Timer %tmp.75 157 38 43 ];
-        %tmp.75 = getv function ? %tmp.74 :Timer;
-        %tmp.72 = newc %tmp.75 ();
-        lputv %exitTimer.4 %tmp.72;
-        symbol [ exitTimer %exitTimer.4 157 16 25 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 158 12 ]
-        %tmp.76 = lgetv %exitTimer.4;
-        symbol [ exitTimer %tmp.76 158 12 21 ];
-        symbol [ start %tmp.77 158 22 27 ];
-        %tmp.77 = getv function %tmp.76 :start;
-        %tmp.78 = self;
-        symbol [ method %tmp.79 158 28 34 ];
-        %tmp.79 = getv function %tmp.78 :method;
-        %tmp.81 = const :delayedExit;
-        symbol [ delayedExit %tmp.81 158 36 47 const ];
-        %tmp.82 = invoke %tmp.78 %tmp.79(%tmp.81);
-        %tmp.83 = 500;
-        %tmp.84 = false;
-        invoke %tmp.76 %tmp.77(%tmp.82, %tmp.83, %tmp.84);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_29_159_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_8_159_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_152_8_159_8_if_end:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_160_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_151_28_156_28_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_28_157_24_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_endTry:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_catch:
+        %tmp.79 = exception;
+        push %tmp.79;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 157 26 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_catch" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_26_159_24_end" ]
+        %e.3 = local;
+        symbol [ e %e.3 157 33 34 ];
+        %tmp.80 = dup %tmp.79;
+        lputv %e.3 %tmp.80;
+        symbol [ e %e.3 157 33 34 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_36_159_24_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 158 28 ]
+        symbol [ System %tmp.81 158 28 34 ];
+        %tmp.81 = getm $.Toybox.System;
+        symbol [ println %tmp.82 158 35 42 ];
+        %tmp.82 = getv function %tmp.81 :println;
+        %tmp.83 = "DEBUG-DISCARD: ERROR stopping session: ";
+        %tmp.84 = lgetv %e.3;
+        symbol [ e %tmp.84 158 87 88 ];
+        symbol [ getErrorMessage %tmp.85 158 89 104 ];
+        %tmp.85 = getv function %tmp.84 :getErrorMessage;
+        %tmp.86 = invoke %tmp.84 %tmp.85();
+        %tmp.87 = add %tmp.83 %tmp.86;
+        invoke %tmp.81 %tmp.82(%tmp.87);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_36_159_24_stop:
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally;
+        pop;
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_26_159_24_end:
+        try @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_catch @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_26_159_24_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_157_26_159_24_end @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally;
+        jsr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally;
+        throw %tmp.79;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_finally:
+        jsrret;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_147_24_159_24_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_53_160_20_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_160_27_162_20_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 161 24 ]
+        symbol [ System %tmp.88 161 24 30 ];
+        %tmp.88 = getm $.Toybox.System;
+        symbol [ println %tmp.89 161 31 38 ];
+        %tmp.89 = getv function %tmp.88 :println;
+        %tmp.90 = "DEBUG-DISCARD: Session is NOT recording!";
+        invoke %tmp.88 %tmp.89(%tmp.90);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_160_27_162_20_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_144_20_162_20_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_43_163_16_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_163_23_165_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 164 20 ]
+        symbol [ System %tmp.91 164 20 26 ];
+        %tmp.91 = getm $.Toybox.System;
+        symbol [ println %tmp.92 164 27 34 ];
+        %tmp.92 = getv function %tmp.91 :println;
+        %tmp.93 = "DEBUG-DISCARD: Session is NULL!";
+        invoke %tmp.91 %tmp.92(%tmp.93);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_163_23_165_16_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_141_16_165_16_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_36_166_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_166_19_168_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 167 16 ]
+        symbol [ System %tmp.94 167 16 22 ];
+        %tmp.94 = getm $.Toybox.System;
+        symbol [ println %tmp.95 167 23 30 ];
+        %tmp.95 = getv function %tmp.94 :println;
+        %tmp.96 = "DEBUG-DISCARD: App has NO mSession property!";
+        invoke %tmp.94 %tmp.95(%tmp.96);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_166_19_168_12_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_138_12_168_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_26_169_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_else_false:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_169_15_171_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 170 12 ]
+        symbol [ System %tmp.97 170 12 18 ];
+        %tmp.97 = getm $.Toybox.System;
+        symbol [ println %tmp.98 170 19 26 ];
+        %tmp.98 = getv function %tmp.97 :println;
+        %tmp.99 = "DEBUG-DISCARD: App reference is NULL!";
+        invoke %tmp.97 %tmp.98(%tmp.99);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_169_15_171_8_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_135_8_171_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 174 8 ]
+        symbol [ System %tmp.100 174 8 14 ];
+        %tmp.100 = getm $.Toybox.System;
+        symbol [ println %tmp.101 174 15 22 ];
+        %tmp.101 = getv function %tmp.100 :println;
+        %tmp.102 = "DEBUG-DISCARD: Calling System.exit(), check if onStop respects sessionDiscarded flag";
+        invoke %tmp.100 %tmp.101(%tmp.102);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 177 8 ]
+        symbol [ System %tmp.103 177 8 14 ];
+        %tmp.103 = getm $.Toybox.System;
+        symbol [ exit %tmp.104 177 15 19 ];
+        %tmp.104 = getv function %tmp.103 :exit;
+        invoke %tmp.103 %tmp.104();
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_120_31_178_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc"; @line = 164; @symbol_functiondef = [delayedExit,164,13,24]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc"; @line = 182; @symbol_functiondef = [delayedExit,182,13,24]; ]
     function delayedExit() as Void {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_164_35_167_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 165 8 ]
-        symbol [ System %tmp.1 165 8 14 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_182_35_185_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 183 8 ]
+        symbol [ System %tmp.1 183 8 14 ];
         %tmp.1 = getm $.Toybox.System;
-        symbol [ println %tmp.2 165 15 22 ];
+        symbol [ println %tmp.2 183 15 22 ];
         %tmp.2 = getv function %tmp.1 :println;
         %tmp.3 = "Delayed exit executing now";
         invoke %tmp.1 %tmp.2(%tmp.3);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 166 8 ]
-        symbol [ System %tmp.4 166 8 14 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc" 184 8 ]
+        symbol [ System %tmp.4 184 8 14 ];
         %tmp.4 = getm $.Toybox.System;
-        symbol [ exit %tmp.5 166 15 19 ];
+        symbol [ exit %tmp.5 184 15 19 ];
         %tmp.5 = getv function %tmp.4 :exit;
         invoke %tmp.4 %tmp.5();
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_164_35_167_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_SaveDialogView_mc_182_35_185_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\SaveDialogView.mc"; @line = 1; ]

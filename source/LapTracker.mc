@@ -44,9 +44,22 @@ class LapTracker {
     
     // More efficient lap marking
     function onLapMarked(position) {
+        var prevLapNum = mCurrentLapNumber;
         mCurrentLapNumber++;
-        var lapNum = mCurrentLapNumber; // Local variable for better performance
+        var lapNum = mCurrentLapNumber;
         var currentTime = System.getTimer();
+        var systemTime = Time.now().value();
+        
+        System.println("DEBUG-LAP: Marking lap " + lapNum + ", previous lap " + prevLapNum);
+        System.println("DEBUG-LAP: Current time (ms): " + currentTime + ", System time: " + systemTime);
+        
+        if (prevLapNum > 0 && mLapPositionData.hasKey(prevLapNum)) {
+            var prevLapStart = mLapPositionData[prevLapNum]["startTime"];
+            var lapDuration = currentTime - prevLapStart;
+            System.println("DEBUG-LAP: Previous lap start time: " + prevLapStart + ", duration: " + lapDuration + "ms");
+        } else {
+            System.println("DEBUG-LAP: First lap or no previous lap data");
+        }
         
         // Initialize position data
         mLapPositionData[lapNum] = {
@@ -54,6 +67,8 @@ class LapTracker {
             "startTime" => currentTime,
             "distance" => 0.0
         };
+        
+        System.println("DEBUG-LAP: New lap " + lapNum + " start time: " + currentTime);
         mLastLapStartTime = currentTime;
         
         // Initialize points data with a single container
@@ -95,17 +110,6 @@ class LapTracker {
             "tacks" => [],
             "gybes" => []
         };
-        
-        // Initialize display maneuver counts for this lap
-        mLapDisplayManeuvers[lapNum] = {
-            "displayTackCount" => 0,
-            "displayGybeCount" => 0
-        };
-        
-        // Reset maneuver detector's lap-specific display counters
-        if (mParent != null && mParent.getManeuverDetector() != null) {
-            mParent.getManeuverDetector().resetLapDisplayCounters();
-        }
         
         log("New lap marked: " + lapNum);
         return lapNum;

@@ -929,49 +929,44 @@ class FoilTrackerApp extends Application.AppBase {
 
     function addLapMarker() {
         if (mSession == null || !mSession.isRecording()) {
-            System.println("Cannot add lap marker - session not recording");
+            System.println("DEBUG-LAPMARKER: Cannot add lap - session not recording");
             return;
         }
         
         try {
-            System.println("Adding lap marker");
+            System.println("DEBUG-LAPMARKER: Adding lap marker");
             
-            // Get current position safely
-            var currentPosition = null;
-            try {
-                currentPosition = Position.getInfo();
-            } catch (e) {
-                System.println("Warning: Could not get position info: " + e.getErrorMessage());
-                // Continue without position data
-            }
+            // Get current time values for debugging
+            var currentTime = System.getTimer();
+            var systemTime = Time.now().value();
+            System.println("DEBUG-LAPMARKER: Current time (ms): " + currentTime + 
+                        ", System time: " + systemTime);
             
-            // Add the lap marker to session
+            // Get lap data
+            var lapData = getLapData();
+            
+            // Debug lap data
+            System.println("DEBUG-LAPMARKER: Lap data obtained:");
+            System.println("DEBUG-LAPMARKER: tackSec = " + lapData["tackSec"]);
+            System.println("DEBUG-LAPMARKER: tackMtr = " + lapData["tackMtr"]);
+            
+            // Update field values from lap data
+            updateLapFieldsFromLapData(lapData);
+            
+            // Add the lap marker
+            System.println("DEBUG-LAPMARKER: Calling mSession.addLap()");
             mSession.addLap();
-            System.println("Lap marker added to session");
             
-            // Get and update lap fields
-            try {
-                var lapData = getLapData();
-                updateLapFieldsFromLapData(lapData);
-                System.println("Lap fields updated");
-            } catch (e) {
-                System.println("Warning: Error updating lap fields: " + e.getErrorMessage());
-                // Continue even if field update fails
+            // Notify the wind tracker
+            if (mWindTracker != null) {
+                System.println("DEBUG-LAPMARKER: Notifying WindTracker of lap");
+                var lapNum = mWindTracker.onLapMarked(null);
+                System.println("DEBUG-LAPMARKER: WindTracker returned lap #" + lapNum);
             }
             
-            // Notify the wind tracker - with defensive programming
-            try {
-                if (mWindTracker != null) {
-                    var result = mWindTracker.onLapMarked(currentPosition);
-                    System.println("LapTracker notified, returned lap #" + result);
-                }
-            } catch (e) {
-                System.println("Error in wind tracker notification: " + e.getErrorMessage());
-                // Continue even if wind tracker notification fails
-            }
-            
+            System.println("DEBUG-LAPMARKER: Lap marker added successfully");
         } catch (e) {
-            System.println("CRITICAL ERROR in addLapMarker: " + e.getErrorMessage());
+            System.println("DEBUG-LAPMARKER: ERROR in addLapMarker: " + e.getErrorMessage());
         }
     }
     
@@ -1095,9 +1090,32 @@ class FoilTrackerApp extends Application.AppBase {
         return [windView, windDelegate];
     }
     
-// onStop() is called when the application is exiting
     function onStop(state) {
-        System.println("App stopping - checking whether to save activity data");
+        System.println("DEBUG-ONSTOP: App stopping - checking whether to save");
+        
+        // Verify if the activity was discarded
+        var wasDiscarded = false;
+        
+        try {
+            // First check model data
+            if (mModel != null) {
+                var data = mModel.getData();
+                wasDiscarded = data.hasKey("sessionDiscarded") && data["sessionDiscarded"];
+                System.println("DEBUG-ONSTOP: Model data check - wasDiscarded=" + wasDiscarded);
+            } else {
+                System.println("DEBUG-ONSTOP: Model is null!");
+            }
+        } catch (e) {
+            System.println("DEBUG-ONSTOP: Error checking discard flag: " + e.getErrorMessage());
+        }
+        
+        // If discarded, confirm and exit
+        if (wasDiscarded) {
+            System.println("DEBUG-ONSTOP: Activity was discarded - skipping save");
+            return;
+        }
+        
+        System.println("DEBUG-ONSTOP: No discard flag found, proceeding with save");
         
         // Emergency timestamp save first (always works)
         try {
@@ -1113,7 +1131,7 @@ class FoilTrackerApp extends Application.AppBase {
         if (mModel != null) {
             // Check if session was explicitly discarded
             var data = mModel.getData();
-            var wasDiscarded = data.hasKey("sessionDiscarded") && data["sessionDiscarded"];
+            wasDiscarded = data.hasKey("sessionDiscarded") && data["sessionDiscarded"];
             
             if (wasDiscarded) {
                 System.println("Activity was explicitly discarded by user - not saving");

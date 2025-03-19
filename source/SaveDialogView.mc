@@ -116,9 +116,9 @@ class SaveDialogDelegate extends WatchUi.BehaviorDelegate {
         System.exit();
     }
     
-    // Function to discard the activity
+    // In SaveDialogDelegate.mc, replace the discardActivity function:
     function discardActivity() {
-        System.println("Discarding activity");
+        System.println("DEBUG-DISCARD: Starting discard process");
         
         // Mark as complete AND discarded in the model so we don't auto-save
         if (mModel != null) {
@@ -126,37 +126,55 @@ class SaveDialogDelegate extends WatchUi.BehaviorDelegate {
             data["sessionComplete"] = true;
             // Add specific flag to indicate this was discarded by user
             data["sessionDiscarded"] = true;
+            System.println("DEBUG-DISCARD: Set model flags: sessionComplete=true, sessionDiscarded=true");
+        } else {
+            System.println("DEBUG-DISCARD: ERROR - Model is null!");
         }
-        
-        // Create flag to check if discard completed
-        var discardComplete = false;
         
         // Discard the activity recording session
-        if (mApp != null && mApp has :mSession && mApp.mSession != null && mApp.mSession.isRecording()) {
-            try {
-                mApp.mSession.stop();
-                mApp.mSession.discard();
-                discardComplete = true;
-                System.println("Activity recording discarded");
-            } catch (e) {
-                System.println("Error discarding activity: " + e.getErrorMessage());
-                // Still mark as complete even if there was an error
-                discardComplete = true;
+        if (mApp != null) {
+            System.println("DEBUG-DISCARD: App reference exists");
+            
+            if (mApp has :mSession) {
+                System.println("DEBUG-DISCARD: App has mSession property");
+                
+                if (mApp.mSession != null) {
+                    System.println("DEBUG-DISCARD: Session reference exists");
+                    
+                    if (mApp.mSession.isRecording()) {
+                        System.println("DEBUG-DISCARD: Session is recording, attempting to stop and discard");
+                        
+                        try {
+                            mApp.mSession.stop();
+                            System.println("DEBUG-DISCARD: Session stopped successfully");
+                            
+                            try {
+                                mApp.mSession.discard();
+                                System.println("DEBUG-DISCARD: Session discarded successfully");
+                            } catch (e) {
+                                System.println("DEBUG-DISCARD: ERROR discarding session: " + e.getErrorMessage());
+                            }
+                        } catch (e) {
+                            System.println("DEBUG-DISCARD: ERROR stopping session: " + e.getErrorMessage());
+                        }
+                    } else {
+                        System.println("DEBUG-DISCARD: Session is NOT recording!");
+                    }
+                } else {
+                    System.println("DEBUG-DISCARD: Session is NULL!");
+                }
+            } else {
+                System.println("DEBUG-DISCARD: App has NO mSession property!");
             }
         } else {
-            // No session to discard
-            discardComplete = true;
+            System.println("DEBUG-DISCARD: App reference is NULL!");
         }
         
-        // Only exit if discard completed
-        if (discardComplete) {
-            // Give a moment for operations to complete
-            System.println("Exiting app in 500ms...");
-            
-            // Create a timer to exit after a short delay
-            var exitTimer = new Timer.Timer();
-            exitTimer.start(method(:delayedExit), 500, false);
-        }
+        // Also check onStop behavior - maybe it's saving despite the discard flag
+        System.println("DEBUG-DISCARD: Calling System.exit(), check if onStop respects sessionDiscarded flag");
+        
+        // Exit the app
+        System.exit();
     }
     
     // Helper function to exit after delay
