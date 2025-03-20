@@ -926,47 +926,59 @@ class FoilTrackerApp extends Application.AppBase {
             System.println("Error updating lap fields: " + e.getErrorMessage());
         }
     }
-
+    
     function addLapMarker() {
         if (mSession == null || !mSession.isRecording()) {
-            System.println("DEBUG-LAPMARKER: Cannot add lap - session not recording");
+            System.println("Cannot add lap - session not recording");
             return;
         }
         
         try {
-            System.println("DEBUG-LAPMARKER: Adding lap marker");
+            System.println("Adding lap marker");
             
-            // Get current time values for debugging
-            var currentTime = System.getTimer();
-            var systemTime = Time.now().value();
-            System.println("DEBUG-LAPMARKER: Current time (ms): " + currentTime + 
-                        ", System time: " + systemTime);
+            // Get current position data
+            var currentPosition = Position.getInfo();
+            
+            // Check if we have valid position data
+            if (currentPosition == null || currentPosition.position == null) {
+                // Create dummy position for Fremantle
+                System.println("Using dummy Fremantle position for lap marker");
+                
+                // Important: Create position data with symbol keys, not numbers or strings
+                currentPosition = {
+                    :position => [-32.0560, 115.7471],
+                    :accuracy => 10.0,
+                    :altitude => 0.0,
+                    :speed => 5.0,
+                    :heading => 0.0
+                };
+                
+                // Don't attempt to set location as this is causing errors
+                // Garmin device may not support this API call
+            }
             
             // Get lap data
             var lapData = getLapData();
             
-            // Debug lap data
-            System.println("DEBUG-LAPMARKER: Lap data obtained:");
-            System.println("DEBUG-LAPMARKER: tackSec = " + lapData["tackSec"]);
-            System.println("DEBUG-LAPMARKER: tackMtr = " + lapData["tackMtr"]);
-            
             // Update field values from lap data
             updateLapFieldsFromLapData(lapData);
             
-            // Add the lap marker
-            System.println("DEBUG-LAPMARKER: Calling mSession.addLap()");
-            mSession.addLap();
-            
-            // Notify the wind tracker
-            if (mWindTracker != null) {
-                System.println("DEBUG-LAPMARKER: Notifying WindTracker of lap");
-                var lapNum = mWindTracker.onLapMarked(null);
-                System.println("DEBUG-LAPMARKER: WindTracker returned lap #" + lapNum);
+            // Add the lap marker - avoid toString() which could cause type issues
+            if (currentPosition != null && currentPosition.position != null) {
+                System.println("Adding lap with position data");
             }
             
-            System.println("DEBUG-LAPMARKER: Lap marker added successfully");
+            // Just add the lap without trying to modify position
+            mSession.addLap();
+            
+            // Notify the wind tracker - pass null instead of potentially problematic position
+            if (mWindTracker != null) {
+                mWindTracker.onLapMarked(null);
+            }
+            
+            System.println("Lap marker added successfully");
         } catch (e) {
-            System.println("DEBUG-LAPMARKER: ERROR in addLapMarker: " + e.getErrorMessage());
+            System.println("ERROR in addLapMarker: " + e.getErrorMessage());
         }
     }
     

@@ -185,7 +185,6 @@ class WindTracker {
         }
     }
     
-    // Lap marker notification
     function onLapMarked(position) {
         // Tell the LapTracker about the lap
         var lapResult = mLapTracker.onLapMarked(position);

@@ -42,7 +42,6 @@ class LapTracker {
         log("LapTracker reset - using optimized containers");
     }
     
-    // More efficient lap marking
     function onLapMarked(position) {
         var prevLapNum = mCurrentLapNumber;
         mCurrentLapNumber++;
@@ -50,25 +49,32 @@ class LapTracker {
         var currentTime = System.getTimer();
         var systemTime = Time.now().value();
         
-        System.println("DEBUG-LAP: Marking lap " + lapNum + ", previous lap " + prevLapNum);
-        System.println("DEBUG-LAP: Current time (ms): " + currentTime + ", System time: " + systemTime);
+        System.println("Marking lap " + lapNum + ", previous lap " + prevLapNum);
+        System.println("Current time (ms): " + currentTime + ", System time: " + systemTime);
         
         if (prevLapNum > 0 && mLapPositionData.hasKey(prevLapNum)) {
             var prevLapStart = mLapPositionData[prevLapNum]["startTime"];
             var lapDuration = currentTime - prevLapStart;
-            System.println("DEBUG-LAP: Previous lap start time: " + prevLapStart + ", duration: " + lapDuration + "ms");
+            System.println("Previous lap start time: " + prevLapStart + ", duration: " + lapDuration + "ms");
         } else {
-            System.println("DEBUG-LAP: First lap or no previous lap data");
+            System.println("First lap or no previous lap data");
         }
         
-        // Initialize position data
+        // Store position data with the lap
         mLapPositionData[lapNum] = {
             "startPosition" => position,
             "startTime" => currentTime,
             "distance" => 0.0
         };
         
-        System.println("DEBUG-LAP: New lap " + lapNum + " start time: " + currentTime);
+        if (position != null && position.position != null) {
+            System.println("Lap " + lapNum + " position recorded: " + 
+                        position.position[0] + "," + position.position[1]);
+        } else {
+            System.println("Lap " + lapNum + " has no position data");
+        }
+        
+        System.println("New lap " + lapNum + " start time: " + currentTime);
         mLastLapStartTime = currentTime;
         
         // Initialize points data with a single container
@@ -449,6 +455,13 @@ class LapTracker {
         }
     }
     
+    function getLapPositionData(lapNumber) {
+    if (lapNumber > 0 && mLapPositionData.hasKey(lapNumber)) {
+        return mLapPositionData[lapNumber];
+    }
+    return null;
+}
+
     // Update getLapData to better handle type errors
     function getLapData() {
         var lapNum = mCurrentLapNumber;
