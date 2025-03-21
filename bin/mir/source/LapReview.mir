@@ -1,0 +1,1925 @@
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [WatchUi,1,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Graphics,2,13,21]; ]
+using Toybox.Graphics;
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [System,3,13,19]; ]
+using Toybox.System;
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Time,4,13,17]; ]
+using Toybox.Time;
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Application,5,13,24]; ]
+using Toybox.Application;
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 8; @symbol_classdef = [LapReviewView,8,6,19]; @symbol_extends<0> = [WatchUi,8,28,35]; @symbol_extends<1> = [View,8,36,40]; ]
+class LapReviewView extends WatchUi.View {
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 8; ]
+    <init> {
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 8; ]
+    static
+    <init> {
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 9; @position = 16; @symbol_vardef = [mModel,9,16,22]; ]
+    private
+    var mModel;
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 10; @position = 16; @symbol_vardef = [mWindTracker,10,16,28]; ]
+    private
+    var mWindTracker;
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 11; @position = 16; @symbol_vardef = [mCurrentLapIndex,11,16,32]; ]
+    private
+    var mCurrentLapIndex;
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 12; @position = 16; @symbol_vardef = [mTotalLaps,12,16,26]; ]
+    private
+    var mTotalLaps;
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 13; @position = 16; @symbol_vardef = [mLapData,13,16,24]; ]
+    private
+    var mLapData;
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 16; @symbol_functiondef = [initialize,16,13,23]; @symbol_param<0> = [model,16,24,29]; @symbol_param<1> = [windTracker,16,31,42]; ]
+    function initialize(model, windTracker) as Void {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_16_44_26_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 17 8 ]
+        symbol [ View %tmp.2 17 8 12 ];
+        %tmp.2 = getv ? :View;
+        symbol [ initialize %tmp.3 17 13 23 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 18 8 ]
+        %tmp.4 = lgetv %model;
+        symbol [ model %tmp.4 18 17 22 ];
+        symbol [ mModel ? 18 8 14 ];
+        putv self :mModel %tmp.4;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 19 8 ]
+        %tmp.5 = lgetv %windTracker;
+        symbol [ windTracker %tmp.5 19 23 34 ];
+        symbol [ mWindTracker ? 19 8 20 ];
+        putv self :mWindTracker %tmp.5;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 20 8 ]
+        %tmp.6 = 0;
+        symbol [ mCurrentLapIndex ? 20 8 24 ];
+        putv self :mCurrentLapIndex %tmp.6;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 21 8 ]
+        %tmp.7 = 0;
+        symbol [ mTotalLaps ? 21 8 18 ];
+        putv self :mTotalLaps %tmp.7;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 22 8 ]
+        %tmp.8 = newd 0;
+        symbol [ mLapData ? 22 8 16 ];
+        putv self :mLapData %tmp.8;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 25 8 ]
+        %tmp.9 = self;
+        symbol [ loadLapData %tmp.10 25 8 19 ];
+        %tmp.10 = getv function %tmp.9 :loadLapData;
+        invoke %tmp.9 %tmp.10();
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_16_44_26_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 29; @symbol_functiondef = [loadLapData,29,13,24]; ]
+    function loadLapData() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_29_27_49_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 30 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_8_46_8_if_stmt:
+        symbol [ mWindTracker %tmp.2 30 12 24 ];
+        %tmp.2 = getv ? :mWindTracker;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_8_46_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_8_46_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_34_46_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 31 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_34_46_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_34_46_8_stop" ]
+        %lapTracker.1 = local;
+        symbol [ lapTracker %lapTracker.1 31 16 26 ];
+        symbol [ mWindTracker %tmp.6 31 29 41 ];
+        %tmp.6 = getv ? :mWindTracker;
+        %tmp.7 = as %tmp.6 { (!Null) };
+        symbol [ getLapTracker %tmp.8 31 42 55 ];
+        %tmp.8 = getv function %tmp.7 :getLapTracker;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        lputv %lapTracker.1 %tmp.9;
+        symbol [ lapTracker %lapTracker.1 31 16 26 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 32 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_12_45_12_if_stmt:
+        %tmp.10 = lgetv %lapTracker.1;
+        symbol [ lapTracker %tmp.10 32 16 26 ];
+        %tmp.11 = null;
+        %tmp.12 = ne %tmp.10 %tmp.11;
+        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_12_45_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_12_45_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_36_45_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 33 16 ]
+        %tmp.13 = lgetv %lapTracker.1;
+        symbol [ lapTracker %tmp.13 33 29 39 ];
+        %tmp.14 = as %tmp.13 { (!Null) };
+        symbol [ getCurrentLap %tmp.15 33 40 53 ];
+        %tmp.15 = getv function %tmp.14 :getCurrentLap;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        symbol [ mTotalLaps ? 33 16 26 ];
+        putv self :mTotalLaps %tmp.16;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 36 16 ]
+        for @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_test @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_incr @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_init:
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_begin" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 36 25 26 ];
+        %tmp.17 = 1;
+        lputv %i.2 %tmp.17;
+        symbol [ i %i.2 36 25 26 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_test:
+        %tmp.18 = lgetv %i.2;
+        symbol [ i %tmp.18 36 32 33 ];
+        symbol [ mTotalLaps %tmp.20 36 37 47 ];
+        %tmp.20 = getv ? :mTotalLaps;
+        %tmp.21 = lte %tmp.18 %tmp.20;
+        bf %tmp.21 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_54_41_16_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 37 20 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_54_41_16_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_54_41_16_stop" ]
+        %lapStats.3 = local;
+        symbol [ lapStats %lapStats.3 37 24 32 ];
+        %tmp.22 = lgetv %lapTracker.1;
+        symbol [ lapTracker %tmp.22 37 35 45 ];
+        %tmp.23 = as %tmp.22 { (!Null) };
+        symbol [ getLapStats %tmp.24 37 46 57 ];
+        %tmp.24 = getv function %tmp.23 :getLapStats;
+        %tmp.25 = lgetv %i.2;
+        symbol [ i %tmp.25 37 58 59 ];
+        %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+        lputv %lapStats.3 %tmp.26;
+        symbol [ lapStats %lapStats.3 37 24 32 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 38 20 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_20_40_20_if_stmt:
+        %tmp.27 = lgetv %lapStats.3;
+        symbol [ lapStats %tmp.27 38 24 32 ];
+        %tmp.28 = null;
+        %tmp.29 = ne %tmp.27 %tmp.28;
+        bf %tmp.29 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_20_40_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_20_40_20_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_42_40_20_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 39 24 ]
+        symbol [ mLapData %tmp.30 39 24 32 ];
+        %tmp.30 = getv self :mLapData;
+        %tmp.31 = lgetv %lapStats.3;
+        symbol [ lapStats %tmp.31 39 38 46 ];
+        %tmp.32 = as %tmp.31 { (!Null) };
+        %tmp.33 = lgetv %i.2;
+        symbol [ i %tmp.33 39 33 34 ];
+        aputv %tmp.30 %tmp.33 %tmp.32;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_42_40_20_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_20_40_20_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_38_20_40_20_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_54_41_16_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_incr:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 36 ]
+        %tmp.36 = lgetv %i.2;
+        symbol [ i %tmp.36 36 49 50 ];
+        %tmp.37 = add %tmp.36 1;
+        lputv %i.2 %tmp.37;
+        symbol [ i %i.2 36 49 50 ];
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_test;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_36_16_41_16_for_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 44 16 ]
+        symbol [ mTotalLaps %tmp.39 44 35 45 ];
+        %tmp.39 = getv ? :mTotalLaps;
+        symbol [ mCurrentLapIndex ? 44 16 32 ];
+        putv self :mCurrentLapIndex %tmp.39;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_36_45_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_12_45_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_32_12_45_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_34_46_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_8_46_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_30_8_46_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 48 8 ]
+        symbol [ System %tmp.40 48 8 14 ];
+        %tmp.40 = getm $.Toybox.System;
+        symbol [ println %tmp.41 48 15 22 ];
+        %tmp.41 = getv function %tmp.40 :println;
+        %tmp.42 = "Loaded lap data: ";
+        symbol [ mTotalLaps %tmp.44 48 45 55 ];
+        %tmp.44 = getv ? :mTotalLaps;
+        %tmp.45 = add %tmp.42 %tmp.44;
+        %tmp.46 = " laps found";
+        %tmp.47 = add %tmp.45 %tmp.46;
+        invoke %tmp.40 %tmp.41(%tmp.47);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_29_27_49_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 52; @symbol_functiondef = [previousLap,52,13,24]; ]
+    function previousLap() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_52_27_59_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 53 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_8_57_8_if_stmt:
+        symbol [ mCurrentLapIndex %tmp.2 53 12 28 ];
+        %tmp.2 = getv ? :mCurrentLapIndex;
+        symbol [ mTotalLaps %tmp.4 53 31 41 ];
+        %tmp.4 = getv ? :mTotalLaps;
+        %tmp.5 = lt %tmp.2 %tmp.4;
+        bf %tmp.5 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_8_57_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_8_57_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_43_57_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 54 12 ]
+        symbol [ mCurrentLapIndex %tmp.8 54 12 28 ];
+        %tmp.8 = getv ? :mCurrentLapIndex;
+        %tmp.9 = add %tmp.8 1;
+        symbol [ mCurrentLapIndex ? 54 12 28 ];
+        putv self :mCurrentLapIndex dup %tmp.9;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 55 12 ]
+        symbol [ WatchUi %tmp.10 55 12 19 ];
+        %tmp.10 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.11 55 20 33 ];
+        %tmp.11 = getv function %tmp.10 :requestUpdate;
+        invoke %tmp.10 %tmp.11();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 56 12 ]
+        %tmp.12 = true;
+        ret %tmp.12;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_43_57_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_8_57_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_53_8_57_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 58 8 ]
+        %tmp.13 = false;
+        ret %tmp.13;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_52_27_59_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 62; @symbol_functiondef = [nextLap,62,13,20]; ]
+    function nextLap() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_62_23_69_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 63 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_8_67_8_if_stmt:
+        symbol [ mCurrentLapIndex %tmp.2 63 12 28 ];
+        %tmp.2 = getv ? :mCurrentLapIndex;
+        %tmp.3 = 1;
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_8_67_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_8_67_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_34_67_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 64 12 ]
+        symbol [ mCurrentLapIndex %tmp.7 64 12 28 ];
+        %tmp.7 = getv ? :mCurrentLapIndex;
+        %tmp.8 = sub %tmp.7 1;
+        symbol [ mCurrentLapIndex ? 64 12 28 ];
+        putv self :mCurrentLapIndex dup %tmp.8;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 65 12 ]
+        symbol [ WatchUi %tmp.9 65 12 19 ];
+        %tmp.9 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.10 65 20 33 ];
+        %tmp.10 = getv function %tmp.9 :requestUpdate;
+        invoke %tmp.9 %tmp.10();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 66 12 ]
+        %tmp.11 = true;
+        ret %tmp.11;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_34_67_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_8_67_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_63_8_67_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 68 8 ]
+        %tmp.12 = false;
+        ret %tmp.12;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_62_23_69_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 72; @symbol_functiondef = [getCurrentLapIndex,72,13,31]; ]
+    function getCurrentLapIndex() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_72_34_74_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 73 8 ]
+        symbol [ mCurrentLapIndex %tmp.2 73 15 31 ];
+        %tmp.2 = getv ? :mCurrentLapIndex;
+        ret %tmp.2;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_72_34_74_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 77; @symbol_functiondef = [formatTimeString,77,13,29]; @symbol_param<0> = [seconds,77,30,37]; ]
+    function formatTimeString(seconds) {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 78 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_stop" ]
+        %mins.1 = local;
+        symbol [ mins %mins.1 78 12 16 ];
+        %tmp.1 = lgetv %seconds;
+        symbol [ seconds %tmp.1 78 20 27 ];
+        %tmp.2 = 60;
+        %tmp.3 = div %tmp.1 %tmp.2;
+        symbol [ toNumber %tmp.4 78 34 42 ];
+        %tmp.4 = getv function %tmp.3 :toNumber;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        lputv %mins.1 %tmp.5;
+        symbol [ mins %mins.1 78 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 79 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_stop" ]
+        %secs.2 = local;
+        symbol [ secs %secs.2 79 12 16 ];
+        %tmp.6 = lgetv %seconds;
+        symbol [ seconds %tmp.6 79 20 27 ];
+        %tmp.7 = 60;
+        %tmp.8 = mod %tmp.6 %tmp.7;
+        symbol [ toNumber %tmp.9 79 34 42 ];
+        %tmp.9 = getv function %tmp.8 :toNumber;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        lputv %secs.2 %tmp.10;
+        symbol [ secs %secs.2 79 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 80 8 ]
+        %tmp.11 = lgetv %mins.1;
+        symbol [ mins %tmp.11 80 15 19 ];
+        symbol [ format %tmp.12 80 20 26 ];
+        %tmp.12 = getv function %tmp.11 :format;
+        %tmp.13 = "%d";
+        %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
+        %tmp.15 = ":";
+        %tmp.16 = add %tmp.14 %tmp.15;
+        %tmp.17 = lgetv %secs.2;
+        symbol [ secs %tmp.17 80 41 45 ];
+        symbol [ format %tmp.18 80 46 52 ];
+        %tmp.18 = getv function %tmp.17 :format;
+        %tmp.19 = "%02d";
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        %tmp.21 = add %tmp.16 %tmp.20;
+        ret %tmp.21;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_77_39_81_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 84; @symbol_functiondef = [formatTimeFromSystem,84,13,33]; @symbol_param<0> = [timerValue,84,34,44]; ]
+    function formatTimeFromSystem(timerValue) {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 85 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_stop" ]
+        %timeInfo.1 = local;
+        symbol [ timeInfo %timeInfo.1 85 12 20 ];
+        symbol [ System %tmp.1 85 23 29 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.2 85 30 42 ];
+        %tmp.2 = getv function %tmp.1 :getClockTime;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %timeInfo.1 %tmp.3;
+        symbol [ timeInfo %timeInfo.1 85 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 86 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_stop" ]
+        %hour.2 = local;
+        symbol [ hour %hour.2 86 12 16 ];
+        %tmp.4 = lgetv %timeInfo.1;
+        symbol [ timeInfo %tmp.4 86 19 27 ];
+        symbol [ hour %tmp.5 86 28 32 ];
+        %tmp.5 = getv %tmp.4 :hour;
+        lputv %hour.2 %tmp.5;
+        symbol [ hour %hour.2 86 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 87 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_stop" ]
+        %minute.3 = local;
+        symbol [ minute %minute.3 87 12 18 ];
+        %tmp.6 = lgetv %timeInfo.1;
+        symbol [ timeInfo %tmp.6 87 21 29 ];
+        symbol [ min %tmp.7 87 30 33 ];
+        %tmp.7 = getv %tmp.6 :min;
+        lputv %minute.3 %tmp.7;
+        symbol [ minute %minute.3 87 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 88 8 ]
+        %tmp.8 = lgetv %hour.2;
+        symbol [ hour %tmp.8 88 15 19 ];
+        symbol [ format %tmp.9 88 20 26 ];
+        %tmp.9 = getv function %tmp.8 :format;
+        %tmp.10 = "%02d";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        %tmp.12 = ":";
+        %tmp.13 = add %tmp.11 %tmp.12;
+        %tmp.14 = lgetv %minute.3;
+        symbol [ minute %tmp.14 88 43 49 ];
+        symbol [ format %tmp.15 88 50 56 ];
+        %tmp.15 = getv function %tmp.14 :format;
+        %tmp.16 = "%02d";
+        %tmp.17 = invoke %tmp.14 %tmp.15(%tmp.16);
+        %tmp.18 = add %tmp.13 %tmp.17;
+        ret %tmp.18;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_84_46_89_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 92; @symbol_functiondef = [onUpdate,92,13,21]; @symbol_param<0> = [dc,92,22,24]; ]
+    function onUpdate(dc) {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 94 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 94 8 10 ];
+        symbol [ setColor %tmp.2 94 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 94 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.4 94 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_BLACK;
+        symbol [ Graphics %tmp.5 94 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_BLACK %tmp.6 94 51 62 ];
+        %tmp.6 = getv %tmp.5 :COLOR_BLACK;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 95 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 95 8 10 ];
+        symbol [ clear %tmp.8 95 11 16 ];
+        %tmp.8 = getv function %tmp.7 :clear;
+        invoke %tmp.7 %tmp.8();
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 98 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %width.1 = local;
+        symbol [ width %width.1 98 12 17 ];
+        %tmp.9 = lgetv %dc;
+        symbol [ dc %tmp.9 98 20 22 ];
+        symbol [ getWidth %tmp.10 98 23 31 ];
+        %tmp.10 = getv function %tmp.9 :getWidth;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %width.1 %tmp.11;
+        symbol [ width %width.1 98 12 17 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 99 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %height.2 = local;
+        symbol [ height %height.2 99 12 18 ];
+        %tmp.12 = lgetv %dc;
+        symbol [ dc %tmp.12 99 21 23 ];
+        symbol [ getHeight %tmp.13 99 24 33 ];
+        %tmp.13 = getv function %tmp.12 :getHeight;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        lputv %height.2 %tmp.14;
+        symbol [ height %height.2 99 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 102 8 ]
+        %tmp.15 = lgetv %dc;
+        symbol [ dc %tmp.15 102 8 10 ];
+        symbol [ setColor %tmp.16 102 11 19 ];
+        %tmp.16 = getv function %tmp.15 :setColor;
+        symbol [ Graphics %tmp.17 102 20 28 ];
+        %tmp.17 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.18 102 29 41 ];
+        %tmp.18 = getv %tmp.17 :COLOR_YELLOW;
+        symbol [ Graphics %tmp.19 102 43 51 ];
+        %tmp.19 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.20 102 52 69 ];
+        %tmp.20 = getv %tmp.19 :COLOR_TRANSPARENT;
+        invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 103 8 ]
+        %tmp.21 = lgetv %dc;
+        symbol [ dc %tmp.21 103 8 10 ];
+        symbol [ drawText %tmp.22 103 11 19 ];
+        %tmp.22 = getv function %tmp.21 :drawText;
+        %tmp.23 = lgetv %width.1;
+        symbol [ width %tmp.23 103 20 25 ];
+        %tmp.24 = 2;
+        %tmp.25 = div %tmp.23 %tmp.24;
+        %tmp.26 = 5;
+        symbol [ Graphics %tmp.27 103 32 40 ];
+        %tmp.27 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.28 103 41 52 ];
+        %tmp.28 = getv %tmp.27 :FONT_MEDIUM;
+        %tmp.29 = "Lap ";
+        symbol [ mCurrentLapIndex %tmp.31 103 63 79 ];
+        %tmp.31 = getv ? :mCurrentLapIndex;
+        %tmp.32 = add %tmp.29 %tmp.31;
+        symbol [ Graphics %tmp.33 103 81 89 ];
+        %tmp.33 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.34 103 90 109 ];
+        %tmp.34 = getv %tmp.33 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.21 %tmp.22(%tmp.25, %tmp.26, %tmp.28, %tmp.32, %tmp.34);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 106 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_stmt:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_12_106_75_begin:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_12_106_51_begin:
+        symbol [ mTotalLaps %tmp.36 106 12 22 ];
+        %tmp.36 = getv ? :mTotalLaps;
+        %tmp.37 = 0;
+        %tmp.38 = eq %tmp.36 %tmp.37;
+        bt %tmp.38 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_true;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_31_106_51_false:
+        symbol [ mCurrentLapIndex %tmp.40 106 31 47 ];
+        %tmp.40 = getv ? :mCurrentLapIndex;
+        %tmp.41 = 0;
+        %tmp.42 = lte %tmp.40 %tmp.41;
+        push %tmp.42;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_31_106_51_end:
+        %tmp.43 = phi [%tmp.38 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_12_106_51_begin] [%tmp.42 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_31_106_51_false] [%tmp.43 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_31_106_51_end];
+        bt %tmp.43 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_true;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_56_106_75_false:
+        symbol [ mCurrentLapIndex %tmp.45 106 56 72 ];
+        %tmp.45 = getv ? :mCurrentLapIndex;
+        symbol [ mTotalLaps %tmp.47 106 75 85 ];
+        %tmp.47 = getv ? :mTotalLaps;
+        %tmp.48 = gt %tmp.45 %tmp.47;
+        push %tmp.48;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_56_106_75_end:
+        %tmp.49 = phi [%tmp.43 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_12_106_75_begin] [%tmp.48 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_56_106_75_false] [%tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_56_106_75_end];
+        bf %tmp.49 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_87_111_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 108 12 ]
+        %tmp.50 = lgetv %dc;
+        symbol [ dc %tmp.50 108 12 14 ];
+        symbol [ setColor %tmp.51 108 15 23 ];
+        %tmp.51 = getv function %tmp.50 :setColor;
+        symbol [ Graphics %tmp.52 108 24 32 ];
+        %tmp.52 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.53 108 33 44 ];
+        %tmp.53 = getv %tmp.52 :COLOR_WHITE;
+        symbol [ Graphics %tmp.54 108 46 54 ];
+        %tmp.54 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.55 108 55 72 ];
+        %tmp.55 = getv %tmp.54 :COLOR_TRANSPARENT;
+        invoke %tmp.50 %tmp.51(%tmp.53, %tmp.55);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 109 12 ]
+        %tmp.56 = lgetv %dc;
+        symbol [ dc %tmp.56 109 12 14 ];
+        symbol [ drawText %tmp.57 109 15 23 ];
+        %tmp.57 = getv function %tmp.56 :drawText;
+        %tmp.58 = lgetv %width.1;
+        symbol [ width %tmp.58 109 24 29 ];
+        %tmp.59 = 2;
+        %tmp.60 = div %tmp.58 %tmp.59;
+        %tmp.61 = lgetv %height.2;
+        symbol [ height %tmp.61 109 33 39 ];
+        %tmp.62 = 2;
+        %tmp.63 = div %tmp.61 %tmp.62;
+        symbol [ Graphics %tmp.64 109 43 51 ];
+        %tmp.64 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.65 109 52 63 ];
+        %tmp.65 = getv %tmp.64 :FONT_MEDIUM;
+        %tmp.66 = "No Lap Data";
+        symbol [ Graphics %tmp.67 109 80 88 ];
+        %tmp.67 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.68 109 89 108 ];
+        %tmp.68 = getv %tmp.67 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.56 %tmp.57(%tmp.60, %tmp.63, %tmp.65, %tmp.66, %tmp.68);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 110 12 ]
+        ret ?;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_87_111_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_106_8_111_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 114 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %lapData.3 = local;
+        symbol [ lapData %lapData.3 114 12 19 ];
+        symbol [ mLapData %tmp.70 114 22 30 ];
+        %tmp.70 = getv ? :mLapData;
+        symbol [ mCurrentLapIndex %tmp.72 114 31 47 ];
+        %tmp.72 = getv ? :mCurrentLapIndex;
+        %tmp.73 = agetv %tmp.70 %tmp.72;
+        lputv %lapData.3 %tmp.73;
+        symbol [ lapData %lapData.3 114 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 115 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_8_119_8_if_stmt:
+        %tmp.74 = lgetv %lapData.3;
+        symbol [ lapData %tmp.74 115 12 19 ];
+        %tmp.75 = null;
+        %tmp.76 = eq %tmp.74 %tmp.75;
+        bf %tmp.76 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_8_119_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_8_119_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_29_119_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 116 12 ]
+        %tmp.77 = lgetv %dc;
+        symbol [ dc %tmp.77 116 12 14 ];
+        symbol [ setColor %tmp.78 116 15 23 ];
+        %tmp.78 = getv function %tmp.77 :setColor;
+        symbol [ Graphics %tmp.79 116 24 32 ];
+        %tmp.79 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.80 116 33 44 ];
+        %tmp.80 = getv %tmp.79 :COLOR_WHITE;
+        symbol [ Graphics %tmp.81 116 46 54 ];
+        %tmp.81 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.82 116 55 72 ];
+        %tmp.82 = getv %tmp.81 :COLOR_TRANSPARENT;
+        invoke %tmp.77 %tmp.78(%tmp.80, %tmp.82);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 117 12 ]
+        %tmp.83 = lgetv %dc;
+        symbol [ dc %tmp.83 117 12 14 ];
+        symbol [ drawText %tmp.84 117 15 23 ];
+        %tmp.84 = getv function %tmp.83 :drawText;
+        %tmp.85 = lgetv %width.1;
+        symbol [ width %tmp.85 117 24 29 ];
+        %tmp.86 = 2;
+        %tmp.87 = div %tmp.85 %tmp.86;
+        %tmp.88 = lgetv %height.2;
+        symbol [ height %tmp.88 117 33 39 ];
+        %tmp.89 = 2;
+        %tmp.90 = div %tmp.88 %tmp.89;
+        symbol [ Graphics %tmp.91 117 43 51 ];
+        %tmp.91 = getm $.Toybox.Graphics;
+        symbol [ FONT_MEDIUM %tmp.92 117 52 63 ];
+        %tmp.92 = getv %tmp.91 :FONT_MEDIUM;
+        %tmp.93 = "No Data for Lap ";
+        symbol [ mCurrentLapIndex %tmp.95 117 86 102 ];
+        %tmp.95 = getv ? :mCurrentLapIndex;
+        %tmp.96 = add %tmp.93 %tmp.95;
+        symbol [ Graphics %tmp.97 117 104 112 ];
+        %tmp.97 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.98 117 113 132 ];
+        %tmp.98 = getv %tmp.97 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.83 %tmp.84(%tmp.87, %tmp.90, %tmp.92, %tmp.96, %tmp.98);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 118 12 ]
+        ret ?;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_29_119_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_8_119_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_115_8_119_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 122 8 ]
+        %tmp.99 = lgetv %dc;
+        symbol [ dc %tmp.99 122 8 10 ];
+        symbol [ setColor %tmp.100 122 11 19 ];
+        %tmp.100 = getv function %tmp.99 :setColor;
+        symbol [ Graphics %tmp.101 122 20 28 ];
+        %tmp.101 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.102 122 29 40 ];
+        %tmp.102 = getv %tmp.101 :COLOR_WHITE;
+        symbol [ Graphics %tmp.103 122 42 50 ];
+        %tmp.103 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.104 122 51 68 ];
+        %tmp.104 = getv %tmp.103 :COLOR_TRANSPARENT;
+        invoke %tmp.99 %tmp.100(%tmp.102, %tmp.104);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 123 8 ]
+        %tmp.105 = lgetv %dc;
+        symbol [ dc %tmp.105 123 8 10 ];
+        symbol [ drawText %tmp.106 123 11 19 ];
+        %tmp.106 = getv function %tmp.105 :drawText;
+        %tmp.107 = lgetv %width.1;
+        symbol [ width %tmp.107 123 20 25 ];
+        %tmp.108 = 2;
+        %tmp.109 = div %tmp.107 %tmp.108;
+        %tmp.110 = 5;
+        %tmp.111 = sub %tmp.109 %tmp.110;
+        %tmp.112 = 30;
+        symbol [ Graphics %tmp.113 123 37 45 ];
+        %tmp.113 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.114 123 46 56 ];
+        %tmp.114 = getv %tmp.113 :FONT_SMALL;
+        %tmp.115 = "Start:";
+        symbol [ Graphics %tmp.116 123 68 76 ];
+        %tmp.116 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.117 123 77 95 ];
+        %tmp.117 = getv %tmp.116 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.105 %tmp.106(%tmp.111, %tmp.112, %tmp.114, %tmp.115, %tmp.117);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 124 8 ]
+        %tmp.118 = lgetv %dc;
+        symbol [ dc %tmp.118 124 8 10 ];
+        symbol [ setColor %tmp.119 124 11 19 ];
+        %tmp.119 = getv function %tmp.118 :setColor;
+        symbol [ Graphics %tmp.120 124 20 28 ];
+        %tmp.120 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.121 124 29 42 ];
+        %tmp.121 = getv %tmp.120 :COLOR_LT_GRAY;
+        symbol [ Graphics %tmp.122 124 44 52 ];
+        %tmp.122 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.123 124 53 70 ];
+        %tmp.123 = getv %tmp.122 :COLOR_TRANSPARENT;
+        invoke %tmp.118 %tmp.119(%tmp.121, %tmp.123);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 125 8 ]
+        %tmp.124 = lgetv %dc;
+        symbol [ dc %tmp.124 125 8 10 ];
+        symbol [ drawText %tmp.125 125 11 19 ];
+        %tmp.125 = getv function %tmp.124 :drawText;
+        %tmp.126 = lgetv %width.1;
+        symbol [ width %tmp.126 125 20 25 ];
+        %tmp.127 = 2;
+        %tmp.128 = div %tmp.126 %tmp.127;
+        %tmp.129 = 5;
+        %tmp.130 = add %tmp.128 %tmp.129;
+        %tmp.131 = 30;
+        symbol [ Graphics %tmp.132 125 37 45 ];
+        %tmp.132 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.133 125 46 56 ];
+        %tmp.133 = getv %tmp.132 :FONT_SMALL;
+        %tmp.134 = "13:15";
+        symbol [ Graphics %tmp.135 125 67 75 ];
+        %tmp.135 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.136 125 76 93 ];
+        %tmp.136 = getv %tmp.135 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.124 %tmp.125(%tmp.130, %tmp.131, %tmp.133, %tmp.134, %tmp.136);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 127 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_8_132_8_if_stmt:
+        symbol [ mCurrentLapIndex %tmp.138 127 12 28 ];
+        %tmp.138 = getv ? :mCurrentLapIndex;
+        symbol [ mTotalLaps %tmp.140 127 31 41 ];
+        %tmp.140 = getv ? :mTotalLaps;
+        %tmp.141 = lt %tmp.138 %tmp.140;
+        bf %tmp.141 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_8_132_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_8_132_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_43_132_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 128 12 ]
+        %tmp.142 = lgetv %dc;
+        symbol [ dc %tmp.142 128 12 14 ];
+        symbol [ setColor %tmp.143 128 15 23 ];
+        %tmp.143 = getv function %tmp.142 :setColor;
+        symbol [ Graphics %tmp.144 128 24 32 ];
+        %tmp.144 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.145 128 33 44 ];
+        %tmp.145 = getv %tmp.144 :COLOR_WHITE;
+        symbol [ Graphics %tmp.146 128 46 54 ];
+        %tmp.146 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.147 128 55 72 ];
+        %tmp.147 = getv %tmp.146 :COLOR_TRANSPARENT;
+        invoke %tmp.142 %tmp.143(%tmp.145, %tmp.147);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 129 12 ]
+        %tmp.148 = lgetv %dc;
+        symbol [ dc %tmp.148 129 12 14 ];
+        symbol [ drawText %tmp.149 129 15 23 ];
+        %tmp.149 = getv function %tmp.148 :drawText;
+        %tmp.150 = lgetv %width.1;
+        symbol [ width %tmp.150 129 24 29 ];
+        %tmp.151 = 2;
+        %tmp.152 = div %tmp.150 %tmp.151;
+        %tmp.153 = 5;
+        %tmp.154 = sub %tmp.152 %tmp.153;
+        %tmp.155 = 50;
+        symbol [ Graphics %tmp.156 129 41 49 ];
+        %tmp.156 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.157 129 50 60 ];
+        %tmp.157 = getv %tmp.156 :FONT_SMALL;
+        %tmp.158 = "Stop:";
+        symbol [ Graphics %tmp.159 129 71 79 ];
+        %tmp.159 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.160 129 80 98 ];
+        %tmp.160 = getv %tmp.159 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.148 %tmp.149(%tmp.154, %tmp.155, %tmp.157, %tmp.158, %tmp.160);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 130 12 ]
+        %tmp.161 = lgetv %dc;
+        symbol [ dc %tmp.161 130 12 14 ];
+        symbol [ setColor %tmp.162 130 15 23 ];
+        %tmp.162 = getv function %tmp.161 :setColor;
+        symbol [ Graphics %tmp.163 130 24 32 ];
+        %tmp.163 = getm $.Toybox.Graphics;
+        symbol [ COLOR_LT_GRAY %tmp.164 130 33 46 ];
+        %tmp.164 = getv %tmp.163 :COLOR_LT_GRAY;
+        symbol [ Graphics %tmp.165 130 48 56 ];
+        %tmp.165 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.166 130 57 74 ];
+        %tmp.166 = getv %tmp.165 :COLOR_TRANSPARENT;
+        invoke %tmp.161 %tmp.162(%tmp.164, %tmp.166);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 131 12 ]
+        %tmp.167 = lgetv %dc;
+        symbol [ dc %tmp.167 131 12 14 ];
+        symbol [ drawText %tmp.168 131 15 23 ];
+        %tmp.168 = getv function %tmp.167 :drawText;
+        %tmp.169 = lgetv %width.1;
+        symbol [ width %tmp.169 131 24 29 ];
+        %tmp.170 = 2;
+        %tmp.171 = div %tmp.169 %tmp.170;
+        %tmp.172 = 5;
+        %tmp.173 = add %tmp.171 %tmp.172;
+        %tmp.174 = 50;
+        symbol [ Graphics %tmp.175 131 41 49 ];
+        %tmp.175 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.176 131 50 60 ];
+        %tmp.176 = getv %tmp.175 :FONT_SMALL;
+        %tmp.177 = "13:25";
+        symbol [ Graphics %tmp.178 131 71 79 ];
+        %tmp.178 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.179 131 80 97 ];
+        %tmp.179 = getv %tmp.178 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.167 %tmp.168(%tmp.173, %tmp.174, %tmp.176, %tmp.177, %tmp.179);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_43_132_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_8_132_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_127_8_132_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 135 8 ]
+        %tmp.180 = lgetv %dc;
+        symbol [ dc %tmp.180 135 8 10 ];
+        symbol [ setColor %tmp.181 135 11 19 ];
+        %tmp.181 = getv function %tmp.180 :setColor;
+        symbol [ Graphics %tmp.182 135 20 28 ];
+        %tmp.182 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.183 135 29 42 ];
+        %tmp.183 = getv %tmp.182 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.184 135 44 52 ];
+        %tmp.184 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.185 135 53 70 ];
+        %tmp.185 = getv %tmp.184 :COLOR_TRANSPARENT;
+        invoke %tmp.180 %tmp.181(%tmp.183, %tmp.185);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 136 8 ]
+        %tmp.186 = lgetv %dc;
+        symbol [ dc %tmp.186 136 8 10 ];
+        symbol [ drawLine %tmp.187 136 11 19 ];
+        %tmp.187 = getv function %tmp.186 :drawLine;
+        %tmp.188 = 10;
+        %tmp.189 = 70;
+        %tmp.190 = lgetv %width.1;
+        symbol [ width %tmp.190 136 28 33 ];
+        %tmp.191 = 10;
+        %tmp.192 = sub %tmp.190 %tmp.191;
+        %tmp.193 = 70;
+        invoke %tmp.186 %tmp.187(%tmp.188, %tmp.189, %tmp.192, %tmp.193);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 139 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %yPos.4 = local;
+        symbol [ yPos %yPos.4 139 12 16 ];
+        %tmp.194 = 80;
+        lputv %yPos.4 %tmp.194;
+        symbol [ yPos %yPos.4 139 12 16 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 142 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %maxSpeed.5 = local;
+        symbol [ maxSpeed %maxSpeed.5 142 12 20 ];
+        %tmp.195 = 0.0;
+        lputv %maxSpeed.5 %tmp.195;
+        symbol [ maxSpeed %maxSpeed.5 142 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 143 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_8_145_8_if_stmt:
+        %tmp.196 = lgetv %lapData.3;
+        symbol [ lapData %tmp.196 143 12 19 ];
+        symbol [ hasKey %tmp.197 143 20 26 ];
+        %tmp.197 = getv function %tmp.196 :hasKey;
+        %tmp.198 = "maxSpeed";
+        %tmp.199 = invoke %tmp.196 %tmp.197(%tmp.198);
+        bf %tmp.199 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_8_145_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_8_145_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_40_145_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 144 12 ]
+        %tmp.200 = lgetv %lapData.3;
+        symbol [ lapData %tmp.200 144 23 30 ];
+        %tmp.201 = "maxSpeed";
+        %tmp.202 = agetv %tmp.200 %tmp.201;
+        lputv %maxSpeed.5 %tmp.202;
+        symbol [ maxSpeed %maxSpeed.5 144 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_40_145_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_8_145_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_143_8_145_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 147 8 ]
+        %tmp.203 = lgetv %dc;
+        symbol [ dc %tmp.203 147 8 10 ];
+        symbol [ setColor %tmp.204 147 11 19 ];
+        %tmp.204 = getv function %tmp.203 :setColor;
+        symbol [ Graphics %tmp.205 147 20 28 ];
+        %tmp.205 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.206 147 29 40 ];
+        %tmp.206 = getv %tmp.205 :COLOR_WHITE;
+        symbol [ Graphics %tmp.207 147 42 50 ];
+        %tmp.207 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.208 147 51 68 ];
+        %tmp.208 = getv %tmp.207 :COLOR_TRANSPARENT;
+        invoke %tmp.203 %tmp.204(%tmp.206, %tmp.208);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 148 8 ]
+        %tmp.209 = lgetv %dc;
+        symbol [ dc %tmp.209 148 8 10 ];
+        symbol [ drawText %tmp.210 148 11 19 ];
+        %tmp.210 = getv function %tmp.209 :drawText;
+        %tmp.211 = 15;
+        %tmp.212 = lgetv %yPos.4;
+        symbol [ yPos %tmp.212 148 24 28 ];
+        symbol [ Graphics %tmp.213 148 30 38 ];
+        %tmp.213 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.214 148 39 49 ];
+        %tmp.214 = getv %tmp.213 :FONT_SMALL;
+        %tmp.215 = "Max:";
+        symbol [ Graphics %tmp.216 148 59 67 ];
+        %tmp.216 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.217 148 68 85 ];
+        %tmp.217 = getv %tmp.216 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.209 %tmp.210(%tmp.211, %tmp.212, %tmp.214, %tmp.215, %tmp.217);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 149 8 ]
+        %tmp.218 = lgetv %dc;
+        symbol [ dc %tmp.218 149 8 10 ];
+        symbol [ drawText %tmp.219 149 11 19 ];
+        %tmp.219 = getv function %tmp.218 :drawText;
+        %tmp.220 = lgetv %width.1;
+        symbol [ width %tmp.220 149 20 25 ];
+        %tmp.221 = 15;
+        %tmp.222 = sub %tmp.220 %tmp.221;
+        %tmp.223 = lgetv %yPos.4;
+        symbol [ yPos %tmp.223 149 32 36 ];
+        symbol [ Graphics %tmp.224 149 38 46 ];
+        %tmp.224 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.225 149 47 57 ];
+        %tmp.225 = getv %tmp.224 :FONT_SMALL;
+        %tmp.226 = lgetv %maxSpeed.5;
+        symbol [ maxSpeed %tmp.226 149 59 67 ];
+        symbol [ format %tmp.227 149 68 74 ];
+        %tmp.227 = getv function %tmp.226 :format;
+        %tmp.228 = "%.1f";
+        %tmp.229 = invoke %tmp.226 %tmp.227(%tmp.228);
+        symbol [ Graphics %tmp.230 149 84 92 ];
+        %tmp.230 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.231 149 93 111 ];
+        %tmp.231 = getv %tmp.230 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.218 %tmp.219(%tmp.222, %tmp.223, %tmp.225, %tmp.229, %tmp.231);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 152 8 ]
+        %tmp.232 = lgetv %yPos.4;
+        symbol [ yPos %tmp.232 152 8 12 ];
+        %tmp.233 = 20;
+        %tmp.234 = add %tmp.232 %tmp.233;
+        lputv %yPos.4 %tmp.234;
+        symbol [ yPos %yPos.4 152 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 153 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %max3sSpeed.6 = local;
+        symbol [ max3sSpeed %max3sSpeed.6 153 12 22 ];
+        %tmp.235 = 0.0;
+        lputv %max3sSpeed.6 %tmp.235;
+        symbol [ max3sSpeed %max3sSpeed.6 153 12 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 154 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_8_156_8_if_stmt:
+        %tmp.236 = lgetv %lapData.3;
+        symbol [ lapData %tmp.236 154 12 19 ];
+        symbol [ hasKey %tmp.237 154 20 26 ];
+        %tmp.237 = getv function %tmp.236 :hasKey;
+        %tmp.238 = "max3sSpeed";
+        %tmp.239 = invoke %tmp.236 %tmp.237(%tmp.238);
+        bf %tmp.239 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_8_156_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_8_156_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_42_156_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 155 12 ]
+        %tmp.240 = lgetv %lapData.3;
+        symbol [ lapData %tmp.240 155 25 32 ];
+        %tmp.241 = "max3sSpeed";
+        %tmp.242 = agetv %tmp.240 %tmp.241;
+        lputv %max3sSpeed.6 %tmp.242;
+        symbol [ max3sSpeed %max3sSpeed.6 155 12 22 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_42_156_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_8_156_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_154_8_156_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 158 8 ]
+        %tmp.243 = lgetv %dc;
+        symbol [ dc %tmp.243 158 8 10 ];
+        symbol [ setColor %tmp.244 158 11 19 ];
+        %tmp.244 = getv function %tmp.243 :setColor;
+        symbol [ Graphics %tmp.245 158 20 28 ];
+        %tmp.245 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.246 158 29 40 ];
+        %tmp.246 = getv %tmp.245 :COLOR_WHITE;
+        symbol [ Graphics %tmp.247 158 42 50 ];
+        %tmp.247 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.248 158 51 68 ];
+        %tmp.248 = getv %tmp.247 :COLOR_TRANSPARENT;
+        invoke %tmp.243 %tmp.244(%tmp.246, %tmp.248);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 159 8 ]
+        %tmp.249 = lgetv %dc;
+        symbol [ dc %tmp.249 159 8 10 ];
+        symbol [ drawText %tmp.250 159 11 19 ];
+        %tmp.250 = getv function %tmp.249 :drawText;
+        %tmp.251 = 15;
+        %tmp.252 = lgetv %yPos.4;
+        symbol [ yPos %tmp.252 159 24 28 ];
+        symbol [ Graphics %tmp.253 159 30 38 ];
+        %tmp.253 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.254 159 39 49 ];
+        %tmp.254 = getv %tmp.253 :FONT_SMALL;
+        %tmp.255 = "Max 3s:";
+        symbol [ Graphics %tmp.256 159 62 70 ];
+        %tmp.256 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.257 159 71 88 ];
+        %tmp.257 = getv %tmp.256 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.249 %tmp.250(%tmp.251, %tmp.252, %tmp.254, %tmp.255, %tmp.257);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 160 8 ]
+        %tmp.258 = lgetv %dc;
+        symbol [ dc %tmp.258 160 8 10 ];
+        symbol [ drawText %tmp.259 160 11 19 ];
+        %tmp.259 = getv function %tmp.258 :drawText;
+        %tmp.260 = lgetv %width.1;
+        symbol [ width %tmp.260 160 20 25 ];
+        %tmp.261 = 15;
+        %tmp.262 = sub %tmp.260 %tmp.261;
+        %tmp.263 = lgetv %yPos.4;
+        symbol [ yPos %tmp.263 160 32 36 ];
+        symbol [ Graphics %tmp.264 160 38 46 ];
+        %tmp.264 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.265 160 47 57 ];
+        %tmp.265 = getv %tmp.264 :FONT_SMALL;
+        %tmp.266 = lgetv %max3sSpeed.6;
+        symbol [ max3sSpeed %tmp.266 160 59 69 ];
+        symbol [ format %tmp.267 160 70 76 ];
+        %tmp.267 = getv function %tmp.266 :format;
+        %tmp.268 = "%.1f";
+        %tmp.269 = invoke %tmp.266 %tmp.267(%tmp.268);
+        symbol [ Graphics %tmp.270 160 86 94 ];
+        %tmp.270 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.271 160 95 113 ];
+        %tmp.271 = getv %tmp.270 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.258 %tmp.259(%tmp.262, %tmp.263, %tmp.265, %tmp.269, %tmp.271);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 163 8 ]
+        %tmp.272 = lgetv %yPos.4;
+        symbol [ yPos %tmp.272 163 8 12 ];
+        %tmp.273 = 20;
+        %tmp.274 = add %tmp.272 %tmp.273;
+        lputv %yPos.4 %tmp.274;
+        symbol [ yPos %yPos.4 163 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 164 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %avgSpeed.7 = local;
+        symbol [ avgSpeed %avgSpeed.7 164 12 20 ];
+        %tmp.275 = 0.0;
+        lputv %avgSpeed.7 %tmp.275;
+        symbol [ avgSpeed %avgSpeed.7 164 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 165 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_stmt:
+        %tmp.276 = lgetv %lapData.3;
+        symbol [ lapData %tmp.276 165 12 19 ];
+        symbol [ hasKey %tmp.277 165 20 26 ];
+        %tmp.277 = getv function %tmp.276 :hasKey;
+        %tmp.278 = "avgSpeed";
+        %tmp.279 = invoke %tmp.276 %tmp.277(%tmp.278);
+        bf %tmp.279 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_40_167_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 166 12 ]
+        %tmp.280 = lgetv %lapData.3;
+        symbol [ lapData %tmp.280 166 23 30 ];
+        %tmp.281 = "avgSpeed";
+        %tmp.282 = agetv %tmp.280 %tmp.281;
+        lputv %avgSpeed.7 %tmp.282;
+        symbol [ avgSpeed %avgSpeed.7 166 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_40_167_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 167 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_15_169_8_if_stmt:
+        %tmp.283 = lgetv %maxSpeed.5;
+        symbol [ maxSpeed %tmp.283 167 19 27 ];
+        %tmp.284 = 0;
+        %tmp.285 = gt %tmp.283 %tmp.284;
+        bf %tmp.285 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_15_169_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_15_169_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_33_169_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 168 12 ]
+        %tmp.286 = lgetv %maxSpeed.5;
+        symbol [ maxSpeed %tmp.286 168 23 31 ];
+        %tmp.287 = 0.7;
+        %tmp.288 = mul %tmp.286 %tmp.287;
+        lputv %avgSpeed.7 %tmp.288;
+        symbol [ avgSpeed %avgSpeed.7 168 12 20 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_33_169_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_15_169_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_167_15_169_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_165_8_169_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 171 8 ]
+        %tmp.289 = lgetv %dc;
+        symbol [ dc %tmp.289 171 8 10 ];
+        symbol [ setColor %tmp.290 171 11 19 ];
+        %tmp.290 = getv function %tmp.289 :setColor;
+        symbol [ Graphics %tmp.291 171 20 28 ];
+        %tmp.291 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.292 171 29 40 ];
+        %tmp.292 = getv %tmp.291 :COLOR_WHITE;
+        symbol [ Graphics %tmp.293 171 42 50 ];
+        %tmp.293 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.294 171 51 68 ];
+        %tmp.294 = getv %tmp.293 :COLOR_TRANSPARENT;
+        invoke %tmp.289 %tmp.290(%tmp.292, %tmp.294);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 172 8 ]
+        %tmp.295 = lgetv %dc;
+        symbol [ dc %tmp.295 172 8 10 ];
+        symbol [ drawText %tmp.296 172 11 19 ];
+        %tmp.296 = getv function %tmp.295 :drawText;
+        %tmp.297 = 15;
+        %tmp.298 = lgetv %yPos.4;
+        symbol [ yPos %tmp.298 172 24 28 ];
+        symbol [ Graphics %tmp.299 172 30 38 ];
+        %tmp.299 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.300 172 39 49 ];
+        %tmp.300 = getv %tmp.299 :FONT_SMALL;
+        %tmp.301 = "Ave:";
+        symbol [ Graphics %tmp.302 172 59 67 ];
+        %tmp.302 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.303 172 68 85 ];
+        %tmp.303 = getv %tmp.302 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.295 %tmp.296(%tmp.297, %tmp.298, %tmp.300, %tmp.301, %tmp.303);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 173 8 ]
+        %tmp.304 = lgetv %dc;
+        symbol [ dc %tmp.304 173 8 10 ];
+        symbol [ drawText %tmp.305 173 11 19 ];
+        %tmp.305 = getv function %tmp.304 :drawText;
+        %tmp.306 = lgetv %width.1;
+        symbol [ width %tmp.306 173 20 25 ];
+        %tmp.307 = 15;
+        %tmp.308 = sub %tmp.306 %tmp.307;
+        %tmp.309 = lgetv %yPos.4;
+        symbol [ yPos %tmp.309 173 32 36 ];
+        symbol [ Graphics %tmp.310 173 38 46 ];
+        %tmp.310 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.311 173 47 57 ];
+        %tmp.311 = getv %tmp.310 :FONT_SMALL;
+        %tmp.312 = lgetv %avgSpeed.7;
+        symbol [ avgSpeed %tmp.312 173 59 67 ];
+        symbol [ format %tmp.313 173 68 74 ];
+        %tmp.313 = getv function %tmp.312 :format;
+        %tmp.314 = "%.1f";
+        %tmp.315 = invoke %tmp.312 %tmp.313(%tmp.314);
+        symbol [ Graphics %tmp.316 173 84 92 ];
+        %tmp.316 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.317 173 93 111 ];
+        %tmp.317 = getv %tmp.316 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.304 %tmp.305(%tmp.308, %tmp.309, %tmp.311, %tmp.315, %tmp.317);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 176 8 ]
+        %tmp.318 = lgetv %yPos.4;
+        symbol [ yPos %tmp.318 176 8 12 ];
+        %tmp.319 = 20;
+        %tmp.320 = add %tmp.318 %tmp.319;
+        lputv %yPos.4 %tmp.320;
+        symbol [ yPos %yPos.4 176 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 177 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %pctOnFoil.8 = local;
+        symbol [ pctOnFoil %pctOnFoil.8 177 12 21 ];
+        %tmp.321 = 0;
+        lputv %pctOnFoil.8 %tmp.321;
+        symbol [ pctOnFoil %pctOnFoil.8 177 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 178 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_8_180_8_if_stmt:
+        %tmp.322 = lgetv %lapData.3;
+        symbol [ lapData %tmp.322 178 12 19 ];
+        symbol [ hasKey %tmp.323 178 20 26 ];
+        %tmp.323 = getv function %tmp.322 :hasKey;
+        %tmp.324 = "pctOnFoil";
+        %tmp.325 = invoke %tmp.322 %tmp.323(%tmp.324);
+        bf %tmp.325 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_8_180_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_8_180_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_41_180_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 179 12 ]
+        %tmp.326 = lgetv %lapData.3;
+        symbol [ lapData %tmp.326 179 24 31 ];
+        %tmp.327 = "pctOnFoil";
+        %tmp.328 = agetv %tmp.326 %tmp.327;
+        symbol [ toNumber %tmp.329 179 45 53 ];
+        %tmp.329 = getv function %tmp.328 :toNumber;
+        %tmp.330 = invoke %tmp.328 %tmp.329();
+        lputv %pctOnFoil.8 %tmp.330;
+        symbol [ pctOnFoil %pctOnFoil.8 179 12 21 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_41_180_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_8_180_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_178_8_180_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 182 8 ]
+        %tmp.331 = lgetv %dc;
+        symbol [ dc %tmp.331 182 8 10 ];
+        symbol [ setColor %tmp.332 182 11 19 ];
+        %tmp.332 = getv function %tmp.331 :setColor;
+        symbol [ Graphics %tmp.333 182 20 28 ];
+        %tmp.333 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.334 182 29 40 ];
+        %tmp.334 = getv %tmp.333 :COLOR_WHITE;
+        symbol [ Graphics %tmp.335 182 42 50 ];
+        %tmp.335 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.336 182 51 68 ];
+        %tmp.336 = getv %tmp.335 :COLOR_TRANSPARENT;
+        invoke %tmp.331 %tmp.332(%tmp.334, %tmp.336);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 183 8 ]
+        %tmp.337 = lgetv %dc;
+        symbol [ dc %tmp.337 183 8 10 ];
+        symbol [ drawText %tmp.338 183 11 19 ];
+        %tmp.338 = getv function %tmp.337 :drawText;
+        %tmp.339 = 15;
+        %tmp.340 = lgetv %yPos.4;
+        symbol [ yPos %tmp.340 183 24 28 ];
+        symbol [ Graphics %tmp.341 183 30 38 ];
+        %tmp.341 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.342 183 39 49 ];
+        %tmp.342 = getv %tmp.341 :FONT_SMALL;
+        %tmp.343 = "Pct Foil:";
+        symbol [ Graphics %tmp.344 183 64 72 ];
+        %tmp.344 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.345 183 73 90 ];
+        %tmp.345 = getv %tmp.344 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.337 %tmp.338(%tmp.339, %tmp.340, %tmp.342, %tmp.343, %tmp.345);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 184 8 ]
+        %tmp.346 = lgetv %dc;
+        symbol [ dc %tmp.346 184 8 10 ];
+        symbol [ drawText %tmp.347 184 11 19 ];
+        %tmp.347 = getv function %tmp.346 :drawText;
+        %tmp.348 = lgetv %width.1;
+        symbol [ width %tmp.348 184 20 25 ];
+        %tmp.349 = 15;
+        %tmp.350 = sub %tmp.348 %tmp.349;
+        %tmp.351 = lgetv %yPos.4;
+        symbol [ yPos %tmp.351 184 32 36 ];
+        symbol [ Graphics %tmp.352 184 38 46 ];
+        %tmp.352 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.353 184 47 57 ];
+        %tmp.353 = getv %tmp.352 :FONT_SMALL;
+        %tmp.354 = lgetv %pctOnFoil.8;
+        symbol [ pctOnFoil %tmp.354 184 59 68 ];
+        %tmp.355 = "%";
+        %tmp.356 = add %tmp.354 %tmp.355;
+        symbol [ Graphics %tmp.357 184 76 84 ];
+        %tmp.357 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_RIGHT %tmp.358 184 85 103 ];
+        %tmp.358 = getv %tmp.357 :TEXT_JUSTIFY_RIGHT;
+        invoke %tmp.346 %tmp.347(%tmp.350, %tmp.351, %tmp.353, %tmp.356, %tmp.358);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 187 8 ]
+        %tmp.359 = lgetv %yPos.4;
+        symbol [ yPos %tmp.359 187 8 12 ];
+        %tmp.360 = 30;
+        %tmp.361 = add %tmp.359 %tmp.360;
+        lputv %yPos.4 %tmp.361;
+        symbol [ yPos %yPos.4 187 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 188 8 ]
+        %tmp.362 = lgetv %dc;
+        symbol [ dc %tmp.362 188 8 10 ];
+        symbol [ setColor %tmp.363 188 11 19 ];
+        %tmp.363 = getv function %tmp.362 :setColor;
+        symbol [ Graphics %tmp.364 188 20 28 ];
+        %tmp.364 = getm $.Toybox.Graphics;
+        symbol [ COLOR_YELLOW %tmp.365 188 29 41 ];
+        %tmp.365 = getv %tmp.364 :COLOR_YELLOW;
+        symbol [ Graphics %tmp.366 188 43 51 ];
+        %tmp.366 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.367 188 52 69 ];
+        %tmp.367 = getv %tmp.366 :COLOR_TRANSPARENT;
+        invoke %tmp.362 %tmp.363(%tmp.365, %tmp.367);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 189 8 ]
+        %tmp.368 = lgetv %dc;
+        symbol [ dc %tmp.368 189 8 10 ];
+        symbol [ drawText %tmp.369 189 11 19 ];
+        %tmp.369 = getv function %tmp.368 :drawText;
+        %tmp.370 = lgetv %width.1;
+        symbol [ width %tmp.370 189 20 25 ];
+        %tmp.371 = 4;
+        %tmp.372 = div %tmp.370 %tmp.371;
+        %tmp.373 = lgetv %yPos.4;
+        symbol [ yPos %tmp.373 189 29 33 ];
+        symbol [ Graphics %tmp.374 189 35 43 ];
+        %tmp.374 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.375 189 44 54 ];
+        %tmp.375 = getv %tmp.374 :FONT_SMALL;
+        %tmp.376 = "Upwind";
+        symbol [ Graphics %tmp.377 189 66 74 ];
+        %tmp.377 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.378 189 75 94 ];
+        %tmp.378 = getv %tmp.377 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.368 %tmp.369(%tmp.372, %tmp.373, %tmp.375, %tmp.376, %tmp.378);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 190 8 ]
+        %tmp.379 = lgetv %dc;
+        symbol [ dc %tmp.379 190 8 10 ];
+        symbol [ drawText %tmp.380 190 11 19 ];
+        %tmp.380 = getv function %tmp.379 :drawText;
+        %tmp.381 = 3;
+        %tmp.382 = lgetv %width.1;
+        symbol [ width %tmp.382 190 22 27 ];
+        %tmp.383 = mul %tmp.381 %tmp.382;
+        %tmp.384 = 4;
+        %tmp.385 = div %tmp.383 %tmp.384;
+        %tmp.386 = lgetv %yPos.4;
+        symbol [ yPos %tmp.386 190 31 35 ];
+        symbol [ Graphics %tmp.387 190 37 45 ];
+        %tmp.387 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.388 190 46 56 ];
+        %tmp.388 = getv %tmp.387 :FONT_SMALL;
+        %tmp.389 = "Downwind";
+        symbol [ Graphics %tmp.390 190 70 78 ];
+        %tmp.390 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.391 190 79 98 ];
+        %tmp.391 = getv %tmp.390 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.379 %tmp.380(%tmp.385, %tmp.386, %tmp.388, %tmp.389, %tmp.391);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 193 8 ]
+        %tmp.392 = lgetv %dc;
+        symbol [ dc %tmp.392 193 8 10 ];
+        symbol [ setColor %tmp.393 193 11 19 ];
+        %tmp.393 = getv function %tmp.392 :setColor;
+        symbol [ Graphics %tmp.394 193 20 28 ];
+        %tmp.394 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.395 193 29 42 ];
+        %tmp.395 = getv %tmp.394 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.396 193 44 52 ];
+        %tmp.396 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.397 193 53 70 ];
+        %tmp.397 = getv %tmp.396 :COLOR_TRANSPARENT;
+        invoke %tmp.392 %tmp.393(%tmp.395, %tmp.397);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 194 8 ]
+        %tmp.398 = lgetv %dc;
+        symbol [ dc %tmp.398 194 8 10 ];
+        symbol [ drawLine %tmp.399 194 11 19 ];
+        %tmp.399 = getv function %tmp.398 :drawLine;
+        %tmp.400 = lgetv %width.1;
+        symbol [ width %tmp.400 194 20 25 ];
+        %tmp.401 = 2;
+        %tmp.402 = div %tmp.400 %tmp.401;
+        %tmp.403 = lgetv %yPos.4;
+        symbol [ yPos %tmp.403 194 29 33 ];
+        %tmp.404 = 10;
+        %tmp.405 = sub %tmp.403 %tmp.404;
+        %tmp.406 = lgetv %width.1;
+        symbol [ width %tmp.406 194 40 45 ];
+        %tmp.407 = 2;
+        %tmp.408 = div %tmp.406 %tmp.407;
+        %tmp.409 = lgetv %height.2;
+        symbol [ height %tmp.409 194 49 55 ];
+        %tmp.410 = 20;
+        %tmp.411 = sub %tmp.409 %tmp.410;
+        invoke %tmp.398 %tmp.399(%tmp.402, %tmp.405, %tmp.408, %tmp.411);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 197 8 ]
+        %tmp.412 = lgetv %yPos.4;
+        symbol [ yPos %tmp.412 197 8 12 ];
+        %tmp.413 = 20;
+        %tmp.414 = add %tmp.412 %tmp.413;
+        lputv %yPos.4 %tmp.414;
+        symbol [ yPos %yPos.4 197 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 200 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %tackCount.9 = local;
+        symbol [ tackCount %tackCount.9 200 12 21 ];
+        %tmp.415 = 0;
+        lputv %tackCount.9 %tmp.415;
+        symbol [ tackCount %tackCount.9 200 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 201 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_8_203_8_if_stmt:
+        %tmp.416 = lgetv %lapData.3;
+        symbol [ lapData %tmp.416 201 12 19 ];
+        symbol [ hasKey %tmp.417 201 20 26 ];
+        %tmp.417 = getv function %tmp.416 :hasKey;
+        %tmp.418 = "tackCount";
+        %tmp.419 = invoke %tmp.416 %tmp.417(%tmp.418);
+        bf %tmp.419 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_8_203_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_8_203_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_41_203_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 202 12 ]
+        %tmp.420 = lgetv %lapData.3;
+        symbol [ lapData %tmp.420 202 24 31 ];
+        %tmp.421 = "tackCount";
+        %tmp.422 = agetv %tmp.420 %tmp.421;
+        lputv %tackCount.9 %tmp.422;
+        symbol [ tackCount %tackCount.9 202 12 21 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_41_203_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_8_203_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_201_8_203_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 205 8 ]
+        %tmp.423 = lgetv %dc;
+        symbol [ dc %tmp.423 205 8 10 ];
+        symbol [ setColor %tmp.424 205 11 19 ];
+        %tmp.424 = getv function %tmp.423 :setColor;
+        symbol [ Graphics %tmp.425 205 20 28 ];
+        %tmp.425 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.426 205 29 40 ];
+        %tmp.426 = getv %tmp.425 :COLOR_WHITE;
+        symbol [ Graphics %tmp.427 205 42 50 ];
+        %tmp.427 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.428 205 51 68 ];
+        %tmp.428 = getv %tmp.427 :COLOR_TRANSPARENT;
+        invoke %tmp.423 %tmp.424(%tmp.426, %tmp.428);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 206 8 ]
+        %tmp.429 = lgetv %dc;
+        symbol [ dc %tmp.429 206 8 10 ];
+        symbol [ drawText %tmp.430 206 11 19 ];
+        %tmp.430 = getv function %tmp.429 :drawText;
+        %tmp.431 = 15;
+        %tmp.432 = lgetv %yPos.4;
+        symbol [ yPos %tmp.432 206 24 28 ];
+        symbol [ Graphics %tmp.433 206 30 38 ];
+        %tmp.433 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.434 206 39 49 ];
+        %tmp.434 = getv %tmp.433 :FONT_SMALL;
+        %tmp.435 = "Tacks:";
+        symbol [ Graphics %tmp.436 206 61 69 ];
+        %tmp.436 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.437 206 70 87 ];
+        %tmp.437 = getv %tmp.436 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.429 %tmp.430(%tmp.431, %tmp.432, %tmp.434, %tmp.435, %tmp.437);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 207 8 ]
+        %tmp.438 = lgetv %dc;
+        symbol [ dc %tmp.438 207 8 10 ];
+        symbol [ drawText %tmp.439 207 11 19 ];
+        %tmp.439 = getv function %tmp.438 :drawText;
+        %tmp.440 = lgetv %width.1;
+        symbol [ width %tmp.440 207 20 25 ];
+        %tmp.441 = 4;
+        %tmp.442 = div %tmp.440 %tmp.441;
+        %tmp.443 = lgetv %yPos.4;
+        symbol [ yPos %tmp.443 207 29 33 ];
+        symbol [ Graphics %tmp.444 207 35 43 ];
+        %tmp.444 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.445 207 44 54 ];
+        %tmp.445 = getv %tmp.444 :FONT_SMALL;
+        %tmp.446 = lgetv %tackCount.9;
+        symbol [ tackCount %tmp.446 207 56 65 ];
+        symbol [ toString %tmp.447 207 66 74 ];
+        %tmp.447 = getv function %tmp.446 :toString;
+        %tmp.448 = invoke %tmp.446 %tmp.447();
+        symbol [ Graphics %tmp.449 207 78 86 ];
+        %tmp.449 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.450 207 87 106 ];
+        %tmp.450 = getv %tmp.449 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.438 %tmp.439(%tmp.442, %tmp.443, %tmp.445, %tmp.448, %tmp.450);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 210 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %gybeCount.10 = local;
+        symbol [ gybeCount %gybeCount.10 210 12 21 ];
+        %tmp.451 = 0;
+        lputv %gybeCount.10 %tmp.451;
+        symbol [ gybeCount %gybeCount.10 210 12 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 211 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_8_213_8_if_stmt:
+        %tmp.452 = lgetv %lapData.3;
+        symbol [ lapData %tmp.452 211 12 19 ];
+        symbol [ hasKey %tmp.453 211 20 26 ];
+        %tmp.453 = getv function %tmp.452 :hasKey;
+        %tmp.454 = "gybeCount";
+        %tmp.455 = invoke %tmp.452 %tmp.453(%tmp.454);
+        bf %tmp.455 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_8_213_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_8_213_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_41_213_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 212 12 ]
+        %tmp.456 = lgetv %lapData.3;
+        symbol [ lapData %tmp.456 212 24 31 ];
+        %tmp.457 = "gybeCount";
+        %tmp.458 = agetv %tmp.456 %tmp.457;
+        lputv %gybeCount.10 %tmp.458;
+        symbol [ gybeCount %gybeCount.10 212 12 21 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_41_213_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_8_213_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_211_8_213_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 215 8 ]
+        %tmp.459 = lgetv %dc;
+        symbol [ dc %tmp.459 215 8 10 ];
+        symbol [ setColor %tmp.460 215 11 19 ];
+        %tmp.460 = getv function %tmp.459 :setColor;
+        symbol [ Graphics %tmp.461 215 20 28 ];
+        %tmp.461 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.462 215 29 40 ];
+        %tmp.462 = getv %tmp.461 :COLOR_WHITE;
+        symbol [ Graphics %tmp.463 215 42 50 ];
+        %tmp.463 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.464 215 51 68 ];
+        %tmp.464 = getv %tmp.463 :COLOR_TRANSPARENT;
+        invoke %tmp.459 %tmp.460(%tmp.462, %tmp.464);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 216 8 ]
+        %tmp.465 = lgetv %dc;
+        symbol [ dc %tmp.465 216 8 10 ];
+        symbol [ drawText %tmp.466 216 11 19 ];
+        %tmp.466 = getv function %tmp.465 :drawText;
+        %tmp.467 = lgetv %width.1;
+        symbol [ width %tmp.467 216 20 25 ];
+        %tmp.468 = 2;
+        %tmp.469 = div %tmp.467 %tmp.468;
+        %tmp.470 = 15;
+        %tmp.471 = add %tmp.469 %tmp.470;
+        %tmp.472 = lgetv %yPos.4;
+        symbol [ yPos %tmp.472 216 34 38 ];
+        symbol [ Graphics %tmp.473 216 40 48 ];
+        %tmp.473 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.474 216 49 59 ];
+        %tmp.474 = getv %tmp.473 :FONT_SMALL;
+        %tmp.475 = "Gybes:";
+        symbol [ Graphics %tmp.476 216 71 79 ];
+        %tmp.476 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.477 216 80 97 ];
+        %tmp.477 = getv %tmp.476 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.465 %tmp.466(%tmp.471, %tmp.472, %tmp.474, %tmp.475, %tmp.477);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 217 8 ]
+        %tmp.478 = lgetv %dc;
+        symbol [ dc %tmp.478 217 8 10 ];
+        symbol [ drawText %tmp.479 217 11 19 ];
+        %tmp.479 = getv function %tmp.478 :drawText;
+        %tmp.480 = 3;
+        %tmp.481 = lgetv %width.1;
+        symbol [ width %tmp.481 217 22 27 ];
+        %tmp.482 = mul %tmp.480 %tmp.481;
+        %tmp.483 = 4;
+        %tmp.484 = div %tmp.482 %tmp.483;
+        %tmp.485 = lgetv %yPos.4;
+        symbol [ yPos %tmp.485 217 31 35 ];
+        symbol [ Graphics %tmp.486 217 37 45 ];
+        %tmp.486 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.487 217 46 56 ];
+        %tmp.487 = getv %tmp.486 :FONT_SMALL;
+        %tmp.488 = lgetv %gybeCount.10;
+        symbol [ gybeCount %tmp.488 217 58 67 ];
+        symbol [ toString %tmp.489 217 68 76 ];
+        %tmp.489 = getv function %tmp.488 :toString;
+        %tmp.490 = invoke %tmp.488 %tmp.489();
+        symbol [ Graphics %tmp.491 217 80 88 ];
+        %tmp.491 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.492 217 89 108 ];
+        %tmp.492 = getv %tmp.491 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.478 %tmp.479(%tmp.484, %tmp.485, %tmp.487, %tmp.490, %tmp.492);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 220 8 ]
+        %tmp.493 = lgetv %yPos.4;
+        symbol [ yPos %tmp.493 220 8 12 ];
+        %tmp.494 = 20;
+        %tmp.495 = add %tmp.493 %tmp.494;
+        lputv %yPos.4 %tmp.495;
+        symbol [ yPos %yPos.4 220 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 223 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %avgTackAngle.11 = local;
+        symbol [ avgTackAngle %avgTackAngle.11 223 12 24 ];
+        %tmp.496 = 0;
+        lputv %avgTackAngle.11 %tmp.496;
+        symbol [ avgTackAngle %avgTackAngle.11 223 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 224 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_8_226_8_if_stmt:
+        %tmp.497 = lgetv %lapData.3;
+        symbol [ lapData %tmp.497 224 12 19 ];
+        symbol [ hasKey %tmp.498 224 20 26 ];
+        %tmp.498 = getv function %tmp.497 :hasKey;
+        %tmp.499 = "avgTackAngle";
+        %tmp.500 = invoke %tmp.497 %tmp.498(%tmp.499);
+        bf %tmp.500 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_8_226_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_8_226_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_44_226_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 225 12 ]
+        %tmp.501 = lgetv %lapData.3;
+        symbol [ lapData %tmp.501 225 27 34 ];
+        %tmp.502 = "avgTackAngle";
+        %tmp.503 = agetv %tmp.501 %tmp.502;
+        symbol [ toNumber %tmp.504 225 51 59 ];
+        %tmp.504 = getv function %tmp.503 :toNumber;
+        %tmp.505 = invoke %tmp.503 %tmp.504();
+        lputv %avgTackAngle.11 %tmp.505;
+        symbol [ avgTackAngle %avgTackAngle.11 225 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_44_226_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_8_226_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_224_8_226_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 228 8 ]
+        %tmp.506 = lgetv %dc;
+        symbol [ dc %tmp.506 228 8 10 ];
+        symbol [ setColor %tmp.507 228 11 19 ];
+        %tmp.507 = getv function %tmp.506 :setColor;
+        symbol [ Graphics %tmp.508 228 20 28 ];
+        %tmp.508 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.509 228 29 40 ];
+        %tmp.509 = getv %tmp.508 :COLOR_WHITE;
+        symbol [ Graphics %tmp.510 228 42 50 ];
+        %tmp.510 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.511 228 51 68 ];
+        %tmp.511 = getv %tmp.510 :COLOR_TRANSPARENT;
+        invoke %tmp.506 %tmp.507(%tmp.509, %tmp.511);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 229 8 ]
+        %tmp.512 = lgetv %dc;
+        symbol [ dc %tmp.512 229 8 10 ];
+        symbol [ drawText %tmp.513 229 11 19 ];
+        %tmp.513 = getv function %tmp.512 :drawText;
+        %tmp.514 = 15;
+        %tmp.515 = lgetv %yPos.4;
+        symbol [ yPos %tmp.515 229 24 28 ];
+        symbol [ Graphics %tmp.516 229 30 38 ];
+        %tmp.516 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.517 229 39 49 ];
+        %tmp.517 = getv %tmp.516 :FONT_SMALL;
+        %tmp.518 = "Av agl:";
+        symbol [ Graphics %tmp.519 229 62 70 ];
+        %tmp.519 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.520 229 71 88 ];
+        %tmp.520 = getv %tmp.519 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.512 %tmp.513(%tmp.514, %tmp.515, %tmp.517, %tmp.518, %tmp.520);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 230 8 ]
+        %tmp.521 = lgetv %dc;
+        symbol [ dc %tmp.521 230 8 10 ];
+        symbol [ drawText %tmp.522 230 11 19 ];
+        %tmp.522 = getv function %tmp.521 :drawText;
+        %tmp.523 = lgetv %width.1;
+        symbol [ width %tmp.523 230 20 25 ];
+        %tmp.524 = 4;
+        %tmp.525 = div %tmp.523 %tmp.524;
+        %tmp.526 = lgetv %yPos.4;
+        symbol [ yPos %tmp.526 230 29 33 ];
+        symbol [ Graphics %tmp.527 230 35 43 ];
+        %tmp.527 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.528 230 44 54 ];
+        %tmp.528 = getv %tmp.527 :FONT_SMALL;
+        %tmp.529 = lgetv %avgTackAngle.11;
+        symbol [ avgTackAngle %tmp.529 230 56 68 ];
+        %tmp.530 = "°";
+        %tmp.531 = add %tmp.529 %tmp.530;
+        symbol [ Graphics %tmp.532 230 76 84 ];
+        %tmp.532 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.533 230 85 104 ];
+        %tmp.533 = getv %tmp.532 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.521 %tmp.522(%tmp.525, %tmp.526, %tmp.528, %tmp.531, %tmp.533);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 233 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %avgGybeAngle.12 = local;
+        symbol [ avgGybeAngle %avgGybeAngle.12 233 12 24 ];
+        %tmp.534 = 0;
+        lputv %avgGybeAngle.12 %tmp.534;
+        symbol [ avgGybeAngle %avgGybeAngle.12 233 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 234 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_8_236_8_if_stmt:
+        %tmp.535 = lgetv %lapData.3;
+        symbol [ lapData %tmp.535 234 12 19 ];
+        symbol [ hasKey %tmp.536 234 20 26 ];
+        %tmp.536 = getv function %tmp.535 :hasKey;
+        %tmp.537 = "avgGybeAngle";
+        %tmp.538 = invoke %tmp.535 %tmp.536(%tmp.537);
+        bf %tmp.538 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_8_236_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_8_236_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_44_236_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 235 12 ]
+        %tmp.539 = lgetv %lapData.3;
+        symbol [ lapData %tmp.539 235 27 34 ];
+        %tmp.540 = "avgGybeAngle";
+        %tmp.541 = agetv %tmp.539 %tmp.540;
+        symbol [ toNumber %tmp.542 235 51 59 ];
+        %tmp.542 = getv function %tmp.541 :toNumber;
+        %tmp.543 = invoke %tmp.541 %tmp.542();
+        lputv %avgGybeAngle.12 %tmp.543;
+        symbol [ avgGybeAngle %avgGybeAngle.12 235 12 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_44_236_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_8_236_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_234_8_236_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 238 8 ]
+        %tmp.544 = lgetv %dc;
+        symbol [ dc %tmp.544 238 8 10 ];
+        symbol [ setColor %tmp.545 238 11 19 ];
+        %tmp.545 = getv function %tmp.544 :setColor;
+        symbol [ Graphics %tmp.546 238 20 28 ];
+        %tmp.546 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.547 238 29 40 ];
+        %tmp.547 = getv %tmp.546 :COLOR_WHITE;
+        symbol [ Graphics %tmp.548 238 42 50 ];
+        %tmp.548 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.549 238 51 68 ];
+        %tmp.549 = getv %tmp.548 :COLOR_TRANSPARENT;
+        invoke %tmp.544 %tmp.545(%tmp.547, %tmp.549);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 239 8 ]
+        %tmp.550 = lgetv %dc;
+        symbol [ dc %tmp.550 239 8 10 ];
+        symbol [ drawText %tmp.551 239 11 19 ];
+        %tmp.551 = getv function %tmp.550 :drawText;
+        %tmp.552 = lgetv %width.1;
+        symbol [ width %tmp.552 239 20 25 ];
+        %tmp.553 = 2;
+        %tmp.554 = div %tmp.552 %tmp.553;
+        %tmp.555 = 15;
+        %tmp.556 = add %tmp.554 %tmp.555;
+        %tmp.557 = lgetv %yPos.4;
+        symbol [ yPos %tmp.557 239 34 38 ];
+        symbol [ Graphics %tmp.558 239 40 48 ];
+        %tmp.558 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.559 239 49 59 ];
+        %tmp.559 = getv %tmp.558 :FONT_SMALL;
+        %tmp.560 = "Av agl:";
+        symbol [ Graphics %tmp.561 239 72 80 ];
+        %tmp.561 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.562 239 81 98 ];
+        %tmp.562 = getv %tmp.561 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.550 %tmp.551(%tmp.556, %tmp.557, %tmp.559, %tmp.560, %tmp.562);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 240 8 ]
+        %tmp.563 = lgetv %dc;
+        symbol [ dc %tmp.563 240 8 10 ];
+        symbol [ drawText %tmp.564 240 11 19 ];
+        %tmp.564 = getv function %tmp.563 :drawText;
+        %tmp.565 = 3;
+        %tmp.566 = lgetv %width.1;
+        symbol [ width %tmp.566 240 22 27 ];
+        %tmp.567 = mul %tmp.565 %tmp.566;
+        %tmp.568 = 4;
+        %tmp.569 = div %tmp.567 %tmp.568;
+        %tmp.570 = lgetv %yPos.4;
+        symbol [ yPos %tmp.570 240 31 35 ];
+        symbol [ Graphics %tmp.571 240 37 45 ];
+        %tmp.571 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.572 240 46 56 ];
+        %tmp.572 = getv %tmp.571 :FONT_SMALL;
+        %tmp.573 = lgetv %avgGybeAngle.12;
+        symbol [ avgGybeAngle %tmp.573 240 58 70 ];
+        %tmp.574 = "°";
+        %tmp.575 = add %tmp.573 %tmp.574;
+        symbol [ Graphics %tmp.576 240 78 86 ];
+        %tmp.576 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.577 240 87 106 ];
+        %tmp.577 = getv %tmp.576 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.563 %tmp.564(%tmp.569, %tmp.570, %tmp.572, %tmp.575, %tmp.577);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 243 8 ]
+        %tmp.578 = lgetv %yPos.4;
+        symbol [ yPos %tmp.578 243 8 12 ];
+        %tmp.579 = 20;
+        %tmp.580 = add %tmp.578 %tmp.579;
+        lputv %yPos.4 %tmp.580;
+        symbol [ yPos %yPos.4 243 8 12 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 246 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %vmgUp.13 = local;
+        symbol [ vmgUp %vmgUp.13 246 12 17 ];
+        %tmp.581 = 0.0;
+        lputv %vmgUp.13 %tmp.581;
+        symbol [ vmgUp %vmgUp.13 246 12 17 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 247 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_stmt:
+        %tmp.582 = lgetv %lapData.3;
+        symbol [ lapData %tmp.582 247 12 19 ];
+        symbol [ hasKey %tmp.583 247 20 26 ];
+        %tmp.583 = getv function %tmp.582 :hasKey;
+        %tmp.584 = "avgVMGUp";
+        %tmp.585 = invoke %tmp.582 %tmp.583(%tmp.584);
+        bf %tmp.585 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_40_249_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 248 12 ]
+        %tmp.586 = lgetv %lapData.3;
+        symbol [ lapData %tmp.586 248 20 27 ];
+        %tmp.587 = "avgVMGUp";
+        %tmp.588 = agetv %tmp.586 %tmp.587;
+        lputv %vmgUp.13 %tmp.588;
+        symbol [ vmgUp %vmgUp.13 248 12 17 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_40_249_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 249 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_15_251_8_if_stmt:
+        %tmp.589 = lgetv %lapData.3;
+        symbol [ lapData %tmp.589 249 19 26 ];
+        symbol [ hasKey %tmp.590 249 27 33 ];
+        %tmp.590 = getv function %tmp.589 :hasKey;
+        %tmp.591 = "vmgUp";
+        %tmp.592 = invoke %tmp.589 %tmp.590(%tmp.591);
+        bf %tmp.592 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_15_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_15_251_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_44_251_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 250 12 ]
+        %tmp.593 = lgetv %lapData.3;
+        symbol [ lapData %tmp.593 250 20 27 ];
+        %tmp.594 = "vmgUp";
+        %tmp.595 = agetv %tmp.593 %tmp.594;
+        lputv %vmgUp.13 %tmp.595;
+        symbol [ vmgUp %vmgUp.13 250 12 17 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_44_251_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_15_251_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_249_15_251_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_247_8_251_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 253 8 ]
+        %tmp.596 = lgetv %dc;
+        symbol [ dc %tmp.596 253 8 10 ];
+        symbol [ setColor %tmp.597 253 11 19 ];
+        %tmp.597 = getv function %tmp.596 :setColor;
+        symbol [ Graphics %tmp.598 253 20 28 ];
+        %tmp.598 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.599 253 29 40 ];
+        %tmp.599 = getv %tmp.598 :COLOR_WHITE;
+        symbol [ Graphics %tmp.600 253 42 50 ];
+        %tmp.600 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.601 253 51 68 ];
+        %tmp.601 = getv %tmp.600 :COLOR_TRANSPARENT;
+        invoke %tmp.596 %tmp.597(%tmp.599, %tmp.601);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 254 8 ]
+        %tmp.602 = lgetv %dc;
+        symbol [ dc %tmp.602 254 8 10 ];
+        symbol [ drawText %tmp.603 254 11 19 ];
+        %tmp.603 = getv function %tmp.602 :drawText;
+        %tmp.604 = 15;
+        %tmp.605 = lgetv %yPos.4;
+        symbol [ yPos %tmp.605 254 24 28 ];
+        symbol [ Graphics %tmp.606 254 30 38 ];
+        %tmp.606 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.607 254 39 49 ];
+        %tmp.607 = getv %tmp.606 :FONT_SMALL;
+        %tmp.608 = "VMG:";
+        symbol [ Graphics %tmp.609 254 59 67 ];
+        %tmp.609 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.610 254 68 85 ];
+        %tmp.610 = getv %tmp.609 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.602 %tmp.603(%tmp.604, %tmp.605, %tmp.607, %tmp.608, %tmp.610);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 255 8 ]
+        %tmp.611 = lgetv %dc;
+        symbol [ dc %tmp.611 255 8 10 ];
+        symbol [ drawText %tmp.612 255 11 19 ];
+        %tmp.612 = getv function %tmp.611 :drawText;
+        %tmp.613 = lgetv %width.1;
+        symbol [ width %tmp.613 255 20 25 ];
+        %tmp.614 = 4;
+        %tmp.615 = div %tmp.613 %tmp.614;
+        %tmp.616 = lgetv %yPos.4;
+        symbol [ yPos %tmp.616 255 29 33 ];
+        symbol [ Graphics %tmp.617 255 35 43 ];
+        %tmp.617 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.618 255 44 54 ];
+        %tmp.618 = getv %tmp.617 :FONT_SMALL;
+        %tmp.619 = lgetv %vmgUp.13;
+        symbol [ vmgUp %tmp.619 255 56 61 ];
+        symbol [ format %tmp.620 255 62 68 ];
+        %tmp.620 = getv function %tmp.619 :format;
+        %tmp.621 = "%.1f";
+        %tmp.622 = invoke %tmp.619 %tmp.620(%tmp.621);
+        symbol [ Graphics %tmp.623 255 78 86 ];
+        %tmp.623 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.624 255 87 106 ];
+        %tmp.624 = getv %tmp.623 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.611 %tmp.612(%tmp.615, %tmp.616, %tmp.618, %tmp.622, %tmp.624);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 258 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop" ]
+        %vmgDown.14 = local;
+        symbol [ vmgDown %vmgDown.14 258 12 19 ];
+        %tmp.625 = 0.0;
+        lputv %vmgDown.14 %tmp.625;
+        symbol [ vmgDown %vmgDown.14 258 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 259 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_stmt:
+        %tmp.626 = lgetv %lapData.3;
+        symbol [ lapData %tmp.626 259 12 19 ];
+        symbol [ hasKey %tmp.627 259 20 26 ];
+        %tmp.627 = getv function %tmp.626 :hasKey;
+        %tmp.628 = "avgVMGDown";
+        %tmp.629 = invoke %tmp.626 %tmp.627(%tmp.628);
+        bf %tmp.629 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_false;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_42_261_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 260 12 ]
+        %tmp.630 = lgetv %lapData.3;
+        symbol [ lapData %tmp.630 260 22 29 ];
+        %tmp.631 = "avgVMGDown";
+        %tmp.632 = agetv %tmp.630 %tmp.631;
+        lputv %vmgDown.14 %tmp.632;
+        symbol [ vmgDown %vmgDown.14 260 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_42_261_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_false:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 261 15 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_15_263_8_if_stmt:
+        %tmp.633 = lgetv %lapData.3;
+        symbol [ lapData %tmp.633 261 19 26 ];
+        symbol [ hasKey %tmp.634 261 27 33 ];
+        %tmp.634 = getv function %tmp.633 :hasKey;
+        %tmp.635 = "vmgDown";
+        %tmp.636 = invoke %tmp.633 %tmp.634(%tmp.635);
+        bf %tmp.636 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_15_263_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_15_263_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_46_263_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 262 12 ]
+        %tmp.637 = lgetv %lapData.3;
+        symbol [ lapData %tmp.637 262 22 29 ];
+        %tmp.638 = "vmgDown";
+        %tmp.639 = agetv %tmp.637 %tmp.638;
+        lputv %vmgDown.14 %tmp.639;
+        symbol [ vmgDown %vmgDown.14 262 12 19 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_46_263_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_15_263_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_261_15_263_8_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_259_8_263_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 265 8 ]
+        %tmp.640 = lgetv %dc;
+        symbol [ dc %tmp.640 265 8 10 ];
+        symbol [ setColor %tmp.641 265 11 19 ];
+        %tmp.641 = getv function %tmp.640 :setColor;
+        symbol [ Graphics %tmp.642 265 20 28 ];
+        %tmp.642 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.643 265 29 40 ];
+        %tmp.643 = getv %tmp.642 :COLOR_WHITE;
+        symbol [ Graphics %tmp.644 265 42 50 ];
+        %tmp.644 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.645 265 51 68 ];
+        %tmp.645 = getv %tmp.644 :COLOR_TRANSPARENT;
+        invoke %tmp.640 %tmp.641(%tmp.643, %tmp.645);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 266 8 ]
+        %tmp.646 = lgetv %dc;
+        symbol [ dc %tmp.646 266 8 10 ];
+        symbol [ drawText %tmp.647 266 11 19 ];
+        %tmp.647 = getv function %tmp.646 :drawText;
+        %tmp.648 = lgetv %width.1;
+        symbol [ width %tmp.648 266 20 25 ];
+        %tmp.649 = 2;
+        %tmp.650 = div %tmp.648 %tmp.649;
+        %tmp.651 = 15;
+        %tmp.652 = add %tmp.650 %tmp.651;
+        %tmp.653 = lgetv %yPos.4;
+        symbol [ yPos %tmp.653 266 34 38 ];
+        symbol [ Graphics %tmp.654 266 40 48 ];
+        %tmp.654 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.655 266 49 59 ];
+        %tmp.655 = getv %tmp.654 :FONT_SMALL;
+        %tmp.656 = "VMG:";
+        symbol [ Graphics %tmp.657 266 69 77 ];
+        %tmp.657 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_LEFT %tmp.658 266 78 95 ];
+        %tmp.658 = getv %tmp.657 :TEXT_JUSTIFY_LEFT;
+        invoke %tmp.646 %tmp.647(%tmp.652, %tmp.653, %tmp.655, %tmp.656, %tmp.658);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 267 8 ]
+        %tmp.659 = lgetv %dc;
+        symbol [ dc %tmp.659 267 8 10 ];
+        symbol [ drawText %tmp.660 267 11 19 ];
+        %tmp.660 = getv function %tmp.659 :drawText;
+        %tmp.661 = 3;
+        %tmp.662 = lgetv %width.1;
+        symbol [ width %tmp.662 267 22 27 ];
+        %tmp.663 = mul %tmp.661 %tmp.662;
+        %tmp.664 = 4;
+        %tmp.665 = div %tmp.663 %tmp.664;
+        %tmp.666 = lgetv %yPos.4;
+        symbol [ yPos %tmp.666 267 31 35 ];
+        symbol [ Graphics %tmp.667 267 37 45 ];
+        %tmp.667 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.668 267 46 56 ];
+        %tmp.668 = getv %tmp.667 :FONT_SMALL;
+        %tmp.669 = lgetv %vmgDown.14;
+        symbol [ vmgDown %tmp.669 267 58 65 ];
+        symbol [ format %tmp.670 267 66 72 ];
+        %tmp.670 = getv function %tmp.669 :format;
+        %tmp.671 = "%.1f";
+        %tmp.672 = invoke %tmp.669 %tmp.670(%tmp.671);
+        symbol [ Graphics %tmp.673 267 82 90 ];
+        %tmp.673 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.674 267 91 110 ];
+        %tmp.674 = getv %tmp.673 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.659 %tmp.660(%tmp.665, %tmp.666, %tmp.668, %tmp.672, %tmp.674);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 270 8 ]
+        %tmp.675 = lgetv %dc;
+        symbol [ dc %tmp.675 270 8 10 ];
+        symbol [ setColor %tmp.676 270 11 19 ];
+        %tmp.676 = getv function %tmp.675 :setColor;
+        symbol [ Graphics %tmp.677 270 20 28 ];
+        %tmp.677 = getm $.Toybox.Graphics;
+        symbol [ COLOR_DK_GRAY %tmp.678 270 29 42 ];
+        %tmp.678 = getv %tmp.677 :COLOR_DK_GRAY;
+        symbol [ Graphics %tmp.679 270 44 52 ];
+        %tmp.679 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.680 270 53 70 ];
+        %tmp.680 = getv %tmp.679 :COLOR_TRANSPARENT;
+        invoke %tmp.675 %tmp.676(%tmp.678, %tmp.680);
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc" 271 8 ]
+        %tmp.681 = lgetv %dc;
+        symbol [ dc %tmp.681 271 8 10 ];
+        symbol [ drawText %tmp.682 271 11 19 ];
+        %tmp.682 = getv function %tmp.681 :drawText;
+        %tmp.683 = lgetv %width.1;
+        symbol [ width %tmp.683 271 20 25 ];
+        %tmp.684 = 2;
+        %tmp.685 = div %tmp.683 %tmp.684;
+        %tmp.686 = lgetv %height.2;
+        symbol [ height %tmp.686 271 29 35 ];
+        %tmp.687 = 20;
+        %tmp.688 = sub %tmp.686 %tmp.687;
+        symbol [ Graphics %tmp.689 271 42 50 ];
+        %tmp.689 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.690 271 51 60 ];
+        %tmp.690 = getv %tmp.689 :FONT_TINY;
+        %tmp.691 = "DOWN: Next Lap";
+        symbol [ Graphics %tmp.692 271 80 88 ];
+        %tmp.692 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.693 271 89 108 ];
+        %tmp.693 = getv %tmp.692 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.681 %tmp.682(%tmp.685, %tmp.688, %tmp.690, %tmp.691, %tmp.693);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_LapReview_mc_92_26_272_4_stop:
+    }
+}
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\LapReview.mc"; @line = 1; ]
+<init> {
+}

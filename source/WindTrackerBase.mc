@@ -314,4 +314,5 @@ class WindTracker {
     function setLastSignificantHeading(value) {
         mLastSignificantHeading = value;
     }
+
 }

@@ -63,8 +63,8 @@ class FoilTrackerApp extends Application.AppBase {
             );
             System.println("Position tracking enabled with default frequency");
             
-            // Try to set a higher update frequency using setLocationOptions if available
-            if (Position has :setLocationOptions) {
+            // Check if the device supports setLocationOptions before using it
+            if ((Position has :setLocationOptions) && false) { // Disable this feature for now
                 try {
                     var options = {
                         :updateRate => 1  // Request 1-second updates

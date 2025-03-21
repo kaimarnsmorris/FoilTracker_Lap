@@ -17,25 +17,26 @@ class ConfirmationView extends WatchUi.View {
     }
     
     function onUpdate(dc) {
-        // Clear the screen
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-        dc.clear();
-        
-        // Get screen dimensions
-        var width = dc.getWidth();
-        var height = dc.getHeight();
-        
-        // Draw PAUSED text at the top
-        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width/2, height/2 - 60, Graphics.FONT_SMALL, "PAUSED", Graphics.TEXT_JUSTIFY_CENTER);
-        
-        // Draw confirmation text
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width/2, height/2 - 30, Graphics.FONT_MEDIUM, mPrompt, Graphics.TEXT_JUSTIFY_CENTER);
-        
-        // Button instructions
-        dc.drawText(width/2, height/2 + 10, Graphics.FONT_SMALL, "Press SELECT to return", Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(width/2, height/2 + 35, Graphics.FONT_SMALL, "Press BACK to end", Graphics.TEXT_JUSTIFY_CENTER);
+            // Clear the screen
+            dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            dc.clear();
+            
+            // Get screen dimensions
+            var width = dc.getWidth();
+            var height = dc.getHeight();
+            
+            // Draw PAUSED text at the top
+            dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(width/2, height/2 - 60, Graphics.FONT_SMALL, "PAUSED", Graphics.TEXT_JUSTIFY_CENTER);
+            
+            // Draw confirmation text
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(width/2, height/2 - 30, Graphics.FONT_MEDIUM, mPrompt, Graphics.TEXT_JUSTIFY_CENTER);
+            
+            // Button instructions
+            dc.drawText(width/2, height/2 + 10, Graphics.FONT_SMALL, "Press SELECT to return", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(width/2, height/2 + 30, Graphics.FONT_SMALL, "Press BACK to end", Graphics.TEXT_JUSTIFY_CENTER);
+            dc.drawText(width/2, height/2 + 50, Graphics.FONT_SMALL, "Press DOWN for laps", Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
 
@@ -83,6 +84,25 @@ class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
         
         // Push the view
         WatchUi.pushView(saveView, saveDelegate, WatchUi.SLIDE_LEFT);
+        
+        return true;
+    }
+
+    // NEW: Down button now shows lap review
+    function onNextPage() {
+        // Switch to Lap Review screen
+        if (mApp != null) {
+            var windTracker = mApp.getWindTracker();
+            
+            if (windTracker != null) {
+                // Create lap review view and delegate
+                var lapReviewView = new LapReviewView(mModel, windTracker);
+                var lapReviewDelegate = new LapReviewDelegate(lapReviewView, mModel, mApp);
+                
+                // Switch to lap review view
+                WatchUi.switchToView(lapReviewView, lapReviewDelegate, WatchUi.SLIDE_DOWN);
+            }
+        }
         
         return true;
     }

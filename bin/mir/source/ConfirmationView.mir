@@ -39,362 +39,474 @@ C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source
     }
     [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 19; @symbol_functiondef = [onUpdate,19,13,21]; @symbol_param<0> = [dc,19,22,24]; ]
     function onUpdate(dc) {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 21 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 21 12 ]
         %tmp.1 = lgetv %dc;
-        symbol [ dc %tmp.1 21 8 10 ];
-        symbol [ setColor %tmp.2 21 11 19 ];
+        symbol [ dc %tmp.1 21 12 14 ];
+        symbol [ setColor %tmp.2 21 15 23 ];
         %tmp.2 = getv function %tmp.1 :setColor;
-        symbol [ Graphics %tmp.3 21 20 28 ];
+        symbol [ Graphics %tmp.3 21 24 32 ];
         %tmp.3 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.4 21 29 40 ];
+        symbol [ COLOR_BLACK %tmp.4 21 33 44 ];
         %tmp.4 = getv %tmp.3 :COLOR_BLACK;
-        symbol [ Graphics %tmp.5 21 42 50 ];
+        symbol [ Graphics %tmp.5 21 46 54 ];
         %tmp.5 = getm $.Toybox.Graphics;
-        symbol [ COLOR_BLACK %tmp.6 21 51 62 ];
+        symbol [ COLOR_BLACK %tmp.6 21 55 66 ];
         %tmp.6 = getv %tmp.5 :COLOR_BLACK;
         invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 22 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 22 12 ]
         %tmp.7 = lgetv %dc;
-        symbol [ dc %tmp.7 22 8 10 ];
-        symbol [ clear %tmp.8 22 11 16 ];
+        symbol [ dc %tmp.7 22 12 14 ];
+        symbol [ clear %tmp.8 22 15 20 ];
         %tmp.8 = getv function %tmp.7 :clear;
         invoke %tmp.7 %tmp.8();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 25 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_stop" ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 25 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_stop" ]
         %width.1 = local;
-        symbol [ width %width.1 25 12 17 ];
+        symbol [ width %width.1 25 16 21 ];
         %tmp.9 = lgetv %dc;
-        symbol [ dc %tmp.9 25 20 22 ];
-        symbol [ getWidth %tmp.10 25 23 31 ];
+        symbol [ dc %tmp.9 25 24 26 ];
+        symbol [ getWidth %tmp.10 25 27 35 ];
         %tmp.10 = getv function %tmp.9 :getWidth;
         %tmp.11 = invoke %tmp.9 %tmp.10();
         lputv %width.1 %tmp.11;
-        symbol [ width %width.1 25 12 17 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 26 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_stop" ]
+        symbol [ width %width.1 25 16 21 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 26 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_stop" ]
         %height.2 = local;
-        symbol [ height %height.2 26 12 18 ];
+        symbol [ height %height.2 26 16 22 ];
         %tmp.12 = lgetv %dc;
-        symbol [ dc %tmp.12 26 21 23 ];
-        symbol [ getHeight %tmp.13 26 24 33 ];
+        symbol [ dc %tmp.12 26 25 27 ];
+        symbol [ getHeight %tmp.13 26 28 37 ];
         %tmp.13 = getv function %tmp.12 :getHeight;
         %tmp.14 = invoke %tmp.12 %tmp.13();
         lputv %height.2 %tmp.14;
-        symbol [ height %height.2 26 12 18 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 29 8 ]
+        symbol [ height %height.2 26 16 22 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 29 12 ]
         %tmp.15 = lgetv %dc;
-        symbol [ dc %tmp.15 29 8 10 ];
-        symbol [ setColor %tmp.16 29 11 19 ];
+        symbol [ dc %tmp.15 29 12 14 ];
+        symbol [ setColor %tmp.16 29 15 23 ];
         %tmp.16 = getv function %tmp.15 :setColor;
-        symbol [ Graphics %tmp.17 29 20 28 ];
+        symbol [ Graphics %tmp.17 29 24 32 ];
         %tmp.17 = getm $.Toybox.Graphics;
-        symbol [ COLOR_YELLOW %tmp.18 29 29 41 ];
+        symbol [ COLOR_YELLOW %tmp.18 29 33 45 ];
         %tmp.18 = getv %tmp.17 :COLOR_YELLOW;
-        symbol [ Graphics %tmp.19 29 43 51 ];
+        symbol [ Graphics %tmp.19 29 47 55 ];
         %tmp.19 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.20 29 52 69 ];
+        symbol [ COLOR_TRANSPARENT %tmp.20 29 56 73 ];
         %tmp.20 = getv %tmp.19 :COLOR_TRANSPARENT;
         invoke %tmp.15 %tmp.16(%tmp.18, %tmp.20);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 30 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 30 12 ]
         %tmp.21 = lgetv %dc;
-        symbol [ dc %tmp.21 30 8 10 ];
-        symbol [ drawText %tmp.22 30 11 19 ];
+        symbol [ dc %tmp.21 30 12 14 ];
+        symbol [ drawText %tmp.22 30 15 23 ];
         %tmp.22 = getv function %tmp.21 :drawText;
         %tmp.23 = lgetv %width.1;
-        symbol [ width %tmp.23 30 20 25 ];
+        symbol [ width %tmp.23 30 24 29 ];
         %tmp.24 = 2;
         %tmp.25 = div %tmp.23 %tmp.24;
         %tmp.26 = lgetv %height.2;
-        symbol [ height %tmp.26 30 29 35 ];
+        symbol [ height %tmp.26 30 33 39 ];
         %tmp.27 = 2;
         %tmp.28 = div %tmp.26 %tmp.27;
         %tmp.29 = 60;
         %tmp.30 = sub %tmp.28 %tmp.29;
-        symbol [ Graphics %tmp.31 30 44 52 ];
+        symbol [ Graphics %tmp.31 30 48 56 ];
         %tmp.31 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.32 30 53 63 ];
+        symbol [ FONT_SMALL %tmp.32 30 57 67 ];
         %tmp.32 = getv %tmp.31 :FONT_SMALL;
         %tmp.33 = "PAUSED";
-        symbol [ Graphics %tmp.34 30 75 83 ];
+        symbol [ Graphics %tmp.34 30 79 87 ];
         %tmp.34 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.35 30 84 103 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.35 30 88 107 ];
         %tmp.35 = getv %tmp.34 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.21 %tmp.22(%tmp.25, %tmp.30, %tmp.32, %tmp.33, %tmp.35);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 33 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 33 12 ]
         %tmp.36 = lgetv %dc;
-        symbol [ dc %tmp.36 33 8 10 ];
-        symbol [ setColor %tmp.37 33 11 19 ];
+        symbol [ dc %tmp.36 33 12 14 ];
+        symbol [ setColor %tmp.37 33 15 23 ];
         %tmp.37 = getv function %tmp.36 :setColor;
-        symbol [ Graphics %tmp.38 33 20 28 ];
+        symbol [ Graphics %tmp.38 33 24 32 ];
         %tmp.38 = getm $.Toybox.Graphics;
-        symbol [ COLOR_WHITE %tmp.39 33 29 40 ];
+        symbol [ COLOR_WHITE %tmp.39 33 33 44 ];
         %tmp.39 = getv %tmp.38 :COLOR_WHITE;
-        symbol [ Graphics %tmp.40 33 42 50 ];
+        symbol [ Graphics %tmp.40 33 46 54 ];
         %tmp.40 = getm $.Toybox.Graphics;
-        symbol [ COLOR_TRANSPARENT %tmp.41 33 51 68 ];
+        symbol [ COLOR_TRANSPARENT %tmp.41 33 55 72 ];
         %tmp.41 = getv %tmp.40 :COLOR_TRANSPARENT;
         invoke %tmp.36 %tmp.37(%tmp.39, %tmp.41);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 34 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 34 12 ]
         %tmp.42 = lgetv %dc;
-        symbol [ dc %tmp.42 34 8 10 ];
-        symbol [ drawText %tmp.43 34 11 19 ];
+        symbol [ dc %tmp.42 34 12 14 ];
+        symbol [ drawText %tmp.43 34 15 23 ];
         %tmp.43 = getv function %tmp.42 :drawText;
         %tmp.44 = lgetv %width.1;
-        symbol [ width %tmp.44 34 20 25 ];
+        symbol [ width %tmp.44 34 24 29 ];
         %tmp.45 = 2;
         %tmp.46 = div %tmp.44 %tmp.45;
         %tmp.47 = lgetv %height.2;
-        symbol [ height %tmp.47 34 29 35 ];
+        symbol [ height %tmp.47 34 33 39 ];
         %tmp.48 = 2;
         %tmp.49 = div %tmp.47 %tmp.48;
         %tmp.50 = 30;
         %tmp.51 = sub %tmp.49 %tmp.50;
-        symbol [ Graphics %tmp.52 34 44 52 ];
+        symbol [ Graphics %tmp.52 34 48 56 ];
         %tmp.52 = getm $.Toybox.Graphics;
-        symbol [ FONT_MEDIUM %tmp.53 34 53 64 ];
+        symbol [ FONT_MEDIUM %tmp.53 34 57 68 ];
         %tmp.53 = getv %tmp.52 :FONT_MEDIUM;
-        symbol [ mPrompt %tmp.55 34 66 73 ];
+        symbol [ mPrompt %tmp.55 34 70 77 ];
         %tmp.55 = getv ? :mPrompt;
-        symbol [ Graphics %tmp.56 34 75 83 ];
+        symbol [ Graphics %tmp.56 34 79 87 ];
         %tmp.56 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.57 34 84 103 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.57 34 88 107 ];
         %tmp.57 = getv %tmp.56 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.42 %tmp.43(%tmp.46, %tmp.51, %tmp.53, %tmp.55, %tmp.57);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 37 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 37 12 ]
         %tmp.58 = lgetv %dc;
-        symbol [ dc %tmp.58 37 8 10 ];
-        symbol [ drawText %tmp.59 37 11 19 ];
+        symbol [ dc %tmp.58 37 12 14 ];
+        symbol [ drawText %tmp.59 37 15 23 ];
         %tmp.59 = getv function %tmp.58 :drawText;
         %tmp.60 = lgetv %width.1;
-        symbol [ width %tmp.60 37 20 25 ];
+        symbol [ width %tmp.60 37 24 29 ];
         %tmp.61 = 2;
         %tmp.62 = div %tmp.60 %tmp.61;
         %tmp.63 = lgetv %height.2;
-        symbol [ height %tmp.63 37 29 35 ];
+        symbol [ height %tmp.63 37 33 39 ];
         %tmp.64 = 2;
         %tmp.65 = div %tmp.63 %tmp.64;
         %tmp.66 = 10;
         %tmp.67 = add %tmp.65 %tmp.66;
-        symbol [ Graphics %tmp.68 37 44 52 ];
+        symbol [ Graphics %tmp.68 37 48 56 ];
         %tmp.68 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.69 37 53 63 ];
+        symbol [ FONT_SMALL %tmp.69 37 57 67 ];
         %tmp.69 = getv %tmp.68 :FONT_SMALL;
         %tmp.70 = "Press SELECT to return";
-        symbol [ Graphics %tmp.71 37 91 99 ];
+        symbol [ Graphics %tmp.71 37 95 103 ];
         %tmp.71 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.72 37 100 119 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.72 37 104 123 ];
         %tmp.72 = getv %tmp.71 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.58 %tmp.59(%tmp.62, %tmp.67, %tmp.69, %tmp.70, %tmp.72);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 38 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 38 12 ]
         %tmp.73 = lgetv %dc;
-        symbol [ dc %tmp.73 38 8 10 ];
-        symbol [ drawText %tmp.74 38 11 19 ];
+        symbol [ dc %tmp.73 38 12 14 ];
+        symbol [ drawText %tmp.74 38 15 23 ];
         %tmp.74 = getv function %tmp.73 :drawText;
         %tmp.75 = lgetv %width.1;
-        symbol [ width %tmp.75 38 20 25 ];
+        symbol [ width %tmp.75 38 24 29 ];
         %tmp.76 = 2;
         %tmp.77 = div %tmp.75 %tmp.76;
         %tmp.78 = lgetv %height.2;
-        symbol [ height %tmp.78 38 29 35 ];
+        symbol [ height %tmp.78 38 33 39 ];
         %tmp.79 = 2;
         %tmp.80 = div %tmp.78 %tmp.79;
-        %tmp.81 = 35;
+        %tmp.81 = 30;
         %tmp.82 = add %tmp.80 %tmp.81;
-        symbol [ Graphics %tmp.83 38 44 52 ];
+        symbol [ Graphics %tmp.83 38 48 56 ];
         %tmp.83 = getm $.Toybox.Graphics;
-        symbol [ FONT_SMALL %tmp.84 38 53 63 ];
+        symbol [ FONT_SMALL %tmp.84 38 57 67 ];
         %tmp.84 = getv %tmp.83 :FONT_SMALL;
         %tmp.85 = "Press BACK to end";
-        symbol [ Graphics %tmp.86 38 86 94 ];
+        symbol [ Graphics %tmp.86 38 90 98 ];
         %tmp.86 = getm $.Toybox.Graphics;
-        symbol [ TEXT_JUSTIFY_CENTER %tmp.87 38 95 114 ];
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.87 38 99 118 ];
         %tmp.87 = getv %tmp.86 :TEXT_JUSTIFY_CENTER;
         invoke %tmp.73 %tmp.74(%tmp.77, %tmp.82, %tmp.84, %tmp.85, %tmp.87);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_39_4_stop:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 39 12 ]
+        %tmp.88 = lgetv %dc;
+        symbol [ dc %tmp.88 39 12 14 ];
+        symbol [ drawText %tmp.89 39 15 23 ];
+        %tmp.89 = getv function %tmp.88 :drawText;
+        %tmp.90 = lgetv %width.1;
+        symbol [ width %tmp.90 39 24 29 ];
+        %tmp.91 = 2;
+        %tmp.92 = div %tmp.90 %tmp.91;
+        %tmp.93 = lgetv %height.2;
+        symbol [ height %tmp.93 39 33 39 ];
+        %tmp.94 = 2;
+        %tmp.95 = div %tmp.93 %tmp.94;
+        %tmp.96 = 50;
+        %tmp.97 = add %tmp.95 %tmp.96;
+        symbol [ Graphics %tmp.98 39 48 56 ];
+        %tmp.98 = getm $.Toybox.Graphics;
+        symbol [ FONT_SMALL %tmp.99 39 57 67 ];
+        %tmp.99 = getv %tmp.98 :FONT_SMALL;
+        %tmp.100 = "Press DOWN for laps";
+        symbol [ Graphics %tmp.101 39 92 100 ];
+        %tmp.101 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.102 39 101 120 ];
+        %tmp.102 = getv %tmp.101 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.88 %tmp.89(%tmp.92, %tmp.97, %tmp.99, %tmp.100, %tmp.102);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_19_26_40_4_stop:
     }
 }
-[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 43; @symbol_classdef = [ConfirmationDelegate,43,6,26]; @symbol_extends<0> = [WatchUi,43,35,42]; @symbol_extends<1> = [BehaviorDelegate,43,43,59]; ]
+[ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 44; @symbol_classdef = [ConfirmationDelegate,44,6,26]; @symbol_extends<0> = [WatchUi,44,35,42]; @symbol_extends<1> = [BehaviorDelegate,44,43,59]; ]
 class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 43; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 44; ]
     <init> {
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 43; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 44; ]
     static
     <init> {
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 44; @position = 16; @symbol_vardef = [mModel,44,16,22]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 45; @position = 16; @symbol_vardef = [mModel,45,16,22]; ]
     private
     var mModel;
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 45; @position = 16; @symbol_vardef = [mApp,45,16,20]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 46; @position = 16; @symbol_vardef = [mApp,46,16,20]; ]
     private
     var mApp;
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 47; @symbol_functiondef = [initialize,47,13,23]; @symbol_param<0> = [model,47,24,29]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 48; @symbol_functiondef = [initialize,48,13,23]; @symbol_param<0> = [model,48,24,29]; ]
     function initialize(model) as Void {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_47_31_51_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 48 8 ]
-        symbol [ BehaviorDelegate %tmp.2 48 8 24 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_48_31_52_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 49 8 ]
+        symbol [ BehaviorDelegate %tmp.2 49 8 24 ];
         %tmp.2 = getv ? :BehaviorDelegate;
-        symbol [ initialize %tmp.3 48 25 35 ];
+        symbol [ initialize %tmp.3 49 25 35 ];
         %tmp.3 = getv function %tmp.2 :initialize;
         invoke %tmp.2 %tmp.3();
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 49 8 ]
-        %tmp.4 = lgetv %model;
-        symbol [ model %tmp.4 49 17 22 ];
-        symbol [ mModel ? 49 8 14 ];
-        putv self :mModel %tmp.4;
 [ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 50 8 ]
-        symbol [ Application %tmp.5 50 15 26 ];
+        %tmp.4 = lgetv %model;
+        symbol [ model %tmp.4 50 17 22 ];
+        symbol [ mModel ? 50 8 14 ];
+        putv self :mModel %tmp.4;
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 51 8 ]
+        symbol [ Application %tmp.5 51 15 26 ];
         %tmp.5 = getm $.Toybox.Application;
-        symbol [ getApp %tmp.6 50 27 33 ];
+        symbol [ getApp %tmp.6 51 27 33 ];
         %tmp.6 = getv function %tmp.5 :getApp;
         %tmp.7 = invoke %tmp.5 %tmp.6();
-        symbol [ mApp ? 50 8 12 ];
+        symbol [ mApp ? 51 8 12 ];
         putv self :mApp %tmp.7;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_47_31_51_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_48_31_52_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 54; @symbol_functiondef = [onSelect,54,13,21]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 55; @symbol_functiondef = [onSelect,55,13,21]; ]
     function onSelect() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_54_24_68_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 56 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_8_65_8_if_stmt:
-        symbol [ mModel %tmp.2 56 12 18 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_55_24_69_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 57 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_8_66_8_if_stmt:
+        symbol [ mModel %tmp.2 57 12 18 ];
         %tmp.2 = getv ? :mModel;
         %tmp.3 = null;
         %tmp.4 = ne %tmp.2 %tmp.3;
-        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_8_65_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_8_65_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_28_65_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 57 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_28_65_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_28_65_8_stop" ]
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_8_66_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_8_66_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_28_66_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 58 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_28_66_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_28_66_8_stop" ]
         %data.1 = local;
-        symbol [ data %data.1 57 16 20 ];
-        symbol [ mModel %tmp.6 57 23 29 ];
+        symbol [ data %data.1 58 16 20 ];
+        symbol [ mModel %tmp.6 58 23 29 ];
         %tmp.6 = getv ? :mModel;
         %tmp.7 = as %tmp.6 { (!Null) };
-        symbol [ getData %tmp.8 57 30 37 ];
+        symbol [ getData %tmp.8 58 30 37 ];
         %tmp.8 = getv function %tmp.7 :getData;
         %tmp.9 = invoke %tmp.7 %tmp.8();
         lputv %data.1 %tmp.9;
-        symbol [ data %data.1 57 16 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 58 12 ]
+        symbol [ data %data.1 58 16 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 59 12 ]
         %tmp.10 = lgetv %data.1;
-        symbol [ data %tmp.10 58 12 16 ];
+        symbol [ data %tmp.10 59 12 16 ];
         %tmp.11 = false;
         %tmp.12 = "sessionPaused";
         aputv %tmp.10 %tmp.12 %tmp.11;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 61 12 ]
-        symbol [ mModel %tmp.14 61 12 18 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 62 12 ]
+        symbol [ mModel %tmp.14 62 12 18 ];
         %tmp.14 = getv ? :mModel;
-        symbol [ setPauseState %tmp.15 61 19 32 ];
+        symbol [ setPauseState %tmp.15 62 19 32 ];
         %tmp.15 = getv function %tmp.14 :setPauseState;
         %tmp.16 = false;
         invoke %tmp.14 %tmp.15(%tmp.16);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 64 12 ]
-        symbol [ WatchUi %tmp.17 64 12 19 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 65 12 ]
+        symbol [ WatchUi %tmp.17 65 12 19 ];
         %tmp.17 = getm $.Toybox.WatchUi;
-        symbol [ popView %tmp.18 64 20 27 ];
+        symbol [ popView %tmp.18 65 20 27 ];
         %tmp.18 = getv function %tmp.17 :popView;
-        symbol [ WatchUi %tmp.19 64 28 35 ];
+        symbol [ WatchUi %tmp.19 65 28 35 ];
         %tmp.19 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_IMMEDIATE %tmp.20 64 36 51 ];
+        symbol [ SLIDE_IMMEDIATE %tmp.20 65 36 51 ];
         %tmp.20 = getv %tmp.19 :SLIDE_IMMEDIATE;
         invoke %tmp.17 %tmp.18(%tmp.20);
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_28_65_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_8_65_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_56_8_65_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 67 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_28_66_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_8_66_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_57_8_66_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 68 8 ]
         %tmp.21 = true;
         ret %tmp.21;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_54_24_68_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_55_24_69_4_stop:
     }
-    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 71; @symbol_functiondef = [onBack,71,13,19]; ]
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 72; @symbol_functiondef = [onBack,72,13,19]; ]
     function onBack() {
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 73 8 ]
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_8_78_8_if_stmt:
-        symbol [ mModel %tmp.2 73 12 18 ];
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 74 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_8_79_8_if_stmt:
+        symbol [ mModel %tmp.2 74 12 18 ];
         %tmp.2 = getv ? :mModel;
         %tmp.3 = null;
         %tmp.4 = ne %tmp.2 %tmp.3;
-        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_8_78_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_8_78_8_if_true:
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_28_78_8_start:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 74 12 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_28_78_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_28_78_8_stop" ]
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_8_79_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_8_79_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_28_79_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 75 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_28_79_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_28_79_8_stop" ]
         %data.1 = local;
-        symbol [ data %data.1 74 16 20 ];
-        symbol [ mModel %tmp.6 74 23 29 ];
+        symbol [ data %data.1 75 16 20 ];
+        symbol [ mModel %tmp.6 75 23 29 ];
         %tmp.6 = getv ? :mModel;
         %tmp.7 = as %tmp.6 { (!Null) };
-        symbol [ getData %tmp.8 74 30 37 ];
+        symbol [ getData %tmp.8 75 30 37 ];
         %tmp.8 = getv function %tmp.7 :getData;
         %tmp.9 = invoke %tmp.7 %tmp.8();
         lputv %data.1 %tmp.9;
-        symbol [ data %data.1 74 16 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 75 12 ]
+        symbol [ data %data.1 75 16 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 76 12 ]
         %tmp.10 = lgetv %data.1;
-        symbol [ data %tmp.10 75 12 16 ];
+        symbol [ data %tmp.10 76 12 16 ];
         %tmp.11 = false;
         %tmp.12 = "isRecording";
         aputv %tmp.10 %tmp.12 %tmp.11;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 76 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 77 12 ]
         %tmp.13 = lgetv %data.1;
-        symbol [ data %tmp.13 76 12 16 ];
+        symbol [ data %tmp.13 77 12 16 ];
         %tmp.14 = false;
         %tmp.15 = "sessionPaused";
         aputv %tmp.13 %tmp.15 %tmp.14;
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 77 12 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 78 12 ]
         %tmp.16 = lgetv %data.1;
-        symbol [ data %tmp.16 77 12 16 ];
+        symbol [ data %tmp.16 78 12 16 ];
         %tmp.17 = false;
         %tmp.18 = "sessionComplete";
         aputv %tmp.16 %tmp.18 %tmp.17;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_28_78_8_stop:
-        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_8_78_8_if_end;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_73_8_78_8_if_end:
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 81 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_stop" ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_28_79_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_8_79_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_74_8_79_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 82 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_stop" ]
         %saveView.2 = local;
-        symbol [ saveView %saveView.2 81 12 20 ];
-        symbol [ SaveDialogView %tmp.22 81 27 41 ];
+        symbol [ saveView %saveView.2 82 12 20 ];
+        symbol [ SaveDialogView %tmp.22 82 27 41 ];
         %tmp.22 = getv ? :SaveDialogView;
-        symbol [ mModel %tmp.24 81 42 48 ];
+        symbol [ mModel %tmp.24 82 42 48 ];
         %tmp.24 = getv ? :mModel;
         %tmp.19 = newc %tmp.22 (%tmp.24);
         lputv %saveView.2 %tmp.19;
-        symbol [ saveView %saveView.2 81 12 20 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 82 8 ]
-        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_stop" ]
+        symbol [ saveView %saveView.2 82 12 20 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 83 8 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_stop" ]
         %saveDelegate.3 = local;
-        symbol [ saveDelegate %saveDelegate.3 82 12 24 ];
-        symbol [ SaveDialogDelegate %tmp.28 82 31 49 ];
+        symbol [ saveDelegate %saveDelegate.3 83 12 24 ];
+        symbol [ SaveDialogDelegate %tmp.28 83 31 49 ];
         %tmp.28 = getv ? :SaveDialogDelegate;
-        symbol [ mModel %tmp.30 82 50 56 ];
+        symbol [ mModel %tmp.30 83 50 56 ];
         %tmp.30 = getv ? :mModel;
-        symbol [ mApp %tmp.32 82 58 62 ];
+        symbol [ mApp %tmp.32 83 58 62 ];
         %tmp.32 = getv ? :mApp;
         %tmp.25 = newc %tmp.28 (%tmp.30, %tmp.32);
         lputv %saveDelegate.3 %tmp.25;
-        symbol [ saveDelegate %saveDelegate.3 82 12 24 ];
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 85 8 ]
-        symbol [ WatchUi %tmp.33 85 8 15 ];
+        symbol [ saveDelegate %saveDelegate.3 83 12 24 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 86 8 ]
+        symbol [ WatchUi %tmp.33 86 8 15 ];
         %tmp.33 = getm $.Toybox.WatchUi;
-        symbol [ pushView %tmp.34 85 16 24 ];
+        symbol [ pushView %tmp.34 86 16 24 ];
         %tmp.34 = getv function %tmp.33 :pushView;
         %tmp.35 = lgetv %saveView.2;
-        symbol [ saveView %tmp.35 85 25 33 ];
+        symbol [ saveView %tmp.35 86 25 33 ];
         %tmp.36 = lgetv %saveDelegate.3;
-        symbol [ saveDelegate %tmp.36 85 35 47 ];
-        symbol [ WatchUi %tmp.37 85 49 56 ];
+        symbol [ saveDelegate %tmp.36 86 35 47 ];
+        symbol [ WatchUi %tmp.37 86 49 56 ];
         %tmp.37 = getm $.Toybox.WatchUi;
-        symbol [ SLIDE_LEFT %tmp.38 85 57 67 ];
+        symbol [ SLIDE_LEFT %tmp.38 86 57 67 ];
         %tmp.38 = getv %tmp.37 :SLIDE_LEFT;
         invoke %tmp.33 %tmp.34(%tmp.35, %tmp.36, %tmp.38);
-[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 87 8 ]
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 88 8 ]
         %tmp.39 = true;
         ret %tmp.39;
-C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_71_22_88_4_stop:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_72_22_89_4_stop:
+    }
+    [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 92; @symbol_functiondef = [onNextPage,92,13,23]; ]
+    function onNextPage() {
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_92_26_108_4_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 94 8 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_8_105_8_if_stmt:
+        symbol [ mApp %tmp.2 94 12 16 ];
+        %tmp.2 = getv ? :mApp;
+        %tmp.3 = null;
+        %tmp.4 = ne %tmp.2 %tmp.3;
+        bf %tmp.4 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_8_105_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_8_105_8_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_26_105_8_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 95 12 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_26_105_8_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_26_105_8_stop" ]
+        %windTracker.1 = local;
+        symbol [ windTracker %windTracker.1 95 16 27 ];
+        symbol [ mApp %tmp.6 95 30 34 ];
+        %tmp.6 = getv ? :mApp;
+        %tmp.7 = as %tmp.6 { (!Null) };
+        symbol [ getWindTracker %tmp.8 95 35 49 ];
+        %tmp.8 = getv function %tmp.7 :getWindTracker;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        lputv %windTracker.1 %tmp.9;
+        symbol [ windTracker %windTracker.1 95 16 27 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 97 12 ]
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_12_104_12_if_stmt:
+        %tmp.10 = lgetv %windTracker.1;
+        symbol [ windTracker %tmp.10 97 16 27 ];
+        %tmp.11 = null;
+        %tmp.12 = ne %tmp.10 %tmp.11;
+        bf %tmp.12 @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_12_104_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_12_104_12_if_true:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_start:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 99 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_stop" ]
+        %lapReviewView.2 = local;
+        symbol [ lapReviewView %lapReviewView.2 99 20 33 ];
+        symbol [ LapReviewView %tmp.16 99 40 53 ];
+        %tmp.16 = getv ? :LapReviewView;
+        symbol [ mModel %tmp.18 99 54 60 ];
+        %tmp.18 = getv ? :mModel;
+        %tmp.19 = lgetv %windTracker.1;
+        symbol [ windTracker %tmp.19 99 62 73 ];
+        %tmp.20 = as %tmp.19 { (!Null) };
+        %tmp.13 = newc %tmp.16 (%tmp.18, %tmp.20);
+        lputv %lapReviewView.2 %tmp.13;
+        symbol [ lapReviewView %lapReviewView.2 99 20 33 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 100 16 ]
+        [ "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_start" "C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_stop" ]
+        %lapReviewDelegate.3 = local;
+        symbol [ lapReviewDelegate %lapReviewDelegate.3 100 20 37 ];
+        symbol [ LapReviewDelegate %tmp.24 100 44 61 ];
+        %tmp.24 = getv ? :LapReviewDelegate;
+        %tmp.25 = lgetv %lapReviewView.2;
+        symbol [ lapReviewView %tmp.25 100 62 75 ];
+        symbol [ mModel %tmp.27 100 77 83 ];
+        %tmp.27 = getv ? :mModel;
+        symbol [ mApp %tmp.29 100 85 89 ];
+        %tmp.29 = getv ? :mApp;
+        %tmp.21 = newc %tmp.24 (%tmp.25, %tmp.27, %tmp.29);
+        lputv %lapReviewDelegate.3 %tmp.21;
+        symbol [ lapReviewDelegate %lapReviewDelegate.3 100 20 37 ];
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 103 16 ]
+        symbol [ WatchUi %tmp.30 103 16 23 ];
+        %tmp.30 = getm $.Toybox.WatchUi;
+        symbol [ switchToView %tmp.31 103 24 36 ];
+        %tmp.31 = getv function %tmp.30 :switchToView;
+        %tmp.32 = lgetv %lapReviewView.2;
+        symbol [ lapReviewView %tmp.32 103 37 50 ];
+        %tmp.33 = lgetv %lapReviewDelegate.3;
+        symbol [ lapReviewDelegate %tmp.33 103 52 69 ];
+        symbol [ WatchUi %tmp.34 103 71 78 ];
+        %tmp.34 = getm $.Toybox.WatchUi;
+        symbol [ SLIDE_DOWN %tmp.35 103 79 89 ];
+        %tmp.35 = getv %tmp.34 :SLIDE_DOWN;
+        invoke %tmp.30 %tmp.31(%tmp.32, %tmp.33, %tmp.35);
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_37_104_12_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_12_104_12_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_97_12_104_12_if_end:
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_26_105_8_stop:
+        goto @C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_8_105_8_if_end;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_94_8_105_8_if_end:
+[ "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc" 107 8 ]
+        %tmp.36 = true;
+        ret %tmp.36;
+C_Users_skyeAM_OneDrive___Verona_Capital_Documents_garmin_FoilTracker_Lap_source_ConfirmationView_mc_92_26_108_4_stop:
     }
 }
 [ @file = "C:\Users\skyeAM\OneDrive - Verona Capital\Documents\garmin\FoilTracker_Lap\source\ConfirmationView.mc"; @line = 1; ]

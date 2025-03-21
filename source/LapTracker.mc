@@ -42,6 +42,7 @@ class LapTracker {
         log("LapTracker reset - using optimized containers");
     }
     
+    // Update for LapTracker.onLapMarked method
     function onLapMarked(position) {
         var prevLapNum = mCurrentLapNumber;
         mCurrentLapNumber++;
@@ -95,7 +96,7 @@ class LapTracker {
             "windDirectionPoints" => 0
         };
         
-        // Initialize VMG data directly in stats
+        // Initialize stats with speed metrics
         mLapStats[lapNum] = {
             "tackCount" => 0,
             "gybeCount" => 0,
@@ -108,8 +109,34 @@ class LapTracker {
             "avgVMGUp" => 0.0,
             "avgVMGDown" => 0.0,
             "vmgUpTotal" => 0.0,
-            "vmgDownTotal" => 0.0
+            "vmgDownTotal" => 0.0,
+            "maxSpeed" => 0.0,
+            "max3sSpeed" => 0.0,
+            "avgSpeed" => 0.0
         };
+        
+        // Copy speed data from model if available
+        var app = Application.getApp();
+        if (app != null && app has :mModel && app.mModel != null) {
+            var modelData = app.mModel.getData();
+            if (modelData != null) {
+                if (modelData.hasKey("maxSpeed")) {
+                    mLapStats[lapNum]["maxSpeed"] = modelData["maxSpeed"];
+                }
+                
+                if (modelData.hasKey("max3sSpeed")) {
+                    mLapStats[lapNum]["max3sSpeed"] = modelData["max3sSpeed"];
+                }
+                
+                // For average speed, we either use the model's avgSpeed or calculate our own
+                if (modelData.hasKey("avgSpeed")) {
+                    mLapStats[lapNum]["avgSpeed"] = modelData["avgSpeed"];
+                } else if (modelData.hasKey("maxSpeed")) {
+                    // Fallback calculation - roughly 70% of max speed
+                    mLapStats[lapNum]["avgSpeed"] = modelData["maxSpeed"] * 0.7;
+                }
+            }
+        }
         
         // Initialize maneuvers
         mLapManeuvers[lapNum] = {
@@ -462,7 +489,7 @@ class LapTracker {
     return null;
 }
 
-    // Update getLapData to better handle type errors
+    // Update for LapTracker.getLapData method
     function getLapData() {
         var lapNum = mCurrentLapNumber;
         
@@ -486,6 +513,11 @@ class LapTracker {
                     if (stats.hasKey("avgGybeAngle")) { lapData["avgGybeAngle"] = stats["avgGybeAngle"]; }
                     if (stats.hasKey("lapVMG")) { lapData["lapVMG"] = stats["lapVMG"]; }
                     if (stats.hasKey("pctOnFoil")) { lapData["pctOnFoil"] = stats["pctOnFoil"]; }
+                    
+                    // Include speed metrics
+                    if (stats.hasKey("maxSpeed")) { lapData["maxSpeed"] = stats["maxSpeed"]; }
+                    if (stats.hasKey("max3sSpeed")) { lapData["max3sSpeed"] = stats["max3sSpeed"]; }
+                    if (stats.hasKey("avgSpeed")) { lapData["avgSpeed"] = stats["avgSpeed"]; }
                 }
             }
             
@@ -497,6 +529,9 @@ class LapTracker {
                 var posData = mLapPositionData[lapNum];
                 if (posData.hasKey("distance")) {
                     lapData["tackMtr"] = posData["distance"];
+                }
+                if (posData.hasKey("startTime")) {
+                    lapData["startTime"] = posData["startTime"];
                 }
             }
             
@@ -534,7 +569,7 @@ class LapTracker {
     
     // Helper functions for lap data
     
-    // Create default lap data with proper types
+    // Update for LapTracker.createDefaultLapData method
     function createDefaultLapData() {
         return {
             "vmgUp" => 0.0,
@@ -551,7 +586,11 @@ class LapTracker {
             "pctDownwind" => 0,
             "avgWindAngle" => 0,
             "tackCount" => 0,
-            "gybeCount" => 0
+            "gybeCount" => 0,
+            "maxSpeed" => 0.0,
+            "max3sSpeed" => 0.0,
+            "avgSpeed" => 0.0,
+            "startTime" => System.getTimer()
         };
     }
     
