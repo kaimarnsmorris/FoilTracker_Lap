@@ -662,7 +662,6 @@ class LapTracker {
     return null;
 }
 
-    // getLapData function for LapTracker class
     function getLapData() {
         var lapNum = mCurrentLapNumber;
         
@@ -675,6 +674,28 @@ class LapTracker {
         var lapData = createDefaultLapData();
         
         try {
+            // CRITICAL FIX: Calculate wind angle average directly from raw data first
+            if (mLapPointsData.hasKey(lapNum)) {
+                var pointsData = mLapPointsData[lapNum];
+                if (pointsData != null && pointsData.hasKey("windAngleTotal") && 
+                    pointsData.hasKey("totalPoints") && pointsData["totalPoints"] > 0) {
+                    
+                    // Calculate directly from the raw data
+                    var avgWindAngle = Math.round(pointsData["windAngleTotal"] / pointsData["totalPoints"]).toNumber();
+                    
+                    // Store it in both the return data and in the stats
+                    lapData["avgWindAngle"] = avgWindAngle;
+                    
+                    // Also update it in the stats for future reference
+                    if (mLapStats.hasKey(lapNum)) {
+                        mLapStats[lapNum]["avgWindAngle"] = avgWindAngle;
+                    }
+                    
+                    System.println("DIRECT CALCULATION: Wind Angle Average = " + avgWindAngle + 
+                                " (from " + pointsData["windAngleTotal"] + " / " + pointsData["totalPoints"] + ")");
+                }
+            }
+            
             // Safely get all needed data sources with null checks
             if (mLapStats.hasKey(lapNum)) {
                 var stats = mLapStats[lapNum];
@@ -722,24 +743,16 @@ class LapTracker {
                 }
             }
 
-            // Get wind angle data from direction data
-            if (mLapDirectionData.hasKey(lapNum) && mLapPointsData.hasKey(lapNum)) {
-                var dirData = mLapDirectionData[lapNum];
-                var pointsData = mLapPointsData[lapNum];
-                if (dirData != null && pointsData != null) {
-                    // Calculate average wind angle
-                    lapData["avgWindAngle"] = calculateAvgWindAngle(dirData, pointsData);
-                    
-                    // Get wind direction
-                    lapData["windDirection"] = calculateAvgWindDirection(dirData);
-                }
+            // Get wind direction from parent
+            if (mParent != null) {
+                lapData["windDirection"] = mParent.getWindDirection();
             }
             
             // Get wind strength from model
             lapData["windStrength"] = getWindStrength();
             
             // Log the key data for debugging
-            System.println("Lap " + lapNum + " data: pctUpwind=" + lapData["pctUpwind"] + 
+            System.println("FINAL LAP DATA for lap " + lapNum + ": pctUpwind=" + lapData["pctUpwind"] + 
                         ", pctDownwind=" + lapData["pctDownwind"] + 
                         ", avgWindAngle=" + lapData["avgWindAngle"]);
         } catch (e) {
