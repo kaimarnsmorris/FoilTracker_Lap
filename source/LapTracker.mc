@@ -262,9 +262,15 @@ class LapTracker {
         ensureLapDataContainers(lapNum);
         
         // Get local references to data containers
-        var pointsData = mLapPointsData[lapNum]; // Local reference
-        var directionData = mLapDirectionData[lapNum]; // Local reference
-        var stats = mLapStats[lapNum]; // Local reference
+        var pointsData = mLapPointsData[lapNum]; 
+        var directionData = mLapDirectionData[lapNum]; 
+        var stats = mLapStats[lapNum]; 
+        
+        // Critical safety check: make sure all containers exist and are initialized
+        if (pointsData == null || directionData == null || stats == null) {
+            System.println("Warning: Data containers are null in processData for lap " + lapNum);
+            return; // Exit early since we can't safely proceed
+        }
         
         // Fewer container/dictionary key lookups by using local references
         var isActive = true;
@@ -317,17 +323,29 @@ class LapTracker {
             pointsData["foilingPoints"] += 1;
         }
         
-        // Get wind direction and angle data
-        var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
+        // Get absolute wind angle once
+        var windAngleLessCOG = (mParent != null && mParent.getAngleCalculator() != null) 
+            ? mParent.getAngleCalculator().getWindAngleLessCOG() : 0;
+        var absWindAngle = (windAngleLessCOG < 0) ? -windAngleLessCOG : windAngleLessCOG;
         
-        // Get the current wind angle less COG from the angle calculator
-        var currentWindAngleLessCOG = 0;
-        if (mParent != null && mParent.getAngleCalculator() != null) {
-            currentWindAngleLessCOG = mParent.getAngleCalculator().getWindAngleLessCOG();
+        // CRITICAL FIX: Store wind angle in pointsData (which works) instead of directionData
+        if (pointsData != null) {
+            // Create windAngleTotal field if it doesn't exist
+            if (!pointsData.hasKey("windAngleTotal")) {
+                pointsData["windAngleTotal"] = 0.0;
+            }
+            
+            // Accumulate directly in pointsData which is working for other stats
+            pointsData["windAngleTotal"] += absWindAngle;
+            
+            // Log for debugging
+            System.println("Wind Angle Tracking - Current: " + absWindAngle + 
+                        ", Total: " + pointsData["windAngleTotal"] + 
+                        ", Points: " + pointsData["totalPoints"]);
         }
         
-        // Use the absolute value of the current wind angle
-        var absCurrentWindAngle = (currentWindAngleLessCOG < 0) ? -currentWindAngleLessCOG : currentWindAngleLessCOG;
+        // Update wind direction tracking (still keep this for other functionality)
+        var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
         
         // IMPORTANT: Add null checks before mathematical operations
         if (directionData != null) {
@@ -338,19 +356,10 @@ class LapTracker {
             if (directionData["windDirectionPoints"] == null || !(directionData["windDirectionPoints"] instanceof Number)) {
                 directionData["windDirectionPoints"] = 0;
             }
-            if (directionData["windAngleSum"] == null || !(directionData["windAngleSum"] instanceof Number)) {
-                directionData["windAngleSum"] = 0;
-            }
             
             // Safe addition
             directionData["windDirectionSum"] += windDirection;
             directionData["windDirectionPoints"] += 1;
-            directionData["windAngleSum"] += absCurrentWindAngle;
-            
-            System.println("Wind Angle Tracking - Current: " + currentWindAngleLessCOG + 
-                        ", Abs: " + absCurrentWindAngle + 
-                        ", Total Sum: " + directionData["windAngleSum"] + 
-                        ", Total Points: " + directionData["windDirectionPoints"]);
         }
         
         // Classify point of sail with single conditional and null checks
@@ -367,9 +376,9 @@ class LapTracker {
             }
             
             // Safe increments based on conditions
-            if (currentWindAngleLessCOG > -70 && currentWindAngleLessCOG < 70) {
+            if (absWindAngle <= UPWIND_THRESHOLD) {
                 pointsData["upwindPoints"] += 1;
-            } else if (currentWindAngleLessCOG <= -110 || currentWindAngleLessCOG >= 110) {
+            } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
                 pointsData["downwindPoints"] += 1;
             } else {
                 pointsData["reachingPoints"] += 1;
@@ -392,7 +401,15 @@ class LapTracker {
             // Update point of sail percentages in stats
             stats["pctUpwind"] = calculatePctUpwind(pointsData);
             stats["pctDownwind"] = calculatePctDownwind(pointsData);
-            stats["avgWindAngle"] = calculateAvgWindAngle(directionData, pointsData);
+            
+            // CRITICAL FIX: Calculate wind angle average from our accumulated total in pointsData
+            if (pointsData.hasKey("windAngleTotal")) {
+                stats["avgWindAngle"] = Math.round(pointsData["windAngleTotal"] / pointsData["totalPoints"]).toNumber();
+                
+                // Log the calculation
+                System.println("Average Wind Angle: " + stats["avgWindAngle"] + 
+                            " = " + pointsData["windAngleTotal"] + " / " + pointsData["totalPoints"]);
+            }
         }
     }
     
@@ -805,6 +822,12 @@ class LapTracker {
         var sum = dirData.hasKey("windAngleSum") ? dirData["windAngleSum"] : 0;
         var count = pointsData["totalPoints"];
         
+        // If sum is 0, just return 0
+        if (sum == 0) {
+            return 0;
+        }
+        
+        // Use same calculation as in the processData method
         return Math.round(sum / count).toNumber();
     }
     
@@ -864,8 +887,8 @@ class LapTracker {
         return (System.getTimer() - lastTackTimestamp) / 1000.0;
     }
 
-    // Ensure lap data containers exist with proper initialization
     function ensureLapDataContainers(lapNum) {
+        // Initialize points data if not exists
         if (!mLapPointsData.hasKey(lapNum)) {
             mLapPointsData[lapNum] = {
                 "totalPoints" => 0,
@@ -874,10 +897,12 @@ class LapTracker {
                 "downwindPoints" => 0,
                 "reachingPoints" => 0,
                 "vmgUpPoints" => 0,
-                "vmgDownPoints" => 0
+                "vmgDownPoints" => 0,
+                "windAngleTotal" => 0.0  // Added this field
             };
         }
         
+        // Initialize direction data if not exists
         if (!mLapDirectionData.hasKey(lapNum)) {
             mLapDirectionData[lapNum] = {
                 "windAngleSum" => 0,
@@ -886,10 +911,13 @@ class LapTracker {
             };
         }
         
+        // Initialize stats if not exists
         if (!mLapStats.hasKey(lapNum)) {
             mLapStats[lapNum] = {
                 "tackCount" => 0,
                 "gybeCount" => 0,
+                "displayTackCount" => 0,
+                "displayGybeCount" => 0,
                 "avgTackAngle" => 0,
                 "avgGybeAngle" => 0,
                 "maxTackAngle" => 0,
@@ -903,6 +931,24 @@ class LapTracker {
                 "pctUpwind" => 0,
                 "pctDownwind" => 0,
                 "avgWindAngle" => 0
+            };
+        }
+        
+        // Initialize speed tracking if not exists
+        if (!mLapSpeedData.hasKey(lapNum)) {
+            mLapSpeedData[lapNum] = {
+                "speedSum" => 0.0,
+                "speedPoints" => 0,
+                "maxSpeed" => 0.0,
+                "max3sSpeed" => 0.0
+            };
+        }
+        
+        // Initialize maneuvers if not exists
+        if (!mLapManeuvers.hasKey(lapNum)) {
+            mLapManeuvers[lapNum] = {
+                "tacks" => [],
+                "gybes" => []
             };
         }
     }
