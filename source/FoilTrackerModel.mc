@@ -155,6 +155,16 @@ class FoilTrackerModel {
             var isOnFoil = (speedKnots >= FOILING_THRESHOLD);
             mData["isOnFoil"] = isOnFoil;
             
+            // NEW: Update lap tracker with speed data
+            // This ensures speed is tracked per lap
+            var app = Application.getApp();
+            if (app != null && isActive) {
+                var windTracker = app.getWindTracker();
+                if (windTracker != null && windTracker.getLapTracker() != null) {
+                    windTracker.getLapTracker().updateSpeedData(speedKnots, avg3sSpeed);
+                }
+            }
+            
             // NEW: Count data points for percentage calculation
             if (isActive) {
                 mTotalDataPoints++;
@@ -170,9 +180,9 @@ class FoilTrackerModel {
                     mSessionStats["percentOnFoil"] = percentOnFoil;
                     
                     System.println("Speed: " + speedKnots.format("%.1f") + 
-                                  " - On Foil: " + isOnFoil + 
-                                  " - Points: " + mFoilingDataPoints + "/" + mTotalDataPoints + 
-                                  " = " + percentOnFoil.format("%.1f") + "%");
+                                " - On Foil: " + isOnFoil + 
+                                " - Points: " + mFoilingDataPoints + "/" + mTotalDataPoints + 
+                                " = " + percentOnFoil.format("%.1f") + "%");
                 }
             }
             

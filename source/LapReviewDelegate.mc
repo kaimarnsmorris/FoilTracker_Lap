@@ -39,10 +39,26 @@ class LapReviewDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    // Handle back button press - Return to pause confirmation screen
+ // Replace the onBack method in LapReviewDelegate
     function onBack() {
-        // Pop back to the confirmation view
-        WatchUi.popView(WatchUi.SLIDE_UP);
+        // Instead of popping the view, which may be causing the strange intermediate screen,
+        // switch directly back to the main FoilTracker view
+        var app = Application.getApp();
+        
+        try {
+            // Create the main view
+            var mainView = new FoilTrackerView(mModel);
+            var mainDelegate = new FoilTrackerDelegate(mainView, mModel, app.getWindTracker());
+            
+            // Switch to the main view
+            WatchUi.switchToView(mainView, mainDelegate, WatchUi.SLIDE_IMMEDIATE);
+        } catch (e) {
+            System.println("Error in LapReviewDelegate.onBack: " + e.getErrorMessage());
+            
+            // Fallback to normal pop if the switch fails
+            WatchUi.popView(WatchUi.SLIDE_RIGHT);
+        }
+        
         return true;
     }
     

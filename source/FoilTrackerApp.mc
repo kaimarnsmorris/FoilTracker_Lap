@@ -136,6 +136,10 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
     
+    // Accessor for session
+    function getSession() {
+        return mSession;
+    }
     // Helper to get session name
     function getSessionName() {
         var sessionName = "Windfoil";

@@ -75,7 +75,7 @@ class ManeuverDetector {
         log("ManeuverDetector counters reset");
     }
     
-    // Update detectManeuver to increment display counters immediately
+    // Complete replacement for detectManeuver method in ManeuverDetector.mc
     function detectManeuver(heading, speed, currentTime, isStbdTack, isUpwind, windAngleLessCOG) {
         // Use a lower speed threshold for maneuver detection
         var speedThreshold = 2.0;
@@ -83,13 +83,17 @@ class ManeuverDetector {
         // Try to get from settings if available
         try {
             var app = Application.getApp();
-            if (app != null && app has :mModel && app.mModel != null) {
-                var data = app.mModel.getData();
-                if (data != null && data.hasKey("settings")) {
-                    var settings = data["settings"];
-                    if (settings != null && settings.hasKey("foilingThreshold")) {
-                        speedThreshold = settings["foilingThreshold"];
-                    }
+            var modelData = null;
+            
+            // Use the app's modelData getter if available
+            if (app has :getModelData) {
+                modelData = app.getModelData();
+            }
+            
+            if (modelData != null && modelData.hasKey("settings")) {
+                var settings = modelData["settings"];
+                if (settings != null && settings.hasKey("foilingThreshold")) {
+                    speedThreshold = settings["foilingThreshold"];
                 }
             }
         } catch (e) {
@@ -155,11 +159,45 @@ class ManeuverDetector {
             if (isTack) {
                 mDisplayTackCount++;
                 mCurrentLapDisplayTackCount++;
+                
+                // Update the lap tracker using the public method instead of accessing mLapStats directly
+                var lapTracker = mParent.getLapTracker();
+                if (lapTracker != null) {
+                    var currentLap = lapTracker.getCurrentLap();
+                    if (currentLap > 0) {
+                        // Use the public method to update counters
+                        lapTracker.updateManeuverCounts(
+                            currentLap, 
+                            mCurrentLapDisplayTackCount, 
+                            mDisplayTackCount,
+                            mCurrentLapDisplayGybeCount,
+                            mDisplayGybeCount
+                        );
+                    }
+                }
+                
                 log("Display tack counter incremented to " + mDisplayTackCount + 
                     " (lap: " + mCurrentLapDisplayTackCount + ")");
             } else {
                 mDisplayGybeCount++;
                 mCurrentLapDisplayGybeCount++;
+                
+                // Update the lap tracker using the public method instead of accessing mLapStats directly
+                var lapTracker = mParent.getLapTracker();
+                if (lapTracker != null) {
+                    var currentLap = lapTracker.getCurrentLap();
+                    if (currentLap > 0) {
+                        // Use the public method to update counters
+                        lapTracker.updateManeuverCounts(
+                            currentLap, 
+                            mCurrentLapDisplayTackCount, 
+                            mDisplayTackCount,
+                            mCurrentLapDisplayGybeCount,
+                            mDisplayGybeCount
+                        );
+                    }
+                }
+                
                 log("Display gybe counter incremented to " + mDisplayGybeCount + 
                     " (lap: " + mCurrentLapDisplayGybeCount + ")");
             }
@@ -354,7 +392,8 @@ class ManeuverDetector {
             "°, diff=" + maneuverAngle + "°, type=" + (isTack ? "Tack" : "Gybe") +
             ", reaching=" + (beforeReaching && afterReaching));
         
-        // Process based on maneuver type
+        // After calculating maneuverAngle, find the section for isTack and !isTack:
+
         if (isTack) {
             // Increment tack counter
             mTackCount += 1;
@@ -376,6 +415,7 @@ class ManeuverDetector {
             recordManeuver(true, afterHeading, maneuverAngle);
             
             // Directly notify lap tracker of this tack with proper angle and current lap
+            currentLap = mParent.getLapTracker().getCurrentLap();
             mParent.getLapTracker().recordManeuverInLap({
                 "isTack" => true,
                 "heading" => afterHeading,
@@ -385,6 +425,24 @@ class ManeuverDetector {
                 "lapNumber" => currentLap,
                 "isReliable" => true
             });
+            
+            // Update maneuver angles in lap stats
+            if (mParent != null && mParent.getLapTracker() != null) {
+                // Get maneuver stats to update lap data
+                var avgTackAngle = mManeuverStats["avgTackAngle"];
+                var avgGybeAngle = mManeuverStats["avgGybeAngle"];
+                var maxTackAngle = mManeuverStats["maxTackAngle"];
+                var maxGybeAngle = mManeuverStats["maxGybeAngle"];
+                
+                // Update lap stats with angles
+                mParent.getLapTracker().updateManeuverAngles(
+                    currentLap,
+                    avgTackAngle,
+                    avgGybeAngle,
+                    maxTackAngle,
+                    maxGybeAngle
+                );
+            }
             
             log("Tack #" + mTackCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
         } else {
@@ -408,6 +466,7 @@ class ManeuverDetector {
             recordManeuver(false, afterHeading, maneuverAngle);
             
             // Directly notify lap tracker of this gybe with proper angle and current lap
+            currentLap = mParent.getLapTracker().getCurrentLap();
             mParent.getLapTracker().recordManeuverInLap({
                 "isTack" => false,
                 "heading" => afterHeading,
@@ -418,8 +477,54 @@ class ManeuverDetector {
                 "isReliable" => true
             });
             
+            // Update maneuver angles in lap stats
+            if (mParent != null && mParent.getLapTracker() != null) {
+                // Get maneuver stats to update lap data
+                var avgTackAngle = mManeuverStats["avgTackAngle"];
+                var avgGybeAngle = mManeuverStats["avgGybeAngle"];
+                var maxTackAngle = mManeuverStats["maxTackAngle"];
+                var maxGybeAngle = mManeuverStats["maxGybeAngle"];
+                
+                // Update lap stats with angles
+                mParent.getLapTracker().updateManeuverAngles(
+                    currentLap,
+                    avgTackAngle,
+                    avgGybeAngle,
+                    maxTackAngle,
+                    maxGybeAngle
+                );
+            }
+            
             log("Gybe #" + mGybeCount + " recorded: angle=" + maneuverAngle + "°, lap=" + currentLap);
         }
+    }
+
+    // Add this method to ManeuverDetector.mc
+    function resetLapCounters() {
+        // Reset lap-specific counters only
+        mCurrentLapDisplayTackCount = 0;
+        mCurrentLapDisplayGybeCount = 0;
+        
+        // Update the current lap's stats with the reset counters
+        if (mParent != null && mParent.getLapTracker() != null) {
+            var lapTracker = mParent.getLapTracker();
+            var currentLap = lapTracker.getCurrentLap();
+            
+            if (currentLap > 0) {
+                // Update the lap statistics with zeros for the lap counters
+                // but preserve the display counters that show total
+                lapTracker.updateManeuverCounts(
+                    currentLap,
+                    0,  // Reset lap tack count
+                    mDisplayTackCount,  // Keep total tack count
+                    0,  // Reset lap gybe count
+                    mDisplayGybeCount   // Keep total gybe count
+                );
+            }
+        }
+        
+        log("Reset lap-specific tack/gybe counters. Totals remain: Tacks=" + 
+            mDisplayTackCount + ", Gybes=" + mDisplayGybeCount);
     }
 
     // Add reset method for lap-specific display counters
@@ -439,7 +544,7 @@ class ManeuverDetector {
         // which initializes new counts for each lap in its onLapMarked method
     }
     
-    // Record maneuver in history
+    // Complete replacement for recordManeuver method in ManeuverDetector.mc
     function recordManeuver(isTack, heading, angle) {
         // Create maneuver record
         var maneuver = {
@@ -463,6 +568,20 @@ class ManeuverDetector {
             
             // Update statistics
             updateManeuverStats();
+            
+            // Update current lap with the new maneuver angles
+            if (mParent != null && mParent.getLapTracker() != null) {
+                var currentLap = mParent.getLapTracker().getCurrentLap();
+                
+                // Update lap stats with the latest angles
+                mParent.getLapTracker().updateManeuverAngles(
+                    currentLap,
+                    mManeuverStats["avgTackAngle"],
+                    mManeuverStats["avgGybeAngle"],
+                    mManeuverStats["maxTackAngle"],
+                    mManeuverStats["maxGybeAngle"]
+                );
+            }
         }
     }
     

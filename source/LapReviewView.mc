@@ -96,38 +96,105 @@ class LapReviewView extends WatchUi.View {
         }
     }
     
-    // Load lap data from available sources
+    // Complete replacement for loadLapData method in source/LapReviewView.mc
     function loadLapData() {
-        if (mWindTracker != null) {
-            var lapTracker = mWindTracker.getLapTracker();
-            if (lapTracker != null) {
-                // Get current lap number
-                var currentLap = lapTracker.getCurrentLap();
-                
-                // Consider the session start as the first lap
-                // This ensures we always have at least one lap to display
-                mTotalLaps = (currentLap > 0) ? currentLap : 1;
-                
-                // Get data for each lap
-                for (var i = 1; i <= mTotalLaps; i++) {
-                    var lapStats = lapTracker.getLapStats(i);
-                    if (lapStats != null) {
-                        // Debug the contents of lapStats for the current lap
-                        debugDictionary(lapStats, "Lap " + i + " data");
-                        
-                        mLapData[i] = lapStats;
-                    } else if (i == 1) {
-                        // Create default data for first lap if not available
-                        mLapData[i] = createDefaultLapData();
-                    }
-                }
-                
-                // Start with most recent lap
-                mCurrentLapIndex = mTotalLaps;
-            }
+        System.println("LapReviewView.loadLapData() - Starting");
+        
+        if (mWindTracker == null) {
+            System.println("ERROR: mWindTracker is null");
+            return;
         }
         
-        System.println("Loaded lap data: " + mTotalLaps + " laps found, starting at lap " + mCurrentLapIndex);
+        var lapTracker = mWindTracker.getLapTracker();
+        if (lapTracker == null) {
+            System.println("ERROR: lapTracker is null");
+            return;
+        }
+        
+        try {
+            // Get current lap number
+            var currentLap = lapTracker.getCurrentLap();
+            
+            // Consider the session start as the first lap
+            // This ensures we always have at least one lap to display
+            mTotalLaps = (currentLap > 0) ? currentLap : 1;
+            
+            System.println("Total laps detected: " + mTotalLaps);
+            
+            // Get data for each lap
+            for (var i = 1; i <= mTotalLaps; i++) {
+                System.println("Processing lap " + i + "...");
+                
+                // Try to get lap stats for this lap
+                var lapStats = lapTracker.getLapStats(i);
+                
+                if (lapStats != null) {
+                    // Debug the contents of lapStats for the current lap
+                    debugDictionary(lapStats, "Lap " + i + " data from getLapStats");
+                    
+                    // Store the stats
+                    mLapData[i] = lapStats;
+                } else if (i == 1) {
+                    // Create default data for first lap if not available
+                    System.println("Creating default data for first lap");
+                    mLapData[i] = createDefaultLapData();
+                    
+                    // Try to enhance with real data from other components
+                    var defaultData = mLapData[i];
+                    
+                    // Add wind tracker data if available
+                    if (mWindTracker != null) {
+                        var windData = mWindTracker.getWindData();
+                        if (windData != null) {
+                            if (windData.hasKey("currentVMG")) {
+                                defaultData["lapVMG"] = windData["currentVMG"];
+                            }
+                            if (windData.hasKey("windDirection")) {
+                                defaultData["windDirection"] = windData["windDirection"];
+                            }
+                        }
+                    }
+                    
+                    // Add model data if available 
+                    var app = Application.getApp();
+                    var modelData = null;
+                    
+                    // Use the app's modelData getter if available
+                    if (app has :getModelData) {
+                        modelData = app.getModelData();
+                    }
+                    
+                    if (modelData != null) {
+                        if (modelData.hasKey("maxSpeed")) {
+                            defaultData["maxSpeed"] = modelData["maxSpeed"];
+                        }
+                        if (modelData.hasKey("max3sSpeed")) {
+                            defaultData["max3sSpeed"] = modelData["max3sSpeed"];
+                        }
+                        if (modelData.hasKey("percentOnFoil")) {
+                            defaultData["pctOnFoil"] = modelData["percentOnFoil"];
+                        }
+                    }
+                    
+                    // Add maneuver detector data if available
+                    if (mWindTracker.getManeuverDetector() != null) {
+                        var maneuverData = mWindTracker.getManeuverDetector().getData();
+                        if (maneuverData != null) {
+                            defaultData["tackCount"] = maneuverData["lapDisplayTackCount"];
+                            defaultData["displayTackCount"] = maneuverData["displayTackCount"];
+                            defaultData["gybeCount"] = maneuverData["lapDisplayGybeCount"];
+                            defaultData["displayGybeCount"] = maneuverData["displayGybeCount"];
+                        }
+                    }
+                }
+            }
+            
+            // Start with most recent lap
+            mCurrentLapIndex = mTotalLaps;
+            System.println("Lap data loaded. Starting at lap " + mCurrentLapIndex);
+        } catch (e) {
+            System.println("ERROR in loadLapData: " + e.getErrorMessage());
+        }
     }
     
     // Create default lap data for first lap
@@ -320,8 +387,8 @@ class LapReviewView extends WatchUi.View {
         var bottomSectionLineSpacing = LINE_SPACING * 2/3;
 
         // Calculate positions to avoid text overlap and bring closer to middle
-        var leftColValue = upwindX + 40;     // Aligned with upwind header
-        var rightColValue = downwindX + 40;  // Aligned with downwind header
+        var leftColValue = upwindX + 43;     // Aligned with upwind header
+        var rightColValue = downwindX + 43;  // Aligned with downwind header
         var leftColLabel = upwindX - 30;     // Left of upwind header
         var rightColLabel = downwindX - 30;  // Left of downwind header
         

@@ -80,18 +80,20 @@ class WindTracker {
         log("Initial wind direction set to: " + angle);
     }
     
-    // Reset to manual wind direction
+    // Complete replacement for resetToManualDirection in WindTracker.mc
     function resetToManualDirection() {
         mWindDirection = mInitialWindDirection;
         mAutoWindDetection = false;
         mWindDirectionLocked = false;
         
-        // Reset maneuver tracking
-        if (mManeuverDetector != null) {
-            mManeuverDetector.resetManeuverCounts();
-        }
+        // Important: Do NOT reset maneuver counts
+        // This line is commented out to preserve counters:
+        // if (mManeuverDetector != null) {
+        //     mManeuverDetector.resetManeuverCounts();
+        // }
         
-        log("Reset to manual wind direction: " + mInitialWindDirection);
+        log("Reset to manual wind direction: " + mInitialWindDirection + 
+            " (preserving maneuver counts)");
     }
     
     // Lock/unlock wind direction
@@ -189,9 +191,11 @@ class WindTracker {
         // Tell the LapTracker about the lap
         var lapResult = mLapTracker.onLapMarked(position);
         
-        // Note: We don't reset the global tack/gybe counters because they're used 
-        // for wind direction calculation. Instead, we rely on the 
-        // lap-specific tracking in LapTracker.
+        // Reset lap-specific maneuver counters, but keep total counters
+        if (mManeuverDetector != null) {
+            mManeuverDetector.resetLapCounters();
+        }
+        
         log("Lap marked in WindTracker - lap number: " + lapResult);
         
         return lapResult;

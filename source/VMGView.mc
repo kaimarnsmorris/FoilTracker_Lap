@@ -187,7 +187,12 @@ class VMGView extends WatchUi.View {
         // Nothing special needed
     }
     
-    // Update the view
+    // Add this helper method outside of onUpdate
+    function formatManeuverCount(lapCount, totalCount) {
+        return lapCount + "/" + totalCount;
+    }
+
+    // Complete replacement for onUpdate method
     function onUpdate(dc) {
         // Always update from wind tracker
         updateFromWindTracker();
@@ -250,11 +255,8 @@ class VMGView extends WatchUi.View {
             }
         }
         
-        // Tacks section - Show lap/total counts
-        var tackText = "Tacks: " + lapTackCount;
-        if (totalTackCount > lapTackCount) {
-            tackText += "/" + totalTackCount;  // Show both if different
-        }
+        // Tacks section - Always show lap/total format
+        var tackText = "Tacks: " + formatManeuverCount(lapTackCount, totalTackCount);
         dc.drawText(25, 140, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last tack angle directly underneath
@@ -266,11 +268,8 @@ class VMGView extends WatchUi.View {
         }
         dc.drawText(25, 160, Graphics.FONT_TINY, lastTackText, Graphics.TEXT_JUSTIFY_LEFT);
         
-        // Gybes section - Show lap/total counts
-        var gybeText = "Gybes: " + lapGybeCount;
-        if (totalGybeCount > lapGybeCount) {
-            gybeText += "/" + totalGybeCount;  // Show both if different
-        }
+        // Gybes section - Always show lap/total format
+        var gybeText = "Gybes: " + formatManeuverCount(lapGybeCount, totalGybeCount);
         dc.drawText(140, 140, Graphics.FONT_TINY, gybeText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last gybe angle directly underneath
@@ -295,11 +294,7 @@ class VMGView extends WatchUi.View {
             dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
             dc.drawText(width/2, 2, Graphics.FONT_SMALL, "LAP MARKED", Graphics.TEXT_JUSTIFY_CENTER);
         }
-        
-        // Draw "Light=Lap" indicator at bottom
-        if (!mShowLapFeedback) {
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(width/2, height - 20, Graphics.FONT_TINY, "Light=Lap", Graphics.TEXT_JUSTIFY_CENTER);
-        }
+       
+
     }
 }
