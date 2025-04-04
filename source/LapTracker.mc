@@ -253,7 +253,6 @@ class LapTracker {
         return lapNum;
     }
     
-    // processData function to properly track point of sail data
     function processData(info, speed, isUpwind, currentTime) {
         if (mCurrentLapNumber <= 0) { return; }
         
@@ -318,13 +317,17 @@ class LapTracker {
             pointsData["foilingPoints"] += 1;
         }
         
-        // Get absolute wind angle once
-        var windAngleLessCOG = (mParent != null && mParent.getAngleCalculator() != null) 
-            ? mParent.getAngleCalculator().getWindAngleLessCOG() : 0;
-        var absWindAngle = (windAngleLessCOG < 0) ? -windAngleLessCOG : windAngleLessCOG;
-        
-        // Update wind direction tracking
+        // Get wind direction and angle data
         var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
+        
+        // Get the current wind angle less COG from the angle calculator
+        var currentWindAngleLessCOG = 0;
+        if (mParent != null && mParent.getAngleCalculator() != null) {
+            currentWindAngleLessCOG = mParent.getAngleCalculator().getWindAngleLessCOG();
+        }
+        
+        // Use the absolute value of the current wind angle
+        var absCurrentWindAngle = (currentWindAngleLessCOG < 0) ? -currentWindAngleLessCOG : currentWindAngleLessCOG;
         
         // IMPORTANT: Add null checks before mathematical operations
         if (directionData != null) {
@@ -342,7 +345,12 @@ class LapTracker {
             // Safe addition
             directionData["windDirectionSum"] += windDirection;
             directionData["windDirectionPoints"] += 1;
-            directionData["windAngleSum"] += absWindAngle;
+            directionData["windAngleSum"] += absCurrentWindAngle;
+            
+            System.println("Wind Angle Tracking - Current: " + currentWindAngleLessCOG + 
+                        ", Abs: " + absCurrentWindAngle + 
+                        ", Total Sum: " + directionData["windAngleSum"] + 
+                        ", Total Points: " + directionData["windDirectionPoints"]);
         }
         
         // Classify point of sail with single conditional and null checks
@@ -359,9 +367,9 @@ class LapTracker {
             }
             
             // Safe increments based on conditions
-            if (absWindAngle <= UPWIND_THRESHOLD) {
+            if (currentWindAngleLessCOG > -70 && currentWindAngleLessCOG < 70) {
                 pointsData["upwindPoints"] += 1;
-            } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
+            } else if (currentWindAngleLessCOG <= -110 || currentWindAngleLessCOG >= 110) {
                 pointsData["downwindPoints"] += 1;
             } else {
                 pointsData["reachingPoints"] += 1;
