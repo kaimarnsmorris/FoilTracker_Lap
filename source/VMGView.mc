@@ -257,7 +257,7 @@ class VMGView extends WatchUi.View {
         
         // Tacks section - Always show lap/total format
         var tackText = "Tacks: " + formatManeuverCount(lapTackCount, totalTackCount);
-        dc.drawText(25, 140, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(5, 140, Graphics.FONT_TINY, tackText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last tack angle directly underneath
         var lastTackText = "Last: ";
@@ -270,7 +270,7 @@ class VMGView extends WatchUi.View {
         
         // Gybes section - Always show lap/total format
         var gybeText = "Gybes: " + formatManeuverCount(lapGybeCount, totalGybeCount);
-        dc.drawText(140, 140, Graphics.FONT_TINY, gybeText, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(130, 140, Graphics.FONT_TINY, gybeText, Graphics.TEXT_JUSTIFY_LEFT);
         
         // Last gybe angle directly underneath
         var lastGybeText = "Last: ";
