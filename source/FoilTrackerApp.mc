@@ -895,7 +895,7 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
     
-    // Helper to update values from lap data
+    // Improved function to update values from lap data
     function updateValuesFromLapData(values, lapData) {
         // Use the individual field updates directly from the data
         if (lapData.hasKey("tackSec")) { values["tackSec"] = lapData["tackSec"]; }
@@ -907,9 +907,20 @@ class FoilTrackerApp extends Application.AppBase {
         if (lapData.hasKey("windDirection")) { values["windDirection"] = lapData["windDirection"]; }
         if (lapData.hasKey("tackCount")) { values["tackCount"] = lapData["tackCount"]; }
         if (lapData.hasKey("gybeCount")) { values["gybeCount"] = lapData["gybeCount"]; }
-        if (lapData.hasKey("pctUpwind")) { values["pctUpwind"] = lapData["pctUpwind"]; }
-        if (lapData.hasKey("pctDownwind")) { values["pctDownwind"] = lapData["pctDownwind"]; }
-        if (lapData.hasKey("avgWindAngle")) { values["avgWindAngle"] = lapData["avgWindAngle"]; }
+        
+        // IMPORTANT: Make sure point of sail percentages are included!
+        if (lapData.hasKey("pctUpwind")) { 
+            values["pctUpwind"] = lapData["pctUpwind"]; 
+            System.println("Setting pctUpwind: " + lapData["pctUpwind"]);
+        }
+        if (lapData.hasKey("pctDownwind")) { 
+            values["pctDownwind"] = lapData["pctDownwind"]; 
+            System.println("Setting pctDownwind: " + lapData["pctDownwind"]);
+        }
+        if (lapData.hasKey("avgWindAngle")) { 
+            values["avgWindAngle"] = lapData["avgWindAngle"]; 
+            System.println("Setting avgWindAngle: " + lapData["avgWindAngle"]);
+        }
     }
 
     // Update lap fields efficiently
@@ -986,7 +997,7 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
     
-    // Helper to update lap fields from lap data
+    // Function to update lap fields from lap data
     function updateLapFieldsFromLapData(lapData) {
         try {
             // Map lap data to field names
@@ -1007,6 +1018,11 @@ class FoilTrackerApp extends Application.AppBase {
                 "avgWindAngle" => "avgWindAng"
             };
             
+            // Log current fields to validate
+            System.println("Updating lap fields with data: pctUpwind=" + lapData["pctUpwind"] + 
+                        ", pctDownwind=" + lapData["pctDownwind"] + 
+                        ", avgWindAngle=" + lapData["avgWindAngle"]);
+            
             // Update each field manually instead of using foreach
             var dataKeys = fieldMap.keys();
             for (var i = 0; i < dataKeys.size(); i++) {
@@ -1016,6 +1032,7 @@ class FoilTrackerApp extends Application.AppBase {
                 if (lapData.hasKey(dataKey) && mLapFields.hasKey(fieldName)) {
                     var value = lapData[dataKey];
                     mLapFields[fieldName].setData(value);
+                    System.println("Field updated: " + fieldName + " = " + value);
                 }
             }
         } catch (e) {
