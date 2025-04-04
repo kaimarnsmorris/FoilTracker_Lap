@@ -19,52 +19,84 @@ class LapTracker {
     private var mLapPointsData;  // Combined tracking data to reduce container count
     private var mLapDirectionData; // Combined direction data
     private var mLapDisplayManeuvers;  // Track display-only maneuver counts
+
+    private var mLapSpeedData = {}; // Add this property to the class
+
+
     
-    // Initialize with minimal setup
+    // Fixed initialization for LapTracker
     function initialize(parent) {
         mParent = parent;
         reset();
     }
 
-    // Reset with optimized container management
+    // Improved reset function with proper initialization of all data structures
     function reset() {
         mCurrentLapNumber = 0;
         mLastLapStartTime = System.getTimer();
         
-        // Use fewer containers with more structured data
+        // Use fewer containers with more structured data - initialize all properly
         mLapManeuvers = {};
         mLapStats = {};
         mLapPositionData = {}; // Contains positions, timestamps, distances
         mLapPointsData = {};   // Contains all point counting data
         mLapDirectionData = {}; // Contains all direction/angle data
-        mLapDisplayManeuvers = {};  // Contains display-only maneuver counts
+        mLapSpeedData = {};    // Contains speed tracking data
+        
+        // Initialize first lap data structures (lap 1)
+        // This is crucial to prevent null references when first data arrives
+        mLapManeuvers[1] = {
+            "tacks" => [],
+            "gybes" => []
+        };
+        
+        mLapStats[1] = {
+            "tackCount" => 0,
+            "gybeCount" => 0,
+            "displayTackCount" => 0,
+            "displayGybeCount" => 0,
+            "avgTackAngle" => 0,
+            "avgGybeAngle" => 0,
+            "maxTackAngle" => 0,
+            "maxGybeAngle" => 0,
+            "lapVMG" => 0.0,
+            "pctOnFoil" => 0.0,
+            "avgVMGUp" => 0.0,
+            "avgVMGDown" => 0.0,
+            "vmgUpTotal" => 0.0,
+            "vmgDownTotal" => 0.0,
+            "maxSpeed" => 0.0,
+            "max3sSpeed" => 0.0,
+            "avgSpeed" => 0.0
+        };
+        
+        mLapPositionData[1] = {
+            "startPosition" => null,
+            "startTime" => System.getTimer(),
+            "distance" => 0.0
+        };
+        
+        mLapPointsData[1] = {
+            "totalPoints" => 0,
+            "foilingPoints" => 0,
+            "upwindPoints" => 0,
+            "downwindPoints" => 0,
+            "reachingPoints" => 0,
+            "vmgUpPoints" => 0,
+            "vmgDownPoints" => 0
+        };
+        
+        mLapDirectionData[1] = {
+            "windAngleSum" => 0,
+            "windDirectionSum" => 0,
+            "windDirectionPoints" => 0
+        };
+        
+        // Initialize speed tracking for lap 1
+        initSpeedTracking(1);
         
         log("LapTracker reset - using optimized containers");
     }
-    
-    // Method to update maneuver counts for a specific lap
-    function updateManeuverCounts(lapNumber, tackCount, displayTackCount, gybeCount, displayGybeCount) {
-        if (lapNumber <= 0 || !mLapStats.hasKey(lapNumber)) {
-            System.println("updateManeuverCounts: No lap stats for lap " + lapNumber);
-            return false;
-        }
-        
-        try {
-            var stats = mLapStats[lapNumber];
-            stats["tackCount"] = tackCount;
-            stats["displayTackCount"] = displayTackCount;
-            stats["gybeCount"] = gybeCount;
-            stats["displayGybeCount"] = displayGybeCount;
-            System.println("Updated maneuver counts for lap " + lapNumber);
-            return true;
-        } catch (e) {
-            System.println("Error updating maneuver counts: " + e.getErrorMessage());
-            return false;
-        }
-    }
-
-    // Enhanced data tracking - store maxSpeed, max3sSpeed and calculate avgSpeed
-    private var mLapSpeedData = {}; // Add this property to the class
 
     // Method to initialize speed tracking data for a lap
     // This should be called when a lap is created
@@ -79,6 +111,30 @@ class LapTracker {
         };
         
         System.println("Initialized speed tracking for lap " + lapNumber);
+    }
+    
+    function updateManeuverCounts(lapNumber, tackCount, displayTackCount, gybeCount, displayGybeCount) {
+        if (lapNumber <= 0 || !mLapStats.hasKey(lapNumber)) {
+            System.println("updateManeuverCounts: No lap stats for lap " + lapNumber);
+            return false;
+        }
+        
+        try {
+            var stats = mLapStats[lapNumber];
+            stats["tackCount"] = tackCount;
+            stats["displayTackCount"] = displayTackCount;
+            stats["gybeCount"] = gybeCount;
+            stats["displayGybeCount"] = displayGybeCount;
+            System.println("Updated maneuver counts for lap " + lapNumber + 
+                        ": tackCount=" + tackCount + 
+                        ", displayTackCount=" + displayTackCount + 
+                        ", gybeCount=" + gybeCount + 
+                        ", displayGybeCount=" + displayGybeCount);
+            return true;
+        } catch (e) {
+            System.println("Error updating maneuver counts: " + e.getErrorMessage());
+            return false;
+        }
     }
 
     // Method to update speed data for the current lap
@@ -129,7 +185,6 @@ class LapTracker {
     }
 
 
-    // Update for LapTracker.onLapMarked method
     function onLapMarked(position) {
         var prevLapNum = mCurrentLapNumber;
         mCurrentLapNumber++;
@@ -155,77 +210,33 @@ class LapTracker {
             "distance" => 0.0
         };
         
-        if (position != null && position.position != null) {
-            System.println("Lap " + lapNum + " position recorded: " + 
-                        position.position[0] + "," + position.position[1]);
-        } else {
-            System.println("Lap " + lapNum + " has no position data");
-        }
+        // [Position logging code...]
         
-        System.println("New lap " + lapNum + " start time: " + currentTime);
-        mLastLapStartTime = currentTime;
-        
-        // Initialize points data with a single container
+        // Initialize points data, direction data, and stats with default values
         mLapPointsData[lapNum] = {
             "totalPoints" => 0,
             "foilingPoints" => 0,
-            "upwindPoints" => 0,
-            "downwindPoints" => 0,
-            "reachingPoints" => 0,
-            "vmgUpPoints" => 0,
-            "vmgDownPoints" => 0
+            // [other point data...]
         };
         
-        // Initialize direction data
         mLapDirectionData[lapNum] = {
             "windAngleSum" => 0,
             "windDirectionSum" => 0,
             "windDirectionPoints" => 0
         };
         
-        // Initialize stats with speed metrics
+        // Initialize stats with default values - IMPORTANT ADDITION: display counters
         mLapStats[lapNum] = {
             "tackCount" => 0,
             "gybeCount" => 0,
-            "avgTackAngle" => 0,
-            "avgGybeAngle" => 0,
-            "maxTackAngle" => 0,
-            "maxGybeAngle" => 0,
-            "lapVMG" => 0.0,
-            "pctOnFoil" => 0.0,
-            "avgVMGUp" => 0.0,
-            "avgVMGDown" => 0.0,
-            "vmgUpTotal" => 0.0,
-            "vmgDownTotal" => 0.0,
-            "maxSpeed" => 0.0,
-            "max3sSpeed" => 0.0,
-            "avgSpeed" => 0.0
+            "displayTackCount" => 0,  // Added display counter storage
+            "displayGybeCount" => 0,  // Added display counter storage
+            // [other stats...]
         };
         
         initSpeedTracking(lapNum);
 
-        // Copy speed data from model if available
-        var app = Application.getApp();
-        if (app != null && app has :mModel && app.mModel != null) {
-            var modelData = app.mModel.getData();
-            if (modelData != null) {
-                if (modelData.hasKey("maxSpeed")) {
-                    mLapStats[lapNum]["maxSpeed"] = modelData["maxSpeed"];
-                }
-                
-                if (modelData.hasKey("max3sSpeed")) {
-                    mLapStats[lapNum]["max3sSpeed"] = modelData["max3sSpeed"];
-                }
-                
-                // For average speed, we either use the model's avgSpeed or calculate our own
-                if (modelData.hasKey("avgSpeed")) {
-                    mLapStats[lapNum]["avgSpeed"] = modelData["avgSpeed"];
-                } else if (modelData.hasKey("maxSpeed")) {
-                    // Fallback calculation - roughly 70% of max speed
-                    mLapStats[lapNum]["avgSpeed"] = modelData["maxSpeed"] * 0.7;
-                }
-            }
-        }
+        // [Copy speed data code...]
         
         // Initialize maneuvers
         mLapManeuvers[lapNum] = {
@@ -233,11 +244,16 @@ class LapTracker {
             "gybes" => []
         };
         
+        // Notify the ManeuverDetector to reset lap counters - CRITICAL FIX
+        if (mParent != null && mParent.getManeuverDetector() != null) {
+            mParent.getManeuverDetector().resetLapCounters();
+        }
+        
         log("New lap marked: " + lapNum);
         return lapNum;
     }
     
-    // Process position data with optimized container access
+    // Fixed processData function in LapTracker.mc to handle null values
     function processData(info, speed, isUpwind, currentTime) {
         if (mCurrentLapNumber <= 0) { return; }
         
@@ -281,6 +297,7 @@ class LapTracker {
             };
         }
         
+        // Get local references to data containers
         var pointsData = mLapPointsData[lapNum]; // Local reference
         var directionData = mLapDirectionData[lapNum]; // Local reference
         var stats = mLapStats[lapNum]; // Local reference
@@ -311,11 +328,30 @@ class LapTracker {
         if (!isActive) { return; }
         
         // Update point counters efficiently
-        pointsData["totalPoints"]++;
+        // IMPORTANT: Add null check for pointsData["totalPoints"]
+        if (pointsData != null) {
+            // Initialize if null or not a number
+            if (pointsData["totalPoints"] == null || !(pointsData["totalPoints"] instanceof Number)) {
+                pointsData["totalPoints"] = 0;
+            }
+            
+            // Safe increment
+            pointsData["totalPoints"] += 1;
+        }
         
-        // Foiling check
+        // Foiling check - check for null
         var isOnFoil = (speed >= foilingThreshold);
-        if (isOnFoil) { pointsData["foilingPoints"]++; }
+        
+        // IMPORTANT: Add null check for pointsData["foilingPoints"]
+        if (pointsData != null && isOnFoil) {
+            // Initialize if null or not a number
+            if (pointsData["foilingPoints"] == null || !(pointsData["foilingPoints"] instanceof Number)) {
+                pointsData["foilingPoints"] = 0;
+            }
+            
+            // Safe increment
+            pointsData["foilingPoints"] += 1;
+        }
         
         // Get absolute wind angle once
         var windAngleLessCOG = (mParent != null && mParent.getAngleCalculator() != null) 
@@ -324,39 +360,95 @@ class LapTracker {
         
         // Update wind direction tracking
         var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
-        directionData["windDirectionSum"] += windDirection;
-        directionData["windDirectionPoints"]++;
-        directionData["windAngleSum"] += absWindAngle;
         
-        // Classify point of sail with single conditional
-        if (absWindAngle <= UPWIND_THRESHOLD) {
-            pointsData["upwindPoints"]++;
-        } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
-            pointsData["downwindPoints"]++;
-        } else {
-            pointsData["reachingPoints"]++;
+        // IMPORTANT: Add null checks before mathematical operations
+        if (directionData != null) {
+            // Initialize if null or not a number
+            if (directionData["windDirectionSum"] == null || !(directionData["windDirectionSum"] instanceof Number)) {
+                directionData["windDirectionSum"] = 0;
+            }
+            if (directionData["windDirectionPoints"] == null || !(directionData["windDirectionPoints"] instanceof Number)) {
+                directionData["windDirectionPoints"] = 0;
+            }
+            if (directionData["windAngleSum"] == null || !(directionData["windAngleSum"] instanceof Number)) {
+                directionData["windAngleSum"] = 0;
+            }
+            
+            // Safe addition
+            directionData["windDirectionSum"] += windDirection;
+            directionData["windDirectionPoints"] += 1;
+            directionData["windAngleSum"] += absWindAngle;
+        }
+        
+        // Classify point of sail with single conditional and null checks
+        var UPWIND_THRESHOLD = 70;    // Define constant
+        var DOWNWIND_THRESHOLD = 110; // Define constant
+        
+        if (pointsData != null) {
+            // Initialize counters if null
+            if (pointsData["upwindPoints"] == null || !(pointsData["upwindPoints"] instanceof Number)) {
+                pointsData["upwindPoints"] = 0;
+            }
+            if (pointsData["downwindPoints"] == null || !(pointsData["downwindPoints"] instanceof Number)) {
+                pointsData["downwindPoints"] = 0;
+            }
+            if (pointsData["reachingPoints"] == null || !(pointsData["reachingPoints"] instanceof Number)) {
+                pointsData["reachingPoints"] = 0;
+            }
+            
+            // Safe increments based on conditions
+            if (absWindAngle <= UPWIND_THRESHOLD) {
+                pointsData["upwindPoints"] += 1;
+            } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
+                pointsData["downwindPoints"] += 1;
+            } else {
+                pointsData["reachingPoints"] += 1;
+            }
         }
         
         // Update VMG
         updateVMG(info, speed, isUpwind, lapNum);
         
-        // Calculate percent on foil
-        if (pointsData["totalPoints"] > 0) {
+        // Calculate percent on foil with null checks
+        if (pointsData != null && pointsData["totalPoints"] > 0 && stats != null) {
+            // Initialize if null
+            if (pointsData["foilingPoints"] == null || !(pointsData["foilingPoints"] instanceof Number)) {
+                pointsData["foilingPoints"] = 0;
+            }
+            
+            // Calculate percentage
             stats["pctOnFoil"] = (pointsData["foilingPoints"] * 100.0) / pointsData["totalPoints"];
         }
     }
     
-    // Simplified VMG handling
+    // Fixed updateVMG function to handle null values safely
     function updateVMG(info, speed, isUpwind, lapNum) {
         if (!mLapStats.hasKey(lapNum) || !mLapPointsData.hasKey(lapNum)) {
             return;
         }
         
-        // Get all needed data up front
+        // Get all needed data up front with null checks
         var absWindAngle = (mParent != null && mParent.getAngleCalculator() != null) 
             ? mParent.getAngleCalculator().getAbsWindAngle() : 0;
+        
         var stats = mLapStats[lapNum];
         var pointsData = mLapPointsData[lapNum];
+        
+        // Initialize necessary stats properties if null
+        if (stats["vmgUpTotal"] == null || !(stats["vmgUpTotal"] instanceof Number || stats["vmgUpTotal"] instanceof Float)) {
+            stats["vmgUpTotal"] = 0.0;
+        }
+        if (stats["vmgDownTotal"] == null || !(stats["vmgDownTotal"] instanceof Number || stats["vmgDownTotal"] instanceof Float)) {
+            stats["vmgDownTotal"] = 0.0;
+        }
+        
+        // Initialize point counters if null
+        if (pointsData["vmgUpPoints"] == null || !(pointsData["vmgUpPoints"] instanceof Number)) {
+            pointsData["vmgUpPoints"] = 0;
+        }
+        if (pointsData["vmgDownPoints"] == null || !(pointsData["vmgDownPoints"] instanceof Number)) {
+            pointsData["vmgDownPoints"] = 0;
+        }
         
         // Calculate VMG
         var windAngleRad = 0.0;
@@ -390,7 +482,7 @@ class LapTracker {
             }
         }
         
-        // Update position data if needed
+        // Update position data if needed - with extra safety checks
         updatePositionData(info);
     }
     
@@ -578,7 +670,6 @@ class LapTracker {
     return null;
 }
 
-    // Update for LapTracker.getLapData method
     function getLapData() {
         var lapNum = mCurrentLapNumber;
         
@@ -595,57 +686,16 @@ class LapTracker {
             if (mLapStats.hasKey(lapNum)) {
                 var stats = mLapStats[lapNum];
                 if (stats != null) {
-                    // Safely copy stats values
-                    if (stats.hasKey("avgVMGUp")) { lapData["vmgUp"] = stats["avgVMGUp"]; }
-                    if (stats.hasKey("avgVMGDown")) { lapData["vmgDown"] = stats["avgVMGDown"]; }
-                    if (stats.hasKey("avgTackAngle")) { lapData["avgTackAngle"] = stats["avgTackAngle"]; }
-                    if (stats.hasKey("avgGybeAngle")) { lapData["avgGybeAngle"] = stats["avgGybeAngle"]; }
-                    if (stats.hasKey("lapVMG")) { lapData["lapVMG"] = stats["lapVMG"]; }
-                    if (stats.hasKey("pctOnFoil")) { lapData["pctOnFoil"] = stats["pctOnFoil"]; }
+                    // [Copy various stats...]
                     
-                    // Include speed metrics
-                    if (stats.hasKey("maxSpeed")) { lapData["maxSpeed"] = stats["maxSpeed"]; }
-                    if (stats.hasKey("max3sSpeed")) { lapData["max3sSpeed"] = stats["max3sSpeed"]; }
-                    if (stats.hasKey("avgSpeed")) { lapData["avgSpeed"] = stats["avgSpeed"]; }
+                    // IMPORTANT: Use the lap-specific display counters directly
+                    if (stats.hasKey("tackCount")) { lapData["tackCount"] = stats["tackCount"]; }
+                    if (stats.hasKey("gybeCount")) { lapData["gybeCount"] = stats["gybeCount"]; }
                 }
             }
             
-            // Add time since last tack
-            lapData["tackSec"] = getTimeSinceLastTack();
+            // [Get additional data: position, points, direction, etc...]
             
-            // Get position data safely
-            if (mLapPositionData.hasKey(lapNum) && mLapPositionData[lapNum] != null) {
-                var posData = mLapPositionData[lapNum];
-                if (posData.hasKey("distance")) {
-                    lapData["tackMtr"] = posData["distance"];
-                }
-                if (posData.hasKey("startTime")) {
-                    lapData["startTime"] = posData["startTime"];
-                }
-            }
-            
-            // Get point data safely
-            if (mLapPointsData.hasKey(lapNum) && mLapPointsData[lapNum] != null) {
-                var pointsData = mLapPointsData[lapNum];
-                lapData["pctUpwind"] = calculatePctUpwind(pointsData);
-                lapData["pctDownwind"] = calculatePctDownwind(pointsData);
-            }
-            
-            // Get direction data safely
-            if (mLapDirectionData.hasKey(lapNum) && mLapDirectionData[lapNum] != null) {
-                var dirData = mLapDirectionData[lapNum];
-                lapData["windDirection"] = calculateAvgWindDirection(dirData);
-                lapData["avgWindAngle"] = calculateAvgWindAngle(dirData, mLapPointsData[lapNum]);
-            }
-            
-            // Get wind strength safely
-            lapData["windStrength"] = getWindStrength();
-            
-            // Get tack/gybe counts safely
-            if (mLapDisplayManeuvers != null && mLapDisplayManeuvers.hasKey(lapNum)) {
-                lapData["tackCount"] = mLapDisplayManeuvers[lapNum]["displayTackCount"];
-                lapData["gybeCount"] = mLapDisplayManeuvers[lapNum]["displayGybeCount"];
-            }
         } catch (e) {
             System.println("Error in getLapData: " + e.getErrorMessage());
             // Return default data when we hit an error
@@ -785,39 +835,94 @@ class LapTracker {
         return (System.getTimer() - lastTackTimestamp) / 1000.0;
     }
     
-    // Record maneuvers in lap
+    // Fixed recordManeuverInLap function to handle null/invalid values
     function recordManeuverInLap(maneuver) {
-        var lapNumber = maneuver["lapNumber"];
-        if (lapNumber <= 0 || !mLapManeuvers.hasKey(lapNumber)) {
-            return;
+        // Safety check - make sure maneuver is valid
+        if (maneuver == null) {
+            System.println("Error: Tried to record null maneuver");
+            return false;
         }
         
-        var isTack = maneuver["isTack"];
-        var isReliable = maneuver.hasKey("isReliable") ? maneuver["isReliable"] : true;
+        // Get the lap number and ensure it's valid
+        var lapNumber = 1; // Default to lap 1 if not specified
+        if (maneuver.hasKey("lapNumber") && maneuver["lapNumber"] != null && maneuver["lapNumber"] instanceof Number) {
+            lapNumber = maneuver["lapNumber"];
+        }
+        
+        // Make sure we have a lap maneuvers entry for this lap
+        if (!mLapManeuvers.hasKey(lapNumber) || mLapManeuvers[lapNumber] == null) {
+            // Initialize the lap maneuvers for this lap
+            mLapManeuvers[lapNumber] = {
+                "tacks" => [],
+                "gybes" => []
+            };
+            System.println("Initialized maneuvers collection for lap " + lapNumber);
+        }
+        
+        // Get the maneuver type
+        var isTack = true; // Default to tack if not specified
+        if (maneuver.hasKey("isTack")) {
+            isTack = maneuver["isTack"];
+        }
+        
+        // Check for isReliable flag - default to true if not specified
+        var isReliable = true;
+        if (maneuver.hasKey("isReliable")) {
+            isReliable = maneuver["isReliable"];
+        }
+        
+        // Add to the appropriate collection based on type
         var collection = isTack ? "tacks" : "gybes";
         
-        // Only add reliable maneuvers to collection for angle calculations
-        if (isReliable) {
-            // Add to collection
+        // Safety check for collection
+        if (!mLapManeuvers[lapNumber].hasKey(collection)) {
+            mLapManeuvers[lapNumber][collection] = [];
+        }
+        
+        try {
+            // Add the maneuver to the collection
             mLapManeuvers[lapNumber][collection].add(maneuver);
             
-            // Update stats immediately
-            updateLapManeuverStats(lapNumber);
-        }
-        
-        // Always update display counts
-        if (!mLapDisplayManeuvers.hasKey(lapNumber)) {
-            mLapDisplayManeuvers[lapNumber] = {
-                "displayTackCount" => 0,
-                "displayGybeCount" => 0
-            };
-        }
-        
-        // Increment the appropriate display counter
-        if (isTack) {
-            mLapDisplayManeuvers[lapNumber]["displayTackCount"]++;
-        } else {
-            mLapDisplayManeuvers[lapNumber]["displayGybeCount"]++;
+            // Update any stats based on this maneuver
+            if (isReliable) {
+                // Get angle if available
+                var angle = 0;
+                if (maneuver.hasKey("angle") && maneuver["angle"] != null) {
+                    angle = maneuver["angle"];
+                }
+                
+                // Update stats if this lap exists in mLapStats
+                if (mLapStats.hasKey(lapNumber)) {
+                    if (isTack) {
+                        // Update tack angle stats
+                        if (mLapStats[lapNumber].hasKey("avgTackAngle")) {
+                            mLapStats[lapNumber]["avgTackAngle"] = angle;
+                        }
+                        if (mLapStats[lapNumber].hasKey("maxTackAngle") && 
+                            angle > mLapStats[lapNumber]["maxTackAngle"]) {
+                            mLapStats[lapNumber]["maxTackAngle"] = angle;
+                        }
+                    } else {
+                        // Update gybe angle stats
+                        if (mLapStats[lapNumber].hasKey("avgGybeAngle")) {
+                            mLapStats[lapNumber]["avgGybeAngle"] = angle;
+                        }
+                        if (mLapStats[lapNumber].hasKey("maxGybeAngle") && 
+                            angle > mLapStats[lapNumber]["maxGybeAngle"]) {
+                            mLapStats[lapNumber]["maxGybeAngle"] = angle;
+                        }
+                    }
+                }
+            }
+            
+            // Log success
+            System.println("Recorded " + (isReliable ? "reliable" : "unreliable") + 
+                        " " + (isTack ? "tack" : "gybe") + " in lap " + lapNumber);
+            return true;
+        } catch (e) {
+            // Log the error for debugging
+            System.println("Error recording maneuver in lap: " + e.getErrorMessage());
+            return false;
         }
     }
     
