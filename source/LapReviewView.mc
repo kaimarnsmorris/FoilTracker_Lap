@@ -255,24 +255,23 @@ class LapReviewView extends WatchUi.View {
         return hour.format("%02d") + ":" + minute.format("%02d");
     }
     
-    // Format time from milliseconds value
+    // Format time from milliseconds since system startup
     function formatTimeFromMilliseconds(milliseconds) {
-        // If milliseconds is very small, it might be in seconds already
-        if (milliseconds < 1000 && milliseconds > 0) {
-            milliseconds *= 1000;
-        }
-        
         try {
-            // Convert milliseconds to clock time - simplified for demo
-            var totalSeconds = milliseconds / 1000;
-            var minutes = (totalSeconds / 60).toNumber() % 60;
-            var hours = (totalSeconds / 3600).toNumber() % 24;
+            // Check for null or invalid values
+            if (milliseconds == null || milliseconds <= 0) {
+                return "--:--";
+            }
             
-            // For demo purposes, create a simulated timestamp
-            return hours.format("%02d") + ":" + minutes.format("%02d");
+            // Simple time conversion - milliseconds to elapsed minutes and hours
+            var elapsedMinutes = (milliseconds / 60000).toNumber() % 60;
+            var elapsedHours = (milliseconds / 3600000).toNumber() % 24;
+            
+            // Format as HH:MM - maintaining original format
+            return elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
         } catch (e) {
-            System.println("Error formatting time: " + e.getErrorMessage());
-            return "--:--"; // Return placeholder on error
+            System.println("Error formatting time: " + e.getErrorMessage() + ", input: " + milliseconds);
+            return "--:--";
         }
     }
     
@@ -467,21 +466,70 @@ class LapReviewView extends WatchUi.View {
         yPos = height - TIMESTAMP_DIST_FROM_BOTTOM;
         
         // Get lap time data
-        var startTime = "00:00";
+        var startTime = "--:--";
         var stopTime = "--:--";
         
-        // Get start time from startTime field if available
-        if (lapData.hasKey("startTime")) {
-            var timestamp = lapData["startTime"];
-            startTime = formatTimeFromMilliseconds(timestamp);
+        // Try to get position data directly from the lap tracker
+        var posData = null;
+        if (mWindTracker != null && mWindTracker.getLapTracker() != null) {
+            var lapTracker = mWindTracker.getLapTracker();
+            posData = lapTracker.getLapPositionData(mCurrentLapIndex);
         }
         
-        // Get stop time from next lap's start time (if not the current lap)
-        if (mCurrentLapIndex < mTotalLaps && mLapData.hasKey(mCurrentLapIndex + 1)) {
+        // Get start time from position data if available
+        if (posData != null && posData.hasKey("startTime")) {
+            var lapStartMs = posData["startTime"];
+            System.println("Time display - Using startTime from position data: " + lapStartMs);
+            
+            // Simple time conversion - milliseconds to elapsed minutes and hours
+            var elapsedMinutes = (lapStartMs / 60000).toNumber() % 60;
+            var elapsedHours = (lapStartMs / 3600000).toNumber() % 24;
+            
+            // Format as HH:MM - maintaining original format
+            startTime = elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
+        }
+        // Fallback to lapData if available
+        else if (lapData.hasKey("startTime")) {
+            var lapStartMs = lapData["startTime"];
+            
+            // Simple time conversion - milliseconds to elapsed minutes and hours
+            var elapsedMinutes = (lapStartMs / 60000).toNumber() % 60;
+            var elapsedHours = (lapStartMs / 3600000).toNumber() % 24;
+            
+            // Format as HH:MM - maintaining original format
+            startTime = elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
+        }
+        
+        // Try to get position data for next lap
+        var nextPosData = null;
+        if (mCurrentLapIndex < mTotalLaps && mWindTracker != null && mWindTracker.getLapTracker() != null) {
+            var lapTracker = mWindTracker.getLapTracker();
+            nextPosData = lapTracker.getLapPositionData(mCurrentLapIndex + 1);
+        }
+        
+        // Get stop time from next lap's position data
+        if (nextPosData != null && nextPosData.hasKey("startTime")) {
+            var nextLapStartMs = nextPosData["startTime"];
+            
+            // Simple time conversion for consistent display
+            var stopMinutes = (nextLapStartMs / 60000).toNumber() % 60;
+            var stopHours = (nextLapStartMs / 3600000).toNumber() % 24;
+            
+            // Format as HH:MM - maintaining original format
+            stopTime = stopHours.format("%02d") + ":" + stopMinutes.format("%02d");
+        }
+        // Fallback to next lapData if available
+        else if (mCurrentLapIndex < mTotalLaps && mLapData.hasKey(mCurrentLapIndex + 1)) {
             var nextLapData = mLapData[mCurrentLapIndex + 1];
             if (nextLapData != null && nextLapData.hasKey("startTime")) {
-                var timestamp = nextLapData["startTime"];
-                stopTime = formatTimeFromMilliseconds(timestamp);
+                var nextLapStartMs = nextLapData["startTime"];
+                
+                // Simple time conversion for consistent display
+                var stopMinutes = (nextLapStartMs / 60000).toNumber() % 60;
+                var stopHours = (nextLapStartMs / 3600000).toNumber() % 24;
+                
+                // Format as HH:MM - maintaining original format
+                stopTime = stopHours.format("%02d") + ":" + stopMinutes.format("%02d");
             }
         }
         

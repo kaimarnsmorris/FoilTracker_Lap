@@ -656,11 +656,11 @@ class LapTracker {
     }
     
     function getLapPositionData(lapNumber) {
-    if (lapNumber > 0 && mLapPositionData.hasKey(lapNumber)) {
-        return mLapPositionData[lapNumber];
+        if (lapNumber > 0 && mLapPositionData.hasKey(lapNumber)) {
+            return mLapPositionData[lapNumber];
+        }
+        return null;
     }
-    return null;
-}
 
     function getLapData() {
         var lapNum = mCurrentLapNumber;
