@@ -271,7 +271,7 @@ class ManeuverDetector {
         var afterVariation = calculateMaxVariation(afterHeadings);
         
         // Define max acceptable variation (e.g., 25 degrees)
-        var MAX_ACCEPTABLE_VARIATION = 25.0;
+        var MAX_ACCEPTABLE_VARIATION = 30.0;
         
         // Log the variations for debugging
         log("Heading variations - before: " + beforeVariation.format("%.1f") + 
@@ -385,7 +385,7 @@ class ManeuverDetector {
         mPendingManeuver = null;
     }
 
-    // Fixed calculateManeuverAngle function with better error handling
+    // Fixed calculateManeuverAngle function with better angle calculation
     function calculateManeuverAngle(pendingManeuver) {
         // Safety check for null
         if (pendingManeuver == null) {
@@ -456,8 +456,29 @@ class ManeuverDetector {
                 return;
             }
             
-            // Rest of the function remains the same...
-            // (Code omitted for brevity)
+            // Calculate the maneuver angle (ensure we're getting absolute difference)
+            var maneuverAngle = mParent.getAngleCalculator().angleAbsDifference(beforeHeading, afterHeading);
+            
+            // Log the calculation details for debugging
+            log("Calculated " + (isTack ? "tack" : "gybe") + " angle: " + maneuverAngle + 
+                "° (from " + beforeHeading + "° to " + afterHeading + "°)");
+            
+            // Update the last angle based on maneuver type
+            if (isTack) {
+                mLastTackAngle = maneuverAngle;
+                mLastTackHeadings = [beforeHeading, afterHeading];
+                mTackCount++;
+            } else {
+                mLastGybeAngle = maneuverAngle;
+                mLastGybeHeadings = [beforeHeading, afterHeading];
+                mGybeCount++;
+            }
+            
+            // Record the maneuver in history with the angle
+            recordManeuver(isTack, beforeHeading, maneuverAngle, lapNumber);
+            
+            log("Successfully recorded " + (isTack ? "tack" : "gybe") + 
+                " with angle " + maneuverAngle + "°");
             
         } catch (e) {
             // Log any errors
@@ -508,7 +529,6 @@ class ManeuverDetector {
             ", Gybes=" + mDisplayGybeCount);
     }
     
-    // Complete replacement for recordManeuver method in ManeuverDetector.mc
     function recordManeuver(isTack, heading, angle, lapNumber) {
         // Create maneuver record
         var maneuver = {
@@ -545,7 +565,15 @@ class ManeuverDetector {
                     mManeuverStats["maxGybeAngle"]
                 );
             }
+            
+            log("Recorded " + (isTack ? "tack" : "gybe") + " with angle " + 
+                angle.format("%.1f") + "° in history at index " + index);
+            
+            return true;
         }
+        
+        log("Failed to record maneuver in history - invalid index: " + index);
+        return false;
     }
     
     // Update maneuver statistics

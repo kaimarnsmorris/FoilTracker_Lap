@@ -298,28 +298,24 @@ class LapTracker {
         if (!isActive) { return; }
         
         // Update point counters efficiently
-        // IMPORTANT: Add null check for pointsData["totalPoints"]
-        if (pointsData != null) {
-            // Initialize if null or not a number
-            if (pointsData["totalPoints"] == null || !(pointsData["totalPoints"] instanceof Number)) {
-                pointsData["totalPoints"] = 0;
-            }
-            
-            // Safe increment
-            pointsData["totalPoints"] += 1;
+        // Initialize if null or not a number
+        if (pointsData["totalPoints"] == null || !(pointsData["totalPoints"] instanceof Number)) {
+            pointsData["totalPoints"] = 0;
         }
         
-        // Foiling check - check for null
+        // Safe increment
+        pointsData["totalPoints"] += 1;
+        
+        // Foiling check
         var isOnFoil = (speed >= foilingThreshold);
         
-        // IMPORTANT: Add null check for pointsData["foilingPoints"]
-        if (pointsData != null && isOnFoil) {
-            // Initialize if null or not a number
-            if (pointsData["foilingPoints"] == null || !(pointsData["foilingPoints"] instanceof Number)) {
-                pointsData["foilingPoints"] = 0;
-            }
-            
-            // Safe increment
+        // Initialize foiling points if needed
+        if (pointsData["foilingPoints"] == null || !(pointsData["foilingPoints"] instanceof Number)) {
+            pointsData["foilingPoints"] = 0;
+        }
+        
+        // Update foiling points if on foil
+        if (isOnFoil) {
             pointsData["foilingPoints"] += 1;
         }
         
@@ -328,87 +324,78 @@ class LapTracker {
             ? mParent.getAngleCalculator().getWindAngleLessCOG() : 0;
         var absWindAngle = (windAngleLessCOG < 0) ? -windAngleLessCOG : windAngleLessCOG;
         
-        // CRITICAL FIX: Store wind angle in pointsData (which works) instead of directionData
-        if (pointsData != null) {
-            // Create windAngleTotal field if it doesn't exist
-            if (!pointsData.hasKey("windAngleTotal")) {
-                pointsData["windAngleTotal"] = 0.0;
-            }
-            
-            // Accumulate directly in pointsData which is working for other stats
-            pointsData["windAngleTotal"] += absWindAngle;
-            
-            // Log for debugging
+        // Create or update windAngleTotal field (CRITICAL FIX)
+        if (!pointsData.hasKey("windAngleTotal")) {
+            pointsData["windAngleTotal"] = 0.0;
+        }
+        
+        // Accumulate wind angle
+        pointsData["windAngleTotal"] += absWindAngle;
+        
+        // Log for debugging
+        if (pointsData["totalPoints"] % 10 == 0) {  // Log every 10th point to avoid excessive logs
             System.println("Wind Angle Tracking - Current: " + absWindAngle + 
                         ", Total: " + pointsData["windAngleTotal"] + 
                         ", Points: " + pointsData["totalPoints"]);
         }
         
-        // Update wind direction tracking (still keep this for other functionality)
+        // Update wind direction tracking
         var windDirection = (mParent != null) ? mParent.getWindDirection() : 0;
         
-        // IMPORTANT: Add null checks before mathematical operations
-        if (directionData != null) {
-            // Initialize if null or not a number
-            if (directionData["windDirectionSum"] == null || !(directionData["windDirectionSum"] instanceof Number)) {
-                directionData["windDirectionSum"] = 0;
-            }
-            if (directionData["windDirectionPoints"] == null || !(directionData["windDirectionPoints"] instanceof Number)) {
-                directionData["windDirectionPoints"] = 0;
-            }
-            
-            // Safe addition
-            directionData["windDirectionSum"] += windDirection;
-            directionData["windDirectionPoints"] += 1;
+        // Initialize direction tracking if needed
+        if (directionData["windDirectionSum"] == null || !(directionData["windDirectionSum"] instanceof Number)) {
+            directionData["windDirectionSum"] = 0;
+        }
+        if (directionData["windDirectionPoints"] == null || !(directionData["windDirectionPoints"] instanceof Number)) {
+            directionData["windDirectionPoints"] = 0;
         }
         
-        // Classify point of sail with single conditional and null checks
-        if (pointsData != null) {
-            // Initialize counters if null
-            if (pointsData["upwindPoints"] == null || !(pointsData["upwindPoints"] instanceof Number)) {
-                pointsData["upwindPoints"] = 0;
-            }
-            if (pointsData["downwindPoints"] == null || !(pointsData["downwindPoints"] instanceof Number)) {
-                pointsData["downwindPoints"] = 0;
-            }
-            if (pointsData["reachingPoints"] == null || !(pointsData["reachingPoints"] instanceof Number)) {
-                pointsData["reachingPoints"] = 0;
-            }
-            
-            // Safe increments based on conditions
-            if (absWindAngle <= UPWIND_THRESHOLD) {
-                pointsData["upwindPoints"] += 1;
-            } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
-                pointsData["downwindPoints"] += 1;
-            } else {
-                pointsData["reachingPoints"] += 1;
-            }
+        // Update wind direction stats
+        directionData["windDirectionSum"] += windDirection;
+        directionData["windDirectionPoints"] += 1;
+        
+        // Initialize point of sail counters if needed
+        if (pointsData["upwindPoints"] == null || !(pointsData["upwindPoints"] instanceof Number)) {
+            pointsData["upwindPoints"] = 0;
+        }
+        if (pointsData["downwindPoints"] == null || !(pointsData["downwindPoints"] instanceof Number)) {
+            pointsData["downwindPoints"] = 0;
+        }
+        if (pointsData["reachingPoints"] == null || !(pointsData["reachingPoints"] instanceof Number)) {
+            pointsData["reachingPoints"] = 0;
+        }
+        
+        // Update point of sail counters
+        if (absWindAngle <= UPWIND_THRESHOLD) {
+            pointsData["upwindPoints"] += 1;
+        } else if (absWindAngle >= DOWNWIND_THRESHOLD) {
+            pointsData["downwindPoints"] += 1;
+        } else {
+            pointsData["reachingPoints"] += 1;
         }
         
         // Update VMG
         updateVMG(info, speed, isUpwind, lapNum);
         
-        // Calculate percent on foil with null checks
-        if (pointsData != null && pointsData["totalPoints"] > 0 && stats != null) {
-            // Initialize if null
-            if (pointsData["foilingPoints"] == null || !(pointsData["foilingPoints"] instanceof Number)) {
-                pointsData["foilingPoints"] = 0;
-            }
-            
-            // Calculate percentage
+        // Calculate and update percentages and averages if we have data
+        if (pointsData["totalPoints"] > 0) {
+            // Calculate percentage on foil
             stats["pctOnFoil"] = (pointsData["foilingPoints"] * 100.0) / pointsData["totalPoints"];
             
-            // Update point of sail percentages in stats
-            stats["pctUpwind"] = calculatePctUpwind(pointsData);
-            stats["pctDownwind"] = calculatePctDownwind(pointsData);
+            // Calculate point of sail percentages
+            stats["pctUpwind"] = (pointsData["upwindPoints"] * 100.0) / pointsData["totalPoints"];
+            stats["pctDownwind"] = (pointsData["downwindPoints"] * 100.0) / pointsData["totalPoints"];
             
-            // CRITICAL FIX: Calculate wind angle average from our accumulated total in pointsData
-            if (pointsData.hasKey("windAngleTotal")) {
-                stats["avgWindAngle"] = Math.round(pointsData["windAngleTotal"] / pointsData["totalPoints"]).toNumber();
-                
-                // Log the calculation
-                System.println("Average Wind Angle: " + stats["avgWindAngle"] + 
-                            " = " + pointsData["windAngleTotal"] + " / " + pointsData["totalPoints"]);
+            // Calculate wind angle average - CRITICAL FIX
+            stats["avgWindAngle"] = Math.round(pointsData["windAngleTotal"] / pointsData["totalPoints"]).toNumber();
+            
+            // Log these calculations once in a while
+            if (pointsData["totalPoints"] % 20 == 0) {  // Every 20th point
+                System.println("Updated lap stats for lap " + lapNum + ":");
+                System.println("  pctOnFoil: " + stats["pctOnFoil"].format("%.1f") + "%");
+                System.println("  pctUpwind: " + stats["pctUpwind"].format("%.1f") + "%");
+                System.println("  pctDownwind: " + stats["pctDownwind"].format("%.1f") + "%");
+                System.println("  avgWindAngle: " + stats["avgWindAngle"] + "°");
             }
         }
     }
@@ -734,12 +721,16 @@ class LapTracker {
             // Get point of sail percentages from points data
             if (mLapPointsData.hasKey(lapNum)) {
                 var pointsData = mLapPointsData[lapNum];
-                if (pointsData != null) {
+                if (pointsData != null && pointsData.hasKey("totalPoints") && pointsData["totalPoints"] > 0) {
                     // Calculate percentage upwind
-                    lapData["pctUpwind"] = calculatePctUpwind(pointsData);
+                    if (pointsData.hasKey("upwindPoints")) {
+                        lapData["pctUpwind"] = Math.round((pointsData["upwindPoints"] * 100.0) / pointsData["totalPoints"]).toNumber();
+                    }
                     
                     // Calculate percentage downwind
-                    lapData["pctDownwind"] = calculatePctDownwind(pointsData);
+                    if (pointsData.hasKey("downwindPoints")) {
+                        lapData["pctDownwind"] = Math.round((pointsData["downwindPoints"] * 100.0) / pointsData["totalPoints"]).toNumber();
+                    }
                 }
             }
 
@@ -761,7 +752,7 @@ class LapTracker {
             return createDefaultLapData();
         }
         
-        // Round all values once
+        // Round all values once before returning
         return roundLapData(lapData);
     }
     
