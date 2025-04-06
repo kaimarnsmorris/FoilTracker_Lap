@@ -152,6 +152,45 @@ class FoilTrackerApp extends Application.AppBase {
         return sessionName;
     }
     
+// Add at the top of the file with other imports
+using Toybox.Attention;
+
+    // Add this function to the FoilTrackerApp class
+    function vibratePattern(count) {
+        if (!(Attention has :vibrate)) {
+            return;  // Skip if vibration not supported
+        }
+        
+        var pattern = [];
+        
+        // Create vibration pattern based on count
+        switch(count) {
+            case 1:
+                // Single vibration for max speed
+                pattern = [new Attention.VibeProfile(100, 500)];
+                break;
+            case 2:
+                // Double vibration for max upwind VMG
+                pattern = [
+                    new Attention.VibeProfile(100, 300),
+                    new Attention.VibeProfile(0, 200),
+                    new Attention.VibeProfile(100, 300)
+                ];
+                break;
+            case 3:
+                // Triple vibration for max downwind VMG
+                pattern = [
+                    new Attention.VibeProfile(100, 300),
+                    new Attention.VibeProfile(0, 200),
+                    new Attention.VibeProfile(100, 300)
+                ];
+                break;
+        }
+        
+        // Vibrate with the pattern
+        Attention.vibrate(pattern);
+    }
+
     function createRecordingSession(sessionName) {
         var sportType = Activity.SPORT_SAILING;
         var subSportType = Activity.SUB_SPORT_GENERIC;

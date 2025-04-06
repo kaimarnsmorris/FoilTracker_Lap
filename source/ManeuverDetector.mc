@@ -90,6 +90,13 @@ class ManeuverDetector {
     
     // Complete replacement for detectManeuver method in ManeuverDetector.mc
     function detectManeuver(heading, speed, currentTime, isStbdTack, isUpwind, windAngleLessCOG) {
+        // Check if we're waiting for new maneuvers after a reset
+        if (mParent != null && mParent.isWaitingForNewManeuvers()) {
+            // Clear the waiting flag when we detect a maneuver
+            mParent.clearWaitingForNewManeuvers();
+            log("First maneuver after reset detected - starting to count for auto detection");
+        }
+        
         // Use a lower speed threshold for maneuver detection
         var speedThreshold = 2.0;
         
@@ -117,6 +124,7 @@ class ManeuverDetector {
         if (speed < speedThreshold) {
             return false;
         }
+
         
         var maneuverDetected = false;
         var isTack = false;  // Boolean flag for tack vs gybe
@@ -260,26 +268,132 @@ class ManeuverDetector {
         return false;
     }
     
-    // Check if a maneuver's headings are reliable
-    function isReliableManeuver(beforeHeadingData, afterHeadingData) {
-        // Extract the headings from the raw data
-        var beforeHeadings = beforeHeadingData["headings"];
-        var afterHeadings = afterHeadingData["headings"];
+// Check if a maneuver's headings are reliable using weighted mean absolute deviation
+function isReliableManeuver(beforeHeadingData, afterHeadingData) {
+    // Extract the data from the raw heading data
+    var beforeHeadings = beforeHeadingData["headings"];
+    var beforeAverage = beforeHeadingData["average"];
+    var beforeTimestamps = beforeHeadingData["timestamps"];
+    
+    var afterHeadings = afterHeadingData["headings"];
+    var afterAverage = afterHeadingData["average"];
+    var afterTimestamps = afterHeadingData["timestamps"];
+    
+    // Calculate the weighted mean absolute deviation for each set
+    var beforeStartTime = beforeTimestamps[0];
+    var beforeEndTime = beforeTimestamps[beforeTimestamps.size() - 1];
+    var beforeMAD = calculateWeightedMeanAbsDeviation(beforeHeadings, beforeAverage, 
+                                                     beforeTimestamps, beforeStartTime, 
+                                                     beforeEndTime, true);
+    
+    var afterStartTime = afterTimestamps[0];
+    var afterEndTime = afterTimestamps[afterTimestamps.size() - 1];
+    var afterMAD = calculateWeightedMeanAbsDeviation(afterHeadings, afterAverage, 
+                                                    afterTimestamps, afterStartTime, 
+                                                    afterEndTime, false);
+    
+    // Define max acceptable weighted MAD (in degrees)
+    var MAX_ACCEPTABLE_MAD = 6.0;
+    
+    // Log the weighted MAD values for debugging
+    log("Heading weighted MAD - before: " + beforeMAD.format("%.1f") + 
+        "°, after: " + afterMAD.format("%.1f") + "°");
+    
+    // Return true if both weighted MADs are acceptable
+    return (beforeMAD <= MAX_ACCEPTABLE_MAD && afterMAD <= MAX_ACCEPTABLE_MAD);
+}
+
+    // Helper function to calculate weighted mean absolute deviation of headings
+    function calculateWeightedMeanAbsDeviation(headings, average, timestamps, startTime, endTime, isBeforeTack) {
+        if (headings == null || headings.size() < 2) {
+            return 0.0;
+        }
         
-        // Calculate the max variation in each set
-        var beforeVariation = calculateMaxVariation(beforeHeadings);
-        var afterVariation = calculateMaxVariation(afterHeadings);
+        var sumWeightedDeviation = 0.0;
+        var totalWeight = 0.0;
+        var windowDuration = endTime - startTime;
         
-        // Define max acceptable variation (e.g., 25 degrees)
-        var MAX_ACCEPTABLE_VARIATION = 30.0;
+        for (var i = 0; i < headings.size(); i++) {
+            var heading = headings[i];
+            var timestamp = timestamps[i];
+            
+            // Calculate relative position in time window (0.0 to 1.0)
+            var relativePosition = (timestamp - startTime) / (1.0 * windowDuration);
+            
+            // Assign weight based on position and whether it's before or after tack
+            // Use the same weighting scheme as in calculateWeightedAverageHeading
+            var weight = 1.0;
+            if (isBeforeTack) {
+                // For before tack: earlier timestamps get higher weight
+                weight = 1.0 + headings.size() * (1.0 - relativePosition);
+            } else {
+                // For after tack: later timestamps get higher weight
+                weight = 1.0 + headings.size() * relativePosition;
+            }
+            
+            // Calculate absolute angular difference
+            var deviation = calculateAngleDifference(heading, average);
+            
+            // Add weighted deviation
+            sumWeightedDeviation += deviation * weight;
+            totalWeight += weight;
+        }
         
-        // Log the variations for debugging
-        log("Heading variations - before: " + beforeVariation.format("%.1f") + 
-            "°, after: " + afterVariation.format("%.1f") + "°");
+        // Calculate weighted mean absolute deviation
+        var weightedMAD = (totalWeight > 0) ? sumWeightedDeviation / totalWeight : 0.0;
         
-        // Return true if both variations are acceptable
-        return (beforeVariation <= MAX_ACCEPTABLE_VARIATION && 
-                afterVariation <= MAX_ACCEPTABLE_VARIATION);
+        return weightedMAD;
+    }
+
+    // Method to reset just the auto-detection counters
+    function resetAutoDetectionCounters() {
+        // Reset the internal counters used for auto detection
+        // The class uses mTackCount and mGybeCount for reliable maneuvers
+        mTackCount = 0;
+        mGybeCount = 0;
+        
+        // Reset the maneuver headings used for wind direction calculation
+        mLastTackHeadings = [0, 0];
+        mLastGybeHeadings = [0, 0];
+        
+        log("Auto detection counters reset - waiting for new maneuvers");
+    }
+
+    // Helper to calculate absolute angle difference correctly
+    // Renamed to avoid conflict with existing method
+    function calculateAngleDifference(angle1, angle2) {
+        // Normalize angles to 0-360 using the parent's method
+        if (mParent != null && mParent.getAngleCalculator() != null) {
+            angle1 = mParent.getAngleCalculator().normalizeAngle(angle1);
+            angle2 = mParent.getAngleCalculator().normalizeAngle(angle2);
+        } else {
+            // Fallback normalization if parent reference is not available
+            while (angle1 < 0) {
+                angle1 += 360;
+            }
+            while (angle1 >= 360) {
+                angle1 -= 360;
+            }
+            while (angle2 < 0) {
+                angle2 += 360;
+            }
+            while (angle2 >= 360) {
+                angle2 -= 360;
+            }
+        }
+        
+        // Calculate difference
+        var diff = angle1 - angle2;
+        if (diff < 0) {
+            diff = -diff; // Manual absolute value
+        }
+        
+        // Handle wrap-around (get the shorter arc)
+        if (diff > 180) {
+            diff = 360 - diff;
+        }
+        
+        return diff;
     }
 
     // Helper function to calculate maximum variation in a set of headings

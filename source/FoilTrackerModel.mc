@@ -11,7 +11,11 @@ class FoilTrackerModel {
     private const FOILING_THRESHOLD = 7.0;     // Speed threshold for foiling (knots)
     private const BUFFER_SIZE = 10;            // Size of rolling buffer for 3s max speed
     private const SIGNIFICANT_CHANGE = 0.5;    // Speed change threshold to trigger UI update
-    
+
+    // Add to existing member variables in the class
+    private var mSessionMax3pSpeed;        // Track max 3-point average speed for the session
+    private var mSpeedPoints;              // Array to track last 3 speed points
+
     // Updated wind ranges with 3-knot increments
     private const WIND_STRENGTHS = [
         "7-10 knots",
@@ -39,7 +43,6 @@ class FoilTrackerModel {
     private var mWindStrength;
     private var mSession;
     
-    // Constructor
     function initialize() {
         mData = {
             "currentSpeed" => 0.0,          // Current speed in knots
@@ -63,6 +66,13 @@ class FoilTrackerModel {
         }
         mBufferIndex = 0;
         mLastSignificantSpeed = 0.0;
+        
+        // Initialize 3-point speed tracking
+        mSpeedPoints = new [3];
+        for (var i = 0; i < 3; i++) {
+            mSpeedPoints[i] = 0.0;
+        }
+        mSessionMax3pSpeed = 0.0;
         
         // NEW: Initialize data point counters
         mTotalDataPoints = 0;
@@ -150,12 +160,51 @@ class FoilTrackerModel {
                 mSessionStats["max3sSpeed"] = avg3sSpeed;
             }
             
+            // Update 3-point speed tracking
+            // Shift values in the array
+            mSpeedPoints[0] = mSpeedPoints[1];
+            mSpeedPoints[1] = mSpeedPoints[2];
+            mSpeedPoints[2] = speedKnots;
+            
+            // Calculate 3-point average
+            var pointSum = 0.0;
+            var pointCount = 0;
+            for (var i = 0; i < 3; i++) {
+                if (mSpeedPoints[i] > 0.0) {
+                    pointSum += mSpeedPoints[i];
+                    pointCount++;
+                }
+            }
+            
+            var avg3pSpeed = (pointCount > 0) ? pointSum / pointCount : 0.0;
+            
+            // Check if this is a new 3-point max
+            if (avg3pSpeed > mSessionMax3pSpeed && pointCount >= 3) {
+                mSessionMax3pSpeed = avg3pSpeed;
+                
+                // Vibrate once for new max 3-point speed
+                var app = Application.getApp();
+                if (app has :vibratePattern) {
+                    app.vibratePattern(1);
+                    System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt - vibrating once");
+                }
+            }
+            
+            // Get the current foiling state
+            var wasOnFoil = false;
+            if (mData.hasKey("isOnFoil")) {
+                wasOnFoil = mData["isOnFoil"];
+            }
+            
             // Update foiling status based on instantaneous speed
-            var wasOnFoil = mData["isOnFoil"];
-            var isOnFoil = (speedKnots >= FOILING_THRESHOLD);
+            var foilingThreshold = FOILING_THRESHOLD;
+            if (mSettings != null && mSettings.hasKey("foilingThreshold")) {
+                foilingThreshold = mSettings["foilingThreshold"];
+            }
+            var isOnFoil = (speedKnots >= foilingThreshold);
             mData["isOnFoil"] = isOnFoil;
             
-            // NEW: Update lap tracker with speed data
+            // Update lap tracker with speed data
             // This ensures speed is tracked per lap
             var app = Application.getApp();
             if (app != null && isActive) {
@@ -165,7 +214,7 @@ class FoilTrackerModel {
                 }
             }
             
-            // NEW: Count data points for percentage calculation
+            // Count data points for percentage calculation
             if (isActive) {
                 mTotalDataPoints++;
                 

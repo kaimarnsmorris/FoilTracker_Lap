@@ -33,6 +33,10 @@ class WindTracker {
     private var mManeuverDetector;          // Maneuver detection component
     private var mLapTracker;                // Lap tracking component 
     private var mVMGCalculator;             // VMG calculation component
+
+    // Add to existing member variables in the WindTracker class
+    private var mManualResetTime;          // Timestamp when manual wind reset was performed
+    private var mWaitingForNewManeuvers;   // Flag to indicate we're waiting for new maneuvers after reset
     
     // Constructor - Initialize the WindTracker
     function initialize() {
@@ -55,6 +59,8 @@ class WindTracker {
         mWindDirectionLocked = false;
         mLastSignificantHeading = 0;
         mLastLogTime = 0;
+        mManualResetTime = 0;
+        mWaitingForNewManeuvers = false;
         
         // Reset components if they exist
         if (mAngleCalculator != null) { mAngleCalculator.reset(); }
@@ -86,14 +92,20 @@ class WindTracker {
         mAutoWindDetection = false;
         mWindDirectionLocked = false;
         
-        // Important: Do NOT reset maneuver counts
-        // This line is commented out to preserve counters:
-        // if (mManeuverDetector != null) {
-        //     mManeuverDetector.resetManeuverCounts();
-        // }
+        // Set timestamp of manual reset
+        mManualResetTime = System.getTimer();
+        
+        // We're now waiting for new maneuvers
+        mWaitingForNewManeuvers = true;
+        
+        // Reset counters used for auto detection
+        if (mManeuverDetector != null) {
+            // Reset counters used for auto detection, but preserve displayed counters
+            mManeuverDetector.resetAutoDetectionCounters();
+        }
         
         log("Reset to manual wind direction: " + mInitialWindDirection + 
-            " (preserving maneuver counts)");
+            " (waiting for new maneuvers for auto detection)");
     }
     
     // Lock/unlock wind direction
@@ -163,11 +175,32 @@ class WindTracker {
             mLastSignificantHeading = heading;
         }
     }
-    
+
+    // Accessor for waiting flag
+    function isWaitingForNewManeuvers() {
+        return mWaitingForNewManeuvers;
+    }
+
+    // Clear waiting flag
+    function clearWaitingForNewManeuvers() {
+        mWaitingForNewManeuvers = false;
+    }
+
     // Update wind direction automatically based on tack/gybe patterns
     function updateAutoWindDirection() {
         // Skip if wind direction is locked
         if (mWindDirectionLocked) {
+            return;
+        }
+        
+        // Skip auto detection for a period after manual reset (30 seconds)
+        var currentTime = System.getTimer();
+        if (currentTime - mManualResetTime < 30000) {
+            return;
+        }
+        
+        // Skip if we're waiting for new maneuvers after a reset
+        if (mWaitingForNewManeuvers) {
             return;
         }
         
