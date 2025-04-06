@@ -152,12 +152,41 @@ class FoilTrackerApp extends Application.AppBase {
         return sessionName;
     }
     
-    // Helper to create recording session
     function createRecordingSession(sessionName) {
+        var sportType = Activity.SPORT_SAILING;
+        var subSportType = Activity.SUB_SPORT_GENERIC;
+        
+        // Get wind strength index from model data
+        var windStrengthIndex = 0;
+        
+        try {
+            if (mModel != null) {
+                var data = mModel.getData();
+                if (data != null && data.hasKey("windStrengthIndex")) {
+                    windStrengthIndex = data["windStrengthIndex"];
+                    System.println("Wind strength index: " + windStrengthIndex);
+                }
+            }
+        } catch (e) {
+            System.println("Error getting wind strength: " + e.getErrorMessage());
+        }
+        
+        // Map wind strength index to appropriate subsport
+        // Index 0 = 7-10 knots, Index 1 = 10-13 knots, Index 2 = 13-16 knots, etc.
+        if (windStrengthIndex <= 1) {
+            // Indices 0-1 (7-10, 10-13 knots) - "Mountain Bike (MTB)"
+            subSportType = Activity.SUB_SPORT_MOUNTAIN;
+            System.println("Setting subsport to Mountain Bike for moderate winds (index " + windStrengthIndex + ")");
+        } else {
+            // Indices 2+ (13-16 knots and above) - "Brick"
+            subSportType = Activity.SUB_SPORT_BRICK;
+            System.println("Setting subsport to Brick for heavy winds (index " + windStrengthIndex + ")");
+        }
+        
         var sessionOptions = {
             :name => sessionName,
-            :sport => Activity.SPORT_GENERIC,
-            :subSport => Activity.SUB_SPORT_GENERIC
+            :sport => sportType,
+            :subSport => subSportType
         };
         
         try {
@@ -167,7 +196,7 @@ class FoilTrackerApp extends Application.AppBase {
             return null;
         }
     }
-    
+
     // Helper to initialize wind direction
     function initializeWindDirection() {
         var modelData = mModel != null ? mModel.getData() : null;
