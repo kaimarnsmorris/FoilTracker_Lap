@@ -1,3 +1,22 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="Digit0" filename="Digit0.png" />
+    <bitmap id="Digit1" filename="Digit1.png" />
+    <bitmap id="Digit2" filename="Digit2.png" />
+    <bitmap id="Digit3" filename="Digit3.png" />
+    <bitmap id="Digit4" filename="Digit4.png" />
+    <bitmap id="Digit5" filename="Digit5.png" />
+    <bitmap id="Digit6" filename="Digit6.png" />
+    <bitmap id="Digit7" filename="Digit7.png" />
+    <bitmap id="Digit8" filename="Digit8.png" />
+    <bitmap id="Digit9" filename="Digit9.png" />
+    <bitmap id="Digit1SmallGreen" filename="Digit1SmallGreen.png" />
+    <bitmap id="Digit9SmallGreen" filename="Digit9SmallGreen.png" />
+    <bitmap id="Digit9SmallRed" filename="Digit9SmallRed.png" />
+    <bitmap id="DegreeSymbolRed" filename="degreeSymbolRed.png" />
+    <bitmap id="DegreeSymbolGreen" filename="degreeSymbolGreen.png" />
+    <bitmap id="DecimalWhite" filename="decimalWhite.png" />
 </drawables>
+
+
+
