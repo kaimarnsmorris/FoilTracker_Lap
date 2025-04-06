@@ -63,14 +63,16 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         return true;
     }
     
-    // Handle back button press - Lock/unlock wind direction
+    // Complete replacement for VMGDelegate's onBack method
     function onBack() {
         if (mWindTracker != null) {
-            // Toggle wind direction lock
             if (mWindTracker.isWindDirectionLocked()) {
+                // If already locked, unlock AND reset to manual direction
                 mWindTracker.unlockWindDirection();
-                System.println("Wind direction unlocked");
+                mWindTracker.resetToManualDirection();
+                System.println("Wind direction unlocked and reset to manual input");
             } else {
+                // Toggle wind direction lock
                 mWindTracker.lockWindDirection();
                 System.println("Wind direction locked at: " + mWindTracker.getWindDirection());
             }
@@ -78,6 +80,15 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
             // Request UI update to reflect changes
             WatchUi.requestUpdate();
         }
+        return true;
+    }
+
+    // Complete replacement for VMGDelegate's onNextPage method to navigate to OnMast view
+    function onNextPage() {
+        // Switch to OnMast view when down button is pressed
+        var view = new OnMastView(mModel, mWindTracker);
+        var delegate = new OnMastDelegate(view, mModel, mApp);
+        WatchUi.switchToView(view, delegate, WatchUi.SLIDE_DOWN);
         return true;
     }
     
@@ -89,28 +100,7 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         WatchUi.switchToView(view, delegate, WatchUi.SLIDE_UP);
         return true;
     }
-    
-    // Complete replacement for onNextPage in VMGDelegate.mc
-    function onNextPage() {
-        if (mWindTracker != null) {
-            // Reset the wind tracker to use the initial user input and unlock
-            mWindTracker.unlockWindDirection();
-            mWindTracker.resetToManualDirection();
-            
-            // Important: Do NOT reset the tack/gybe counters here
-            // The counters should preserve the total counts for the session
-            
-            // Log the reset action
-            System.println("Wind direction reset to manual input");
-            System.println("Maneuver counts preserved: Tacks=" + 
-                        mWindTracker.getManeuverDetector().getData()["displayTackCount"] + 
-                        ", Gybes=" + mWindTracker.getManeuverDetector().getData()["displayGybeCount"]);
-            
-            // Request UI update to reflect changes
-            WatchUi.requestUpdate();
-        }
-        return true;
-    }
+
     
     // Handle key events (for compatibility with devices that use onKey)
     function onKey(keyEvent) {
