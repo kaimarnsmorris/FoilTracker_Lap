@@ -68,6 +68,12 @@ class OnMastDelegate extends WatchUi.BehaviorDelegate {
         if (isActive && mApp != null) {
             mApp.addLapMarker();
             System.println("Lap marker added from OnMast view");
+            
+            // Show lap feedback
+            if (mView != null && mView has :showLapFeedback) {
+                mView.showLapFeedback();
+                System.println("Lap feedback shown in OnMast view");
+            }
         }
         
         return true;
@@ -84,6 +90,12 @@ class OnMastDelegate extends WatchUi.BehaviorDelegate {
             
             System.println("Wind direction reset to manual input from OnMast view");
             System.println("Waiting for 2 tacks/gybes to reinitialize wind direction");
+            
+            // Show feedback for wind reset
+            if (mView != null && mView has :showWindResetFeedback) {
+                mView.showWindResetFeedback();
+                System.println("Wind reset feedback shown in OnMast view");
+            }
             
             // Request UI update to reflect changes
             WatchUi.requestUpdate();
