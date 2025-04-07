@@ -17,6 +17,9 @@ class VMGCalculator {
     private var mVMGPoints;                // Array to store recent VMG points
     private var mVMGPointIndex;            // Current index in VMG points array   
 
+    // Add to existing constants at the top of the VMGCalculator class
+    private const VMG_VIBRATION_THRESHOLD = 13.0;    // VMG threshold for vibration alerts (knots)
+
     function initialize(parent) {
         mParent = parent;
         reset();
@@ -37,6 +40,7 @@ class VMGCalculator {
         log("VMGCalculator reset");
     }
     
+    // Calculate VMG with smoothing
     function calculateVMG(heading, speed, isUpwind, windAngleLessCOG) {
         if (speed <= 0) {
             mCurrentVMG = 0.0;
@@ -95,22 +99,34 @@ class VMGCalculator {
                 if (avg3pVMG > mSessionMaxVMGUp) {
                     mSessionMaxVMGUp = avg3pVMG;
                     
-                    // Vibrate twice for new max VMG upwind
-                    var app = Application.getApp();
-                    if (app has :vibratePattern) {
-                        app.vibratePattern(2);
-                        System.println("New max VMG upwind: " + mSessionMaxVMGUp.format("%.1f") + " kt - vibrating twice");
+                    // Only vibrate if over threshold
+                    if (avg3pVMG >= VMG_VIBRATION_THRESHOLD) {
+                        // Vibrate twice for new max VMG upwind (over threshold)
+                        var app = Application.getApp();
+                        if (app has :vibratePattern) {
+                            app.vibratePattern(2);
+                            System.println("New max VMG upwind: " + mSessionMaxVMGUp.format("%.1f") + " kt (>"+VMG_VIBRATION_THRESHOLD+") - vibrating twice");
+                        }
+                    } else {
+                        // Just log the new max without vibrating
+                        System.println("New max VMG upwind: " + mSessionMaxVMGUp.format("%.1f") + " kt (not vibrating, below "+VMG_VIBRATION_THRESHOLD+")");
                     }
                 }
             } else {
                 if (avg3pVMG > mSessionMaxVMGDown) {
                     mSessionMaxVMGDown = avg3pVMG;
                     
-                    // Vibrate three times for new max VMG downwind
-                    var app = Application.getApp();
-                    if (app has :vibratePattern) {
-                        app.vibratePattern(3);
-                        System.println("New max VMG downwind: " + mSessionMaxVMGDown.format("%.1f") + " kt - vibrating three times");
+                    // Only vibrate if over threshold
+                    if (avg3pVMG >= VMG_VIBRATION_THRESHOLD) {
+                        // Vibrate three times for new max VMG downwind (over threshold)
+                        var app = Application.getApp();
+                        if (app has :vibratePattern) {
+                            app.vibratePattern(3);
+                            System.println("New max VMG downwind: " + mSessionMaxVMGDown.format("%.1f") + " kt (>"+VMG_VIBRATION_THRESHOLD+") - vibrating three times");
+                        }
+                    } else {
+                        // Just log the new max without vibrating
+                        System.println("New max VMG downwind: " + mSessionMaxVMGDown.format("%.1f") + " kt (not vibrating, below "+VMG_VIBRATION_THRESHOLD+")");
                     }
                 }
             }

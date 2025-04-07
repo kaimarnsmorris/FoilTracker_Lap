@@ -12,6 +12,9 @@ class FoilTrackerModel {
     private const BUFFER_SIZE = 10;            // Size of rolling buffer for 3s max speed
     private const SIGNIFICANT_CHANGE = 0.5;    // Speed change threshold to trigger UI update
 
+    // Add to existing constants at the top of the FoilTrackerModel class
+    private const SPEED_VIBRATION_THRESHOLD = 24.0;  // Speed threshold for vibration alerts (knots)
+
     // Add to existing member variables in the class
     private var mSessionMax3pSpeed;        // Track max 3-point average speed for the session
     private var mSpeedPoints;              // Array to track last 3 speed points
@@ -182,11 +185,17 @@ class FoilTrackerModel {
             if (avg3pSpeed > mSessionMax3pSpeed && pointCount >= 3) {
                 mSessionMax3pSpeed = avg3pSpeed;
                 
-                // Vibrate once for new max 3-point speed
-                var app = Application.getApp();
-                if (app has :vibratePattern) {
-                    app.vibratePattern(1);
-                    System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt - vibrating once");
+                // Only vibrate if over threshold
+                if (avg3pSpeed >= SPEED_VIBRATION_THRESHOLD) {
+                    // Vibrate once for new max 3-point speed (over threshold)
+                    var app = Application.getApp();
+                    if (app has :vibratePattern) {
+                        app.vibratePattern(1);
+                        System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt (>"+SPEED_VIBRATION_THRESHOLD+") - vibrating once");
+                    }
+                } else {
+                    // Just log the new max without vibrating
+                    System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt (not vibrating, below "+SPEED_VIBRATION_THRESHOLD+")");
                 }
             }
             
