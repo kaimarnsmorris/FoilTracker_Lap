@@ -211,16 +211,12 @@ class WindAnglePickerDelegate extends WatchUi.BehaviorDelegate {
                     windTracker.setInitialWindDirection(windAngle);
                 }
                 
-                // Now start the activity session with the wind data
-                if (mApp != null) {
-                    // Start the activity recording session
-                    mApp.startActivitySession();
-                    
-                    // Switch to the main app view
-                    var view = new FoilTrackerView(mModel);
-                    var delegate = new FoilTrackerDelegate(view, mModel, mApp.getWindTracker());
-                    WatchUi.switchToView(view, delegate, WatchUi.SLIDE_IMMEDIATE);
-                }
+                // MODIFIED: Now proceed to the SpeedTargetPicker instead of starting session
+                var speedView = new SpeedTargetPickerView(mModel);
+                var speedDelegate = new SpeedTargetPickerDelegate(mModel, mApp);
+                speedDelegate.setPickerView(speedView);
+                
+                WatchUi.switchToView(speedView, speedDelegate, WatchUi.SLIDE_LEFT);
             }
         } catch (e) {
             System.println("Error in wind angle selection: " + e.getErrorMessage());

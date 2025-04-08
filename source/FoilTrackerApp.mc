@@ -106,9 +106,30 @@ class FoilTrackerApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
 
-    // Accessor for model data
+    // Add this method to FoilTrackerApp class
+    // This allows other components to safely access model data
     function getModelData() {
-        return mModel != null ? mModel.getData() : null;
+        if (mModel != null) {
+            return mModel.getData();
+        }
+        return null;
+    }
+
+    // Add this static method to access target settings specifically
+    function getTargetSettings() {
+        // Get app instance
+        var app = Application.getApp();
+        if (app == null || !(app instanceof FoilTrackerApp)) {
+            return null;
+        }
+        
+        // Get model data
+        var data = app.getModelData();
+        if (data == null || !data.hasKey("targetSettings")) {
+            return null;
+        }
+        
+        return data["targetSettings"];
     }
 
     // Start activity session
@@ -152,38 +173,60 @@ class FoilTrackerApp extends Application.AppBase {
         return sessionName;
     }
     
-// Add at the top of the file with other imports
-using Toybox.Attention;
+    // Add at the top of the file with other imports
+    using Toybox.Attention;
 
-    // Add this function to the FoilTrackerApp class
-    function vibratePattern(count) {
+    /// Enhanced vibration pattern function with 100ms speed vibrations
+    function vibratePattern(patternId) {
         if (!(Attention has :vibrate)) {
             return;  // Skip if vibration not supported
         }
         
         var pattern = [];
         
-        // Create vibration pattern based on count
-        switch(count) {
+        // Create vibration pattern based on pattern ID
+        switch(patternId) {
             case 1:
-                // Single vibration for max speed
-                pattern = [new Attention.VibeProfile(100, 500)];
+                // Demo short vibration (SpeedTargetPicker sample) - Set to 100ms
+                pattern = [new Attention.VibeProfile(100, 100)];
                 break;
+                
             case 2:
-                // Double vibration for max upwind VMG
+                // Single short vibration for speed above target - Set to 100ms
+                pattern = [new Attention.VibeProfile(100, 100)];
+                break;
+                
+            case 3:
+                // Double short vibration for new max speed - Set to 100ms each
                 pattern = [
-                    new Attention.VibeProfile(100, 300),
-                    new Attention.VibeProfile(0, 200),
-                    new Attention.VibeProfile(100, 300)
+                    new Attention.VibeProfile(100, 100),
+                    new Attention.VibeProfile(0, 100),     // also shortened pause
+                    new Attention.VibeProfile(100, 100)
                 ];
                 break;
-            case 3:
-                // Triple vibration for max downwind VMG
+                
+            case 4:
+                // Single long vibration for VMG above target - Currently 600ms
+                pattern = [new Attention.VibeProfile(100, 600)];
+                break;
+                
+            case 5:
+                // Double long vibration for new max VMG - Currently 500ms each with 200ms pause
                 pattern = [
-                    new Attention.VibeProfile(100, 300),
+                    new Attention.VibeProfile(100, 500),
                     new Attention.VibeProfile(0, 200),
-                    new Attention.VibeProfile(100, 300)
+                    new Attention.VibeProfile(100, 500)
                 ];
+                break;
+                
+            case 6:
+                // Demo long vibration (VMGTargetPicker sample) - Currently 600ms
+                pattern = [new Attention.VibeProfile(100, 600)];
+                break;
+                
+            default:
+                // Default pattern (short single) - Set to 100ms
+                pattern = [new Attention.VibeProfile(100, 100)];
                 break;
         }
         

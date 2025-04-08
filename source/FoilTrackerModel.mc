@@ -45,7 +45,13 @@ class FoilTrackerModel {
     private var mSessionStats;
     private var mWindStrength;
     private var mSession;
-    
+
+    // Add to existing member variables in the class
+    private var mLastSpeedAlertTime;        // Time of last speed above target alert
+    private var mLastMaxSpeedAlertTime;     // Time of last max speed alert
+    private const VIBRATION_COOLDOWN = 3000; // 3 second cooldown between vibrations (in ms)
+
+    // Modified initialize function with new tracking variables
     function initialize() {
         mData = {
             "currentSpeed" => 0.0,          // Current speed in knots
@@ -59,7 +65,11 @@ class FoilTrackerModel {
             "sessionPaused" => false,       // Pause state tracking
             "pauseStartTime" => 0,          // When pause started (in milliseconds)
             "totalPauseTime" => 0,          // Total time paused in milliseconds
-            "sessionComplete" => false      // Whether session is fully complete
+            "sessionComplete" => false,      // Whether session is fully complete
+            "targetSettings" => {           // New target settings container
+                "targetMaxSpeed" => 21.0,   // Default target max speed
+                "targetUpwindVMG" => 7.0    // Default target upwind VMG
+            }
         };
         
         // Initialize speed buffer for 3-second max speed calculation
@@ -77,7 +87,11 @@ class FoilTrackerModel {
         }
         mSessionMax3pSpeed = 0.0;
         
-        // NEW: Initialize data point counters
+        // Initialize alert tracking
+        mLastSpeedAlertTime = 0;
+        mLastMaxSpeedAlertTime = 0;
+        
+        // Initialize data point counters for foiling percentage
         mTotalDataPoints = 0;
         mFoilingDataPoints = 0;
         
@@ -123,7 +137,22 @@ class FoilTrackerModel {
         return mData["currentSpeed"];
     }
     
-    // Process GPS location data (called whenever location updates)
+    // Get target max speed from settings
+    function getTargetMaxSpeed() {
+        var defaultTarget = 21.0; // Default value
+        
+        // Return from targetSettings if available
+        if (mData != null && mData.hasKey("targetSettings")) {
+            var targetSettings = mData["targetSettings"];
+            if (targetSettings != null && targetSettings.hasKey("targetMaxSpeed")) {
+                return targetSettings["targetMaxSpeed"];
+            }
+        }
+        
+        return defaultTarget;
+    }
+
+    // Modified processLocationData to include new vibration alerts
     function processLocationData(info) {
         if (info has :speed && info.speed != null) {
             // Only count data points when not paused and recording
@@ -181,21 +210,33 @@ class FoilTrackerModel {
             
             var avg3pSpeed = (pointCount > 0) ? pointSum / pointCount : 0.0;
             
-            // Check if this is a new 3-point max
+            // Get the target max speed
+            var targetMaxSpeed = getTargetMaxSpeed();
+            
+            // Get current time for alert timing
+            var currentTime = System.getTimer();
+            
+            // NEW ALERTS: Check for new max 3-point speed
             if (avg3pSpeed > mSessionMax3pSpeed && pointCount >= 3) {
+                var isNewMax = true;
                 mSessionMax3pSpeed = avg3pSpeed;
                 
-                // Only vibrate if over threshold
-                if (avg3pSpeed >= SPEED_VIBRATION_THRESHOLD) {
-                    // Vibrate once for new max 3-point speed (over threshold)
-                    var app = Application.getApp();
-                    if (app has :vibratePattern) {
-                        app.vibratePattern(1);
-                        System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt (>"+SPEED_VIBRATION_THRESHOLD+") - vibrating once");
-                    }
-                } else {
-                    // Just log the new max without vibrating
-                    System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt (not vibrating, below "+SPEED_VIBRATION_THRESHOLD+")");
+                // Log the new max
+                System.println("New max 3-point speed: " + mSessionMax3pSpeed.format("%.1f") + " kt");
+                
+                // Check if this exceeds target and the cooldown period has elapsed
+                if (avg3pSpeed >= targetMaxSpeed && currentTime - mLastMaxSpeedAlertTime > VIBRATION_COOLDOWN) {
+                    // Trigger max speed alert (double short vibration)
+                    triggerMaxSpeedAlert();
+                    mLastMaxSpeedAlertTime = currentTime;
+                }
+            } 
+            // Check if above target for regular alert (not a new max)
+            else if (pointCount >= 3 && avg3pSpeed >= targetMaxSpeed) {
+                // Only vibrate if above threshold and not too soon after last alert
+                if (currentTime - mLastSpeedAlertTime > VIBRATION_COOLDOWN) {
+                    triggerSpeedAlert();
+                    mLastSpeedAlertTime = currentTime;
                 }
             }
             
@@ -237,10 +278,13 @@ class FoilTrackerModel {
                     mData["percentOnFoil"] = percentOnFoil;
                     mSessionStats["percentOnFoil"] = percentOnFoil;
                     
-                    System.println("Speed: " + speedKnots.format("%.1f") + 
-                                " - On Foil: " + isOnFoil + 
-                                " - Points: " + mFoilingDataPoints + "/" + mTotalDataPoints + 
-                                " = " + percentOnFoil.format("%.1f") + "%");
+                    // Reduced logging frequency to avoid spam
+                    if (mTotalDataPoints % 20 == 0) {
+                        System.println("Speed: " + speedKnots.format("%.1f") + 
+                                    " - On Foil: " + isOnFoil + 
+                                    " - Points: " + mFoilingDataPoints + "/" + mTotalDataPoints + 
+                                    " = " + percentOnFoil.format("%.1f") + "%");
+                    }
                 }
             }
             
@@ -248,6 +292,26 @@ class FoilTrackerModel {
             if (!wasOnFoil && isOnFoil) {
                 System.println("Started foiling at " + speedKnots + " knots");
             }
+        }
+    }
+
+    // Trigger speed alert - short vibration for above target
+    function triggerSpeedAlert() {
+        var app = Application.getApp();
+        if (app has :vibratePattern) {
+            // One short vibration
+            app.vibratePattern(2); // Using pattern ID 2 for speed alert
+            System.println("SPEED ALERT - Above target: " + mSessionMax3pSpeed.format("%.1f") + " > " + getTargetMaxSpeed() + " kt");
+        }
+    }
+
+    // Trigger Max speed alert - double short vibration for new max
+    function triggerMaxSpeedAlert() {
+        var app = Application.getApp();
+        if (app has :vibratePattern) {
+            // Two short vibrations
+            app.vibratePattern(3); // Using pattern ID 3 for max speed alert
+            System.println("MAX SPEED ALERT - New max: " + mSessionMax3pSpeed.format("%.1f") + " kt");
         }
     }
     
