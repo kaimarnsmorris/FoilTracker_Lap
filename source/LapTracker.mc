@@ -207,9 +207,18 @@ class LapTracker {
         
         System.println("Marking lap " + lapNum + " at clock time: " + 
                     clockTime.hour + ":" + clockTime.min + ":" + clockTime.sec);
+                    
+    // IMPORTANT: Also store clock time in lap stats directly
+        if (!mLapStats.hasKey(lapNum)) {
+            mLapStats[lapNum] = {};
+        }
+        mLapStats[lapNum]["clockTimeHour"] = clockTime.hour;
+        mLapStats[lapNum]["clockTimeMin"] = clockTime.min;
+        mLapStats[lapNum]["clockTimeSec"] = clockTime.sec;
         
-        // [Position logging code...]
-        
+        System.println("Stored clock time in lap stats for lap " + lapNum + ": " + 
+                    clockTime.hour + ":" + clockTime.min);
+                
         // Initialize points data, direction data, and stats with default values
         mLapPointsData[lapNum] = {
             "totalPoints" => 0,

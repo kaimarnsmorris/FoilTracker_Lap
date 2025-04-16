@@ -290,22 +290,18 @@ class LapReviewView extends WatchUi.View {
     }
     
     // Format start time as clock time
-    function formatStartTime(timestamp) {
-        if (timestamp == null || timestamp <= 0) {
-            return "--:--";
+    function formatStartTime(lapData) {
+        // Check if the lap data has the required time fields
+        if (lapData != null && lapData.hasKey("clockTimeHour") && 
+            lapData.hasKey("clockTimeMin")) {
+            
+            // Format using actual stored clock time in 24hr format
+            return lapData["clockTimeHour"].format("%02d") + ":" + 
+                lapData["clockTimeMin"].format("%02d");
         }
         
-        // Create a clock time object based on the system time
-        var clockTime = System.getClockTime();
-        
-        // The timestamp is in milliseconds since app start,
-        // so we need to translate it to the wall clock minutes and seconds
-        var minutes = clockTime.min;
-        var seconds = clockTime.sec;
-        
-        // Just show the current clock time for now
-        return minutes.format("%02d") + ":" + seconds.format("%02d");
-    }
+        return "--:--"; // Default if no time data available
+    }   
 
     // Format stop time as clock time
     function formatStopTime(timestamp) {
@@ -510,31 +506,54 @@ class LapReviewView extends WatchUi.View {
         dc.drawText(rightColValue, yPos, Graphics.FONT_XTINY, vmgDown.format("%.1f"), Graphics.TEXT_JUSTIFY_RIGHT);
         
         // ----- DRAW START/STOP TIMES AT BOTTOM -----
-        // Bottom position for timestamps, stacked vertically
-        yPos = height - TIMESTAMP_DIST_FROM_BOTTOM;
-        
-        // Get lap time data
-        var startTime = "--:--";
-        var stopTime = "--:--";
-        
-        // Try to get position data directly from the lap tracker
+        // Bottom position for timestamps moved down by 20px
+        yPos = height - TIMESTAMP_DIST_FROM_BOTTOM + 20;
+
+        // Initialize time strings
+        var startTimeStr = "--:--";
+        var stopTimeStr = "--:--";
+
+        // Get lap tracker for accessing position data
+        var lapTracker = mWindTracker != null ? mWindTracker.getLapTracker() : null;
+
+        // Get position data for current lap
         var posData = null;
-        if (mWindTracker != null && mWindTracker.getLapTracker() != null) {
-            var lapTracker = mWindTracker.getLapTracker();
+        if (lapTracker != null) {
             posData = lapTracker.getLapPositionData(mCurrentLapIndex);
         }
-        
-        // Draw start time using stored clock time
-    if (lapData != null && lapData.hasKey("clockTimeHour") && 
-        lapData.hasKey("clockTimeMin") && lapData.hasKey("clockTimeSec")) {
-        // Format using actual stored clock time
-        var startTimeStr = lapData["clockTimeHour"].format("%02d") + ":" + 
+
+        // Get start time - direct from position data
+        if (posData != null && posData.hasKey("clockTimeHour") && posData.hasKey("clockTimeMin")) {
+            startTimeStr = posData["clockTimeHour"].format("%02d") + ":" + 
+                        posData["clockTimeMin"].format("%02d");
+        }
+        // Fallback: try from lap data
+        else if (lapData != null && lapData.hasKey("clockTimeHour") && lapData.hasKey("clockTimeMin")) {
+            startTimeStr = lapData["clockTimeHour"].format("%02d") + ":" + 
                         lapData["clockTimeMin"].format("%02d");
-         // Draw start time
+        }
+
+        // Get stop time - next lap's start time or current time for the most recent lap
+        if (mCurrentLapIndex < mTotalLaps) {
+            // For earlier laps, use the next lap's start time
+            var nextPosData = lapTracker != null ? lapTracker.getLapPositionData(mCurrentLapIndex + 1) : null;
+            if (nextPosData != null && nextPosData.hasKey("clockTimeHour") && nextPosData.hasKey("clockTimeMin")) {
+                stopTimeStr = nextPosData["clockTimeHour"].format("%02d") + ":" + 
+                            nextPosData["clockTimeMin"].format("%02d");
+            }
+        } else {
+            // For the most recent lap, leave stop time blank
+            stopTimeStr = "--:--";
+        }
+
+        // Draw start time
+        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);       
+        dc.drawText(centerX, yPos - LINE_SPACING * 2, Graphics.FONT_XTINY, 
+                    "Start: " + startTimeStr, Graphics.TEXT_JUSTIFY_CENTER);
+                    
+        // Draw stop time
         dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);       
         dc.drawText(centerX, yPos - LINE_SPACING, Graphics.FONT_XTINY, 
-                    "Start: " + startTimeStr, Graphics.TEXT_JUSTIFY_CENTER);
-    }
-        
+                    "Stop: " + stopTimeStr, Graphics.TEXT_JUSTIFY_CENTER);
     }
 }
