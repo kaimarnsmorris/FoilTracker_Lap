@@ -255,7 +255,7 @@ class LapReviewView extends WatchUi.View {
         return hour.format("%02d") + ":" + minute.format("%02d");
     }
     
-    // Format time from milliseconds since system startup
+    /// Format time from milliseconds
     function formatTimeFromMilliseconds(milliseconds) {
         try {
             // Check for null or invalid values
@@ -263,16 +263,64 @@ class LapReviewView extends WatchUi.View {
                 return "--:--";
             }
             
-            // Simple time conversion - milliseconds to elapsed minutes and hours
-            var elapsedMinutes = (milliseconds / 60000).toNumber() % 60;
-            var elapsedHours = (milliseconds / 3600000).toNumber() % 24;
+            // Calculate elapsed time since app start
+            var currentSystemTime = System.getTimer();
             
-            // Format as HH:MM - maintaining original format
+            // For display purposes, we want clock time, not elapsed time
+            var clockTime = System.getClockTime();
+            
+            // Calculate hours and minutes for display (from app start time)
+            var elapsedHours = (milliseconds / 3600000).toNumber() % 24;
+            var elapsedMinutes = (milliseconds / 60000).toNumber() % 60;
+            
+            // Ensure we always have positive values without using Math.abs
+            if (elapsedHours < 0) { 
+                elapsedHours = -elapsedHours; 
+            }
+            if (elapsedMinutes < 0) { 
+                elapsedMinutes = -elapsedMinutes; 
+            }
+            
+            // Format as HH:MM
             return elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
         } catch (e) {
             System.println("Error formatting time: " + e.getErrorMessage() + ", input: " + milliseconds);
             return "--:--";
         }
+    }
+    
+    // Format start time as clock time
+    function formatStartTime(timestamp) {
+        if (timestamp == null || timestamp <= 0) {
+            return "--:--";
+        }
+        
+        // Create a clock time object based on the system time
+        var clockTime = System.getClockTime();
+        
+        // The timestamp is in milliseconds since app start,
+        // so we need to translate it to the wall clock minutes and seconds
+        var minutes = clockTime.min;
+        var seconds = clockTime.sec;
+        
+        // Just show the current clock time for now
+        return minutes.format("%02d") + ":" + seconds.format("%02d");
+    }
+
+    // Format stop time as clock time
+    function formatStopTime(timestamp) {
+        if (timestamp == null || timestamp <= 0) {
+            return "--:--";
+        }
+        
+        // Create a clock time object
+        var clockTime = System.getClockTime();
+        
+        // Just show the current clock time for now
+        var minutes = clockTime.min;
+        var seconds = clockTime.sec;
+        
+        return minutes.format("%02d") + ":" + seconds.format("%02d");
     }
     
     // Convert m/s to knots
@@ -476,68 +524,17 @@ class LapReviewView extends WatchUi.View {
             posData = lapTracker.getLapPositionData(mCurrentLapIndex);
         }
         
-        // Get start time from position data if available
-        if (posData != null && posData.hasKey("startTime")) {
-            var lapStartMs = posData["startTime"];
-            System.println("Time display - Using startTime from position data: " + lapStartMs);
-            
-            // Simple time conversion - milliseconds to elapsed minutes and hours
-            var elapsedMinutes = (lapStartMs / 60000).toNumber() % 60;
-            var elapsedHours = (lapStartMs / 3600000).toNumber() % 24;
-            
-            // Format as HH:MM - maintaining original format
-            startTime = elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
-        }
-        // Fallback to lapData if available
-        else if (lapData.hasKey("startTime")) {
-            var lapStartMs = lapData["startTime"];
-            
-            // Simple time conversion - milliseconds to elapsed minutes and hours
-            var elapsedMinutes = (lapStartMs / 60000).toNumber() % 60;
-            var elapsedHours = (lapStartMs / 3600000).toNumber() % 24;
-            
-            // Format as HH:MM - maintaining original format
-            startTime = elapsedHours.format("%02d") + ":" + elapsedMinutes.format("%02d");
-        }
+        // Draw start time using stored clock time
+    if (lapData != null && lapData.hasKey("clockTimeHour") && 
+        lapData.hasKey("clockTimeMin") && lapData.hasKey("clockTimeSec")) {
+        // Format using actual stored clock time
+        var startTimeStr = lapData["clockTimeHour"].format("%02d") + ":" + 
+                        lapData["clockTimeMin"].format("%02d");
+         // Draw start time
+        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);       
+        dc.drawText(centerX, yPos - LINE_SPACING, Graphics.FONT_XTINY, 
+                    "Start: " + startTimeStr, Graphics.TEXT_JUSTIFY_CENTER);
+    }
         
-        // Try to get position data for next lap
-        var nextPosData = null;
-        if (mCurrentLapIndex < mTotalLaps && mWindTracker != null && mWindTracker.getLapTracker() != null) {
-            var lapTracker = mWindTracker.getLapTracker();
-            nextPosData = lapTracker.getLapPositionData(mCurrentLapIndex + 1);
-        }
-        
-        // Get stop time from next lap's position data
-        if (nextPosData != null && nextPosData.hasKey("startTime")) {
-            var nextLapStartMs = nextPosData["startTime"];
-            
-            // Simple time conversion for consistent display
-            var stopMinutes = (nextLapStartMs / 60000).toNumber() % 60;
-            var stopHours = (nextLapStartMs / 3600000).toNumber() % 24;
-            
-            // Format as HH:MM - maintaining original format
-            stopTime = stopHours.format("%02d") + ":" + stopMinutes.format("%02d");
-        }
-        // Fallback to next lapData if available
-        else if (mCurrentLapIndex < mTotalLaps && mLapData.hasKey(mCurrentLapIndex + 1)) {
-            var nextLapData = mLapData[mCurrentLapIndex + 1];
-            if (nextLapData != null && nextLapData.hasKey("startTime")) {
-                var nextLapStartMs = nextLapData["startTime"];
-                
-                // Simple time conversion for consistent display
-                var stopMinutes = (nextLapStartMs / 60000).toNumber() % 60;
-                var stopHours = (nextLapStartMs / 3600000).toNumber() % 24;
-                
-                // Format as HH:MM - maintaining original format
-                stopTime = stopHours.format("%02d") + ":" + stopMinutes.format("%02d");
-            }
-        }
-        
-        // Draw start time
-        dc.setColor(Graphics.COLOR_YELLOW, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(centerX, yPos - LINE_SPACING, Graphics.FONT_XTINY, "Start: " + startTime, Graphics.TEXT_JUSTIFY_CENTER);
-        
-        // Draw stop time
-        dc.drawText(centerX, yPos, Graphics.FONT_XTINY, "Stop: " + stopTime, Graphics.TEXT_JUSTIFY_CENTER);
     }
 }

@@ -88,6 +88,12 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         // Switch to OnMast view when down button is pressed
         var view = new OnMastView(mModel, mWindTracker);
         var delegate = new OnMastDelegate(view, mModel, mApp);
+        
+        // Update activity tracker with new view
+        if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+            mApp.getActivityTracker().setCurrentView(view);
+        }
+        
         WatchUi.switchToView(view, delegate, WatchUi.SLIDE_DOWN);
         return true;
     }
@@ -97,6 +103,12 @@ class VMGDelegate extends WatchUi.BehaviorDelegate {
         // Switch back to the main FoilTrackerView
         var view = new FoilTrackerView(mModel);
         var delegate = new FoilTrackerDelegate(view, mModel, mApp.getWindTracker());
+        
+        // Update activity tracker with new view
+        if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+            mApp.getActivityTracker().setCurrentView(view);
+        }
+        
         WatchUi.switchToView(view, delegate, WatchUi.SLIDE_UP);
         return true;
     }

@@ -185,30 +185,28 @@ class LapTracker {
     }
 
 
+    // Modified function to store actual clock time
     function onLapMarked(position) {
         var prevLapNum = mCurrentLapNumber;
         mCurrentLapNumber++;
         var lapNum = mCurrentLapNumber;
+        
+        // Get current system time and clock time
         var currentTime = System.getTimer();
-        var systemTime = Time.now().value();
+        var clockTime = System.getClockTime();
         
-        System.println("Marking lap " + lapNum + ", previous lap " + prevLapNum);
-        System.println("Current time (ms): " + currentTime + ", System time: " + systemTime);
-        
-        if (prevLapNum > 0 && mLapPositionData.hasKey(prevLapNum)) {
-            var prevLapStart = mLapPositionData[prevLapNum]["startTime"];
-            var lapDuration = currentTime - prevLapStart;
-            System.println("Previous lap start time: " + prevLapStart + ", duration: " + lapDuration + "ms");
-        } else {
-            System.println("First lap or no previous lap data");
-        }
-        
-        // Store position data with the lap
+        // Store both system time and clock time
         mLapPositionData[lapNum] = {
             "startPosition" => position,
             "startTime" => currentTime,
+            "clockTimeHour" => clockTime.hour,
+            "clockTimeMin" => clockTime.min,
+            "clockTimeSec" => clockTime.sec,
             "distance" => 0.0
         };
+        
+        System.println("Marking lap " + lapNum + " at clock time: " + 
+                    clockTime.hour + ":" + clockTime.min + ":" + clockTime.sec);
         
         // [Position logging code...]
         

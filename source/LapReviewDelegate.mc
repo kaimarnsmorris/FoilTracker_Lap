@@ -33,13 +33,19 @@ class LapReviewDelegate extends WatchUi.BehaviorDelegate {
             // Return to main view
             var mainView = new FoilTrackerView(mModel);
             var mainDelegate = new FoilTrackerDelegate(mainView, mModel, mApp.getWindTracker());
+            
+            // Update activity tracker with new view
+            if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+                mApp.getActivityTracker().setCurrentView(mainView);
+            }
+            
             WatchUi.switchToView(mainView, mainDelegate, WatchUi.SLIDE_IMMEDIATE);
         }
         
         return true;
     }
     
- // Replace the onBack method in LapReviewDelegate
+    // Replace the onBack method in LapReviewDelegate
     function onBack() {
         // Instead of popping the view, which may be causing the strange intermediate screen,
         // switch directly back to the main FoilTracker view
@@ -49,6 +55,11 @@ class LapReviewDelegate extends WatchUi.BehaviorDelegate {
             // Create the main view
             var mainView = new FoilTrackerView(mModel);
             var mainDelegate = new FoilTrackerDelegate(mainView, mModel, app.getWindTracker());
+            
+            // Update activity tracker with new view
+            if (app has :getActivityTracker && app.getActivityTracker() != null) {
+                app.getActivityTracker().setCurrentView(mainView);
+            }
             
             // Switch to the main view
             WatchUi.switchToView(mainView, mainDelegate, WatchUi.SLIDE_IMMEDIATE);

@@ -24,7 +24,8 @@ class FoilTrackerApp extends Application.AppBase {
 
     private var mLastLapEndTime;      // Tracks the end time of the previous lap
 
-    // In the initialize function of FoilTrackerApp.mc
+    private var mActivityTracker;
+
     function initialize() {
         AppBase.initialize();
         
@@ -37,17 +38,32 @@ class FoilTrackerApp extends Application.AppBase {
         mWindTracker = new WindTracker();
         mLastLapEndTime = null;  // Initialize to null
         
+        // Initialize activity tracker for auto lap markers
+        mActivityTracker = new ActivityStateTracker(self, mModel);
+        
         // Initialize field collections
         mSessionFields = {};
         mLapFields = {};
     }
 
-    // App startup
+    function enableHeartRateSensor() {
+        try {
+            // Enable heart rate sensor - this is all we need
+            Sensor.setEnabledSensors([Sensor.SENSOR_HEARTRATE]);
+            System.println("Heart rate sensor enabled");
+        } catch (e) {
+            System.println("Error enabling heart rate sensor: " + e.getErrorMessage());
+        }
+    }
+
     function onStart(state) {
         System.println("App starting");
         
         // Enable position tracking
         enablePositionTracking();
+        
+        // Enable heart rate sensor - simplified version
+        enableHeartRateSensor();
         
         // Start the update timer
         startSimpleTimer();
@@ -56,40 +72,40 @@ class FoilTrackerApp extends Application.AppBase {
     
     function enablePositionTracking() {
         try {
-            // Standard approach for most devices
-            Position.enableLocationEvents(
-                Position.LOCATION_CONTINUOUS,
-                method(:onPositionCallback)
-            );
+            // Just enable the location updates without a callback
+            Position.enableLocationEvents(Position.LOCATION_CONTINUOUS, null);
             System.println("Position tracking enabled with default frequency");
             
             // Check if the device supports setLocationOptions before using it
-            if ((Position has :setLocationOptions) && false) { // Disable this feature for now
+            if (Position has :setLocationOptions) {
                 try {
+                    // Set to maximum frequency (1 second)
                     var options = {
-                        :updateRate => 1  // Request 1-second updates
+                        :acquisitionType => Position.LOCATION_CONTINUOUS,
+                        :updateRate => 1  // 1 = 1 second (fastest possible)
                     };
                     Position.setLocationOptions(options);
-                    System.println("Requested higher update rate of 1 second");
+                    System.println("Requested maximum update rate of 1 second");
                 } catch (e) {
                     System.println("Could not set higher frequency: " + e.getErrorMessage());
                 }
+            } else {
+                System.println("Device does not support setLocationOptions");
             }
         } catch (e) {
             System.println("Error enabling position tracking: " + e.getErrorMessage());
         }
     }
 
-    // Position callback with correct type signature
-    function onPositionCallback(posInfo as Position.Info) as Void {
+    function onPositionCallback(posInfo) {
         // Only process if we have valid location info
         if (posInfo == null) { return; }
         
         // Get model data once
         var modelData = mModel != null ? mModel.getData() : null;
         var isActive = modelData != null && 
-                      modelData["isRecording"] && 
-                      !(modelData.hasKey("sessionPaused") && modelData["sessionPaused"]);
+                    modelData["isRecording"] && 
+                    !(modelData.hasKey("sessionPaused") && modelData["sessionPaused"]);
         
         // Process wind tracker data
         if (mWindTracker != null) {
@@ -100,6 +116,12 @@ class FoilTrackerApp extends Application.AppBase {
         // Process location data when active
         if (isActive && mModel != null) {
             mModel.processLocationData(posInfo);
+            
+            // Process current speed for activity tracking
+            if (mActivityTracker != null && posInfo has :speed && posInfo.speed != null) {
+                var speed = posInfo.speed * 1.943844; // Convert m/s to knots
+                mActivityTracker.processSpeed(speed);
+            }
         }
         
         // Request UI update
@@ -371,7 +393,6 @@ class FoilTrackerApp extends Application.AppBase {
         return value;
     }
 
-    // Create lap fields efficiently
     function createLapFields() {
         if (mLapFields.size() > 0) {
             // Fields already exist
@@ -531,6 +552,28 @@ class FoilTrackerApp extends Application.AppBase {
             );
             if (avgWindAngField != null) {
                 mLapFields["avgWindAng"] = avgWindAngField;
+            }
+            
+            // 15. Average Speed - Field ID 114 (replaces lapAuto)
+            var avgSpeedField = createField(
+                "avgSpeed",
+                114,
+                FitContributor.DATA_TYPE_FLOAT,
+                { :mesgType => FitContributor.MESG_TYPE_LAP }
+            );
+            if (avgSpeedField != null) {
+                mLapFields["avgSpeed"] = avgSpeedField;
+            }
+            
+            // 16. Max 3s Speed - Field ID 115
+            var max3sSpeedField = createField(
+                "max3sSpeed",
+                115,
+                FitContributor.DATA_TYPE_FLOAT,
+                { :mesgType => FitContributor.MESG_TYPE_LAP }
+            );
+            if (max3sSpeedField != null) {
+                mLapFields["max3sSpeed"] = max3sSpeedField;
             }
             
         } catch (e) {
@@ -917,7 +960,6 @@ class FoilTrackerApp extends Application.AppBase {
         WatchUi.requestUpdate();
     }
     
-    // Get all lap field values efficiently
     function getLapFieldValues() {
         var values = {
             "pctOnFoil" => 0,
@@ -933,7 +975,9 @@ class FoilTrackerApp extends Application.AppBase {
             "gybeCount" => 0,
             "pctUpwind" => 0,
             "pctDownwind" => 0,
-            "avgWindAngle" => 0
+            "avgWindAngle" => 0,
+            "max3sSpeed" => 0,
+            "avgSpeed" => 0
         };
         
         // Get model data
@@ -946,6 +990,16 @@ class FoilTrackerApp extends Application.AppBase {
             if (modelData.hasKey("windStrengthIndex")) {
                 values["windStrength"] = modelData["windStrengthIndex"];
             }
+            
+            // Add speed data from model
+            if (modelData.hasKey("max3sSpeed")) {
+                values["max3sSpeed"] = modelData["max3sSpeed"];
+            }
+
+            // Add speed data from model
+            if (modelData.hasKey("avgSpeed")) {
+                values["avgSpeed"] = modelData["avgSpeed"];
+            }   
         }
         
         // Get wind tracker data
@@ -1004,9 +1058,9 @@ class FoilTrackerApp extends Application.AppBase {
         if (windData.hasKey("gybeCount")) {
             values["gybeCount"] = windData["gybeCount"];
         }
+
     }
     
-    // Improved function to update values from lap data
     function updateValuesFromLapData(values, lapData) {
         // Use the individual field updates directly from the data
         if (lapData.hasKey("tackSec")) { values["tackSec"] = lapData["tackSec"]; }
@@ -1019,7 +1073,17 @@ class FoilTrackerApp extends Application.AppBase {
         if (lapData.hasKey("tackCount")) { values["tackCount"] = lapData["tackCount"]; }
         if (lapData.hasKey("gybeCount")) { values["gybeCount"] = lapData["gybeCount"]; }
         
-        // IMPORTANT: Make sure point of sail percentages are included!
+        // Speed data
+        if (lapData.hasKey("avgSpeed")) { 
+            values["avgSpeed"] = lapData["avgSpeed"];
+            System.println("Setting avgSpeed: " + lapData["avgSpeed"].format("%.1f"));
+        }
+        if (lapData.hasKey("max3sSpeed")) { 
+            values["max3sSpeed"] = lapData["max3sSpeed"];
+            System.println("Setting max3sSpeed: " + lapData["max3sSpeed"].format("%.1f"));
+        }
+        
+        // Point of sail percentages
         if (lapData.hasKey("pctUpwind")) { 
             values["pctUpwind"] = lapData["pctUpwind"]; 
             System.println("Setting pctUpwind: " + lapData["pctUpwind"]);
@@ -1060,7 +1124,18 @@ class FoilTrackerApp extends Application.AppBase {
         }
         
         try {
-            System.println("Adding lap marker");
+            // Get the lap type (default to manual = 0)
+            var lapAuto = 0;
+            if (mModel != null) {
+                var data = mModel.getData();
+                if (data != null && data.hasKey("lapAuto")) {
+                    lapAuto = data["lapAuto"];
+                    // Reset after using it
+                    data["lapAuto"] = 0;
+                }
+            }
+            
+            System.println("Adding lap marker - type: " + lapAuto);
             
             // Get current position data
             var currentPosition = Position.getInfo();
@@ -1078,26 +1153,21 @@ class FoilTrackerApp extends Application.AppBase {
                     :speed => 5.0,
                     :heading => 0.0
                 };
-                
-                // Don't attempt to set location as this is causing errors
-                // Garmin device may not support this API call
             }
             
             // Get lap data
             var lapData = getLapData();
             
+            // Include the lap type in lap data
+            lapData["lapAuto"] = lapAuto;
+            
             // Update field values from lap data
             updateLapFieldsFromLapData(lapData);
             
-            // Add the lap marker - avoid toString() which could cause type issues
-            if (currentPosition != null && currentPosition.position != null) {
-                System.println("Adding lap with position data");
-            }
-            
-            // Just add the lap without trying to modify position
+            // Add the lap marker
             mSession.addLap();
             
-            // Notify the wind tracker - pass null instead of potentially problematic position
+            // Notify the wind tracker
             if (mWindTracker != null) {
                 mWindTracker.onLapMarked(null);
             }
@@ -1108,6 +1178,10 @@ class FoilTrackerApp extends Application.AppBase {
         }
     }
     
+    function getActivityTracker() {
+        return mActivityTracker;
+    }
+
     // Function to update lap fields from lap data
     function updateLapFieldsFromLapData(lapData) {
         try {
@@ -1161,9 +1235,17 @@ class FoilTrackerApp extends Application.AppBase {
         mTimer.start(method(:onTimerCallback), 1000, true);
     }
 
-    // Timer callback with correct signature
-    function onTimerCallback() as Void {
+    function onTimerCallback() {
         try {
+            // Get latest position manually
+            var posInfo = Position.getInfo();
+            
+            // Process position data if valid
+            if (posInfo != null) {
+                onPositionCallback(posInfo);
+            }
+            
+            // Rest of your timer processing
             processData();
         } catch (e) {
             System.println("Error in timer processing: " + e.getErrorMessage());

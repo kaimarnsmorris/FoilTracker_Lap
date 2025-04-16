@@ -97,6 +97,11 @@ class FoilTrackerDelegate extends WatchUi.BehaviorDelegate {
         var vmgView = new VMGView(mModel, app.getWindTracker());
         var vmgDelegate = new VMGDelegate(vmgView, mModel, app);
         
+        // Update activity tracker with new view reference before switching
+        if (app has :getActivityTracker && app.getActivityTracker() != null) {
+            app.getActivityTracker().setCurrentView(vmgView);
+        }
+        
         // Switch to VMG view
         WatchUi.switchToView(vmgView, vmgDelegate, WatchUi.SLIDE_DOWN);
         

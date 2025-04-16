@@ -49,6 +49,12 @@ class OnMastDelegate extends WatchUi.BehaviorDelegate {
         // Switch back to VMG view
         var vmgView = new VMGView(mModel, mApp.getWindTracker());
         var vmgDelegate = new VMGDelegate(vmgView, mModel, mApp);
+        
+        // Update activity tracker with new view
+        if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+            mApp.getActivityTracker().setCurrentView(vmgView);
+        }
+        
         WatchUi.switchToView(vmgView, vmgDelegate, WatchUi.SLIDE_UP);
         return true;
     }

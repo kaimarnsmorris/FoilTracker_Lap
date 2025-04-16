@@ -211,10 +211,15 @@ class WindAnglePickerDelegate extends WatchUi.BehaviorDelegate {
                     windTracker.setInitialWindDirection(windAngle);
                 }
                 
-                // MODIFIED: Now proceed to the SpeedTargetPicker instead of starting session
+                // Now proceed to the SpeedTargetPicker
                 var speedView = new SpeedTargetPickerView(mModel);
                 var speedDelegate = new SpeedTargetPickerDelegate(mModel, mApp);
                 speedDelegate.setPickerView(speedView);
+                
+                // Update activity tracker with new view
+                if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+                    mApp.getActivityTracker().setCurrentView(speedView);
+                }
                 
                 WatchUi.switchToView(speedView, speedDelegate, WatchUi.SLIDE_LEFT);
             }
@@ -224,6 +229,12 @@ class WindAnglePickerDelegate extends WatchUi.BehaviorDelegate {
             // Fall back to main view if there's an error
             var view = new FoilTrackerView(mModel);
             var delegate = new FoilTrackerDelegate(view, mModel, mApp.getWindTracker());
+            
+            // Update activity tracker with new view
+            if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+                mApp.getActivityTracker().setCurrentView(view);
+            }
+            
             WatchUi.switchToView(view, delegate, WatchUi.SLIDE_IMMEDIATE);
         }
         

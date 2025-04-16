@@ -61,6 +61,15 @@ class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
             // Update pause state in model
             mModel.setPauseState(false);
             
+            // Return to main view
+            var mainView = new FoilTrackerView(mModel);
+            var mainDelegate = new FoilTrackerDelegate(mainView, mModel, mApp.getWindTracker());
+            
+            // Update activity tracker with new view
+            if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+                mApp.getActivityTracker().setCurrentView(mainView);
+            }
+            
             // Pop view to return to main screen
             WatchUi.popView(WatchUi.SLIDE_IMMEDIATE);
         }
@@ -98,6 +107,11 @@ class ConfirmationDelegate extends WatchUi.BehaviorDelegate {
                 // Create lap review view and delegate
                 var lapReviewView = new LapReviewView(mModel, windTracker);
                 var lapReviewDelegate = new LapReviewDelegate(lapReviewView, mModel, mApp);
+                
+                // Update activity tracker with new view
+                if (mApp has :getActivityTracker && mApp.getActivityTracker() != null) {
+                    mApp.getActivityTracker().setCurrentView(lapReviewView);
+                }
                 
                 // Switch to lap review view
                 WatchUi.switchToView(lapReviewView, lapReviewDelegate, WatchUi.SLIDE_DOWN);
